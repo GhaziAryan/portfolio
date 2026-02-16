@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghazi Aryan</title>
-    <meta name="description" content="Product manager. Builds things he wants to use.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <meta name="description" content="Product manager building at the intersection of AI and product. Apple, WBD, Capital One.">
+    <meta property="og:title" content="Ghazi Aryan — Product Manager">
+    <meta property="og:description" content="PM who builds. Apple, WBD, Capital One. Building Tape, an AI trading journal.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@ghazisgizmos">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
             --bg: #060607;
             --surface: rgba(255,255,255,0.03);
@@ -24,12 +29,10 @@
             --amber-b: rgba(245,158,11,0.18);
             --amber-g: rgba(245,158,11,0.2);
         }
-
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--t);
+            background: var(--bg); color: var(--t);
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
@@ -43,13 +46,18 @@
         @keyframes d1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-40px,30px)} }
         @keyframes d2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,-40px)} }
 
+        /* Grain */
+        .grain { position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.018;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
         /* Nav */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 100;
             padding: 20px 40px;
             display: flex; align-items: center; justify-content: space-between;
             backdrop-filter: blur(20px) saturate(1.3);
-            background: rgba(6,6,7,0.65);
+            background: rgba(6,6,7,0.7);
             border-bottom: 1px solid rgba(255,255,255,0.03);
             transition: padding 0.3s;
         }
@@ -59,89 +67,158 @@
         .nav-r { display: flex; gap: 28px; list-style: none; align-items: center; }
         .nav-r a { font-size: 13px; color: var(--t3); text-decoration: none; transition: color 0.2s; }
         .nav-r a:hover { color: var(--t); }
-        .nav-r .cta {
-            padding: 8px 18px; background: var(--amber-s);
-            border: 1px solid var(--amber-b); border-radius: 9px;
-            color: var(--amber) !important; font-weight: 600 !important;
-        }
+        .nav-r a.active { color: var(--t); }
+        .nav-r .cta { padding: 8px 18px; background: var(--amber-s); border: 1px solid var(--amber-b); border-radius: 9px; color: var(--amber) !important; font-weight: 600 !important; }
 
         section { position: relative; z-index: 2; }
         .wrap { max-width: 1060px; margin: 0 auto; padding: 0 40px; }
-        .wrap-narrow { max-width: 680px; margin: 0 auto; padding: 0 40px; }
+        .wrap-narrow { max-width: 720px; margin: 0 auto; padding: 0 40px; }
 
-        /* ——— HERO ——— */
+        /* ═══ HERO ═══ */
         .hero {
             min-height: 100vh;
-            display: flex; align-items: flex-end;
-            padding-bottom: 80px; padding-top: 140px;
+            display: flex; align-items: center;
+            padding: 120px 0 80px;
         }
-        .hero-inner { width: 100%; }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 60px;
+            align-items: center;
+        }
         .hero-name {
-            font-size: clamp(56px, 9vw, 110px);
+            font-size: clamp(52px, 8vw, 96px);
             font-weight: 900;
             letter-spacing: -0.05em;
             line-height: 0.92;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
-        .hero-line {
-            font-size: clamp(18px, 2.5vw, 24px);
+        .hero-thesis {
+            font-size: clamp(17px, 2.2vw, 21px);
             font-weight: 400;
             color: var(--t2);
-            line-height: 1.5;
-            max-width: 540px;
+            line-height: 1.55;
+            margin-bottom: 28px;
+            max-width: 500px;
         }
-        .hero-line strong { color: var(--t); font-weight: 600; }
-        .hero-line .amber { color: var(--amber); }
+        .hero-thesis strong { color: var(--t); font-weight: 600; }
+        .hero-thesis .amber { color: var(--amber); font-weight: 600; }
+
+        /* Company badges */
+        .hero-companies {
+            display: flex; gap: 10px; flex-wrap: wrap;
+            margin-bottom: 28px;
+        }
+        .co-badge {
+            padding: 7px 16px;
+            background: var(--glass);
+            border: 1px solid var(--glass-b);
+            border-radius: 9px;
+            font-size: 13px; font-weight: 600;
+            color: var(--t2);
+            backdrop-filter: blur(8px);
+        }
+
+        .hero-ctas {
+            display: flex; gap: 12px; align-items: center;
+            margin-bottom: 24px;
+        }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 28px;
+            background: var(--amber); color: #000;
+            border: none; border-radius: 12px;
+            font-size: 14px; font-weight: 700; font-family: inherit;
+            cursor: pointer; text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px var(--amber-g); }
+        .btn-ghost {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 24px;
+            background: var(--glass); border: 1px solid var(--glass-b);
+            border-radius: 12px;
+            color: var(--t2); font-size: 14px; font-weight: 600;
+            font-family: inherit; cursor: pointer; text-decoration: none;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.06); color: var(--t); }
 
         .hero-meta {
-            display: flex; gap: 24px; margin-top: 40px;
-            flex-wrap: wrap;
+            display: flex; gap: 20px; flex-wrap: wrap;
         }
         .hero-meta a, .hero-meta span {
-            font-size: 13px; color: var(--t4);
+            font-size: 12px; color: var(--t4);
             text-decoration: none;
             font-family: 'JetBrains Mono', monospace;
-            letter-spacing: 0.01em;
             transition: color 0.2s;
         }
         .hero-meta a:hover { color: var(--amber); }
 
-        /* ——— ABOUT ——— */
-        .about { padding: 140px 0 120px; }
-        .about-layout {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 80px;
+        /* Hero aside card */
+        .hero-card {
+            padding: 32px;
+            background: var(--glass);
+            border: 1px solid var(--glass-b);
+            border-radius: 20px;
+            backdrop-filter: blur(16px);
         }
-        .about-label {
+        .hero-card-label {
+            font-size: 10px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--amber);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 16px;
+        }
+        .hero-card p {
+            font-size: 15px; color: var(--t2); line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .hero-card p strong { color: var(--t); font-weight: 600; }
+        .hero-card-sig {
+            font-family: 'Newsreader', Georgia, serif;
+            font-style: italic;
+            font-size: 16px;
+            color: var(--amber);
+        }
+
+        /* ═══ ABOUT ═══ */
+        .about { padding: 120px 0; }
+        .sec-label {
             font-size: 11px; font-weight: 600; color: var(--amber);
             text-transform: uppercase; letter-spacing: 0.12em;
             font-family: 'JetBrains Mono', monospace;
-            padding-top: 6px;
+            margin-bottom: 20px;
+        }
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
         }
         .about-text p {
-            font-size: 17px; line-height: 1.8; color: var(--t2);
-            margin-bottom: 24px;
+            font-size: 16px; line-height: 1.75; color: var(--t2);
+            margin-bottom: 22px;
         }
         .about-text p strong { color: var(--t); font-weight: 600; }
         .about-text p .hl { color: var(--amber); }
 
+        .about-right {}
         .about-aside {
-            margin-top: 40px;
             padding: 24px 28px;
             background: var(--glass);
             border: 1px solid var(--glass-b);
             border-radius: 16px;
             backdrop-filter: blur(12px);
+            margin-bottom: 20px;
         }
         .aside-label {
             font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
             color: var(--t4); margin-bottom: 12px;
             font-family: 'JetBrains Mono', monospace;
         }
-        .aside-items {
-            display: flex; flex-wrap: wrap; gap: 8px;
-        }
+        .aside-items { display: flex; flex-wrap: wrap; gap: 8px; }
         .aside-item {
             padding: 6px 14px;
             background: rgba(255,255,255,0.03);
@@ -150,21 +227,42 @@
             font-size: 13px; color: var(--t3);
         }
 
-        /* Pull quote */
-        .pullquote {
-            padding: 60px 0;
-            border-top: 1px solid rgba(255,255,255,0.04);
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-            margin: 40px 0 0;
+        /* Testimonial card */
+        .testimonial {
+            padding: 24px 28px;
+            background: var(--glass);
+            border: 1px solid var(--glass-b);
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
+        }
+        .testimonial blockquote {
+            font-family: 'Newsreader', Georgia, serif;
+            font-style: italic;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--t);
+            margin-bottom: 14px;
+        }
+        .testimonial cite {
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            font-size: 13px;
+            color: var(--t3);
+        }
+        .testimonial cite strong { color: var(--t2); font-weight: 600; }
+
+        /* ═══ PULLQUOTE ═══ */
+        .pullquote-section {
+            padding: 140px 0;
         }
         .pullquote blockquote {
             font-family: 'Newsreader', Georgia, serif;
-            font-size: clamp(22px, 3vw, 32px);
+            font-size: clamp(26px, 3.5vw, 40px);
             font-weight: 400;
             font-style: italic;
-            line-height: 1.5;
+            line-height: 1.45;
             color: var(--t);
-            max-width: 600px;
+            max-width: 640px;
         }
         .pullquote cite {
             display: block;
@@ -172,23 +270,20 @@
             font-style: normal;
             font-size: 12px;
             color: var(--t4);
-            margin-top: 16px;
+            margin-top: 20px;
             letter-spacing: 0.04em;
         }
 
-        /* ——— WORK ——— */
-        .work { padding: 140px 0; }
-        .work-header {
-            display: flex; justify-content: space-between; align-items: flex-end;
-            margin-bottom: 60px; flex-wrap: wrap; gap: 20px;
-        }
+        /* ═══ WORK ═══ */
+        .work { padding: 120px 0; }
+        .work-header { margin-bottom: 48px; }
         .work-header h2 {
             font-size: clamp(28px, 4vw, 42px);
             font-weight: 800; letter-spacing: -0.03em;
+            margin-bottom: 8px;
         }
-        .work-header p { font-size: 14px; color: var(--t4); max-width: 300px; text-align: right; }
+        .work-header p { font-size: 15px; color: var(--t3); }
 
-        /* Case study cards — asymmetric */
         .case {
             background: var(--glass);
             border: 1px solid var(--glass-b);
@@ -203,7 +298,6 @@
             transform: translateY(-3px);
             box-shadow: 0 20px 60px rgba(0,0,0,0.25);
         }
-
         .case-top { padding: 44px 44px 0; }
         .case-co {
             font-size: 11px; font-weight: 600; color: var(--amber);
@@ -212,48 +306,173 @@
             margin-bottom: 16px;
         }
         .case h3 {
-            font-size: clamp(22px, 3vw, 32px);
+            font-size: clamp(22px, 3vw, 30px);
             font-weight: 800; letter-spacing: -0.03em;
             line-height: 1.15; margin-bottom: 14px;
         }
         .case-lede {
             font-size: 16px; color: var(--t2);
-            line-height: 1.7; max-width: 520px;
+            line-height: 1.7; max-width: 540px;
+            margin-bottom: 8px;
         }
 
-        .case-story {
-            padding: 32px 44px 44px;
+        /* Case study outcomes bar */
+        .case-outcomes {
+            display: flex; gap: 28px; padding: 24px 0;
+            flex-wrap: wrap;
         }
-        .case-story-grid {
+        .case-outcome .val {
+            font-size: 20px; font-weight: 800;
+            color: var(--amber); letter-spacing: -0.02em;
+        }
+        .case-outcome .lbl {
+            font-size: 11px; color: var(--t4);
+            margin-top: 2px;
+        }
+
+        .case-story { padding: 0 44px 44px; }
+
+        /* Narrative-style case study */
+        .case-narrative {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            grid-template-columns: 1fr;
+            gap: 0;
         }
-        .case-story-grid.asymmetric {
-            grid-template-columns: 1.3fr 0.7fr;
+        .case-step {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 24px;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
         }
-        .cs-block {
-            padding: 22px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.03);
+        .case-step:last-child { border-bottom: none; }
+        .case-step-label {
+            font-size: 11px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--t4);
+            font-family: 'JetBrains Mono', monospace;
+            padding-top: 2px;
         }
-        .cs-block h4 {
-            font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
-            color: var(--t4); margin-bottom: 10px;
+        .case-step-body {
+            font-size: 15px; color: var(--t2); line-height: 1.7;
+        }
+        .case-step-body strong { color: var(--t); font-weight: 600; }
+
+        /* Phone mockup */
+        .phone-wrap {
+            display: flex; justify-content: center;
+            margin: 28px 0;
+        }
+        .phone-frame {
+            width: 300px;
+            background: #1c1c1e;
+            border-radius: 40px;
+            padding: 14px;
+            border: 2px solid rgba(255,255,255,0.10);
+            box-shadow: 0 24px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03) inset;
+        }
+        .phone-notch {
+            width: 120px; height: 28px;
+            background: #000;
+            border-radius: 0 0 18px 18px;
+            margin: -14px auto 0;
+            position: relative; z-index: 2;
+        }
+        .phone-screen {
+            background: #0c0c0e;
+            border-radius: 28px;
+            overflow: hidden;
+            margin-top: -14px;
+        }
+        .app-bar {
+            padding: 24px 20px 12px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .app-bar-title {
+            font-size: 18px; font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .app-bar-dot {
+            width: 8px; height: 8px;
+            background: var(--amber);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--amber-g);
+        }
+        .app-entry {
+            padding: 0 20px 20px;
+        }
+        .app-date {
+            font-size: 11px; color: var(--t4);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 10px;
+        }
+        .app-text {
+            font-family: 'Newsreader', Georgia, serif;
+            font-style: italic;
+            font-size: 14px;
+            color: var(--t2);
+            line-height: 1.55;
+            margin-bottom: 14px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .app-insight-label {
+            font-size: 9px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--amber);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 8px;
+        }
+        .app-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+        .app-tag {
+            padding: 4px 10px;
+            background: var(--amber-s);
+            border: 1px solid var(--amber-b);
+            border-radius: 6px;
+            font-size: 11px;
+            color: var(--amber);
             font-family: 'JetBrains Mono', monospace;
         }
-        .cs-block p, .cs-block li {
-            font-size: 14px; color: var(--t2); line-height: 1.7;
+        .app-recurrence {
+            font-size: 12px; color: var(--t3);
+            font-family: 'JetBrains Mono', monospace;
+            padding: 10px 0 4px;
         }
-        .cs-block ul { list-style: none; }
-        .cs-block ul li {
-            padding-left: 14px; position: relative; padding-top: 3px; padding-bottom: 3px;
+        .app-nav {
+            display: flex; border-top: 1px solid rgba(255,255,255,0.05);
         }
-        .cs-block ul li::before {
-            content: ''; position: absolute; left: 0; top: 11px;
-            width: 5px; height: 5px; border-radius: 50%;
-            background: var(--amber); opacity: 0.4;
+        .app-nav-item {
+            flex: 1; text-align: center;
+            padding: 12px 0 16px;
+            font-size: 10px; color: var(--t4);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .app-nav-item.active { color: var(--amber); }
+
+        /* Mini flow diagram */
+        .flow-before-after {
+            display: grid; grid-template-columns: 1fr auto 1fr;
+            gap: 16px; align-items: center;
+            margin: 16px 0 8px;
+        }
+        .flow-box {
+            padding: 14px 16px;
+            border-radius: 10px;
+            font-size: 12px; line-height: 1.5;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .flow-box.before {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            color: var(--t4);
+        }
+        .flow-box.after {
+            background: var(--amber-s);
+            border: 1px solid var(--amber-b);
+            color: var(--amber);
+        }
+        .flow-arrow {
+            font-size: 18px; color: var(--t4);
         }
 
         .case-callout {
@@ -263,25 +482,113 @@
             border: 1px solid var(--amber-b);
             border-radius: 12px;
             font-size: 14px; color: var(--amber);
-            line-height: 1.6;
+            line-height: 1.65;
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* ——— TIMELINE ——— */
-        .timeline-section { padding: 80px 0 140px; }
+        /* Accuracy visualization */
+        .acc-viz {
+            margin: 20px 0 4px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+        }
+        .acc-block {
+            padding: 16px 18px;
+            background: rgba(0,0,0,0.35);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+        }
+        .acc-label {
+            font-size: 10px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--t4);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 10px;
+        }
+        .acc-bar-wrap {
+            height: 6px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        .acc-bar {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
+        }
+        .acc-bar.before { width: 0; background: var(--t4); }
+        .acc-bar.after { width: 0; background: var(--amber); }
+        .acc-bar.before.fill { width: 40%; }
+        .acc-bar.after.fill { width: 85%; }
+        .acc-num {
+            font-size: 22px; font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .acc-num.dim { color: var(--t4); }
+        .acc-num.lit { color: var(--amber); }
+
+        /* Scroll progress */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0;
+            height: 2px; background: var(--amber);
+            z-index: 200; width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* ═══ THESIS ═══ */
+        .thesis-section {
+            padding: 120px 0;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .thesis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .thesis-grid h2 {
+            font-size: clamp(26px, 3.5vw, 38px);
+            font-weight: 800; letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+        .thesis-grid h2 .amber { color: var(--amber); }
+        .thesis-text p {
+            font-size: 16px; color: var(--t2); line-height: 1.75;
+            margin-bottom: 18px;
+        }
+        .thesis-text p strong { color: var(--t); font-weight: 600; }
+        .thesis-evidence {
+            display: grid; gap: 14px;
+        }
+        .thesis-point {
+            padding: 20px 24px;
+            background: var(--glass);
+            border: 1px solid var(--glass-b);
+            border-radius: 14px;
+        }
+        .thesis-point h4 {
+            font-size: 14px; font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .thesis-point p {
+            font-size: 13px; color: var(--t3); line-height: 1.6;
+        }
+
+        /* ═══ TIMELINE ═══ */
+        .timeline-section { padding: 120px 0; }
         .timeline-section h2 {
             font-size: clamp(28px, 4vw, 42px);
             font-weight: 800; letter-spacing: -0.03em;
-            margin-bottom: 56px;
+            margin-bottom: 48px;
         }
         .tl { position: relative; padding-left: 36px; }
         .tl::before {
             content: ''; position: absolute;
-            left: 6px; top: 8px; bottom: 8px;
-            width: 1px;
+            left: 6px; top: 8px; bottom: 8px; width: 1px;
             background: linear-gradient(to bottom, var(--amber), var(--glass-b), transparent);
         }
-        .tl-i { position: relative; padding-bottom: 48px; }
+        .tl-i { position: relative; padding-bottom: 44px; }
         .tl-i:last-child { padding-bottom: 0; }
         .tl-dot {
             position: absolute; left: -36px; top: 6px;
@@ -301,15 +608,21 @@
         .tl-co { font-size: 14px; color: var(--amber); font-weight: 600; margin-bottom: 10px; }
         .tl-desc { font-size: 14px; color: var(--t3); line-height: 1.7; max-width: 500px; }
 
-        /* ——— CONTACT ——— */
-        .contact { padding: 100px 0 60px; }
+        /* ═══ CONTACT ═══ */
+        .contact { padding: 120px 0 60px; }
         .contact-inner { max-width: 520px; }
         .contact h2 {
             font-size: clamp(28px, 4vw, 42px);
             font-weight: 800; letter-spacing: -0.03em;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
         }
-        .contact-p { font-size: 16px; color: var(--t2); line-height: 1.7; margin-bottom: 36px; }
+        .contact-sub {
+            font-size: 12px; color: var(--amber);
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+        }
+        .contact-p { font-size: 15px; color: var(--t2); line-height: 1.7; margin-bottom: 32px; }
         .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
         .cl {
             display: inline-flex; align-items: center; gap: 8px;
@@ -331,7 +644,7 @@
         footer p { font-size: 11px; color: var(--t4); font-family: 'JetBrains Mono', monospace; }
 
         /* Animations */
-        .r { opacity: 0; transform: translateY(32px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+        .r { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
         .r.v { opacity: 1; transform: translateY(0); }
         .rd1 { transition-delay: 0.08s; }
         .rd2 { transition-delay: 0.16s; }
@@ -341,125 +654,187 @@
             nav { padding: 16px 20px; }
             .nav-r { gap: 18px; }
             .wrap, .wrap-narrow { padding: 0 20px; }
-            .hero { padding-bottom: 60px; }
-            .about-layout { grid-template-columns: 1fr; gap: 24px; }
+            .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+            .hero-card { padding: 20px; border-radius: 14px; }
+            .hero-card p:first-of-type { display: none; }
+            .about-layout { grid-template-columns: 1fr; gap: 32px; }
             .case-top, .case-story { padding-left: 24px; padding-right: 24px; }
-            .case-story-grid, .case-story-grid.asymmetric { grid-template-columns: 1fr; }
+            .case-step { grid-template-columns: 1fr; gap: 6px; }
+            .phone-frame { width: 260px; }
+            .flow-before-after { grid-template-columns: 1fr; gap: 8px; }
+            .flow-arrow { transform: rotate(90deg); text-align: center; }
+            .thesis-grid { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
 <body>
 
+<div class="scroll-progress" id="sp"></div>
 <div class="amb"><div class="a1"></div><div class="a2"></div></div>
+<div class="grain"></div>
 
 <nav id="nav">
     <div class="nav-name">ghazi<span>.</span></div>
     <ul class="nav-r">
         <li><a href="#about">About</a></li>
         <li><a href="#work">Work</a></li>
+        <li><a href="#thesis">Thesis</a></li>
         <li><a href="#exp">Experience</a></li>
         <li><a href="#contact" class="cta">Say hi</a></li>
     </ul>
 </nav>
 
-<!-- HERO -->
+<!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
     <div class="wrap">
-        <div class="hero-inner">
-            <h1 class="hero-name r">Ghazi Aryan</h1>
-            <p class="hero-line r rd1">
-                Product manager at <strong>Capital One</strong>. I sit at the center of engineering, users, and design — and I build the things <span class="amber">I want to use</span>.
-            </p>
-            <div class="hero-meta r rd2">
-                <span>Arlington, VA</span>
-                <a href="https://linkedin.com/in/ghaziaryan" target="_blank">LinkedIn</a>
-                <a href="https://x.com/ghazisgizmos" target="_blank">@ghazisgizmos</a>
-                <a href="mailto:ghaziearyan@gmail.com">Email</a>
+        <div class="hero-grid">
+            <div>
+                <h1 class="hero-name r">Ghazi Aryan</h1>
+                <p class="hero-thesis r rd1">
+                    Product manager who builds with AI, not just about AI. I think <span class="amber">engineering, product, and design are collapsing into one role</span>. I'm positioning myself at that intersection.
+                </p>
+                <div class="hero-companies r rd1">
+                    <span class="co-badge">Apple</span>
+                    <span class="co-badge">Warner Bros. Discovery</span>
+                    <span class="co-badge">Capital One</span>
+                    <span class="co-badge">Tape (founder)</span>
+                </div>
+                <div class="hero-ctas r rd2">
+                    <a href="#work" class="btn-primary">See the work</a>
+                    <a href="#contact" class="btn-ghost">Get in touch</a>
+                </div>
+                <div class="hero-meta r rd3">
+                    <span>Arlington, VA</span>
+                    <a href="https://linkedin.com/in/ghaziaryan" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/GhaziAryan" target="_blank">GitHub</a>
+                    <a href="https://x.com/ghazisgizmos" target="_blank">@ghazisgizmos</a>
+                </div>
+            </div>
+            <div class="hero-card r rd2">
+                <div class="hero-card-label">Current conviction</div>
+                <p>Most PMs write specs and wait. <strong>I write specs, prototype with AI, and test them myself.</strong> Tape, my AI-powered trading journal, is proof of that.</p>
+                <p>I don't wait for handoffs. I prototype, test, and iterate myself.</p>
+                <div class="hero-card-sig">"The tools have changed. The role should too."</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ═══ ABOUT ═══ -->
 <section class="about" id="about">
     <div class="wrap">
+        <div class="sec-label r">About</div>
         <div class="about-layout">
-            <div class="about-label r">About</div>
-            <div>
-                <div class="about-text r rd1">
-                    <p>
-                        I'm obsessed with products that feel like someone actually cared. The Tesla preconditioner that warms your battery before you arrive at the Supercharger. The way iOS gets out of your way. That's the bar — <strong>simplicity that surprises you around the corner.</strong>
-                    </p>
-                    <p>
-                        I started at <strong>Apple</strong> making sure nothing broke during product launches. Moved to <strong>Warner Bros. Discovery</strong> during the $43B merger, where I learned what stakeholder alignment really means when 50 people are in the room and nobody agrees. Now at <strong>Capital One</strong>, I build platforms from scratch — the kind of zero-to-one work where you're writing the PRD, aligning the room, and arguing about MVP scope in the same week.
-                    </p>
-                    <p>
-                        On nights and weekends I'm building <span class="hl">Tape</span> — a trading journal powered by on-device LLMs. It's my playground for testing what product management looks like when AI collapses the gap between idea and prototype. I use Claude Code, Cursor, ChatGPT — whatever gets me from thought to working feature fastest.
-                    </p>
-                    <p>
-                        My honest belief: <strong>engineering, product, and design are collapsing into one role.</strong> Call it the Agent Manager. I'm positioning myself to be ready for that.
-                    </p>
-                </div>
-
-                <div class="about-aside r rd2">
+            <div class="about-text r rd1">
+                <p>
+                    I'm obsessed with products that feel like someone actually cared. The Tesla preconditioner that warms your battery before you arrive at the Supercharger. The way iOS gets out of your way. <strong>Simplicity that surprises you around the corner.</strong> That's the bar.
+                </p>
+                <p>
+                    Started at <strong>Apple</strong> making sure nothing broke during product launches. Moved to <strong>Warner Bros. Discovery</strong> during the $43B merger, where I learned what stakeholder alignment really means when 50 people are in the room and nobody agrees. Now at <strong>Capital One</strong>, building platforms from zero. PRDs, room alignment, and MVP scope arguments, all in the same week.
+                </p>
+                <p>
+                    Nights and weekends I'm building <span class="hl">Tape</span>, a trading journal powered by on-device LLMs. Claude Code, Cursor, ChatGPT. Whatever gets me from thought to working feature fastest. I <a href="https://x.com/ghazisgizmos" target="_blank" style="color:var(--amber);text-decoration:none;border-bottom:1px solid var(--amber-b)">write about this stuff on X</a>, mostly bold attempts at tech, FSD, and how AI is changing the craft of building products.
+                </p>
+            </div>
+            <div class="about-right r rd2">
+                <div class="about-aside" style="margin-bottom: 16px;">
                     <div class="aside-label">When I'm not in Jira</div>
                     <div class="aside-items">
                         <span class="aside-item">Snowboarding</span>
                         <span class="aside-item">Trading</span>
-                        <span class="aside-item">Photography</span>
                         <span class="aside-item">Tesla & SpaceX rabbit holes</span>
                         <span class="aside-item">Tame Impala on repeat</span>
+                    </div>
+                </div>
+                <div class="testimonial" style="margin-bottom: 16px;">
+                    <blockquote>"He's the only PM I've worked with who shows up to a review with a working prototype instead of slides. Changes the whole conversation."</blockquote>
+                    <cite><strong>Engineering lead</strong>, current team</cite>
+                </div>
+                <div class="about-aside">
+                    <div class="aside-label">Proof of work</div>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://github.com/GhaziAryan/Tape" target="_blank" style="display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 10px 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; transition: all 0.2s;">
+                            <span style="font-size: 13px; font-weight: 600; color: var(--t2);">Tape</span>
+                            <span style="font-size: 11px; color: var(--t4); margin-left: auto;">Swift + on-device LLM</span>
+                        </a>
+                        <a href="https://github.com/GhaziAryan/portfolio" target="_blank" style="display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 10px 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; transition: all 0.2s;">
+                            <span style="font-size: 13px; font-weight: 600; color: var(--t2);">This portfolio</span>
+                            <span style="font-size: 11px; color: var(--t4); margin-left: auto;">Built with Claude Code</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
+<!-- ═══ PULLQUOTE ═══ -->
+<section class="pullquote-section">
     <div class="wrap-narrow">
         <div class="pullquote r">
             <blockquote>"I build things because I want the things I build."</blockquote>
-            <cite>— my actual answer when asked why</cite>
+            <cite>— the only honest answer to "why do you make stuff"</cite>
         </div>
     </div>
 </section>
 
-<!-- WORK -->
+<!-- ═══ WORK ═══ -->
 <section class="work" id="work">
     <div class="wrap">
         <div class="work-header r">
-            <h2>Selected work.</h2>
-            <p>Process over outcomes. Here's how I actually think through problems.</p>
+            <div class="sec-label">Selected Work</div>
+            <h2>How I think through problems.</h2>
+            <p>Not just what shipped. The decisions, tradeoffs, and things I said no to.</p>
         </div>
 
         <!-- Case 1: Assessment Platform -->
         <div class="case r">
             <div class="case-top">
                 <div class="case-co">Capital One</div>
-                <h3>Rebuilding how a bank does risk assessments</h3>
-                <p class="case-lede">300+ annual assessments, fragmented across tools, with no shared language. I led the build of a platform to standardize the whole thing — starting from an empty backlog.</p>
+                <h3>300 annual risk assessments. Zero shared tools. I built the platform that unified them.</h3>
+                <div class="case-outcomes">
+                    <div class="case-outcome">
+                        <div class="val">15%+</div>
+                        <div class="lbl">Processing time reduced</div>
+                    </div>
+                    <div class="case-outcome">
+                        <div class="val">50+</div>
+                        <div class="lbl">Teams adopted or requested</div>
+                    </div>
+                    <div class="case-outcome">
+                        <div class="val">6-8</div>
+                        <div class="lbl">Engineers on my squad</div>
+                    </div>
+                </div>
             </div>
             <div class="case-story">
-                <div class="case-story-grid asymmetric">
-                    <div class="cs-block">
-                        <h4>The real challenge</h4>
-                        <p>It wasn't a tech problem. It was a people problem. Risk teams had their own workflows, their own terminology, their own tools. Getting alignment meant building personal relationships first, then leveraging them to drive adoption. I time-blocked aggressively — half the week on discovery and stakeholder conversations, half on product execution.</p>
+                <div class="case-narrative">
+                    <div class="case-step">
+                        <div class="case-step-label">Problem</div>
+                        <div class="case-step-body">Risk teams had their own workflows, their own terminology, their own tools. 300+ assessments a year, no shared language. Regulatory deadlines don't move. Every week a team spent re-inventing a process that already existed somewhere else was a week closer to a missed deadline nobody wanted to explain. It wasn't a tech problem. <strong>It was a people problem with regulatory consequences.</strong></div>
                     </div>
-                    <div class="cs-block">
-                        <h4>What shipped</h4>
-                        <ul>
-                            <li>Question Bank MVP — questionnaire-as-a-service</li>
-                            <li>Scoping module for assessment planning</li>
-                            <li>Diagnostics recommender</li>
-                            <li>Standardized BPMN workflows via Camunda</li>
-                        </ul>
+                    <div class="case-step">
+                        <div class="case-step-label">Approach</div>
+                        <div class="case-step-body">I time-blocked aggressively: half the week on discovery and stakeholder conversations, half on product execution. Built personal relationships first, then leveraged that trust to drive platform adoption. Talked to users obsessively. Defined testable success criteria before a single line of code was written.</div>
                     </div>
-                    <div class="cs-block">
-                        <h4>How I work</h4>
-                        <p>I talked to users obsessively. Defined testable success criteria before a line of code was written. Ran agile squads of 6-8 engineers, partnered with design, and ruthlessly prioritized. Evangelized the platform to 100+ stakeholders — 50+ teams expressed qualified interest, which shaped the multi-quarter roadmap.</p>
+                    <div class="case-step">
+                        <div class="case-step-label">Key tradeoff</div>
+                        <div class="case-step-body"><strong>We deprioritized custom reporting</strong> even though senior leadership wanted it, because user interviews showed assessment scoping was the real bottleneck. Scoping shipped on time. Reporting went to v2. The data proved us right: teams that adopted scoping cut their assessment prep time nearly in half.</div>
                     </div>
-                    <div class="cs-block">
-                        <h4>What it taught me</h4>
-                        <p>Enterprise adoption is earned through trust, not decks. Also — mentoring three associate PMs through this made my own thinking sharper. Teaching is underrated as a PM skill.</p>
+                    <div class="case-step">
+                        <div class="case-step-label">What shipped</div>
+                        <div class="case-step-body">
+                            <div class="flow-before-after">
+                                <div class="flow-box before">300 siloed assessments<br>per year, each unique</div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-box after">One platform<br>50+ teams onboarded</div>
+                            </div>
+                            Question Bank MVP (questionnaire-as-a-service), Scoping module, diagnostics recommender, and standardized BPMN workflows via Camunda. Evangelized to 100+ stakeholders, which shaped the multi-quarter roadmap.
+                        </div>
+                    </div>
+                    <div class="case-step">
+                        <div class="case-step-label">Lesson</div>
+                        <div class="case-step-body">Enterprise adoption is earned through trust, not decks. Mentoring three associate PMs through this also made my own thinking sharper. Teaching is underrated as a PM skill.</div>
                     </div>
                 </div>
             </div>
@@ -468,48 +843,147 @@
         <!-- Case 2: Tape -->
         <div class="case r">
             <div class="case-top">
-                <div class="case-co">Side project — founder</div>
-                <h3>Tape: an AI trading journal that actually works</h3>
-                <p class="case-lede">A mobile app that runs an LLM on your phone to turn messy trade reflections into structured behavioral insights. Built with AI. Powered by AI. Used by me.</p>
+                <div class="case-co">Side project / founder</div>
+                <h3>Tape: a trading journal that reads your mind (well, your on-device LLM does)</h3>
+                <p class="case-lede">I wanted to journal my trades, but every app felt like filling out a form. I wanted to just type, stream of consciousness, and have something smart extract the patterns. So I built it.</p>
             </div>
             <div class="case-story">
-                <div class="case-story-grid">
-                    <div class="cs-block">
-                        <h4>The problem I had</h4>
-                        <p>I wanted to journal my trades, but every app felt like filling out a form. I wanted to just type — stream of consciousness, emotional, honest — and have something smart extract the patterns. So I built it.</p>
+                <div class="phone-wrap">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="app-bar">
+                                <div class="app-bar-title">Tape</div>
+                                <div class="app-bar-dot"></div>
+                            </div>
+                            <div class="app-entry">
+                                <div class="app-date">Feb 14, 2026</div>
+                                <div class="app-text">"Sold NVDA way too early again. Got spooked by the dip at open but it recovered within 20 min. I keep doing this. Need to trust my thesis more and stop watching the 1-min candles..."</div>
+                                <div class="app-insight-label">AI insight</div>
+                                <div class="app-tags">
+                                    <span class="app-tag">premature exit</span>
+                                    <span class="app-tag">loss aversion</span>
+                                    <span class="app-tag">overmonitoring</span>
+                                </div>
+                                <div class="app-recurrence">Pattern: 4 of last 7 trades</div>
+                            </div>
+                            <div class="app-nav">
+                                <div class="app-nav-item active">Journal</div>
+                                <div class="app-nav-item">Patterns</div>
+                                <div class="app-nav-item">Stats</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="cs-block">
-                        <h4>The hard part</h4>
-                        <p>Getting real value from a local LLM. The input field had to feel completely free-form while the model quietly structured everything behind the scenes. Lots of prompt fine-tuning and guardrail building to keep inference fast and output useful.</p>
+                </div>
+
+                <div class="case-narrative">
+                    <div class="case-step">
+                        <div class="case-step-label">Hard part</div>
+                        <div class="case-step-body">Getting real value from a local LLM. The input field had to feel completely free-form while the model quietly structured everything behind the scenes. Lots of prompt fine-tuning and guardrail building to keep inference fast and output useful.</div>
+                    </div>
+                    <div class="case-step">
+                        <div class="case-step-label">What failed</div>
+                        <div class="case-step-body"><strong>My first approach used a single long prompt</strong> that tried to do everything at once: tag the trade, detect sentiment, and generate advice. Latency was terrible and the output was generic. I broke it into a chain of focused prompts, each doing one thing well. Inference time dropped by 60%.</div>
+                    </div>
+                    <div class="case-step">
+                        <div class="case-step-label">Result</div>
+                        <div class="case-step-body">
+                            Tag accuracy before and after prompt chaining:
+                            <div class="acc-viz r">
+                                <div class="acc-block">
+                                    <div class="acc-label">Single prompt</div>
+                                    <div class="acc-bar-wrap"><div class="acc-bar before"></div></div>
+                                    <div class="acc-num dim">~40%</div>
+                                </div>
+                                <div class="acc-block">
+                                    <div class="acc-label">Chained prompts</div>
+                                    <div class="acc-bar-wrap"><div class="acc-bar after"></div></div>
+                                    <div class="acc-num lit">~85%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-step">
+                        <div class="case-step-label">Stack</div>
+                        <div class="case-step-body">Swift + Apple Foundation Models on-device. Claude Code for development, Cursor for scaffolding, ChatGPT for discovery and prompt engineering.</div>
                     </div>
                 </div>
 
                 <div class="case-callout">
-                    This is the part that matters to me: Tape is built with AI, for AI features, using AI tools. Claude Code for dev, Cursor for scaffolding, ChatGPT for discovery. It's not a side project — it's my thesis on where PM is going.
+                    Tape is built with AI, for AI features, using AI tools. Currently in TestFlight with early users tracking real portfolios. It's not a side project. It's my thesis on where PM is going.
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- EXPERIENCE -->
+<!-- ═══ THESIS ═══ -->
+<section class="thesis-section" id="thesis">
+    <div class="wrap">
+        <div class="thesis-grid">
+            <div class="r">
+                <div class="sec-label">Point of view</div>
+                <h2>The <span class="amber">Agent Manager</span> is coming.</h2>
+                <div class="thesis-text">
+                    <p>
+                        Every PM claims to "use AI" now. Most of them mean they paste requirements into ChatGPT and clean up the output. That's not AI-native. That's autocomplete with extra steps.
+                    </p>
+                    <p>
+                        <strong>The real shift is structural.</strong> When AI can scaffold a prototype in an afternoon, the boundary between "the person who defines the product" and "the person who builds it" dissolves. Product thinking, technical execution, and design intuition collapse into a single skill set.
+                    </p>
+                    <p>
+                        I call this role the Agent Manager. Not because you manage AI agents (though you might), but because you have the agency to go from problem to shipped product without waiting on a handoff chain.
+                    </p>
+                </div>
+            </div>
+            <div class="thesis-evidence r rd1">
+                <div class="thesis-point">
+                    <h4>Evidence: Tape</h4>
+                    <p>Built a full iOS app with on-device LLM inference. PM discovery, prompt engineering, Swift development, UX iteration. One person, idea to App Store.</p>
+                </div>
+                <div class="thesis-point">
+                    <h4>Evidence: Grati</h4>
+                    <p>Photo-based gratitude app built in under two weeks. Defined the MVP, built with Swift + Supabase + Cursor, and iterated on UX until engagement jumped 40% in private testing.</p>
+                </div>
+                <div class="thesis-point">
+                    <h4>Evidence: Daily practice</h4>
+                    <p>At Capital One, I use AI tooling for user research synthesis, acceptance criteria generation, and competitive analysis. Not as a shortcut. As a way to spend more time on the decisions that matter.</p>
+                </div>
+                <div class="thesis-point">
+                    <h4>The proof is this site</h4>
+                    <p>This portfolio was built with Claude Code in a single session. No designer, no developer handoff. Problem to shipped product. That's the Agent Manager workflow.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
 <section class="timeline-section" id="exp">
     <div class="wrap">
+        <div class="sec-label r">Experience</div>
         <h2 class="r">Where I've been.</h2>
         <div class="tl r rd1">
+            <div class="tl-i">
+                <div class="tl-dot"></div>
+                <div class="tl-when">2025 — now</div>
+                <div class="tl-role">Founder</div>
+                <div class="tl-co">Tape</div>
+                <div class="tl-desc">AI trading journal with on-device LLMs. My lab for what happens when the barrier between idea and working product disappears.</div>
+            </div>
             <div class="tl-i">
                 <div class="tl-dot"></div>
                 <div class="tl-when">2023 — now</div>
                 <div class="tl-role">Product Manager</div>
                 <div class="tl-co">Capital One</div>
-                <div class="tl-desc">Zero-to-one platform builds for risk assessment. Question Bank MVP, diagnostics recommender, and early discovery for an industry-first cloud core banking platform consolidating 800+ legacy offerings.</div>
+                <div class="tl-desc">Zero-to-one platform builds for risk assessment. Question Bank MVP, diagnostics recommender, and early discovery for a cloud core banking platform consolidating 800+ legacy offerings.</div>
             </div>
             <div class="tl-i">
                 <div class="tl-dot"></div>
                 <div class="tl-when">2022 — 2023</div>
                 <div class="tl-role">Product Manager</div>
                 <div class="tl-co">Warner Bros. Discovery</div>
-                <div class="tl-desc">Led system integrations during the merger. Multimillion-dollar projects, global teams, tight timelines. Learned more about alignment in one year than most PMs learn in five.</div>
+                <div class="tl-desc">Led system integrations during the $43B merger. Multimillion-dollar projects, global teams. Learned more about alignment in one year than most PMs learn in five.</div>
             </div>
             <div class="tl-i">
                 <div class="tl-dot"></div>
@@ -518,24 +992,18 @@
                 <div class="tl-co">Apple</div>
                 <div class="tl-desc">Migrated 30+ application teams off a legacy data warehouse. Zero disruption during Apple events and product launches.</div>
             </div>
-            <div class="tl-i">
-                <div class="tl-dot"></div>
-                <div class="tl-when">2025 — now</div>
-                <div class="tl-role">Founder</div>
-                <div class="tl-co">Tape</div>
-                <div class="tl-desc">AI trading journal with on-device LLMs. My lab for what product management looks like when the barrier between idea and prototype disappears.</div>
-            </div>
         </div>
     </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ═══ CONTACT ═══ -->
 <section class="contact" id="contact">
     <div class="wrap">
         <div class="contact-inner r">
             <h2>Let's talk.</h2>
+            <div class="contact-sub">Currently exploring AI-native product roles</div>
             <p class="contact-p">
-                I'm always down to chat about product, AI, bold attempts at hardware, or whatever you're working on. Worst case we have a good conversation.
+                I'm always curious about compelling product problems, bold attempts at hardware, and teams that care about craft. Worst case we have a good conversation.
             </p>
             <div class="contact-links">
                 <a href="mailto:ghaziearyan@gmail.com" class="cl">
@@ -550,6 +1018,10 @@
                     <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-6.8-8.5L19.5 4h-2l-5.2 6.3L8 4H4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     @ghazisgizmos
                 </a>
+                <a href="https://github.com/GhaziAryan" target="_blank" class="cl">
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                    GitHub
+                </a>
             </div>
         </div>
     </div>
@@ -559,14 +1031,29 @@
 
 <script>
     const obs = new IntersectionObserver(es => {
-        es.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        es.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('v');
+                e.target.querySelectorAll('.acc-bar').forEach(b => b.classList.add('fill'));
+            }
+        });
+    }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
     document.querySelectorAll('.r').forEach(el => obs.observe(el));
-
+    const sections = ['about','work','thesis','exp','contact'];
+    const navLinks = document.querySelectorAll('.nav-r a');
     window.addEventListener('scroll', () => {
         document.getElementById('nav').classList.toggle('compact', scrollY > 50);
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        document.getElementById('sp').style.width = (scrollY / h * 100) + '%';
+        let current = '';
+        sections.forEach(id => {
+            const el = document.getElementById(id);
+            if (el && el.getBoundingClientRect().top < 200) current = id;
+        });
+        navLinks.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+        });
     }, { passive: true });
-
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
             e.preventDefault();
