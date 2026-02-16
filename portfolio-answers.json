@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "generated": "2026-02-16T00:44:41.104Z",
+    "version": "1.0"
+  },
+  "resume": {
+    "name": "Ghazi Aryan",
+    "email": "ghaziearyan@gmail.com",
+    "location": "Arlington, VA",
+    "linkedin": "linkedin.com/in/ghaziaryan",
+    "current_role": "Product Manager @ Capital One",
+    "previous": [
+      "Warner Bros Discovery",
+      "Apple"
+    ],
+    "projects": [
+      "Tape",
+      "Grati"
+    ],
+    "education": "BA Economics, CS Minor — Cal State Fullerton"
+  },
+  "answers": {
+    "positioning": "AI-Native Product Manager",
+    "personal_story": "I personally, love beautiful, intuitive, sexy products that deliver amazing user experiences that surprise around the corner. my favorite products are generally apple products, Tesla products, space.... I value simplicity as a design tenet that feels magical. \nI try to deliver that across the board in the work I do, from apple, to WBD where I got to modernize a hr page and learned a lot about what corporate life is like and fine tuned my stakeholder alignment skills, to Capital One where I now FLEX these skills and stand out in my ability to align folks and am surprising people, to Tape where I just have fun with it and build something *I* want.  ",
+    "case_studies": [
+      "Assessment Platform (Capital One)",
+      "Tape (Founder)"
+    ],
+    "case_study_details": "For Tape - it's been difficult how I get value out of the local LLM. I've been fine tuning prompts and building guardrails to maintain a free form text input field that invites commentary and reflection to drive truly unique and valuable behavioral insights. While using AI to build the AI lol\n\nFor Assessment Platforms, it's constantly working on the tight timelines yet still managing to drive stakeholder alignment. I time block effectively and develop personal relationships to leverage for that alignment. I also center around human centric design and obsess over the user experience. I speak to users and can ruthlessly prioritize.",
+    "visual_style": "glass-gradient",
+    "accent_color": "#f59e0b",
+    "links": {
+      "linkedin": "linkedin.com/in/ghaziaryan",
+      "github": "",
+      "twitter": "https://x.com/ghazisgizmos?s=21",
+      "dribbble": "",
+      "email": "ghaziearyan@gmail.com"
+    },
+    "ai_native_angle": "I use Claude Code now too for Tape. I'm in the know on the latest AI news - Clawdbot turned OpenClaw bought by OpenAI. What that implies for OpenAI. The times are changing and I'm on the cutting edge of it and working with it. However, I mostly like to report on it. My work in Tape is for fun and testing what the future of building with AI looks like. It's not technical. It's removing barriers between idea to prototype. and it's fun. ",
+    "extra_notes": "I don't want something basic. I want something with a kick of boldness. Tone of voice should be confident, jony-ive like, and elegantly curious. \n\nI don't want speak that is generic or ai slop. \n\n",
+    "sections": [
+      "Hero / Intro",
+      "About Me",
+      "Case Studies",
+      "Experience Timeline",
+      "Contact"
+    ]
+  }
+}
