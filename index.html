@@ -301,10 +301,10 @@
         }
         .hero-card p {
             font-family: 'Fraunces', Georgia, serif;
-            font-size: 15px; color: var(--t2);
+            font-size: 15px; color: var(--t);
             line-height: 1.65; margin-bottom: 16px;
         }
-        .hero-card p strong { color: var(--t); font-weight: 600; }
+        .hero-card p strong { color: var(--accent); font-weight: 600; }
         .hero-card-sig {
             font-family: 'Fraunces', Georgia, serif;
             font-style: italic; font-size: 15px;
@@ -505,14 +505,17 @@
             margin: 28px 0; overflow-x: auto; padding: 10px 0;
         }
         .phone-frame {
-            flex-shrink: 0; width: 210px;
-            background: #1c1c1e; border-radius: 30px;
-            padding: 10px;
-            border: 2px solid rgba(255,255,255,0.08);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            transition: transform 0.4s var(--ease);
+            flex-shrink: 0; width: 190px;
+            background: #1c1c1e; border-radius: 26px;
+            padding: 8px;
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+            transition: transform 0.5s var(--ease);
         }
-        .phone-frame:hover { transform: translateY(-6px) rotate(-1deg); }
+        .phone-frame:nth-child(1) { transform: rotate(-2deg); }
+        .phone-frame:nth-child(2) { transform: translateY(-8px); }
+        .phone-frame:nth-child(3) { transform: rotate(2deg); }
+        .phone-frame:hover { transform: translateY(-10px) rotate(0deg) scale(1.03); }
         .phone-frame img { width: 100%; border-radius: 20px; display: block; }
         .phone-caption {
             text-align: center; font-size: 10px;
@@ -576,6 +579,7 @@
         .acc-num { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; }
         .acc-num.dim { color: var(--t3); }
         .acc-num.lit { color: var(--accent); }
+        .acc-num::before { content: ''; } /* prevent negative sign rendering */
 
         .case-callout {
             margin-top: 20px; padding: 18px 22px;
@@ -749,7 +753,7 @@
             animation: marquee 40s linear infinite;
             width: max-content;
         }
-        .marquee-track:hover { animation-play-state: paused; }
+        .marquee-track:hover { animation-duration: 80s; }
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -940,13 +944,16 @@
         <div class="about-layout">
             <div class="about-text r rd1">
                 <p>
+                    I'm obsessed with products that feel like someone actually cared. The Tesla preconditioner that warms your battery before you arrive at the Supercharger. The way iOS gets out of your way. Simplicity that surprises you around the corner. That's the bar.
+                </p>
+                <p>
                     At 15, I was freelancing video edits on Upwork and negotiating hoverboard prices with suppliers in Shenzhen. In high school, I charged classmates to jailbreak their iPhones. I didn't have a title for it yet. I was just making things people paid for.
                 </p>
                 <p>
                     Now I do it at scale. Disaster recovery at <strong>Apple</strong> during product launches, where nothing can break. System integrations at <strong>Warner Bros. Discovery</strong> during the $43B merger, where 50 people sat in a room and nobody agreed. Risk assessment platforms at <strong>Capital One</strong>, where the user is an auditor with zero patience for bad UX.
                 </p>
                 <p>
-                    Nights and weekends I build <strong>Tape</strong>, an AI trading journal. I don't write code. I use Claude Code, Cursor, and ChatGPT to get from idea to working feature. That's the thesis: taste and problem-solving matter more than syntax.
+                    Nights and weekends I build <strong>Tape</strong>, an AI trading journal. I have a CS minor and shipped games to the App Store at 16, but today I build with Claude Code, Cursor, and ChatGPT. I <a href="https://x.com/ghazisgizmos" target="_blank">write about this stuff on X</a>, mostly bold takes on tech, FSD, and how AI is changing the craft of building products.
                 </p>
             </div>
             <div class="about-right r rd2">
@@ -966,7 +973,7 @@
                     <div class="aside-items">
                         <span class="aside-item">Roth IRAs</span>
                         <span class="aside-item">Credit card optimization</span>
-                        <span class="aside-item">Tesla FSD's UI</span>
+                        <span class="aside-item">Tesla FSD</span>
                         <span class="aside-item">Cinematic Mode on iPhone</span>
                         <span class="aside-item">Why Succession is perfect</span>
                     </div>
@@ -1042,7 +1049,8 @@
         <div class="case r">
             <div class="case-top">
                 <div class="case-co">Capital One</div>
-                <h3>300 annual risk assessments. Zero shared tools. I built the platform that unified them.</h3>
+                <h3>300 annual risk assessments. Zero shared tools.</h3>
+                <p class="case-lede">I built the platform that unified them.</p>
                 <div class="case-outcomes">
                     <div class="case-outcome">
                         <div class="val">15%+</div>
@@ -1109,7 +1117,7 @@
         <div class="case r">
             <div class="case-top">
                 <div class="case-co">Side project / founder</div>
-                <h3>Tape: a trading journal that reads your mind (well, your on-device LLM does)</h3>
+                <h3>Tape: an AI trading journal.</h3>
                 <p class="case-lede">Every trading journal felt like filling out a form. I wanted to just type, stream of consciousness, and have something smart extract the patterns. So I built it.</p>
             </div>
             <div class="case-story">
@@ -1131,7 +1139,7 @@
                 <div class="case-narrative">
                     <div class="case-step">
                         <div class="case-step-label">Hard part</div>
-                        <div class="case-step-body">Getting real value from a local LLM. The input had to feel completely free-form while the model quietly structured everything behind the scenes. Lots of prompt tuning and guardrail building to keep inference fast and output useful.</div>
+                        <div class="case-step-body">Getting accurate responses from a small on-device model. Fallback methods to handle failed parses. Chaining trades together even when entered out of order. Surfacing real behavioral insights, not generic advice. Most of these required prompt improvements and fine-tuning. I learned to separate the architecture into dedicated engines, each handling one job.</div>
                     </div>
                     <div class="case-step">
                         <div class="case-step-label">What failed</div>
@@ -1145,12 +1153,12 @@
                                 <div class="acc-block">
                                     <div class="acc-label">Single prompt</div>
                                     <div class="acc-bar-wrap"><div class="acc-bar before"></div></div>
-                                    <div class="acc-num dim">~40%</div>
+                                    <div class="acc-num dim">40%</div>
                                 </div>
                                 <div class="acc-block">
                                     <div class="acc-label">Chained prompts</div>
                                     <div class="acc-bar-wrap"><div class="acc-bar after"></div></div>
-                                    <div class="acc-num lit">~85%</div>
+                                    <div class="acc-num lit">85%</div>
                                 </div>
                             </div>
                         </div>
@@ -1347,6 +1355,31 @@
         const nearContact = contactEl.getBoundingClientRect().top < window.innerHeight;
         fab.classList.toggle('show', pastHero && !nearContact);
     }, { passive: true });
+
+    // Easter egg: click the nav name 5 times fast
+    let clickCount = 0;
+    let clickTimer = null;
+    document.querySelector('.nav-name').addEventListener('click', (e) => {
+        e.stopPropagation();
+        clickCount++;
+        clearTimeout(clickTimer);
+        clickTimer = setTimeout(() => clickCount = 0, 800);
+        if (clickCount >= 5) {
+            clickCount = 0;
+            document.body.style.transition = 'filter 0.6s';
+            document.body.style.filter = 'hue-rotate(180deg)';
+            const msg = document.createElement('div');
+            msg.textContent = 'You found it. Welcome to the upside down.';
+            msg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9998;font-family:Fraunces,Georgia,serif;font-style:italic;font-size:24px;color:var(--accent);text-align:center;opacity:0;transition:opacity 0.5s;pointer-events:none;';
+            document.body.appendChild(msg);
+            requestAnimationFrame(() => msg.style.opacity = '1');
+            setTimeout(() => {
+                document.body.style.filter = '';
+                msg.style.opacity = '0';
+                setTimeout(() => msg.remove(), 500);
+            }, 2500);
+        }
+    });
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
