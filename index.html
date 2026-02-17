@@ -624,7 +624,8 @@
 
         @media (max-width: 768px) {
             nav { padding: 16px 20px; }
-            .nav-r { gap: 18px; }
+            .nav-r li:not(:last-child) { display: none; }
+            .nav-r { gap: 0; }
             .wrap, .wrap-narrow { padding: 0 20px; }
             .hero-grid { grid-template-columns: 1fr; gap: 32px; }
             .hero-card { padding: 20px; border-radius: 14px; }
