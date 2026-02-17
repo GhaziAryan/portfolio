@@ -228,11 +228,33 @@
             font-size: 13px; font-weight: 600;
             color: var(--t2);
             transition: all 0.3s var(--ease);
+            position: relative; cursor: default;
         }
         .co-badge:hover {
             border-color: var(--accent-b);
             color: var(--accent);
             transform: translateY(-2px);
+        }
+        .co-badge[data-tip]::after {
+            content: attr(data-tip);
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%; transform: translateX(-50%) translateY(4px);
+            padding: 8px 14px;
+            background: var(--t);
+            color: var(--bg);
+            font-size: 11px; font-weight: 400;
+            font-family: 'IBM Plex Mono', monospace;
+            border-radius: 8px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.25s var(--ease);
+            z-index: 50;
+        }
+        .co-badge[data-tip]:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
         .hero-ctas {
             display: flex; gap: 12px; align-items: center;
@@ -405,27 +427,52 @@
             background: linear-gradient(90deg, transparent, var(--surface-b) 20%, var(--surface-b) 80%, transparent);
         }
 
-        /* ═══ PULLQUOTE ═══ */
-        .pullquote-section { padding: 120px 0; }
-        .pullquote {
-            border-left: 3px solid transparent;
-            border-image: var(--grad) 1;
-            padding-left: 32px;
+        /* ═══ PULLQUOTE — full-bleed break ═══ */
+        .pullquote-section {
+            padding: 100px 0;
+            background: var(--bg2);
+            border-top: 1px solid var(--surface-b);
+            border-bottom: 1px solid var(--surface-b);
+            position: relative;
+            overflow: hidden;
         }
-        .pullquote blockquote {
-            font-family: 'Fraunces', Georgia, serif;
-            font-size: clamp(26px, 3.5vw, 40px);
-            font-weight: 300;
-            font-style: italic;
-            line-height: 1.4;
+        .pullquote-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 30% 40%, var(--glow1) 0%, transparent 60%),
+                        radial-gradient(ellipse 60% 50% at 70% 60%, var(--glow2) 0%, transparent 60%);
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        .pullquote-inner {
+            position: relative;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        .pullquote-inner blockquote {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(30px, 5vw, 56px);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.15;
             color: var(--t);
-            max-width: 580px;
+            margin-bottom: 20px;
         }
-        .pullquote cite {
+        .pullquote-inner blockquote .accent-word {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .pullquote-inner cite {
             display: block;
             font-family: 'IBM Plex Mono', monospace;
             font-style: normal; font-size: 12px;
-            color: var(--t3); margin-top: 20px;
+            color: var(--t3); margin-top: 16px;
+            letter-spacing: 0.04em;
         }
 
         /* ═══ WORK ═══ */
@@ -512,9 +559,9 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.3);
             transition: transform 0.5s var(--ease);
         }
-        .phone-frame:nth-child(1) { transform: rotate(-2deg); }
-        .phone-frame:nth-child(2) { transform: translateY(-8px); }
-        .phone-frame:nth-child(3) { transform: rotate(2deg); }
+        .phone-frame:nth-child(1) { transform: rotate(-2deg); --prl-base: -2; }
+        .phone-frame:nth-child(2) { transform: translateY(-8px); --prl-base: 0; }
+        .phone-frame:nth-child(3) { transform: rotate(2deg); --prl-base: 2; }
         .phone-frame:hover { transform: translateY(-10px) rotate(0deg) scale(1.03); }
         .phone-frame img { width: 100%; border-radius: 20px; display: block; }
         .phone-caption {
@@ -911,10 +958,10 @@
                     I build things because I want the things I build. <strong>Taste is the new barrier to entry.</strong>
                 </p>
                 <div class="hero-companies r rd1">
-                    <span class="co-badge">Apple</span>
-                    <span class="co-badge">Warner Bros. Discovery</span>
-                    <span class="co-badge">Capital One</span>
-                    <span class="co-badge">Tape (founder)</span>
+                    <span class="co-badge" data-tip="Disaster recovery during launches">Apple</span>
+                    <span class="co-badge" data-tip="$43B merger integrations">Warner Bros. Discovery</span>
+                    <span class="co-badge" data-tip="Risk assessment platform">Capital One</span>
+                    <span class="co-badge" data-tip="AI trading journal, on-device LLM">Tape (founder)</span>
                 </div>
                 <div class="hero-ctas r rd2">
                     <a href="#work" class="btn-primary">See the work</a>
@@ -1026,13 +1073,11 @@
     </div>
 </section>
 
-<!-- ═══ PULLQUOTE ═══ -->
+<!-- ═══ PULLQUOTE — full-bleed visual break ═══ -->
 <section class="pullquote-section">
-    <div class="wrap-sm">
-        <div class="pullquote r">
-            <blockquote>"I build things because I want the things I build."</blockquote>
-            <cite>The only honest answer to "why do you make stuff"</cite>
-        </div>
+    <div class="pullquote-inner r">
+        <blockquote>I build things because I <span class="accent-word">want</span> the things I build.</blockquote>
+        <cite>The only honest answer to "why do you make stuff"</cite>
     </div>
 </section>
 
@@ -1390,6 +1435,26 @@
             }, 6500);
         }
     });
+
+    // Phone frame parallax on scroll
+    const phoneFrames = document.querySelectorAll('.phone-frame');
+    if (phoneFrames.length) {
+        const gallery = document.querySelector('.screenshot-gallery');
+        function updateParallax() {
+            if (!gallery) return;
+            const rect = gallery.getBoundingClientRect();
+            const center = window.innerHeight / 2;
+            const offset = (rect.top + rect.height / 2 - center) / center;
+            phoneFrames.forEach((frame, i) => {
+                const speed = (i - 1) * 12;
+                const y = offset * speed;
+                const baseRotate = i === 0 ? -2 : i === 2 ? 2 : 0;
+                const baseY = i === 1 ? -8 : 0;
+                frame.style.transform = `rotate(${baseRotate}deg) translateY(${baseY + y}px)`;
+            });
+        }
+        window.addEventListener('scroll', updateParallax, { passive: true });
+    }
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
