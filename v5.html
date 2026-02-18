@@ -944,7 +944,6 @@
         .rd3 { transition-delay: 0.24s; }
 
         @media (max-width: 768px) {
-            /* Fix 1: Nav clips content above — ensure solid bg + proper z-index */
             nav { padding: 16px 20px; background: var(--bg); backdrop-filter: none; }
             nav.compact { padding: 13px 20px; }
             .nav-r li.nav-link { display: none; }
@@ -955,17 +954,33 @@
             .about-layout { grid-template-columns: 1fr; gap: 32px; }
             .case-top, .case-story { padding-left: 24px; padding-right: 24px; }
             .case-step { grid-template-columns: 1fr; gap: 6px; }
-            /* Fix 4: Screenshots — scroll horizontally, don't cut off */
+            /* Screenshots — stack vertically on mobile */
             .screenshot-break { margin: 32px -20px 24px; padding: 32px 20px; }
-            .screenshot-gallery { gap: 16px; overflow-x: auto; justify-content: flex-start; padding: 0 20px; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
-            .phone-frame { width: 200px; scroll-snap-align: center; }
+            .screenshot-gallery { flex-direction: column; align-items: center; gap: 20px; }
+            .phone-frame { width: 220px; }
             .flow-row { grid-template-columns: 1fr; gap: 8px; }
             .flow-arrow { transform: rotate(90deg); }
             .thesis-grid { grid-template-columns: 1fr; gap: 40px; }
             .acc-viz { grid-template-columns: 1fr; }
-            /* Fix 3: Tooltips — disable on mobile (no hover anyway) */
-            .co-badge[data-tip]::after { display: none; }
-            .aside-item[data-tip]::after { display: none; }
+            /* Tooltips — reposition below on mobile so they don't clip */
+            .co-badge[data-tip]::after {
+                bottom: auto;
+                top: calc(100% + 8px);
+                left: 0;
+                transform: translateX(0) translateY(-4px);
+            }
+            .co-badge[data-tip]:hover::after {
+                transform: translateX(0) translateY(0);
+            }
+            .aside-item[data-tip]::after {
+                bottom: auto;
+                top: calc(100% + 8px);
+                left: 0;
+                transform: translateX(0) translateY(-4px);
+            }
+            .aside-item[data-tip]:hover::after {
+                transform: translateX(0) translateY(0);
+            }
         }
     </style>
 </head>
@@ -1478,7 +1493,7 @@
             clickCount = 0;
             // Severance-style cold open
             const overlay = document.createElement('div');
-            overlay.style.cssText = 'position:fixed;inset:0;background:#fff;z-index:9998;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.8s;padding:24px;text-align:center;';
+            overlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;height:100dvh;background:#fff;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.8s;padding:24px;text-align:center;';
             const lines = [
                 {text: 'Who are you?', delay: 800, style: 'font-family:Manrope,sans-serif;font-size:14px;color:#888;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:32px;'},
                 {text: 'Ghazi Aryan', delay: 2000, style: 'font-family:Syne,sans-serif;font-size:clamp(32px,8vw,48px);font-weight:800;color:#111;letter-spacing:-0.03em;margin-bottom:8px;'},
