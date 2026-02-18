@@ -944,7 +944,7 @@
         .rd3 { transition-delay: 0.24s; }
 
         @media (max-width: 768px) {
-            nav { padding: 16px 20px; background: var(--bg); backdrop-filter: none; }
+            nav { padding: 16px 20px; background: var(--bg) !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
             nav.compact { padding: 13px 20px; }
             .nav-r li.nav-link { display: none; }
             .nav-r { gap: 12px; }
@@ -954,31 +954,27 @@
             .about-layout { grid-template-columns: 1fr; gap: 32px; }
             .case-top, .case-story { padding-left: 24px; padding-right: 24px; }
             .case-step { grid-template-columns: 1fr; gap: 6px; }
-            /* Screenshots — stack vertically on mobile */
+            /* Screenshots — show only one on mobile */
             .screenshot-break { margin: 32px -20px 24px; padding: 32px 20px; }
-            .screenshot-gallery { flex-direction: column; align-items: center; gap: 20px; }
+            .screenshot-gallery { justify-content: center; }
+            .phone-frame:nth-child(1), .phone-frame:nth-child(3) { display: none; }
             .phone-frame { width: 220px; }
             .flow-row { grid-template-columns: 1fr; gap: 8px; }
             .flow-arrow { transform: rotate(90deg); }
             .thesis-grid { grid-template-columns: 1fr; gap: 40px; }
             .acc-viz { grid-template-columns: 1fr; }
-            /* Tooltips — reposition below on mobile so they don't clip */
-            .co-badge[data-tip]::after {
+            /* Tooltips — reposition below on mobile, ensure z-index layering */
+            .co-badge[data-tip]:hover, .aside-item[data-tip]:hover {
+                z-index: 60;
+            }
+            .co-badge[data-tip]::after, .aside-item[data-tip]::after {
                 bottom: auto;
                 top: calc(100% + 8px);
                 left: 0;
                 transform: translateX(0) translateY(-4px);
+                z-index: 60;
             }
-            .co-badge[data-tip]:hover::after {
-                transform: translateX(0) translateY(0);
-            }
-            .aside-item[data-tip]::after {
-                bottom: auto;
-                top: calc(100% + 8px);
-                left: 0;
-                transform: translateX(0) translateY(-4px);
-            }
-            .aside-item[data-tip]:hover::after {
+            .co-badge[data-tip]:hover::after, .aside-item[data-tip]:hover::after {
                 transform: translateX(0) translateY(0);
             }
         }
