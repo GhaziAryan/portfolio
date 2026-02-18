@@ -300,16 +300,17 @@
         /* Conviction card */
         .hero-card {
             padding: 32px;
-            background: var(--surface);
             border: 1px solid transparent;
             border-radius: 20px;
-            background-image: linear-gradient(var(--surface), var(--surface)), var(--grad);
+            background-image: linear-gradient(var(--card-bg), var(--card-bg)), var(--grad);
             background-origin: border-box;
             background-clip: padding-box, border-box;
             transition: transform 0.4s var(--ease), box-shadow 0.4s;
             transform-style: preserve-3d;
             perspective: 600px;
         }
+        [data-theme="dark"] { --card-bg: #1c1b22; }
+        [data-theme="light"] { --card-bg: #eae7e1; }
         .hero-card:hover {
             transform: translateY(-4px) rotateX(2deg) rotateY(-2deg);
             box-shadow: 0 20px 50px rgba(0,0,0,0.2);
@@ -546,10 +547,26 @@
         }
         .case-step-body strong { color: var(--t); font-weight: 600; }
 
-        /* Screenshot gallery */
+        /* Screenshot gallery — full-bleed to break column flow */
+        .screenshot-break {
+            margin: 48px -40px 32px;
+            padding: 48px 40px;
+            background: var(--bg2);
+            border-top: 1px solid var(--surface-b);
+            border-bottom: 1px solid var(--surface-b);
+            position: relative;
+            overflow: hidden;
+        }
+        .screenshot-break::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse 50% 80% at 50% 50%, var(--glow2) 0%, transparent 70%);
+            opacity: 0.5;
+            pointer-events: none;
+        }
         .screenshot-gallery {
-            display: flex; gap: 18px; justify-content: center;
-            margin: 28px 0; overflow-x: auto; padding: 10px 0;
+            display: flex; gap: 24px; justify-content: center;
+            position: relative; z-index: 1;
         }
         .phone-frame {
             flex-shrink: 0; width: 190px;
@@ -557,12 +574,9 @@
             padding: 8px;
             border: 1px solid rgba(255,255,255,0.06);
             box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-            transition: transform 0.5s var(--ease);
+            transition: transform 0.6s var(--ease);
         }
-        .phone-frame:nth-child(1) { transform: rotate(-2deg); --prl-base: -2; }
-        .phone-frame:nth-child(2) { transform: translateY(-8px); --prl-base: 0; }
-        .phone-frame:nth-child(3) { transform: rotate(2deg); --prl-base: 2; }
-        .phone-frame:hover { transform: translateY(-10px) rotate(0deg) scale(1.03); }
+        .phone-frame:hover { transform: translateY(-6px) scale(1.02); }
         .phone-frame img { width: 100%; border-radius: 20px; display: block; }
         .phone-caption {
             text-align: center; font-size: 10px;
@@ -797,14 +811,9 @@
         }
         .marquee-track {
             display: flex;
-            animation: marquee 40s linear infinite;
             width: max-content;
         }
-        .marquee-track:hover { animation-duration: 80s; }
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+        /* marquee animation driven by JS for smooth hover deceleration */
         .marquee-item {
             flex-shrink: 0;
             padding: 0 48px;
@@ -921,8 +930,9 @@
             .about-layout { grid-template-columns: 1fr; gap: 32px; }
             .case-top, .case-story { padding-left: 24px; padding-right: 24px; }
             .case-step { grid-template-columns: 1fr; gap: 6px; }
+            .screenshot-break { margin: 32px -20px 24px; padding: 32px 20px; }
             .screenshot-gallery { gap: 12px; }
-            .phone-frame { width: 170px; }
+            .phone-frame { width: 150px; }
             .flow-row { grid-template-columns: 1fr; gap: 8px; }
             .flow-arrow { transform: rotate(90deg); }
             .thesis-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -959,7 +969,7 @@
                 </p>
                 <div class="hero-companies r rd1">
                     <span class="co-badge" data-tip="Disaster recovery during launches">Apple</span>
-                    <span class="co-badge" data-tip="$43B merger integrations">Warner Bros. Discovery</span>
+                    <span class="co-badge" data-tip="ServiceNow + HR portal, $43B merger">Warner Bros. Discovery</span>
                     <span class="co-badge" data-tip="Risk assessment platform">Capital One</span>
                     <span class="co-badge" data-tip="AI trading journal, on-device LLM">Tape (founder)</span>
                 </div>
@@ -977,8 +987,8 @@
             <div class="hero-card r rd2">
                 <div class="hero-card-label">Current conviction</div>
                 <p>When anyone can ship a product in an afternoon, <strong>what separates good from great is the person deciding what to build and why.</strong></p>
-                <p>I call this role the Agent Manager. Not because you manage AI agents. Because you have the agency to go from problem to shipped product yourself.</p>
-                <div class="hero-card-sig">"The tools changed. The role should too."</div>
+                <p>The tools changed. The role should too. I think the next great PMs won't just define products. They'll build them.</p>
+                <div class="hero-card-sig">More on this <a href="#thesis" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-b)">below</a>.</div>
             </div>
         </div>
     </div>
@@ -991,13 +1001,13 @@
         <div class="about-layout">
             <div class="about-text r rd1">
                 <p>
-                    I'm obsessed with products that feel like someone actually cared. The Tesla preconditioner that warms your battery before you arrive at the Supercharger. The way iOS gets out of your way. Simplicity that surprises you around the corner. That's the bar.
+                    I've always been the person who researches everything to death before buying it. The Tesla preconditioner that warms your battery before you arrive at the Supercharger. The way iOS gets out of your way. I notice the details most people don't, and I can't unsee them.
                 </p>
                 <p>
-                    At 15, I was freelancing video edits on Upwork and negotiating hoverboard prices with suppliers in Shenzhen. In high school, I charged classmates to jailbreak their iPhones. I didn't have a title for it yet. I was just making things people paid for.
+                    That same obsession showed up early. At 15, I was customizing hoverboard specs with suppliers in Shenzhen to get the best balance of value and quality. In high school, I charged classmates to jailbreak their iPhones, shaping them to look and work the way I thought they should. I was freelancing video edits on Upwork because I liked crafting something polished. I didn't have a title for any of it. I just liked making things better than I found them.
                 </p>
                 <p>
-                    Now I do it at scale. Disaster recovery at <strong>Apple</strong> during product launches, where nothing can break. System integrations at <strong>Warner Bros. Discovery</strong> during the $43B merger, where 50 people sat in a room and nobody agreed. Risk assessment platforms at <strong>Capital One</strong>, where the user is an auditor with zero patience for bad UX.
+                    Now I do it at scale. Disaster recovery at <strong>Apple</strong> during product launches, where nothing can break. ServiceNow and HR portal integrations at <strong>Warner Bros. Discovery</strong> during the $43B merger, where two companies' worth of stakeholders had to agree on one design language. Risk assessment platforms at <strong>Capital One</strong>, where the user is an auditor with zero patience for bad UX.
                 </p>
                 <p>
                     Nights and weekends I build <strong>Tape</strong>, an AI trading journal. I have a CS minor and shipped games to the App Store at 16, but today I build with Claude Code, Cursor, and ChatGPT. I <a href="https://x.com/ghazisgizmos" target="_blank">write about this stuff on X</a>, mostly bold takes on tech, FSD, and how AI is changing the craft of building products.
@@ -1011,7 +1021,7 @@
                         <span class="aside-item" data-tip="East coast runs">Snowboarding</span>
                         <span class="aside-item" data-tip="Options + swing trades">Trading</span>
                         <span class="aside-item" data-tip="Concerningly detailed reviews">Beli food critic</span>
-                        <span class="aside-item" data-tip="FSD UI is chef's kiss">Tesla & SpaceX rabbit holes</span>
+                        <span class="aside-item" data-tip="Need to see Starship launch live">Tesla & SpaceX rabbit holes</span>
                         <span class="aside-item" data-tip="Brick Technology is peak YT">LEGO machine YouTube</span>
                     </div>
                 </div>
@@ -1077,7 +1087,7 @@
 <section class="pullquote-section">
     <div class="pullquote-inner r">
         <blockquote>I build things because I <span class="accent-word">want</span> the things I build.</blockquote>
-        <cite>The only honest answer to "why do you make stuff"</cite>
+        <cite>Not a mission statement. Just true.</cite>
     </div>
 </section>
 
@@ -1098,16 +1108,16 @@
                 <p class="case-lede">I built the platform that unified them.</p>
                 <div class="case-outcomes">
                     <div class="case-outcome">
-                        <div class="val">15%+</div>
-                        <div class="lbl">Processing time reduced</div>
+                        <div class="val">15%</div>
+                        <div class="lbl">Faster per assessment</div>
                     </div>
                     <div class="case-outcome">
                         <div class="val">50+</div>
-                        <div class="lbl">Teams adopted or requested</div>
+                        <div class="lbl">Teams expressed interest</div>
                     </div>
                     <div class="case-outcome">
-                        <div class="val">6-8</div>
-                        <div class="lbl">Engineers on my squad</div>
+                        <div class="val">150+</div>
+                        <div class="lbl">Reached at SECON</div>
                     </div>
                 </div>
             </div>
@@ -1115,7 +1125,7 @@
                 <div class="case-narrative">
                     <div class="case-step">
                         <div class="case-step-label">Problem</div>
-                        <div class="case-step-body">Risk teams had their own workflows, their own terminology, their own tools. 300+ assessments a year, no shared language. Regulatory deadlines don't move. Every week a team spent re-inventing a process that already existed somewhere else was a week closer to a missed deadline nobody wanted to explain. It wasn't a tech problem. <strong>It was a people problem with regulatory consequences.</strong></div>
+                        <div class="case-step-body">300+ LAUNCH assessments a year, each with stage gates where users had to wait for the next section to be reviewed and unlocked. Teams couldn't work the way their org actually operated. Regulatory deadlines don't move. Every week spent fighting the tool instead of doing the assessment was a week closer to a missed deadline nobody wanted to explain. It wasn't a tech problem. <strong>It was a people problem with regulatory consequences.</strong></div>
                     </div>
                     <div class="case-step">
                         <div class="case-step-label">Approach</div>
@@ -1134,11 +1144,11 @@
                         <div class="case-step-label">What shipped</div>
                         <div class="case-step-body">
                             <div class="flow-row">
-                                <div class="flow-box before">300 siloed assessments<br>per year, each unique</div>
+                                <div class="flow-box before">300+ assessments per year<br>rigid stage gates, siloed tools</div>
                                 <div class="flow-arrow">→</div>
-                                <div class="flow-box after">One platform<br>50+ teams onboarded</div>
+                                <div class="flow-box after">Parallel access, fewer gates<br>10+ teams onboarded, 50+ interested</div>
                             </div>
-                            Scoping module (the backbone), Question Bank as a horizontal service, diagnostics recommender, and standardized BPMN workflows via Camunda. Presented Question Bank at SECON. Mentored new associate PMs through their first year.
+                            Scoping module (pulls in risks, maintains version control, powers every downstream page), Question Bank as a horizontal questionnaire-as-a-service, diagnostics recommender, and standardized BPMN workflows via Camunda. Question Bank was delivered a month ahead of the 6-month timeline. Presented it at SECON, selected from hundreds of booth applications. Spoke to 150+ people, generated interest from 50+ teams, and onboarded 3 new tenants shortly after. Mentored three associate PMs through their first year.
                             <div class="case-testimonial">
                                 <blockquote>"Ghazi has been the most proactive of any team I've collaborated with for this initiative. He reached out early, set time for us to sit down together, and worked until the requirement was crystal clear."</blockquote>
                                 <cite><strong>Megan Wiser</strong>, PDP Mentee</cite>
@@ -1147,7 +1157,7 @@
                     </div>
                     <div class="case-step">
                         <div class="case-step-label">Lesson</div>
-                        <div class="case-step-body">Enterprise adoption is earned through trust, not decks. Mentoring three associate PMs through this also made my own thinking sharper. Teaching is underrated as a PM skill.
+                        <div class="case-step-body">Enterprise adoption is earned through trust, not decks. Mentoring three associate PMs through this also made my own thinking sharper.
                             <div class="case-testimonial">
                                 <blockquote>"I appreciate your myriad contributions that have propelled the Future of Assessments initiative forward. My hope is that we can find more opportunities to broaden your reach in our organization and beyond."</blockquote>
                                 <cite><strong>Rachel Rique</strong>, Manager</cite>
@@ -1165,7 +1175,7 @@
                 <h3>Tape: an AI trading journal.</h3>
                 <p class="case-lede">Every trading journal felt like filling out a form. I wanted to just type, stream of consciousness, and have something smart extract the patterns. So I built it.</p>
             </div>
-            <div class="case-story">
+            <div class="screenshot-break">
                 <div class="screenshot-gallery">
                     <div class="phone-frame">
                         <img src="Tape Screenshots/IMG_0419.PNG" alt="Tape journal entry">
@@ -1180,33 +1190,36 @@
                         <div class="phone-caption">Insights</div>
                     </div>
                 </div>
-
+            </div>
+            <div class="case-story">
                 <div class="case-narrative">
                     <div class="case-step">
                         <div class="case-step-label">Hard part</div>
-                        <div class="case-step-body">Getting accurate responses from a small on-device model. Fallback methods to handle failed parses. Chaining trades together even when entered out of order. Surfacing real behavioral insights, not generic advice. Most of these required prompt improvements and fine-tuning. I learned to separate the architecture into dedicated engines, each handling one job.</div>
+                        <div class="case-step-body">Getting accurate sentiment from a small on-device model. Handling failed parses gracefully. Chaining trades together even when entered out of order. Surfacing real behavioral insights that actually improve a trader's decisions, not generic "set a stop loss" advice. Presenting all of this while maintaining a clean, notebook-like feel.</div>
                     </div>
                     <div class="case-step">
-                        <div class="case-step-label">What failed</div>
-                        <div class="case-step-body"><strong>My first approach used a single long prompt</strong> that tried to do everything at once: tag the trade, detect sentiment, generate advice. Latency was terrible and the output was generic. I broke it into a chain of focused prompts, each doing one thing well. Inference time dropped by 60%.</div>
-                    </div>
-                    <div class="case-step">
-                        <div class="case-step-label">Result</div>
-                        <div class="case-step-body">
-                            Tag accuracy before and after prompt chaining:
+                        <div class="case-step-label">Three engines</div>
+                        <div class="case-step-body">The insight engine went through three full rewrites:
+                            <br><br><strong>v1 (stats-based):</strong> Serialized aggregated stats into the prompt. The model received numbers like "plan_quality: 3 days, avg P/L -$205." Problem: the tags were ambiguous. "plan_quality" fired on both "followed my plan" and "broke my rules," so the aggregated stats were misleading. The LLM echoed system jargon into user-facing text.
+                            <br><br><strong>v2 (stats + human labels):</strong> Translated tag IDs to plain language and rewrote the system prompt to ban jargon. More readable, but still wrong, because the underlying data was still lossy from ambiguous tags.
+                            <br><br><strong>v3 (raw notes):</strong> Feeds the LLM the trader's actual journal entries with outcomes. No stats aggregation. The model reads their real words and finds patterns itself. Added in-memory caching keyed by trade data hash. This is the current architecture.
                             <div class="acc-viz r">
                                 <div class="acc-block">
-                                    <div class="acc-label">Single prompt</div>
+                                    <div class="acc-label">v1 stats-based</div>
                                     <div class="acc-bar-wrap"><div class="acc-bar before"></div></div>
                                     <div class="acc-num dim">40%</div>
                                 </div>
                                 <div class="acc-block">
-                                    <div class="acc-label">Chained prompts</div>
+                                    <div class="acc-label">v3 raw notes</div>
                                     <div class="acc-bar-wrap"><div class="acc-bar after"></div></div>
                                     <div class="acc-num lit">85%</div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="case-step">
+                        <div class="case-step-label">Lesson</div>
+                        <div class="case-step-body"><strong>Don't aggregate data the model hasn't seen.</strong> Every layer of abstraction between the user's words and the LLM is a place where meaning gets lost. The best insights came when I stopped trying to pre-process and let the model read the raw text.</div>
                     </div>
                     <div class="case-step">
                         <div class="case-step-label">Stack</div>
@@ -1248,7 +1261,7 @@
                 </div>
                 <div class="thesis-point">
                     <h4>Evidence: Grati</h4>
-                    <p>Photo-based gratitude app built in under two weeks. Defined the MVP, built with Swift + Supabase + Cursor, iterated until engagement jumped 40% in private testing.</p>
+                    <p>A photo-based gratitude app. On-device LLM generates live captions as you frame a shot, a delayed shutter (press and hold) fades the viewfinder to white. Idea to working prototype in a single day. The turning point where I realized vibe coding was real.</p>
                 </div>
                 <div class="thesis-point">
                     <h4>Evidence: Daily practice</h4>
@@ -1276,7 +1289,7 @@
                 <div class="tl-when">2025 — now</div>
                 <div class="tl-role">Founder</div>
                 <div class="tl-co">Tape</div>
-                <div class="tl-desc">AI trading journal with on-device LLMs. My lab for what happens when the barrier between idea and working product disappears.</div>
+                <div class="tl-desc">AI trading journal with on-device LLMs. Three engine rewrites, prompt architecture from scratch, solo from idea to TestFlight.</div>
             </div>
             <div class="tl-i">
                 <div class="tl-dot"></div>
@@ -1290,7 +1303,7 @@
                 <div class="tl-when">2022 — 2023</div>
                 <div class="tl-role">Product Manager</div>
                 <div class="tl-co">Warner Bros. Discovery</div>
-                <div class="tl-desc">System integrations during the $43B merger. Multimillion-dollar projects, global teams. Learned more about alignment in one year than most PMs learn in five.</div>
+                <div class="tl-desc">Led the ServiceNow + HR portal integration during the $43B merger, coordinating a new design language across both companies' stakeholders. Owned change management planning, built training programs, and shipped the unified portal on deadline.</div>
             </div>
             <div class="tl-i">
                 <div class="tl-dot"></div>
@@ -1310,7 +1323,7 @@
             <h2>Let's talk.</h2>
             <div class="contact-sub">Currently exploring AI-native product roles</div>
             <p class="contact-p">
-                I'm looking for teams that care about craft, treat people like adults, and solve problems worth solving. Disruptors over incumbents. Worst case we have a good conversation.
+                I'm looking for teams that care about craft, treat people like adults, and solve problems worth solving. Disruptors over incumbents.
             </p>
             <div class="contact-links">
                 <a href="mailto:ghaziearyan@gmail.com" class="cl">
@@ -1352,6 +1365,26 @@
     });
     const saved = localStorage.getItem('theme');
     if (saved) setTheme(saved);
+
+    // Marquee — JS-driven for smooth deceleration on hover
+    (function() {
+        const track = document.querySelector('.marquee-track');
+        if (!track) return;
+        let pos = 0;
+        let speed = 1.2;
+        let targetSpeed = 1.2;
+        const half = track.scrollWidth / 2;
+        track.parentElement.addEventListener('mouseenter', () => { targetSpeed = 0.3; });
+        track.parentElement.addEventListener('mouseleave', () => { targetSpeed = 1.2; });
+        function tick() {
+            speed += (targetSpeed - speed) * 0.04;
+            pos -= speed;
+            if (pos <= -half) pos += half;
+            track.style.transform = 'translateX(' + pos + 'px)';
+            requestAnimationFrame(tick);
+        }
+        tick();
+    })();
 
     // Cursor glow
     const glow = document.getElementById('cursorGlow');
@@ -1436,24 +1469,23 @@
         }
     });
 
-    // Phone frame parallax on scroll
+    // Phone frame parallax on scroll — staggered vertical offset
     const phoneFrames = document.querySelectorAll('.phone-frame');
     if (phoneFrames.length) {
-        const gallery = document.querySelector('.screenshot-gallery');
+        const gallery = document.querySelector('.screenshot-break');
+        const speeds = [-0.15, 0.08, -0.12];
         function updateParallax() {
             if (!gallery) return;
             const rect = gallery.getBoundingClientRect();
             const center = window.innerHeight / 2;
-            const offset = (rect.top + rect.height / 2 - center) / center;
+            const progress = (rect.top + rect.height / 2 - center) / center;
             phoneFrames.forEach((frame, i) => {
-                const speed = (i - 1) * 12;
-                const y = offset * speed;
-                const baseRotate = i === 0 ? -2 : i === 2 ? 2 : 0;
-                const baseY = i === 1 ? -8 : 0;
-                frame.style.transform = `rotate(${baseRotate}deg) translateY(${baseY + y}px)`;
+                const y = progress * speeds[i] * 80;
+                frame.style.transform = `translateY(${y}px)`;
             });
         }
         window.addEventListener('scroll', updateParallax, { passive: true });
+        updateParallax();
     }
 
     // Smooth scroll
