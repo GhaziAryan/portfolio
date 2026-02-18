@@ -734,19 +734,42 @@
             content: ''; position: absolute;
             left: 6px; top: 8px; bottom: 8px; width: 1px;
             background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+            transform-origin: top;
+            transform: scaleY(0);
+            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
+        .tl.tl-draw::before { transform: scaleY(1); }
         .tl-i { position: relative; padding-bottom: 44px; }
         .tl-i:last-child { padding-bottom: 0; }
         .tl-dot {
             position: absolute; left: -36px; top: 6px;
             width: 13px; height: 13px; border-radius: 50%;
             background: var(--bg); border: 2px solid var(--accent);
-            z-index: 2; transition: all 0.3s var(--ease);
+            z-index: 2;
+            transform: scale(0);
+            transition: transform 0.5s var(--ease), background 0.4s, box-shadow 0.4s;
         }
-        .tl-i:first-child .tl-dot {
+        .tl-i.tl-active .tl-dot {
+            transform: scale(1);
             background: var(--accent);
-            box-shadow: 0 0 10px var(--accent-g);
+            box-shadow: 0 0 12px var(--accent-g);
         }
+        .tl-i .tl-role, .tl-i .tl-co, .tl-i .tl-desc, .tl-i .tl-when {
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+        }
+        .tl-i.tl-active .tl-role,
+        .tl-i.tl-active .tl-co,
+        .tl-i.tl-active .tl-desc,
+        .tl-i.tl-active .tl-when {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .tl-i.tl-active .tl-when { transition-delay: 0.05s; }
+        .tl-i.tl-active .tl-role { transition-delay: 0.1s; }
+        .tl-i.tl-active .tl-co { transition-delay: 0.15s; }
+        .tl-i.tl-active .tl-desc { transition-delay: 0.2s; }
         .tl-when {
             font-size: 12px; color: var(--t3);
             font-family: 'IBM Plex Mono', monospace;
@@ -1471,6 +1494,31 @@
             }, 6500);
         }
     });
+
+    // Timeline draw-on-scroll
+    const tl = document.querySelector('.tl');
+    const tlItems = document.querySelectorAll('.tl-i');
+    if (tl) {
+        const tlObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    tl.classList.add('tl-draw');
+                    tlObs.unobserve(tl);
+                }
+            });
+        }, { threshold: 0.1 });
+        tlObs.observe(tl);
+
+        const itemObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('tl-active');
+                    itemObs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+        tlItems.forEach(item => itemObs.observe(item));
+    }
 
     // Phone frame parallax on scroll — staggered vertical offset
     const phoneFrames = document.querySelectorAll('.phone-frame');
