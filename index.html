@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghazi Aryan</title>
-    <meta name="description" content="Product manager building at the intersection of AI and product. Apple, WBD, Capital One.">
+    <meta name="description"
+        content="Product manager building at the intersection of AI and product. Apple, WBD, Capital One.">
     <meta property="og:title" content="Ghazi Aryan — Product Manager">
-    <meta property="og:description" content="PM who builds. Apple, WBD, Capital One. Building Tape, an AI trading journal.">
+    <meta property="og:description"
+        content="PM who builds. Apple, WBD, Capital One. Building Tape, an AI trading journal.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://ghaziaryan.github.io/portfolio/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,600&family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,600&family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         /* ═══ THEME TOKENS ═══ */
         :root {
             --ease: cubic-bezier(0.16, 1, 0.3, 1);
             --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
         }
+
         [data-theme="dark"] {
             --bg: #0e0d11;
             --bg2: #15141a;
@@ -44,6 +57,7 @@
             --glow1: rgba(200, 120, 86, 0.05);
             --glow2: rgba(91, 158, 144, 0.04);
         }
+
         [data-theme="light"] {
             --bg: #f6f3ee;
             --bg2: #edeae4;
@@ -67,7 +81,10 @@
             --glow2: rgba(61, 135, 122, 0.05);
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Manrope', -apple-system, sans-serif;
             background: var(--bg);
@@ -76,74 +93,170 @@
             overflow-x: hidden;
             transition: background 0.5s var(--ease), color 0.4s var(--ease);
         }
-        ::selection { background: var(--accent-g); }
+
+        ::selection {
+            background: var(--accent-g);
+        }
 
         /* Grain */
         body::after {
             content: '';
-            position: fixed; inset: 0;
-            pointer-events: none; z-index: 9999;
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
             opacity: 0.018;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
         /* Ambient glow */
-        .amb { position: fixed; inset: 0; pointer-events: none; z-index: 0; transition: opacity 0.5s; }
-        .amb div { position: absolute; border-radius: 50%; filter: blur(180px); transition: background 0.5s; }
-        .amb .a1 { width: 700px; height: 700px; background: var(--glow1); top: -250px; right: -150px; animation: drift1 28s ease-in-out infinite; }
-        .amb .a2 { width: 500px; height: 500px; background: var(--glow2); bottom: 10%; left: -100px; animation: drift2 22s ease-in-out infinite; }
-        @keyframes drift1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,25px)} }
-        @keyframes drift2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(25px,-30px)} }
+        .amb {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            transition: opacity 0.5s;
+        }
+
+        .amb div {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(180px);
+            transition: background 0.5s;
+        }
+
+        .amb .a1 {
+            width: 700px;
+            height: 700px;
+            background: var(--glow1);
+            top: -250px;
+            right: -150px;
+            animation: drift1 28s ease-in-out infinite;
+        }
+
+        .amb .a2 {
+            width: 500px;
+            height: 500px;
+            background: var(--glow2);
+            bottom: 10%;
+            left: -100px;
+            animation: drift2 22s ease-in-out infinite;
+        }
+
+        @keyframes drift1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(-30px, 25px)
+            }
+        }
+
+        @keyframes drift2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(25px, -30px)
+            }
+        }
 
         /* Cursor glow */
         .cursor-glow {
             position: fixed;
-            width: 280px; height: 280px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             background: radial-gradient(circle, var(--glow1) 0%, transparent 70%);
-            pointer-events: none; z-index: 0;
+            pointer-events: none;
+            z-index: 0;
             transform: translate(-50%, -50%);
             opacity: 0;
             transition: opacity 0.4s;
         }
-        body:hover .cursor-glow { opacity: 1; }
+
+        body:hover .cursor-glow {
+            opacity: 1;
+        }
 
         /* Scroll progress */
         .scroll-bar {
-            position: fixed; top: 0; left: 0;
-            height: 2px; background: var(--grad);
-            z-index: 200; width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--grad);
+            z-index: 200;
+            width: 0;
             transition: width 0.08s linear;
         }
 
         /* ═══ NAV ═══ */
         nav {
-            position: fixed; top: 0; width: 100%; z-index: 100;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
             padding: 18px 40px;
-            display: flex; align-items: center; justify-content: space-between;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             backdrop-filter: blur(24px) saturate(1.2);
             background: var(--nav-bg);
             border-bottom: 1px solid var(--surface-b);
             transition: padding 0.3s var(--ease), background 0.4s;
         }
-        nav.compact { padding: 13px 40px; }
+
+        nav.compact {
+            padding: 13px 40px;
+        }
+
         .nav-name {
             font-family: 'Fraunces', Georgia, serif;
-            font-size: 16px; font-weight: 600;
+            font-size: 16px;
+            font-weight: 600;
             letter-spacing: -0.02em;
             cursor: pointer;
             transition: transform 0.3s var(--ease);
         }
-        .nav-name:hover { transform: scale(1.04); }
-        .nav-name span { color: var(--accent); }
-        .nav-r { display: flex; gap: 24px; list-style: none; align-items: center; }
+
+        .nav-name:hover {
+            transform: scale(1.04);
+        }
+
+        .nav-name span {
+            color: var(--accent);
+        }
+
+        .nav-r {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            align-items: center;
+        }
+
         .nav-r a {
-            font-size: 13px; color: var(--t3);
-            text-decoration: none; transition: color 0.2s;
+            font-size: 13px;
+            color: var(--t3);
+            text-decoration: none;
+            transition: color 0.2s;
             font-weight: 500;
         }
-        .nav-r a:hover { color: var(--t); }
-        .nav-r a.active { color: var(--t); }
+
+        .nav-r a:hover {
+            color: var(--t);
+        }
+
+        .nav-r a.active {
+            color: var(--t);
+        }
+
         .nav-r .cta {
             padding: 8px 18px;
             background: var(--accent-s);
@@ -153,6 +266,7 @@
             font-weight: 600 !important;
             transition: all 0.3s var(--ease);
         }
+
         .nav-r .cta:hover {
             background: var(--accent);
             color: #fff !important;
@@ -161,38 +275,58 @@
 
         /* Theme toggle */
         .theme-toggle {
-            width: 36px; height: 36px;
+            width: 36px;
+            height: 36px;
             border-radius: 10px;
             background: var(--surface);
             border: 1px solid var(--surface-b);
             color: var(--t2);
             cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s var(--ease);
             font-size: 16px;
         }
+
         .theme-toggle:hover {
             background: var(--surface-h);
             color: var(--t);
             transform: rotate(20deg);
         }
 
-        section { position: relative; z-index: 2; }
-        .wrap { max-width: 1060px; margin: 0 auto; padding: 0 40px; }
-        .wrap-sm { max-width: 720px; margin: 0 auto; padding: 0 40px; }
+        section {
+            position: relative;
+            z-index: 2;
+        }
+
+        .wrap {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .wrap-sm {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
 
         /* ═══ HERO ═══ */
         .hero {
             min-height: 100vh;
-            display: flex; align-items: center;
+            display: flex;
+            align-items: center;
             padding: 120px 0 80px;
         }
+
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 320px;
             gap: 56px;
             align-items: center;
         }
+
         .hero-name {
             font-family: 'Syne', sans-serif;
             font-size: clamp(52px, 8vw, 88px);
@@ -201,6 +335,7 @@
             line-height: 0.92;
             margin-bottom: 24px;
         }
+
         .hero-sub {
             font-family: 'Fraunces', Georgia, serif;
             font-size: clamp(18px, 2.5vw, 24px);
@@ -211,39 +346,50 @@
             margin-bottom: 24px;
             max-width: 480px;
         }
+
         .hero-sub strong {
             font-weight: 600;
             color: var(--t);
             font-style: normal;
         }
+
         .hero-companies {
-            display: flex; gap: 10px; flex-wrap: wrap;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
             margin-bottom: 28px;
         }
+
         .co-badge {
             padding: 7px 16px;
             background: var(--surface);
             border: 1px solid var(--surface-b);
             border-radius: 10px;
-            font-size: 13px; font-weight: 600;
+            font-size: 13px;
+            font-weight: 600;
             color: var(--t2);
             transition: all 0.3s var(--ease);
-            position: relative; cursor: default;
+            position: relative;
+            cursor: default;
         }
+
         .co-badge:hover {
             border-color: var(--accent-b);
             color: var(--accent);
             transform: translateY(-2px);
         }
+
         .co-badge[data-tip]::after {
             content: attr(data-tip);
             position: absolute;
             bottom: calc(100% + 8px);
-            left: 50%; transform: translateX(-50%) translateY(4px);
+            left: 50%;
+            transform: translateX(-50%) translateY(4px);
             padding: 8px 14px;
             background: var(--t);
             color: var(--bg);
-            font-size: 11px; font-weight: 400;
+            font-size: 11px;
+            font-weight: 400;
             font-family: 'IBM Plex Mono', monospace;
             border-radius: 8px;
             white-space: nowrap;
@@ -252,50 +398,81 @@
             transition: all 0.25s var(--ease);
             z-index: 50;
         }
+
         .co-badge[data-tip]:hover::after {
             opacity: 1;
             transform: translateX(-50%) translateY(0);
         }
+
         .hero-ctas {
-            display: flex; gap: 12px; align-items: center;
+            display: flex;
+            gap: 12px;
+            align-items: center;
             margin-bottom: 24px;
         }
+
         .btn-primary {
-            display: inline-flex; align-items: center; gap: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 14px 28px;
             background: var(--accent);
             color: #fff;
-            border: none; border-radius: 12px;
-            font-size: 14px; font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
             font-family: inherit;
-            cursor: pointer; text-decoration: none;
+            cursor: pointer;
+            text-decoration: none;
             transition: all 0.35s var(--ease);
         }
+
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 28px var(--accent-g);
         }
+
         .btn-ghost {
-            display: inline-flex; align-items: center; gap: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 14px 24px;
             background: var(--surface);
             border: 1px solid var(--surface-b);
             border-radius: 12px;
-            color: var(--t2); font-size: 14px; font-weight: 600;
-            font-family: inherit; cursor: pointer; text-decoration: none;
+            color: var(--t2);
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            text-decoration: none;
             transition: all 0.3s var(--ease);
         }
-        .btn-ghost:hover { background: var(--surface-h); color: var(--t); }
-        .hero-meta {
-            display: flex; gap: 20px; flex-wrap: wrap;
+
+        .btn-ghost:hover {
+            background: var(--surface-h);
+            color: var(--t);
         }
-        .hero-meta a, .hero-meta span {
-            font-size: 12px; color: var(--t3);
+
+        .hero-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-meta a,
+        .hero-meta span {
+            font-size: 12px;
+            color: var(--t3);
             text-decoration: none;
             font-family: 'IBM Plex Mono', monospace;
             transition: color 0.2s;
         }
-        .hero-meta a:hover { color: var(--accent); }
+
+        .hero-meta a:hover {
+            color: var(--accent);
+        }
 
         /* Conviction card */
         .hero-card {
@@ -309,60 +486,96 @@
             transform-style: preserve-3d;
             perspective: 600px;
         }
-        [data-theme="dark"] { --card-bg: #1c1b22; }
-        [data-theme="light"] { --card-bg: #eae7e1; }
+
+        [data-theme="dark"] {
+            --card-bg: #1c1b22;
+        }
+
+        [data-theme="light"] {
+            --card-bg: #eae7e1;
+        }
+
         .hero-card:hover {
             transform: translateY(-4px) rotateX(2deg) rotateY(-2deg);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
         }
+
         .hero-card-label {
-            font-size: 10px; font-weight: 600;
-            text-transform: uppercase; letter-spacing: 0.12em;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
             color: var(--accent);
             font-family: 'IBM Plex Mono', monospace;
             margin-bottom: 16px;
         }
+
         .hero-card p {
             font-family: 'Fraunces', Georgia, serif;
-            font-size: 15px; color: var(--t);
-            line-height: 1.65; margin-bottom: 16px;
+            font-size: 15px;
+            color: var(--t);
+            line-height: 1.65;
+            margin-bottom: 16px;
         }
-        .hero-card p strong { color: var(--accent); font-weight: 600; }
+
+        .hero-card p strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
         .hero-card-sig {
             font-family: 'Fraunces', Georgia, serif;
-            font-style: italic; font-size: 15px;
+            font-style: italic;
+            font-size: 15px;
             color: var(--accent);
         }
 
         /* Sec label */
         .sec-label {
-            font-size: 10px; font-weight: 600;
+            font-size: 10px;
+            font-weight: 600;
             color: var(--accent);
-            text-transform: uppercase; letter-spacing: 0.14em;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
             font-family: 'IBM Plex Mono', monospace;
             margin-bottom: 20px;
         }
 
         /* ═══ ABOUT ═══ */
-        .about { padding: 120px 0; }
+        .about {
+            padding: 120px 0;
+        }
+
         .about-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: start;
         }
+
         .about-text p {
-            font-size: 15px; line-height: 1.8;
-            color: var(--t2); margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--t2);
+            margin-bottom: 20px;
         }
-        .about-text p strong { color: var(--t); font-weight: 600; }
+
+        .about-text p strong {
+            color: var(--t);
+            font-weight: 600;
+        }
+
         .about-text a {
             color: var(--accent);
             text-decoration: none;
             border-bottom: 1px solid var(--accent-b);
             transition: border-color 0.2s;
         }
-        .about-text a:hover { border-color: var(--accent); }
+
+        .about-text a:hover {
+            border-color: var(--accent);
+        }
+
         .about-aside {
             padding: 24px;
             background: var(--surface);
@@ -371,25 +584,37 @@
             margin-bottom: 16px;
             transition: all 0.3s var(--ease);
         }
+
         .about-aside:hover {
             border-color: var(--surface-h);
             transform: translateY(-2px);
         }
+
         .aside-label {
-            font-size: 10px; text-transform: uppercase;
-            letter-spacing: 0.12em; color: var(--t3);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--t3);
             font-family: 'IBM Plex Mono', monospace;
             margin-bottom: 12px;
         }
-        .aside-items { display: flex; flex-wrap: wrap; gap: 8px; }
+
+        .aside-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
         .aside-item {
             padding: 6px 14px;
             background: var(--surface);
             border: 1px solid var(--surface-b);
             border-radius: 100px;
-            font-size: 12px; color: var(--t2);
+            font-size: 12px;
+            color: var(--t2);
             transition: all 0.25s var(--ease);
         }
+
         .aside-item:hover {
             border-color: var(--accent-b);
             color: var(--accent);
@@ -405,22 +630,32 @@
             margin-bottom: 16px;
             transition: all 0.3s var(--ease);
         }
+
         .testimonial:hover {
             border-color: var(--accent2-b);
             transform: translateY(-2px);
         }
+
         .testimonial blockquote {
             font-family: 'Fraunces', Georgia, serif;
-            font-style: italic; font-size: 15px;
-            line-height: 1.6; color: var(--t);
+            font-style: italic;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--t);
             margin-bottom: 12px;
         }
+
         .testimonial cite {
             font-family: 'IBM Plex Mono', monospace;
-            font-style: normal; font-size: 12px;
+            font-style: normal;
+            font-size: 12px;
             color: var(--t3);
         }
-        .testimonial cite strong { color: var(--t2); font-weight: 600; }
+
+        .testimonial cite strong {
+            color: var(--t2);
+            font-weight: 600;
+        }
 
         /* Divider */
         .divider {
@@ -437,15 +672,17 @@
             position: relative;
             overflow: hidden;
         }
+
         .pullquote-section::before {
             content: '';
             position: absolute;
             inset: 0;
             background: radial-gradient(ellipse 80% 60% at 30% 40%, var(--glow1) 0%, transparent 60%),
-                        radial-gradient(ellipse 60% 50% at 70% 60%, var(--glow2) 0%, transparent 60%);
+                radial-gradient(ellipse 60% 50% at 70% 60%, var(--glow2) 0%, transparent 60%);
             opacity: 0.6;
             pointer-events: none;
         }
+
         .pullquote-inner {
             position: relative;
             text-align: center;
@@ -453,6 +690,7 @@
             margin: 0 auto;
             padding: 0 40px;
         }
+
         .pullquote-inner blockquote {
             font-family: 'Syne', sans-serif;
             font-size: clamp(30px, 5vw, 56px);
@@ -462,30 +700,46 @@
             color: var(--t);
             margin-bottom: 20px;
         }
+
         .pullquote-inner blockquote .accent-word {
             background: var(--grad);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .pullquote-inner cite {
             display: block;
             font-family: 'IBM Plex Mono', monospace;
-            font-style: normal; font-size: 12px;
-            color: var(--t3); margin-top: 16px;
+            font-style: normal;
+            font-size: 12px;
+            color: var(--t3);
+            margin-top: 16px;
             letter-spacing: 0.04em;
         }
 
         /* ═══ WORK ═══ */
-        .work { padding: 120px 0; }
-        .work-header { margin-bottom: 48px; }
+        .work {
+            padding: 120px 0;
+        }
+
+        .work-header {
+            margin-bottom: 48px;
+        }
+
         .work-header h2 {
             font-family: 'Syne', sans-serif;
             font-size: clamp(28px, 4vw, 42px);
-            font-weight: 800; letter-spacing: -0.03em;
+            font-weight: 800;
+            letter-spacing: -0.03em;
             margin-bottom: 8px;
         }
-        .work-header p { font-size: 14px; color: var(--t3); }
+
+        .work-header p {
+            font-size: 14px;
+            color: var(--t3);
+        }
+
         .case {
             background: var(--surface);
             border: 1px solid var(--surface-b);
@@ -494,58 +748,104 @@
             margin-bottom: 28px;
             transition: all 0.4s var(--ease);
         }
+
         .case:hover {
             border-color: var(--accent-b);
             transform: translateY(-3px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
         }
-        .case-top { padding: 44px 44px 0; }
+
+        .case-top {
+            padding: 44px 44px 0;
+        }
+
         .case-co {
-            font-size: 10px; font-weight: 600;
+            font-size: 10px;
+            font-weight: 600;
             color: var(--accent);
-            text-transform: uppercase; letter-spacing: 0.1em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             font-family: 'IBM Plex Mono', monospace;
             margin-bottom: 16px;
         }
+
         .case h3 {
             font-family: 'Syne', sans-serif;
             font-size: clamp(22px, 3vw, 30px);
-            font-weight: 800; letter-spacing: -0.03em;
-            line-height: 1.15; margin-bottom: 14px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 14px;
         }
+
         .case-lede {
-            font-size: 15px; color: var(--t2);
-            line-height: 1.7; max-width: 540px;
+            font-size: 15px;
+            color: var(--t2);
+            line-height: 1.7;
+            max-width: 540px;
         }
+
         .case-outcomes {
-            display: flex; gap: 28px; padding: 24px 0; flex-wrap: wrap;
+            display: flex;
+            gap: 28px;
+            padding: 24px 0;
+            flex-wrap: wrap;
         }
+
         .case-outcome .val {
             font-family: 'Syne', sans-serif;
-            font-size: 22px; font-weight: 800;
+            font-size: 22px;
+            font-weight: 800;
             color: var(--accent);
         }
-        .case-outcome .lbl { font-size: 11px; color: var(--t3); margin-top: 2px; }
-        .case-story { padding: 0 44px 44px; }
-        .case-narrative { display: grid; gap: 0; }
+
+        .case-outcome .lbl {
+            font-size: 11px;
+            color: var(--t3);
+            margin-top: 2px;
+        }
+
+        .case-story {
+            padding: 0 44px 44px;
+        }
+
+        .case-narrative {
+            display: grid;
+            gap: 0;
+        }
+
         .case-step {
             display: grid;
             grid-template-columns: 100px 1fr;
-            gap: 24px; padding: 24px 0;
+            gap: 24px;
+            padding: 24px 0;
             border-bottom: 1px solid var(--surface-b);
         }
-        .case-step:last-child { border-bottom: none; }
+
+        .case-step:last-child {
+            border-bottom: none;
+        }
+
         .case-step-label {
-            font-size: 10px; font-weight: 600;
-            text-transform: uppercase; letter-spacing: 0.08em;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
             color: var(--t3);
             font-family: 'IBM Plex Mono', monospace;
             padding-top: 3px;
         }
+
         .case-step-body {
-            font-size: 14px; color: var(--t2); line-height: 1.75;
+            font-size: 14px;
+            color: var(--t2);
+            line-height: 1.75;
         }
-        .case-step-body strong { color: var(--t); font-weight: 600; }
+
+        .case-step-body strong {
+            color: var(--t);
+            font-weight: 600;
+        }
 
         /* Screenshot gallery — full-bleed to break column flow */
         .screenshot-break {
@@ -557,29 +857,48 @@
             position: relative;
             overflow: hidden;
         }
+
         .screenshot-break::before {
             content: '';
-            position: absolute; inset: 0;
+            position: absolute;
+            inset: 0;
             background: radial-gradient(ellipse 50% 80% at 50% 50%, var(--glow2) 0%, transparent 70%);
             opacity: 0.5;
             pointer-events: none;
         }
+
         .screenshot-gallery {
-            display: flex; gap: 24px; justify-content: center;
-            position: relative; z-index: 1;
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
         }
+
         .phone-frame {
-            flex-shrink: 0; width: 190px;
-            background: #1c1c1e; border-radius: 26px;
+            flex-shrink: 0;
+            width: 190px;
+            background: #1c1c1e;
+            border-radius: 26px;
             padding: 8px;
-            border: 1px solid rgba(255,255,255,0.06);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
             transition: transform 0.6s var(--ease);
         }
-        .phone-frame:hover { transform: translateY(-6px) scale(1.02); }
-        .phone-frame img { width: 100%; border-radius: 20px; display: block; }
+
+        .phone-frame:hover {
+            transform: translateY(-6px) scale(1.02);
+        }
+
+        .phone-frame img {
+            width: 100%;
+            border-radius: 20px;
+            display: block;
+        }
+
         .phone-caption {
-            text-align: center; font-size: 10px;
+            text-align: center;
+            font-size: 10px;
             color: var(--t3);
             font-family: 'IBM Plex Mono', monospace;
             margin-top: 8px;
@@ -587,67 +906,124 @@
 
         /* Before/after flow */
         .flow-row {
-            display: grid; grid-template-columns: 1fr auto 1fr;
-            gap: 14px; align-items: center; margin: 14px 0 6px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 14px;
+            align-items: center;
+            margin: 14px 0 6px;
         }
+
         .flow-box {
-            padding: 14px 16px; border-radius: 10px;
-            font-size: 12px; line-height: 1.5;
+            padding: 14px 16px;
+            border-radius: 10px;
+            font-size: 12px;
+            line-height: 1.5;
             font-family: 'IBM Plex Mono', monospace;
         }
+
         .flow-box.before {
             background: var(--surface);
             border: 1px solid var(--surface-b);
             color: var(--t3);
         }
+
         .flow-box.after {
             background: var(--accent-s);
             border: 1px solid var(--accent-b);
             color: var(--accent);
         }
-        .flow-arrow { font-size: 18px; color: var(--t4); text-align: center; }
+
+        .flow-arrow {
+            font-size: 18px;
+            color: var(--t4);
+            text-align: center;
+        }
 
         /* Accuracy bars */
         .acc-viz {
             margin: 16px 0 4px;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
         }
+
         .acc-block {
             padding: 16px;
             background: var(--bg2);
             border: 1px solid var(--surface-b);
             border-radius: 12px;
         }
+
         .acc-label {
-            font-size: 10px; font-weight: 600;
-            text-transform: uppercase; letter-spacing: 0.08em;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
             color: var(--t3);
             font-family: 'IBM Plex Mono', monospace;
             margin-bottom: 10px;
         }
+
         .acc-bar-wrap {
-            height: 6px; background: var(--surface-b);
-            border-radius: 3px; overflow: hidden; margin-bottom: 8px;
+            height: 6px;
+            background: var(--surface-b);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 8px;
         }
+
         .acc-bar {
-            height: 100%; border-radius: 3px;
+            height: 100%;
+            border-radius: 3px;
             transition: width 1.2s var(--ease);
         }
-        .acc-bar.before { width: 0; background: var(--t3); }
-        .acc-bar.after { width: 0; background: var(--accent); }
-        .acc-bar.before.fill { width: 40%; }
-        .acc-bar.after.fill { width: 85%; }
-        .acc-num { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; }
-        .acc-num.dim { color: var(--t3); }
-        .acc-num.lit { color: var(--accent); }
-        .acc-num::before { content: ''; } /* prevent negative sign rendering */
+
+        .acc-bar.before {
+            width: 0;
+            background: var(--t3);
+        }
+
+        .acc-bar.after {
+            width: 0;
+            background: var(--accent);
+        }
+
+        .acc-bar.before.fill {
+            width: 40%;
+        }
+
+        .acc-bar.after.fill {
+            width: 85%;
+        }
+
+        .acc-num {
+            font-family: 'Syne', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .acc-num.dim {
+            color: var(--t3);
+        }
+
+        .acc-num.lit {
+            color: var(--accent);
+        }
+
+        .acc-num::before {
+            content: '';
+        }
+
+        /* prevent negative sign rendering */
 
         .case-callout {
-            margin-top: 20px; padding: 18px 22px;
+            margin-top: 20px;
+            padding: 18px 22px;
             background: var(--accent-s);
             border: 1px solid var(--accent-b);
             border-radius: 12px;
-            font-size: 13px; color: var(--accent);
+            font-size: 13px;
+            color: var(--accent);
             line-height: 1.65;
             font-family: 'IBM Plex Mono', monospace;
         }
@@ -660,15 +1036,20 @@
             border: 1px solid var(--accent2-b);
             border-radius: 12px;
         }
+
         .case-testimonial blockquote {
             font-family: 'Fraunces', Georgia, serif;
-            font-style: italic; font-size: 14px;
-            color: var(--t); line-height: 1.6;
+            font-style: italic;
+            font-size: 14px;
+            color: var(--t);
+            line-height: 1.6;
             margin-bottom: 8px;
         }
+
         .case-testimonial cite {
             font-family: 'IBM Plex Mono', monospace;
-            font-style: normal; font-size: 11px;
+            font-style: normal;
+            font-size: 11px;
             color: var(--t3);
         }
 
@@ -680,29 +1061,46 @@
             border-bottom: 1px solid var(--surface-b);
             transition: background 0.5s var(--ease);
         }
+
         .thesis-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
         }
+
         .thesis-grid h2 {
             font-family: 'Syne', sans-serif;
             font-size: clamp(26px, 3.5vw, 38px);
-            font-weight: 800; letter-spacing: -0.03em;
-            line-height: 1.15; margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 20px;
         }
+
         .thesis-grid h2 .accent-grad {
             background: var(--grad);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .thesis-text p {
-            font-size: 15px; color: var(--t2); line-height: 1.8;
+            font-size: 15px;
+            color: var(--t2);
+            line-height: 1.8;
             margin-bottom: 18px;
         }
-        .thesis-text p strong { color: var(--t); font-weight: 600; }
-        .thesis-evidence { display: grid; gap: 14px; }
+
+        .thesis-text p strong {
+            color: var(--t);
+            font-weight: 600;
+        }
+
+        .thesis-evidence {
+            display: grid;
+            gap: 14px;
+        }
+
         .thesis-point {
             padding: 20px 24px;
             background: var(--surface);
@@ -710,55 +1108,98 @@
             border-radius: 14px;
             transition: all 0.3s var(--ease);
         }
+
         .thesis-point:hover {
             border-color: var(--accent2-b);
             transform: translateY(-2px);
         }
+
         .thesis-point h4 {
             font-family: 'Syne', sans-serif;
-            font-size: 14px; font-weight: 700;
+            font-size: 14px;
+            font-weight: 700;
             margin-bottom: 6px;
         }
-        .thesis-point p { font-size: 13px; color: var(--t3); line-height: 1.6; }
+
+        .thesis-point p {
+            font-size: 13px;
+            color: var(--t3);
+            line-height: 1.6;
+        }
 
         /* ═══ TIMELINE ═══ */
-        .timeline-section { padding: 120px 0; }
+        .timeline-section {
+            padding: 120px 0;
+        }
+
         .timeline-section h2 {
             font-family: 'Syne', sans-serif;
             font-size: clamp(28px, 4vw, 42px);
-            font-weight: 800; letter-spacing: -0.03em;
+            font-weight: 800;
+            letter-spacing: -0.03em;
             margin-bottom: 48px;
         }
-        .tl { position: relative; padding-left: 36px; }
+
+        .tl {
+            position: relative;
+            padding-left: 36px;
+        }
+
         .tl::before {
-            content: ''; position: absolute;
-            left: 6px; top: 8px; bottom: 8px; width: 1px;
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
             background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
             transform-origin: top;
             transform: scaleY(0);
             transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .tl.tl-draw::before { transform: scaleY(1); }
-        .tl-i { position: relative; padding-bottom: 44px; }
-        .tl-i:last-child { padding-bottom: 0; }
+
+        .tl.tl-draw::before {
+            transform: scaleY(1);
+        }
+
+        .tl-i {
+            position: relative;
+            padding-bottom: 44px;
+        }
+
+        .tl-i:last-child {
+            padding-bottom: 0;
+        }
+
         .tl-dot {
-            position: absolute; left: -36px; top: 6px;
-            width: 13px; height: 13px; border-radius: 50%;
-            background: var(--bg); border: 2px solid var(--accent);
+            position: absolute;
+            left: -36px;
+            top: 6px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid var(--accent);
             z-index: 2;
             transform: scale(0);
             transition: transform 0.5s var(--ease), background 0.4s, box-shadow 0.4s;
         }
+
         .tl-i.tl-active .tl-dot {
             transform: scale(1);
             background: var(--accent);
             box-shadow: 0 0 12px var(--accent-g);
         }
-        .tl-i .tl-role, .tl-i .tl-co, .tl-i .tl-desc, .tl-i .tl-when {
+
+        .tl-i .tl-role,
+        .tl-i .tl-co,
+        .tl-i .tl-desc,
+        .tl-i .tl-when {
             opacity: 0;
             transform: translateX(-10px);
             transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
         }
+
         .tl-i.tl-active .tl-role,
         .tl-i.tl-active .tl-co,
         .tl-i.tl-active .tl-desc,
@@ -766,48 +1207,102 @@
             opacity: 1;
             transform: translateX(0);
         }
-        .tl-i.tl-active .tl-when { transition-delay: 0.05s; }
-        .tl-i.tl-active .tl-role { transition-delay: 0.1s; }
-        .tl-i.tl-active .tl-co { transition-delay: 0.15s; }
-        .tl-i.tl-active .tl-desc { transition-delay: 0.2s; }
+
+        .tl-i.tl-active .tl-when {
+            transition-delay: 0.05s;
+        }
+
+        .tl-i.tl-active .tl-role {
+            transition-delay: 0.1s;
+        }
+
+        .tl-i.tl-active .tl-co {
+            transition-delay: 0.15s;
+        }
+
+        .tl-i.tl-active .tl-desc {
+            transition-delay: 0.2s;
+        }
+
         .tl-when {
-            font-size: 12px; color: var(--t3);
+            font-size: 12px;
+            color: var(--t3);
             font-family: 'IBM Plex Mono', monospace;
             margin-bottom: 6px;
         }
+
         .tl-role {
             font-family: 'Syne', sans-serif;
-            font-size: 18px; font-weight: 700;
-            letter-spacing: -0.02em; margin-bottom: 2px;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 2px;
         }
-        .tl-co { font-size: 14px; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
-        .tl-desc { font-size: 14px; color: var(--t3); line-height: 1.7; max-width: 500px; }
+
+        .tl-co {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .tl-desc {
+            font-size: 14px;
+            color: var(--t3);
+            line-height: 1.7;
+            max-width: 500px;
+        }
 
         /* ═══ CONTACT ═══ */
-        .contact { padding: 120px 0 60px; }
+        .contact {
+            padding: 120px 0 60px;
+        }
+
         .contact h2 {
             font-family: 'Syne', sans-serif;
             font-size: clamp(28px, 4vw, 42px);
-            font-weight: 800; letter-spacing: -0.03em;
+            font-weight: 800;
+            letter-spacing: -0.03em;
             margin-bottom: 10px;
         }
+
         .contact-sub {
-            font-size: 12px; color: var(--accent);
+            font-size: 12px;
+            color: var(--accent);
             font-family: 'IBM Plex Mono', monospace;
-            letter-spacing: 0.04em; margin-bottom: 16px;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
         }
-        .contact-p { font-size: 15px; color: var(--t2); line-height: 1.7; margin-bottom: 32px; max-width: 480px; }
-        .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
+
+        .contact-p {
+            font-size: 15px;
+            color: var(--t2);
+            line-height: 1.7;
+            margin-bottom: 32px;
+            max-width: 480px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
         .cl {
-            display: inline-flex; align-items: center; gap: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 14px 24px;
             background: var(--surface);
             border: 1px solid var(--surface-b);
             border-radius: 12px;
-            color: var(--t2); font-size: 14px; font-weight: 600;
+            color: var(--t2);
+            font-size: 14px;
+            font-weight: 600;
             text-decoration: none;
             transition: all 0.3s var(--ease);
         }
+
         .cl:hover {
             border-color: var(--accent-b);
             background: var(--accent-s);
@@ -820,48 +1315,97 @@
             flex-shrink: 0;
             margin-top: -6px;
         }
+
         .sig-svg {
             width: 100px;
             height: auto;
             overflow: visible;
         }
+
         .sig-fill path:not([data-bg]) {
             fill: var(--t3);
             transition: fill 0.3s ease;
         }
-        .sig-fill [data-bg] { fill: transparent; }
+
+        .sig-fill [data-bg] {
+            fill: transparent;
+        }
+
         .sig-svg.neon-on .sig-fill path:not([data-bg]) {
             fill: #c87856;
         }
+
         @keyframes neon-flicker {
-            0%   { filter: none; }
-            5%   { filter: drop-shadow(0 0 5px rgba(200,120,86,.85)) drop-shadow(0 0 14px rgba(200,120,86,.4)); }
-            6%   { filter: none; }
-            9%   { filter: drop-shadow(0 0 3px rgba(200,120,86,.6)); }
-            10%  { filter: none; }
-            18%  { filter: none; }
-            20%  { filter: drop-shadow(0 0 6px rgba(200,120,86,.9)) drop-shadow(0 0 16px rgba(200,120,86,.45)); }
-            21%  { filter: none; }
-            22%  { filter: drop-shadow(0 0 6px rgba(200,120,86,.9)) drop-shadow(0 0 16px rgba(200,120,86,.45)); }
-            44%  { filter: drop-shadow(0 0 6px rgba(200,120,86,.85)) drop-shadow(0 0 14px rgba(200,120,86,.4)); }
-            45%  { filter: none; }
-            47%  { filter: drop-shadow(0 0 7px rgba(200,120,86,1)) drop-shadow(0 0 18px rgba(200,120,86,.5)); }
-            100% { filter: drop-shadow(0 0 6px rgba(200,120,86,.8)) drop-shadow(0 0 16px rgba(200,120,86,.35)); }
+            0% {
+                filter: none;
+            }
+
+            5% {
+                filter: drop-shadow(0 0 5px rgba(200, 120, 86, .85)) drop-shadow(0 0 14px rgba(200, 120, 86, .4));
+            }
+
+            6% {
+                filter: none;
+            }
+
+            9% {
+                filter: drop-shadow(0 0 3px rgba(200, 120, 86, .6));
+            }
+
+            10% {
+                filter: none;
+            }
+
+            18% {
+                filter: none;
+            }
+
+            20% {
+                filter: drop-shadow(0 0 6px rgba(200, 120, 86, .9)) drop-shadow(0 0 16px rgba(200, 120, 86, .45));
+            }
+
+            21% {
+                filter: none;
+            }
+
+            22% {
+                filter: drop-shadow(0 0 6px rgba(200, 120, 86, .9)) drop-shadow(0 0 16px rgba(200, 120, 86, .45));
+            }
+
+            44% {
+                filter: drop-shadow(0 0 6px rgba(200, 120, 86, .85)) drop-shadow(0 0 14px rgba(200, 120, 86, .4));
+            }
+
+            45% {
+                filter: none;
+            }
+
+            47% {
+                filter: drop-shadow(0 0 7px rgba(200, 120, 86, 1)) drop-shadow(0 0 18px rgba(200, 120, 86, .5));
+            }
+
+            100% {
+                filter: drop-shadow(0 0 6px rgba(200, 120, 86, .8)) drop-shadow(0 0 16px rgba(200, 120, 86, .35));
+            }
         }
+
         .sig-svg.neon-on {
             animation: neon-flicker 1.2s ease-out forwards;
         }
 
         footer {
-            position: relative; z-index: 2;
+            position: relative;
+            z-index: 2;
             padding: 32px 40px;
             border-top: 1px solid var(--surface-b);
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
+
         footer p {
-            font-size: 11px; color: var(--t3);
+            font-size: 11px;
+            color: var(--t3);
             font-family: 'IBM Plex Mono', monospace;
         }
 
@@ -872,17 +1416,22 @@
             border-top: 1px solid var(--surface-b);
             border-bottom: 1px solid var(--surface-b);
         }
+
         .marquee-track {
             display: flex;
             width: max-content;
         }
+
         /* marquee animation driven by JS for smooth hover deceleration */
         .marquee-item {
             flex-shrink: 0;
             padding: 0 48px;
-            display: flex; align-items: center; gap: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
             white-space: nowrap;
         }
+
         .marquee-item q {
             font-family: 'Fraunces', Georgia, serif;
             font-style: italic;
@@ -890,6 +1439,7 @@
             color: var(--t2);
             quotes: none;
         }
+
         .marquee-item cite {
             font-family: 'IBM Plex Mono', monospace;
             font-style: normal;
@@ -897,9 +1447,11 @@
             color: var(--t3);
             white-space: nowrap;
         }
+
         .marquee-sep {
             flex-shrink: 0;
-            width: 4px; height: 4px;
+            width: 4px;
+            height: 4px;
             border-radius: 50%;
             background: var(--accent);
             opacity: 0.4;
@@ -907,13 +1459,16 @@
 
         /* ═══ TOOLTIP on pills ═══ */
         .aside-item[data-tip] {
-            position: relative; cursor: default;
+            position: relative;
+            cursor: default;
         }
+
         .aside-item[data-tip]::after {
             content: attr(data-tip);
             position: absolute;
             bottom: calc(100% + 8px);
-            left: 50%; transform: translateX(-50%) translateY(4px);
+            left: 50%;
+            transform: translateX(-50%) translateY(4px);
             padding: 6px 12px;
             background: var(--t);
             color: var(--bg);
@@ -926,6 +1481,7 @@
             transition: all 0.25s var(--ease);
             z-index: 50;
         }
+
         .aside-item[data-tip]:hover::after {
             opacity: 1;
             transform: translateX(-50%) translateY(0);
@@ -934,26 +1490,33 @@
         /* ═══ STICKY FAB ═══ */
         .fab {
             position: fixed;
-            bottom: 28px; right: 28px;
+            bottom: 28px;
+            right: 28px;
             z-index: 90;
             padding: 14px 24px;
             background: var(--accent);
             color: #fff;
-            border: none; border-radius: 14px;
+            border: none;
+            border-radius: 14px;
             font-family: 'Manrope', sans-serif;
-            font-size: 14px; font-weight: 700;
+            font-size: 14px;
+            font-weight: 700;
             cursor: pointer;
             text-decoration: none;
-            display: flex; align-items: center; gap: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             box-shadow: 0 8px 32px var(--accent-g);
             transform: translateY(80px);
             opacity: 0;
             transition: all 0.4s var(--ease);
         }
+
         .fab.show {
             transform: translateY(0);
             opacity: 1;
         }
+
         .fab:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 40px var(--accent-g);
@@ -968,770 +1531,1778 @@
             background-clip: text;
             animation: nameShift 8s ease-in-out infinite;
         }
+
         @keyframes nameShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         /* Animations */
         .r {
-            opacity: 0; transform: translateY(24px);
+            opacity: 0;
+            transform: translateY(24px);
             transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
         }
-        .r.v { opacity: 1; transform: translateY(0); }
-        .rd1 { transition-delay: 0.08s; }
-        .rd2 { transition-delay: 0.16s; }
-        .rd3 { transition-delay: 0.24s; }
+
+        .r.v {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .rd1 {
+            transition-delay: 0.08s;
+        }
+
+        .rd2 {
+            transition-delay: 0.16s;
+        }
+
+        .rd3 {
+            transition-delay: 0.24s;
+        }
+
+        /* ═══ FLAGSHIP AGENT-SURGE INTERACTIVE ═══ */
+        .fuse-body {
+            padding: 6px 44px 44px;
+        }
+
+        .fuse-readouts {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px;
+            padding: 20px 0 6px;
+        }
+
+        .readout {
+            padding: 16px 18px;
+            background: var(--bg2);
+            border: 1px solid var(--surface-b);
+            border-radius: 14px;
+        }
+
+        .readout .rk {
+            font-size: 9.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            color: var(--t3);
+            font-family: 'IBM Plex Mono', monospace;
+            margin-bottom: 9px;
+        }
+
+        .readout .rv {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 26px;
+            letter-spacing: -0.02em;
+            color: var(--t);
+            line-height: 1;
+            display: flex;
+            align-items: baseline;
+            gap: 3px;
+            position: relative;
+        }
+
+        .readout .rv .u {
+            font-size: 13px;
+            color: var(--t2);
+            font-weight: 700;
+        }
+
+        .readout .was {
+            font-size: 10px;
+            color: var(--t3);
+            font-family: 'IBM Plex Mono', monospace;
+            margin-top: 8px;
+            height: 12px;
+        }
+
+        .readout .was s {
+            color: var(--t4);
+        }
+
+        .readout.lit .rv {
+            color: var(--accent);
+        }
+
+        .readout .bar-wrap {
+            height: 5px;
+            background: var(--surface-b);
+            border-radius: 3px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .readout .bar {
+            height: 100%;
+            width: 28%;
+            border-radius: 3px;
+            background: var(--accent);
+            transition: width 0.7s var(--ease);
+        }
+
+        .readout .track {
+            margin-top: 12px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .readout .track i {
+            flex: 1;
+            height: 5px;
+            border-radius: 3px;
+            background: var(--surface-b);
+            transition: background 0.5s;
+        }
+
+        .readout .track i.on {
+            background: var(--accent2);
+        }
+
+        .readout .rv .strike {
+            position: absolute;
+            left: -2px;
+            top: 54%;
+            width: calc(100% + 3px);
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: left center;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .readout .rv.striking .strike {
+            opacity: 1;
+            transform: scaleX(1);
+            transition: transform 0.52s var(--ease);
+        }
+
+        .readout .rv.fading {
+            opacity: 0;
+            transition: opacity 0.22s ease;
+        }
+
+        .fuse-diagram-wrap {
+            padding: 20px 0 6px;
+        }
+
+        .diagram-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--t3);
+            font-family: 'IBM Plex Mono', monospace;
+            margin-bottom: 14px;
+        }
+
+        .diagram {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 900/380;
+        }
+
+        .wires {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            z-index: 1;
+        }
+
+        .wire {
+            fill: none;
+            stroke: var(--surface-b);
+            stroke-width: 1.6;
+            transition: stroke 0.45s, opacity 0.45s;
+        }
+
+        .wire.on {
+            stroke: var(--accent);
+            stroke-dasharray: 5 6;
+            animation: march 0.55s linear infinite;
+        }
+
+        .wire.human.on {
+            stroke: var(--accent2);
+        }
+
+        @keyframes march {
+            to {
+                stroke-dashoffset: -22;
+            }
+        }
+
+        .wire-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            fill: var(--t4);
+            letter-spacing: 0.03em;
+        }
+
+        .wire-label.on {
+            fill: var(--accent);
+        }
+
+        .node {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 158px;
+            padding: 13px 15px;
+            text-align: left;
+            background: var(--bg2);
+            border: 1px solid var(--surface-b);
+            border-radius: 13px;
+            transition: transform 0.45s var(--ease), border-color 0.45s, box-shadow 0.45s, background 0.45s;
+        }
+
+        .node.orch {
+            width: 186px;
+        }
+
+        .node .glyph {
+            width: 26px;
+            height: 26px;
+            margin-bottom: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 7px;
+            background: var(--accent-s);
+            border: 1px solid var(--accent-b);
+            color: var(--accent);
+            transition: all 0.45s var(--ease);
+        }
+
+        .node.human .glyph {
+            background: var(--accent2-s);
+            border-color: var(--accent2-b);
+            color: var(--accent2);
+        }
+
+        .node .glyph svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .node .nm {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 13.5px;
+            letter-spacing: -0.01em;
+            margin-bottom: 2px;
+        }
+
+        .node .role {
+            font-size: 10px;
+            color: var(--t3);
+            font-family: 'IBM Plex Mono', monospace;
+            line-height: 1.35;
+        }
+
+        .node .once {
+            position: absolute;
+            top: -9px;
+            right: 12px;
+            font-size: 8.5px;
+            font-family: 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--t3);
+            background: var(--bg2);
+            border: 1px solid var(--surface-b);
+            border-radius: 5px;
+            padding: 2px 7px;
+        }
+
+        .node.active {
+            transform: translate(-50%, -50%) translateY(-3px);
+            border-color: var(--accent-b);
+            background: var(--node-active-bg);
+            box-shadow: 0 0 0 1px var(--accent-b), 0 14px 36px rgba(200, 120, 86, 0.16);
+        }
+
+        .node.active .glyph {
+            background: var(--accent);
+            color: #1a120e;
+            border-color: var(--accent);
+            box-shadow: 0 0 18px var(--accent-g);
+        }
+
+        .node.human.active {
+            border-color: var(--accent2-b);
+            box-shadow: 0 0 0 1px var(--accent2-b), 0 14px 36px rgba(91, 158, 144, 0.18);
+        }
+
+        .node.human.active .glyph {
+            background: var(--accent2);
+            color: #0e1613;
+            border-color: var(--accent2);
+            box-shadow: 0 0 18px var(--accent2-g);
+        }
+
+        .node.done {
+            border-color: var(--surface-h);
+        }
+
+        [data-theme="dark"] {
+            --node-active-bg: #1c1a20;
+        }
+
+        [data-theme="light"] {
+            --node-active-bg: #fbf8f3;
+        }
+
+        .node.generator {
+            left: 10.6%;
+            top: 50%;
+        }
+
+        .node.orch {
+            left: 45.6%;
+            top: 46%;
+        }
+
+        .node.auditor {
+            left: 82.2%;
+            top: 24%;
+        }
+
+        .node.implementer {
+            left: 82.2%;
+            top: 76%;
+        }
+
+        .node.human {
+            left: 45.6%;
+            top: 90%;
+        }
+
+        .mini-card {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            background: var(--surface);
+            border: 1px solid var(--surface-b);
+            border-radius: 16px;
+            padding: 18px 22px;
+            margin-top: 24px;
+            transition: all 0.3s var(--ease);
+        }
+
+        .mini-card:hover {
+            border-color: var(--accent-b);
+            transform: translateY(-2px);
+        }
+
+        .mini-card img {
+            width: 60px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .mini-card h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+        }
+
+        .mini-card p {
+            font-size: 13px;
+            color: var(--t2);
+            line-height: 1.6;
+        }
+
+        .fuse-story {
+            margin: 20px 0 4px;
+            padding: 18px 22px;
+            background: var(--accent-s);
+            border: 1px solid var(--accent-b);
+            border-radius: 13px;
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            transition: background 0.4s, border-color 0.4s;
+        }
+
+        .fuse-story.human {
+            background: var(--accent2-s);
+            border-color: var(--accent2-b);
+        }
+
+        .fuse-story p {
+            font-size: 14px;
+            line-height: 1.62;
+            color: var(--t);
+            font-family: 'IBM Plex Mono', monospace;
+            transition: opacity 0.5s;
+        }
+
+        .fuse-story p strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .fuse-story.human p strong {
+            color: var(--accent2);
+        }
+
+        .fuse-controls {
+            padding: 20px 0 10px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .run-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 13px 26px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.32s var(--ease);
+        }
+
+        .run-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 26px var(--accent-g);
+        }
+
+        .run-btn:disabled {
+            opacity: 0.5;
+            cursor: default;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .run-hint {
+            font-size: 11px;
+            color: var(--t3);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        /* Press feedback + tidy the Tape card (Emil pass) */
+        .btn-primary,
+        .btn-ghost,
+        .nav-r .cta,
+        .cl,
+        .run-btn {
+            transition: transform 0.14s var(--ease-out), background 0.3s var(--ease), box-shadow 0.35s var(--ease), color 0.25s, border-color 0.3s;
+        }
+
+        .btn-primary:active,
+        .btn-ghost:active,
+        .nav-r .cta:active,
+        .cl:active,
+        .run-btn:active {
+            transform: scale(0.96);
+        }
+
+        .mini-card-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--t3);
+            border: 1px solid var(--surface-b);
+            border-radius: 100px;
+            padding: 5px 12px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .fuse-quote {
+            margin: 14px 0 4px;
+            padding: 20px 24px;
+            background: var(--accent2-s);
+            border: 1px solid var(--accent2-b);
+            border-radius: 13px;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+        }
+
+        .fuse-quote.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fuse-quote blockquote {
+            font-family: 'Fraunces', Georgia, serif;
+            font-style: italic;
+            font-size: 15px;
+            color: var(--t);
+            line-height: 1.55;
+            margin-bottom: 8px;
+        }
+
+        .fuse-quote cite {
+            font-family: 'IBM Plex Mono', monospace;
+            font-style: normal;
+            font-size: 11px;
+            color: var(--t3);
+        }
 
         @media (max-width: 768px) {
-            nav { padding: 16px 20px; background: var(--bg) !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
-            nav.compact { padding: 13px 20px; }
-            .nav-r li.nav-link { display: none; }
-            .nav-r { gap: 12px; }
-            .wrap, .wrap-sm { padding: 0 20px; }
-            .hero-grid { grid-template-columns: 1fr; gap: 32px; }
-            .hero-card { padding: 24px; }
-            .about-layout { grid-template-columns: 1fr; gap: 32px; }
-            .case-top, .case-story { padding-left: 24px; padding-right: 24px; }
-            .case-step { grid-template-columns: 1fr; gap: 6px; }
+            .fuse-body {
+                padding: 6px 24px 32px;
+            }
+
+            .fuse-readouts {
+                grid-template-columns: 1fr;
+            }
+
+            .diagram {
+                aspect-ratio: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .wires {
+                display: none;
+            }
+
+            .node {
+                position: static;
+                transform: none;
+                width: 100% !important;
+            }
+
+            .node.active {
+                transform: translateY(-2px);
+            }
+
+            nav {
+                padding: 16px 20px;
+                background: var(--bg) !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
+
+            nav.compact {
+                padding: 13px 20px;
+            }
+
+            .nav-r li.nav-link {
+                display: none;
+            }
+
+            .nav-r {
+                gap: 12px;
+            }
+
+            .wrap,
+            .wrap-sm {
+                padding: 0 20px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .hero-card {
+                padding: 24px;
+            }
+
+            .about-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .case-top,
+            .case-story {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+
+            .case-step {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
             /* Screenshots — show only one on mobile */
-            .screenshot-break { margin: 32px -20px 24px; padding: 32px 20px; }
-            .screenshot-gallery { justify-content: center; }
-            .phone-frame:nth-child(2), .phone-frame:nth-child(3) { display: none; }
-            .phone-frame { width: 220px; }
-            .flow-row { grid-template-columns: 1fr; gap: 8px; }
-            .flow-arrow { transform: rotate(90deg); }
-            .thesis-grid { grid-template-columns: 1fr; gap: 40px; }
-            .acc-viz { grid-template-columns: 1fr; }
+            .screenshot-break {
+                margin: 32px -20px 24px;
+                padding: 32px 20px;
+            }
+
+            .screenshot-gallery {
+                justify-content: center;
+            }
+
+            .phone-frame:nth-child(2),
+            .phone-frame:nth-child(3) {
+                display: none;
+            }
+
+            .phone-frame {
+                width: 220px;
+            }
+
+            .flow-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .thesis-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .acc-viz {
+                grid-template-columns: 1fr;
+            }
+
             /* Tooltips — reposition below on mobile, ensure z-index layering */
-            .co-badge[data-tip]:hover, .aside-item[data-tip]:hover {
+            .co-badge[data-tip]:hover,
+            .aside-item[data-tip]:hover {
                 z-index: 60;
             }
-            .co-badge[data-tip]::after, .aside-item[data-tip]::after {
+
+            .co-badge[data-tip]::after,
+            .aside-item[data-tip]::after {
                 bottom: auto;
                 top: calc(100% + 8px);
                 left: 0;
                 transform: translateX(0) translateY(-4px);
                 z-index: 60;
             }
-            .co-badge[data-tip]:hover::after, .aside-item[data-tip]:hover::after {
+
+            .co-badge[data-tip]:hover::after,
+            .aside-item[data-tip]:hover::after {
                 transform: translateX(0) translateY(0);
             }
         }
     </style>
 </head>
+
 <body>
 
-<div class="cursor-glow" id="cursorGlow"></div>
-<div class="scroll-bar" id="scrollBar"></div>
-<div class="amb"><div class="a1"></div><div class="a2"></div></div>
-
-<nav id="nav">
-    <div class="nav-name" onclick="window.scrollTo({top:0,behavior:'smooth'})">ghazi<span>.</span></div>
-    <ul class="nav-r">
-        <li class="nav-link"><a href="#about">About</a></li>
-        <li class="nav-link"><a href="#work">Work</a></li>
-        <li class="nav-link"><a href="#thesis">Thesis</a></li>
-        <li class="nav-link"><a href="#exp">Experience</a></li>
-        <li><button class="theme-toggle" id="themeToggle" title="Toggle theme">☀</button></li>
-        <li><a href="#contact" class="cta">Say hi</a></li>
-    </ul>
-</nav>
-
-<!-- ═══ HERO ═══ -->
-<section class="hero" id="hero">
-    <div class="wrap">
-        <div class="hero-grid">
-            <div>
-                <h1 class="hero-name r">Ghazi Aryan</h1>
-                <p class="hero-sub r rd1">
-                    I build things because I want the things I build. <strong>Taste is the new barrier to entry.</strong>
-                </p>
-                <div class="hero-companies r rd1">
-                    <span class="co-badge" data-tip="Disaster recovery during launches">Apple</span>
-                    <span class="co-badge" data-tip="ServiceNow + HR portal, $43B merger">Warner Bros. Discovery</span>
-                    <span class="co-badge" data-tip="Risk assessment platform">Capital One</span>
-                    <span class="co-badge" data-tip="AI trading journal, on-device LLM">Tape (founder)</span>
-                </div>
-                <div class="hero-ctas r rd2">
-                    <a href="#work" class="btn-primary">See the work</a>
-                    <a href="#contact" class="btn-ghost">Get in touch</a>
-                </div>
-                <div class="hero-meta r rd3">
-                    <span>Arlington, VA</span>
-                    <a href="https://linkedin.com/in/ghaziaryan" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/GhaziAryan" target="_blank">GitHub</a>
-                    <a href="https://x.com/ghazisgizmos" target="_blank">@ghazisgizmos</a>
-                </div>
-            </div>
-            <div class="hero-card r rd2">
-                <div class="hero-card-label">Current conviction</div>
-                <p>When anyone can ship a product in an afternoon, <strong>what separates good from great is the person deciding what to build and why.</strong></p>
-                <p>The tools changed. The role should too. I think the next great PMs won't just define products. They'll build them.</p>
-                <div class="hero-card-sig">More on this <a href="#thesis" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-b)">below</a>.</div>
-            </div>
-        </div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="scroll-bar" id="scrollBar"></div>
+    <div class="amb">
+        <div class="a1"></div>
+        <div class="a2"></div>
     </div>
-</section>
 
-<!-- ═══ ABOUT ═══ -->
-<section class="about" id="about">
-    <div class="wrap">
-        <div class="sec-label r">About</div>
-        <div class="about-layout">
-            <div class="about-text r rd1">
-                <p>
-                    I've always been the person who researches everything to death before buying it. The Tesla preconditioner that warms your battery before you arrive at the Supercharger. The way iOS gets out of your way. I notice the details most people don't, and I can't unsee them.
-                </p>
-                <p>
-                    That same obsession showed up early. At 15, I was customizing hoverboard specs with suppliers in Shenzhen to get the best balance of value and quality. In high school, I charged classmates to jailbreak their iPhones, shaping them to look and work the way I thought they should. I was freelancing video edits on Upwork because I liked crafting something polished. I didn't have a title for any of it. I just liked making things better than I found them.
-                </p>
-                <p>
-                    Now I do it at scale. Disaster recovery at <strong>Apple</strong> during product launches, where nothing can break. ServiceNow and HR portal integrations at <strong>Warner Bros. Discovery</strong> during the $43B merger, where two companies' worth of stakeholders had to agree on one design language. Risk assessment platforms at <strong>Capital One</strong>, where the user is an auditor with zero patience for bad UX.
-                </p>
-                <p>
-                    Nights and weekends I build <strong>Tape</strong>, an AI trading journal. I have a CS minor and shipped games to the App Store at 16, but today I build with Claude Code, Cursor, and ChatGPT. I <a href="https://x.com/ghazisgizmos" target="_blank">write about this stuff on X</a>, mostly bold takes on tech, FSD, and how AI is changing the craft of building products.
-                </p>
-            </div>
-            <div class="about-right r rd2">
-                <div class="about-aside">
-                    <div class="aside-label">Outside of work</div>
-                    <div class="aside-items">
-                        <span class="aside-item" data-tip="35mm, mostly street">Film photography</span>
-                        <span class="aside-item" data-tip="West Coast > East Coast runs">Snowboarding</span>
-                        <span class="aside-item" data-tip="Options + swing trades">Trading</span>
-                        <span class="aside-item" data-tip="Concerningly detailed reviews">Beli food critic</span>
-                        <span class="aside-item" data-tip="Need to see Starship launch live">Tesla & SpaceX rabbit holes</span>
-                        <span class="aside-item" data-tip="Brick Technology is peak YT">LEGO machine YouTube</span>
+    <nav id="nav">
+        <div class="nav-name" onclick="window.scrollTo({top:0,behavior:'smooth'})">ghazi<span>.</span></div>
+        <ul class="nav-r">
+            <li class="nav-link"><a href="#about">About</a></li>
+            <li class="nav-link"><a href="#work">Work</a></li>
+            <li class="nav-link"><a href="#thesis">Thesis</a></li>
+            <li class="nav-link"><a href="#exp">Experience</a></li>
+            <li><button class="theme-toggle" id="themeToggle" title="Toggle theme">☀</button></li>
+            <li><a href="#contact" class="cta">Say hi</a></li>
+        </ul>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="hero">
+        <div class="wrap">
+            <div class="hero-grid">
+                <div>
+                    <h1 class="hero-name r">Ghazi Aryan</h1>
+                    <p class="hero-sub r rd1">
+                        I build things because I want the things I build. <strong>Taste is the new barrier to
+                            entry.</strong>
+                    </p>
+                    <div class="hero-companies r rd1">
+                        <span class="co-badge" data-tip="Disaster recovery during launches">Apple</span>
+                        <span class="co-badge" data-tip="ServiceNow + HR portal, $43B merger">Warner Bros.
+                            Discovery</span>
+                        <span class="co-badge" data-tip="Risk assessment platform">Capital One</span>
+                        <span class="co-badge" data-tip="AI career journal that advocates for you">Advocate
+                            (founder)</span>
+                    </div>
+                    <div class="hero-ctas r rd2">
+                        <a href="#work" class="btn-primary">See the work</a>
+                        <a href="#contact" class="btn-ghost">Get in touch</a>
+                    </div>
+                    <div class="hero-meta r rd3">
+                        <span>Arlington, VA</span>
+                        <a href="https://linkedin.com/in/ghaziaryan" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/GhaziAryan" target="_blank">GitHub</a>
+                        <a href="https://x.com/ghazisgizmos" target="_blank">@ghazisgizmos</a>
                     </div>
                 </div>
-                <div class="about-aside">
-                    <div class="aside-label">Will talk for 30 min unprompted about</div>
-                    <div class="aside-items">
-                        <span class="aside-item">Roth IRAs</span>
-                        <span class="aside-item">Credit card optimization</span>
-                        <span class="aside-item">Tesla FSD</span>
-                        <span class="aside-item">Cinematic Mode on iPhone</span>
-                        <span class="aside-item">Why Severance is perfect</span>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <blockquote>"I can always confidently rely on him to be quick with a response or to hunt down the answer. He utilized lessons learned from LAUNCH to look ahead and seek out potential problems before they arrive."</blockquote>
-                    <cite><strong>Sawyer Strong</strong>, Engineer, Capital One</cite>
-                </div>
-                <div class="about-aside">
-                    <div class="aside-label">Proof of work</div>
-                    <div style="display:flex;flex-direction:column;gap:10px;">
-                        <a href="https://github.com/GhaziAryan/Tape" target="_blank" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:10px 14px;background:var(--surface);border:1px solid var(--surface-b);border-radius:10px;transition:all 0.2s;">
-                            <span style="font-size:13px;font-weight:600;color:var(--t2);">Tape</span>
-                            <span style="font-size:11px;color:var(--t3);margin-left:auto;font-family:'IBM Plex Mono',monospace;">Swift + on-device LLM</span>
-                        </a>
-                        <a href="https://github.com/GhaziAryan/portfolio" target="_blank" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:10px 14px;background:var(--surface);border:1px solid var(--surface-b);border-radius:10px;transition:all 0.2s;">
-                            <span style="font-size:13px;font-weight:600;color:var(--t2);">This portfolio</span>
-                            <span style="font-size:11px;color:var(--t3);margin-left:auto;font-family:'IBM Plex Mono',monospace;">Built with Claude Code</span>
-                        </a>
+                <div class="hero-card r rd2">
+                    <div class="hero-card-label">Current conviction</div>
+                    <p>When anyone can ship a product in an afternoon, <strong>what separates good from great is the
+                            person deciding what to build and why.</strong></p>
+                    <p>The tools changed. The role should too. I think the next great PMs won't just define products.
+                        They'll build them.</p>
+                    <div class="hero-card-sig">More on this <a href="#thesis"
+                            style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-b)">below</a>.
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ═══ TESTIMONIAL MARQUEE ═══ -->
-<section class="marquee-section">
-    <div class="marquee-track">
-        <div class="marquee-item"><q>"I can always confidently rely on him"</q><cite>Sawyer Strong</cite></div>
-        <div class="marquee-sep"></div>
-        <div class="marquee-item"><q>"Thoughtful, customer-first approach"</q><cite>Drew Magyar</cite></div>
-        <div class="marquee-sep"></div>
-        <div class="marquee-item"><q>"By far the most proactive of any team"</q><cite>Megan Wiser</cite></div>
-        <div class="marquee-sep"></div>
-        <div class="marquee-item"><q>"I could trust you to do what needed to be done"</q><cite>Sean Webb</cite></div>
-        <div class="marquee-sep"></div>
-        <div class="marquee-item"><q>"Myriad contributions that propelled the initiative forward"</q><cite>Rachel Rique</cite></div>
-        <div class="marquee-sep"></div>
-        <div class="marquee-item"><q>"I can always confidently rely on him"</q><cite>Sawyer Strong</cite></div>
-        <div class="marquee-sep"></div>
-        <div class="marquee-item"><q>"Thoughtful, customer-first approach"</q><cite>Drew Magyar</cite></div>
-        <div class="marquee-sep"></div>
-        <div class="marquee-item"><q>"By far the most proactive of any team"</q><cite>Megan Wiser</cite></div>
-        <div class="marquee-sep"></div>
-        <div class="marquee-item"><q>"I could trust you to do what needed to be done"</q><cite>Sean Webb</cite></div>
-        <div class="marquee-sep"></div>
-        <div class="marquee-item"><q>"Myriad contributions that propelled the initiative forward"</q><cite>Rachel Rique</cite></div>
-        <div class="marquee-sep"></div>
-    </div>
-</section>
-
-<!-- ═══ PULLQUOTE — full-bleed visual break ═══ -->
-<section class="pullquote-section">
-    <div class="pullquote-inner r">
-        <blockquote>I build things because I <span class="accent-word">want</span> the things I build.</blockquote>
-        <cite>Not a mission statement. Just true.</cite>
-    </div>
-</section>
-
-<!-- ═══ WORK ═══ -->
-<section class="work" id="work">
-    <div class="wrap">
-        <div class="work-header r">
-            <div class="sec-label">Selected Work</div>
-            <h2>How I think through problems.</h2>
-            <p>Not just what shipped. The decisions, tradeoffs, and things I said no to.</p>
-        </div>
-
-        <!-- Case 1: Assessment Platform -->
-        <div class="case r">
-            <div class="case-top">
-                <div class="case-co">Capital One</div>
-                <h3>300 annual risk assessments. Zero shared tools.</h3>
-                <p class="case-lede">I built the platform that unified them.</p>
-                <div class="case-outcomes">
-                    <div class="case-outcome">
-                        <div class="val">15%</div>
-                        <div class="lbl">Faster per assessment</div>
-                    </div>
-                    <div class="case-outcome">
-                        <div class="val">50+</div>
-                        <div class="lbl">Teams expressed interest</div>
-                    </div>
-                    <div class="case-outcome">
-                        <div class="val">150+</div>
-                        <div class="lbl">Reached at SECON</div>
-                    </div>
+    <!-- ═══ ABOUT ═══ -->
+    <section class="about" id="about">
+        <div class="wrap">
+            <div class="sec-label r">About</div>
+            <div class="about-layout">
+                <div class="about-text r rd1">
+                    <p>
+                        I've always been the person who researches everything to death before buying it. The Tesla
+                        preconditioner that warms your battery before you arrive at the Supercharger. The way iOS gets
+                        out of your way. I notice the details most people don't, and I can't unsee them.
+                    </p>
+                    <p>
+                        That same obsession showed up early. At 15, I was customizing hoverboard specs with suppliers in
+                        Shenzhen to get the best balance of value and quality. In high school, I charged classmates to
+                        jailbreak their iPhones, shaping them to look and work the way I thought they should. I was
+                        freelancing video edits on Upwork because I liked crafting something polished. I didn't have a
+                        title for any of it. I just liked making things better than I found them.
+                    </p>
+                    <p>
+                        Now I do it at scale. Disaster recovery at <strong>Apple</strong> during product launches, where
+                        nothing can break. ServiceNow and HR portal integrations at <strong>Warner Bros.
+                            Discovery</strong> during the $43B merger, where two companies' worth of stakeholders had to
+                        agree on one design language. Risk assessment platforms at <strong>Capital One</strong>, where
+                        the user is an auditor with zero patience for bad UX.
+                    </p>
+                    <p>
+                        Nights and weekends I'm building <strong>Advocate</strong>, an AI career journal that turns your
+                        work notes into an evidence-cited case for you. I have a CS minor and shipped games to the App
+                        Store at 16, but today I build with Claude Code, Cursor, and ChatGPT. I <a
+                            href="https://x.com/ghazisgizmos" target="_blank">write about this stuff on X</a>, mostly
+                        bold takes on tech, FSD, and how AI is changing the craft of building products.
+                    </p>
                 </div>
-            </div>
-            <div class="case-story">
-                <div class="case-narrative">
-                    <div class="case-step">
-                        <div class="case-step-label">Problem</div>
-                        <div class="case-step-body">300+ LAUNCH assessments a year, each with stage gates where users had to wait for the next section to be reviewed and unlocked. Teams couldn't work the way their org actually operated. Regulatory deadlines don't move. Every week spent fighting the tool instead of doing the assessment was a week closer to a missed deadline nobody wanted to explain. It wasn't a tech problem. <strong>It was a people problem with regulatory consequences.</strong></div>
-                    </div>
-                    <div class="case-step">
-                        <div class="case-step-label">Approach</div>
-                        <div class="case-step-body">I time-blocked aggressively: half the week on discovery and stakeholder conversations, half on product execution. Built relationships with methodology partners first, then used that trust to refine requirements and drive adoption. Owned the BPMN model development for status and workflow, which turned out to be far more complex than initially scoped. Integrated learnings from the LAUNCH assessment to anticipate problems in the PLA build before they arrived.
-                            <div class="case-testimonial">
-                                <blockquote>"His thoughtful, customer-first approach was instrumental in getting that work pushed through."</blockquote>
-                                <cite><strong>Drew Magyar</strong>, Product Team</cite>
-                            </div>
+                <div class="about-right r rd2">
+                    <div class="about-aside">
+                        <div class="aside-label">Outside of work</div>
+                        <div class="aside-items">
+                            <span class="aside-item" data-tip="35mm, mostly street">Film photography</span>
+                            <span class="aside-item" data-tip="West Coast > East Coast runs">Snowboarding</span>
+                            <span class="aside-item" data-tip="Options + swing trades">Trading</span>
+                            <span class="aside-item" data-tip="Concerningly detailed reviews">Beli food critic</span>
+                            <span class="aside-item" data-tip="Need to see Starship launch live">Tesla & SpaceX rabbit
+                                holes</span>
+                            <span class="aside-item" data-tip="Brick Technology is peak YT">LEGO machine YouTube</span>
                         </div>
                     </div>
-                    <div class="case-step">
-                        <div class="case-step-label">Key tradeoff</div>
-                        <div class="case-step-body"><strong>We deferred custom reporting to Release 2</strong> even though senior leadership wanted it upfront. Scoping was the critical module. It consolidated information across multiple platforms, served as the backbone of the workflow, and powered notifications, risks, diagnostics, and every downstream assessment page. Getting scoping right was non-negotiable, so that's where we focused. Reporting could wait. It did, and scoping shipped on time.</div>
-                    </div>
-                    <div class="case-step">
-                        <div class="case-step-label">What shipped</div>
-                        <div class="case-step-body">
-                            <div class="flow-row">
-                                <div class="flow-box before">300+ assessments per year<br>rigid stage gates, siloed tools</div>
-                                <div class="flow-arrow">→</div>
-                                <div class="flow-box after">Parallel access, fewer gates<br>10+ teams onboarded, 50+ interested</div>
-                            </div>
-                            Scoping module (pulls in risks, maintains version control, powers every downstream page), Question Bank as a horizontal questionnaire-as-a-service, diagnostics recommender, and standardized BPMN workflows via Camunda. Question Bank was delivered a month ahead of the 6-month timeline. Presented it at SECON, selected from hundreds of booth applications. Spoke to 150+ people, generated interest from 50+ teams, and onboarded 3 new tenants shortly after. Mentored three associate PMs through their first year.
-                            <div class="case-testimonial">
-                                <blockquote>"Ghazi has been the most proactive of any team I've collaborated with for this initiative. He reached out early, set time for us to sit down together, and worked until the requirement was crystal clear."</blockquote>
-                                <cite><strong>Megan Wiser</strong>, PDP Mentee</cite>
-                            </div>
+                    <div class="about-aside">
+                        <div class="aside-label">Will talk for 30 min unprompted about</div>
+                        <div class="aside-items">
+                            <span class="aside-item">Roth IRAs</span>
+                            <span class="aside-item">Credit card optimization</span>
+                            <span class="aside-item">Tesla FSD</span>
+                            <span class="aside-item">Cinematic Mode on iPhone</span>
+                            <span class="aside-item">Why Severance is perfect</span>
                         </div>
                     </div>
-                    <div class="case-step">
-                        <div class="case-step-label">Lesson</div>
-                        <div class="case-step-body">Enterprise adoption is earned through trust, not decks. Mentoring three associate PMs through this also made my own thinking sharper.
-                            <div class="case-testimonial">
-                                <blockquote>"I appreciate your myriad contributions that have propelled the Future of Assessments initiative forward. My hope is that we can find more opportunities to broaden your reach in our organization and beyond."</blockquote>
-                                <cite><strong>Rachel Rique</strong>, Manager</cite>
-                            </div>
+                    <div class="testimonial">
+                        <blockquote>"I can always confidently rely on him to be quick with a response or to hunt down
+                            the answer. He utilized lessons learned from LAUNCH to look ahead and seek out potential
+                            problems before they arrive."</blockquote>
+                        <cite><strong>Sawyer Strong</strong>, Engineer, Capital One</cite>
+                    </div>
+                    <div class="about-aside">
+                        <div class="aside-label">Proof of work</div>
+                        <div style="display:flex;flex-direction:column;gap:10px;">
+                            <a href="https://github.com/GhaziAryan/Tape" target="_blank"
+                                style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:10px 14px;background:var(--surface);border:1px solid var(--surface-b);border-radius:10px;transition:all 0.2s;">
+                                <span style="font-size:13px;font-weight:600;color:var(--t2);">Tape</span>
+                                <span
+                                    style="font-size:11px;color:var(--t3);margin-left:auto;font-family:'IBM Plex Mono',monospace;">Swift
+                                    + on-device LLM</span>
+                            </a>
+                            <a href="https://github.com/GhaziAryan/portfolio" target="_blank"
+                                style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:10px 14px;background:var(--surface);border:1px solid var(--surface-b);border-radius:10px;transition:all 0.2s;">
+                                <span style="font-size:13px;font-weight:600;color:var(--t2);">This portfolio</span>
+                                <span
+                                    style="font-size:11px;color:var(--t3);margin-left:auto;font-family:'IBM Plex Mono',monospace;">Built
+                                    with Claude Code</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Case 2: Tape -->
-        <div class="case r">
-            <div class="case-top">
-                <div class="case-co">Side project / founder</div>
-                <h3>Tape: an AI trading journal.</h3>
-                <p class="case-lede">Every trading journal felt like filling out a form. I wanted to just type, stream of consciousness, and have something smart extract the patterns. So I built it.</p>
+    <!-- ═══ TESTIMONIAL MARQUEE ═══ -->
+    <section class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-item"><q>"I can always confidently rely on him"</q><cite>Sawyer Strong</cite></div>
+            <div class="marquee-sep"></div>
+            <div class="marquee-item"><q>"Thoughtful, customer-first approach"</q><cite>Drew Magyar</cite></div>
+            <div class="marquee-sep"></div>
+            <div class="marquee-item"><q>"By far the most proactive of any team"</q><cite>Megan Wiser</cite></div>
+            <div class="marquee-sep"></div>
+            <div class="marquee-item"><q>"I could trust you to do what needed to be done"</q><cite>Sean Webb</cite>
             </div>
-            <div class="screenshot-break">
-                <div class="screenshot-gallery">
-                    <div class="phone-frame">
-                        <img src="Tape Screenshots/IMG_0419.PNG" alt="Tape journal entry">
-                        <div class="phone-caption">Journal</div>
+            <div class="marquee-sep"></div>
+            <div class="marquee-item"><q>"Myriad contributions that propelled the initiative forward"</q><cite>Rachel
+                    Rique</cite></div>
+            <div class="marquee-sep"></div>
+            <div class="marquee-item"><q>"I can always confidently rely on him"</q><cite>Sawyer Strong</cite></div>
+            <div class="marquee-sep"></div>
+            <div class="marquee-item"><q>"Thoughtful, customer-first approach"</q><cite>Drew Magyar</cite></div>
+            <div class="marquee-sep"></div>
+            <div class="marquee-item"><q>"By far the most proactive of any team"</q><cite>Megan Wiser</cite></div>
+            <div class="marquee-sep"></div>
+            <div class="marquee-item"><q>"I could trust you to do what needed to be done"</q><cite>Sean Webb</cite>
+            </div>
+            <div class="marquee-sep"></div>
+            <div class="marquee-item"><q>"Myriad contributions that propelled the initiative forward"</q><cite>Rachel
+                    Rique</cite></div>
+            <div class="marquee-sep"></div>
+        </div>
+    </section>
+
+    <!-- ═══ PULLQUOTE — full-bleed visual break ═══ -->
+    <section class="pullquote-section">
+        <div class="pullquote-inner r">
+            <blockquote>I build things because I <span class="accent-word">want</span> the things I build.</blockquote>
+            <cite>Not a mission statement. Just true.</cite>
+        </div>
+    </section>
+
+    <!-- ═══ WORK ═══ -->
+    <section class="work" id="work">
+        <div class="wrap">
+            <div class="work-header r">
+                <div class="sec-label">Selected Work</div>
+                <h2>How I think through problems.</h2>
+                <p>Not just what shipped. The decisions, tradeoffs, and things I said no to.</p>
+            </div>
+
+            <!-- Flagship: the agent surge (interactive) -->
+            <div class="case r" id="fuseCase">
+                <div class="case-top">
+                    <div class="case-co">Capital One · flagship</div>
+                    <h3>A six-week job, redesigned to <span class="accent-grad">take a day</span>.</h3>
+                    <p class="case-lede">The org's platform had drifted out of design consistency, and fixing a single
+                        codebase by hand took <strong>6+ weeks</strong>, long enough to block launches. Four of us were
+                        handed two weeks and no brief: build something that matters. I helped lead us to the answer, an
+                        agent workflow system that unifies design consistency across the platform, then set the
+                        guardrails that protect deep API logic and proved it on four codebases, with more in line.
+                        Leadership called it how the whole org should operate.</p>
+                </div>
+                <div class="fuse-body">
+                    <div class="fuse-readouts">
+                        <div class="readout" id="ro-comp">
+                            <div class="rk">Design compliance</div>
+                            <div class="rv"><span id="compVal">92</span><span class="u">%</span></div>
+                            <div class="bar-wrap">
+                                <div class="bar" id="compBar"></div>
+                            </div>
+                        </div>
+                        <div class="readout" id="ro-time">
+                            <div class="rk">Time per full pass</div>
+                            <div class="rv" id="timeRv"><span id="timeVal">&lt;1</span><span class="u"
+                                    id="timeUnit">day</span><span class="strike"></span></div>
+                            <div class="was" id="timeWas"></div>
+                        </div>
+                        <div class="readout" id="ro-repo">
+                            <div class="rk">Pilot codebases on-spec</div>
+                            <div class="rv"><span id="repoVal">4</span><span class="u">/ 4</span></div>
+                            <div class="track" id="repoTrack"><i></i><i></i><i></i><i></i></div>
+                        </div>
                     </div>
-                    <div class="phone-frame">
-                        <img src="Tape Screenshots/IMG_0418.PNG" alt="Tape positions view">
-                        <div class="phone-caption">Positions</div>
+                    <div class="fuse-diagram-wrap">
+                        <div class="diagram-label">How the system works</div>
+                        <div class="diagram" id="diagram">
+                            <svg class="wires" viewBox="0 0 900 380" preserveAspectRatio="none">
+                                <defs>
+                                    <marker id="ah" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto">
+                                        <path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke"
+                                            stroke-width="1.4" />
+                                    </marker>
+                                </defs>
+                                <path class="wire" data-w="gen" d="M 168 190 L 340 182" marker-end="url(#ah)" />
+                                <path class="wire" data-w="loop" d="M 505 150 C 590 110, 640 95, 700 92"
+                                    marker-end="url(#ah)" />
+                                <path class="wire" data-w="loop" d="M 700 108 C 640 122, 600 150, 512 172"
+                                    marker-end="url(#ah)" />
+                                <path class="wire" data-w="loop" d="M 505 196 C 590 250, 640 285, 700 290"
+                                    marker-end="url(#ah)" />
+                                <path class="wire" data-w="loop" d="M 700 306 C 640 316, 600 240, 512 200"
+                                    marker-end="url(#ah)" />
+                                <path class="wire human" data-w="human" d="M 410 224 L 410 312" marker-end="url(#ah)" />
+                                <text class="wire-label" data-wl="loop" x="648" y="192" text-anchor="middle">loops until
+                                    compliant</text>
+                            </svg>
+                            <div class="node generator" data-node="generator"><span class="once">once</span>
+                                <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 3h9l5 5v13H5z" />
+                                        <path d="M14 3v5h5M8 13h8M8 17h5" />
+                                    </svg></div>
+                                <div class="nm">The Generator</div>
+                                <div class="role">writes the spec sheets</div>
+                            </div>
+                            <div class="node orch" data-node="orchestrator">
+                                <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="6" cy="6" r="2.5" />
+                                        <circle cx="18" cy="6" r="2.5" />
+                                        <circle cx="12" cy="18" r="2.5" />
+                                        <path d="M6 8.5v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3M12 13.5v2" />
+                                    </svg></div>
+                                <div class="nm">The Orchestrator</div>
+                                <div class="role">coordinates every pass</div>
+                            </div>
+                            <div class="node auditor" data-node="auditor">
+                                <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="7" />
+                                        <path d="m21 21-4.3-4.3" />
+                                    </svg></div>
+                                <div class="nm">The Auditor</div>
+                                <div class="role">finds the drift</div>
+                            </div>
+                            <div class="node implementer" data-node="implementer">
+                                <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M14 6a3.5 3.5 0 0 0-4.9 4.4l-5 5 2 2 5-5A3.5 3.5 0 0 0 16 8" />
+                                    </svg></div>
+                                <div class="nm">The Implementer</div>
+                                <div class="role">fixes what spec allows</div>
+                            </div>
+                            <div class="node human" data-node="human">
+                                <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" />
+                                        <path d="m9 11 2 2 4-4" />
+                                    </svg></div>
+                                <div class="nm">You — the PM</div>
+                                <div class="role">guardrails &amp; sign-off</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="phone-frame">
-                        <img src="Tape Screenshots/IMG_0416.PNG" alt="Tape insights">
-                        <div class="phone-caption">Insights</div>
+                    <div class="fuse-story" id="fuseStory">
+                        <p id="storyText">The pilot: <strong>28% → 92%</strong> on-spec across four codebases, and 6+
+                            weeks of manual work down to <strong>under a day</strong>, with more of the platform in
+                            line. Press play to watch how, or hover any node.</p>
+                    </div>
+                    <div class="fuse-controls">
+                        <button class="run-btn" id="runBtn"><span id="runIcon">▶</span> <span id="runLabel">Walk me
+                                through it</span></button>
+                        <span class="run-hint" id="runHint"></span>
+                    </div>
+                    <div class="fuse-quote" id="fuseQuote">
+                        <blockquote>"This is exactly how we should be operating."</blockquote>
+                        <cite>— senior risk leadership, after the first pass</cite>
                     </div>
                 </div>
             </div>
-            <div class="case-story">
-                <div class="case-narrative">
-                    <div class="case-step">
-                        <div class="case-step-label">Hard part</div>
-                        <div class="case-step-body">Getting accurate sentiment from a small on-device model. Handling failed parses gracefully. Chaining trades together even when entered out of order. Surfacing real behavioral insights that actually improve a trader's decisions, not generic "set a stop loss" advice. Presenting all of this while maintaining a clean, notebook-like feel.</div>
+
+            <!-- Case: Assessment Platform -->
+            <div class="case r">
+                <div class="case-top">
+                    <div class="case-co">Capital One</div>
+                    <h3>300 annual risk assessments. Zero shared tools.</h3>
+                    <p class="case-lede">I built the platform that unified them.</p>
+                    <div class="case-outcomes">
+                        <div class="case-outcome">
+                            <div class="val">15%</div>
+                            <div class="lbl">Faster per assessment</div>
+                        </div>
+                        <div class="case-outcome">
+                            <div class="val">50+</div>
+                            <div class="lbl">Teams expressed interest</div>
+                        </div>
+                        <div class="case-outcome">
+                            <div class="val">150+</div>
+                            <div class="lbl">Reached at SECON</div>
+                        </div>
                     </div>
-                    <div class="case-step">
-                        <div class="case-step-label">Three engines</div>
-                        <div class="case-step-body">The insight engine went through three full rewrites:
-                            <br><br><strong>v1 (stats-based):</strong> Serialized aggregated stats into the prompt. The model received numbers like "plan_quality: 3 days, avg P/L -$205." Problem: the tags were ambiguous. "plan_quality" fired on both "followed my plan" and "broke my rules," so the aggregated stats were misleading. The LLM echoed system jargon into user-facing text.
-                            <br><br><strong>v2 (stats + human labels):</strong> Translated tag IDs to plain language and rewrote the system prompt to ban jargon. More readable, but still wrong, because the underlying data was still lossy from ambiguous tags.
-                            <br><br><strong>v3 (raw notes):</strong> Feeds the LLM the trader's actual journal entries with outcomes. No stats aggregation. The model reads their real words and finds patterns itself. Added in-memory caching keyed by trade data hash. This is the current architecture.
-                            <div class="acc-viz r">
-                                <div class="acc-block">
-                                    <div class="acc-label">v1 stats-based</div>
-                                    <div class="acc-bar-wrap"><div class="acc-bar before"></div></div>
-                                    <div class="acc-num dim">40%</div>
+                </div>
+                <div class="case-story">
+                    <div class="case-narrative">
+                        <div class="case-step">
+                            <div class="case-step-label">Problem</div>
+                            <div class="case-step-body">300+ assessments a year, each gated behind stage reviews. Teams
+                                couldn't work the way their org actually operated, and regulatory deadlines don't move.
+                                <strong>It wasn't a tech problem. It was a people problem with regulatory
+                                    consequences.</strong></div>
+                        </div>
+                        <div class="case-step">
+                            <div class="case-step-label">Approach + tradeoff</div>
+                            <div class="case-step-body">I split my week: half on stakeholder discovery, half on
+                                execution. Built trust with methodology partners first, then used it to drive adoption.
+                                Owned the BPMN workflow model, which turned out far more complex than scoped, and fed
+                                LAUNCH learnings into the PLA build before problems hit.
+                                <br><br>
+                                <strong>We deferred custom reporting to Release 2</strong>, even though leadership
+                                wanted it upfront. Scoping was the module that mattered: it consolidated data across
+                                platforms and powered every downstream page. Reporting could wait. It did, and scoping
+                                shipped on time.
+                                <div class="case-testimonial">
+                                    <blockquote>"His thoughtful, customer-first approach was instrumental in getting
+                                        that work pushed through."</blockquote>
+                                    <cite><strong>Drew Magyar</strong>, Product Team</cite>
                                 </div>
-                                <div class="acc-block">
-                                    <div class="acc-label">v3 raw notes</div>
-                                    <div class="acc-bar-wrap"><div class="acc-bar after"></div></div>
-                                    <div class="acc-num lit">85%</div>
+                            </div>
+                        </div>
+                        <div class="case-step">
+                            <div class="case-step-label">What shipped</div>
+                            <div class="case-step-body">
+                                <div class="flow-row">
+                                    <div class="flow-box before">300+ assessments per year<br>rigid stage gates, siloed
+                                        tools</div>
+                                    <div class="flow-arrow">→</div>
+                                    <div class="flow-box after">Parallel access, fewer gates<br>10+ teams onboarded, 50+
+                                        interested</div>
+                                </div>
+                                The scoping module, Question Bank as a questionnaire-as-a-service, a diagnostics
+                                recommender, and standardized BPMN workflows via Camunda. Question Bank landed a month
+                                ahead of its 6-month timeline. I presented at SECON, selected from hundreds of booth
+                                applications, talked to 150+ people, and onboarded 3 new tenants. I also mentored three
+                                associate PMs through their first year, which sharpened my own thinking.
+                                <div class="case-testimonial">
+                                    <blockquote>"Ghazi has been the most proactive of any team I've collaborated with
+                                        for this initiative. He reached out early, set time for us to sit down together,
+                                        and worked until the requirement was crystal clear."</blockquote>
+                                    <cite><strong>Megan Wiser</strong>, PDP Mentee</cite>
+                                </div>
+                                <div class="case-testimonial">
+                                    <blockquote>"I appreciate your myriad contributions that have propelled the Future
+                                        of Assessments initiative forward. My hope is that we can find more
+                                        opportunities to broaden your reach in our organization and beyond."
+                                    </blockquote>
+                                    <cite><strong>Rachel Rique</strong>, Manager</cite>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="case-step">
-                        <div class="case-step-label">Lesson</div>
-                        <div class="case-step-body"><strong>Don't aggregate data the model hasn't seen.</strong> Every layer of abstraction between the user's words and the LLM is a place where meaning gets lost. The best insights came when I stopped trying to pre-process and let the model read the raw text.</div>
-                    </div>
-                    <div class="case-step">
-                        <div class="case-step-label">Stack</div>
-                        <div class="case-step-body">Swift + Apple Foundation Models on-device. Claude Code for development, Cursor for scaffolding, ChatGPT for discovery and prompt engineering.</div>
-                    </div>
                 </div>
+            </div>
 
-                <div class="case-callout">
-                    Tape is built with AI, for AI features, using AI tools. Now in Beta on TestFlight.
+            <div class="case r">
+                <div class="case-top">
+                    <div class="case-co">Founder · building now</div>
+                    <h3>A work journal that advocates for you</h3>
+                    <p class="case-lede">Most self-promotion is vibes and half-memories. Advocate turns what actually
+                        happened at your job into a case you can prove, in your own words.</p>
+                </div>
+                <div class="case-story">
+                    <div class="case-narrative">
+                        <div class="case-step">
+                            <div class="case-step-label">The idea</div>
+                            <div class="case-step-body">A work journal that <strong>advocates for you</strong>. Log a
+                                win, a mess, something someone said, and it starts building the record you'll need six
+                                months from now, when you can't remember any of it.</div>
+                        </div>
+                        <div class="case-step">
+                            <div class="case-step-label">How it works</div>
+                            <div class="case-step-body">Capture is one dump, zero friction. A background agent reflects
+                                it back in a sentence, weaves it into related threads, and files it under what actually
+                                counts at your job, areas you pick from a universal set or paste straight from your
+                                company's rubric or career ladder.</div>
+                        </div>
+                        <div class="case-step">
+                            <div class="case-step-label">Three surfaces</div>
+                            <div class="case-step-body"><strong>Journal</strong> is where you capture, and watch entries
+                                turn into threads. <strong>Your Story</strong> is a live performance review that's
+                                always assembling itself, every claim cited to the entry behind it, gaps showing up
+                                honestly as "no evidence in this area yet." <strong>Prepare</strong> answers anything
+                                your story can back up: a promo case, 1:1 prep, resume bullets.</div>
+                        </div>
+                        <div class="case-step">
+                            <div class="case-step-label">Why it's different</div>
+                            <div class="case-step-body">Built for you, not your manager. Corrections stick, edit a
+                                section and the agent locks it, never overwrites it again. It writes in your voice, not
+                                LinkedIn's, and the record belongs to you, not the company.</div>
+                        </div>
+                    </div>
+                    <div class="case-callout">Building it now, AI-native from day one.</div>
+                </div>
+            </div>
+
+            <div class="mini-card">
+                <div class="mini-card-tag">Also shipped</div>
+                <div>
+                    <h4>Tape</h4>
+                    <p>AI trading journal, live on TestFlight, powered by an on-device LLM. Rebuilt the insight engine
+                        three times before the fix stuck: feed it raw notes, not pre-aggregated stats.</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ═══ THESIS ═══ -->
-<section class="thesis-section" id="thesis">
-    <div class="wrap">
-        <div class="thesis-grid">
+    <!-- ═══ THESIS ═══ -->
+    <section class="thesis-section" id="thesis">
+        <div class="wrap">
+            <div class="thesis-grid">
+                <div class="r">
+                    <div class="sec-label">Point of view</div>
+                    <h2>The <span class="accent-grad">Agent Manager</span> is coming.</h2>
+                    <div class="thesis-text">
+                        <p>
+                            AI tooling is changing what one person can ship. That's not hype, it's just what's
+                            happening. When you can scaffold a prototype in an afternoon, <strong>the boundary between
+                                "the person who defines the product" and "the person who builds it" starts to
+                                dissolve.</strong>
+                        </p>
+                        <p>
+                            Product thinking, technical execution, and design intuition are merging into a single skill
+                            set. I call this role the Agent Manager. Not because you manage AI agents (though you
+                            might), but because you have the agency to go from problem to shipped product without
+                            waiting on a handoff chain.
+                        </p>
+                        <p>
+                            I'm not saying every PM needs to learn Swift. I'm saying the PMs who can move fluidly
+                            between strategy and execution will have an edge. That's what I'm building toward.
+                        </p>
+                    </div>
+                </div>
+                <div class="thesis-evidence r rd1">
+                    <div class="thesis-point">
+                        <h4>Evidence: The surge</h4>
+                        <p>Given two weeks and no brief, I helped lead a four-person tiger team to an agent workflow
+                            system for design consistency across the platform. A four-codebase proof of concept took
+                            compliance from 28% to 92% and cut a full pass from 6+ weeks to under a day; senior
+                            leadership called it the way the org should operate.</p>
+                    </div>
+                    <div class="thesis-point">
+                        <h4>Evidence: Advocate</h4>
+                        <p>I'm building an AI career-journaling app solo. An agent turns messy work notes into a live,
+                            evidence-cited performance narrative, every claim linked back to the entry that backs it. PM
+                            discovery, prompt design, and UX, one person.</p>
+                    </div>
+                    <div class="thesis-point">
+                        <h4>Evidence: Daily practice</h4>
+                        <p>At Capital One I use AI tooling for user-research synthesis, acceptance criteria, and
+                            competitive analysis. Not a shortcut, more time on the decisions that actually matter.</p>
+                    </div>
+                    <div class="testimonial">
+                        <blockquote>"I always felt that I could trust you to do what needed to be done. I never felt
+                            like I needed to hover over you or hold your hand. If you didn't know something, you would
+                            try it first and then ask for help as needed."</blockquote>
+                        <cite><strong>Sean Webb</strong>, Product Partner, Capital One</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider" style="max-width:600px;margin:0 auto;"></div>
+
+    <!-- ═══ EXPERIENCE ═══ -->
+    <section class="timeline-section" id="exp">
+        <div class="wrap">
+            <div class="sec-label r">Experience</div>
+            <h2 class="r">Where I've been.</h2>
+            <div class="tl r rd1">
+                <div class="tl-i">
+                    <div class="tl-dot"></div>
+                    <div class="tl-when">2025 — now</div>
+                    <div class="tl-role">Founder</div>
+                    <div class="tl-co">Advocate</div>
+                    <div class="tl-desc">An AI career-journaling app: an agent turns messy work notes into a live,
+                        evidence-cited performance narrative. Solo, idea to working build. Before it, I shipped Tape, an
+                        AI trading journal, to TestFlight.</div>
+                </div>
+                <div class="tl-i">
+                    <div class="tl-dot"></div>
+                    <div class="tl-when">2023 — now</div>
+                    <div class="tl-role">Product Manager</div>
+                    <div class="tl-co">Capital One · promoted to Senior Associate (2025)</div>
+                    <div class="tl-desc">Helped lead an agent-workflow surge that took design compliance from 28% to
+                        92%. Shipped assessment platforms to production, and got a simplified status model adopted as
+                        the default principle for every new assessment.</div>
+                </div>
+                <div class="tl-i">
+                    <div class="tl-dot"></div>
+                    <div class="tl-when">2022 — 2023</div>
+                    <div class="tl-role">Product Manager</div>
+                    <div class="tl-co">Warner Bros. Discovery</div>
+                    <div class="tl-desc">Led the ServiceNow and HR-portal integration during the $43B merger, aligning
+                        both companies' stakeholders on one design language and shipping the unified portal on deadline.
+                    </div>
+                </div>
+                <div class="tl-i">
+                    <div class="tl-dot"></div>
+                    <div class="tl-when">2018 — 2022</div>
+                    <div class="tl-role">Disaster Recovery Project Manager</div>
+                    <div class="tl-co">Apple</div>
+                    <div class="tl-desc">Capping four years at Apple Retail, where I was promoted twice up to Genius.
+                        Migrated 30+ application teams off legacy infrastructure with zero disruption through Apple
+                        events.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section class="contact" id="contact">
+        <div class="wrap">
             <div class="r">
-                <div class="sec-label">Point of view</div>
-                <h2>The <span class="accent-grad">Agent Manager</span> is coming.</h2>
-                <div class="thesis-text">
-                    <p>
-                        AI tooling is changing what one person can ship. That's not hype, it's just what's happening. When you can scaffold a prototype in an afternoon, <strong>the boundary between "the person who defines the product" and "the person who builds it" starts to dissolve.</strong>
-                    </p>
-                    <p>
-                        Product thinking, technical execution, and design intuition are merging into a single skill set. I call this role the Agent Manager. Not because you manage AI agents (though you might), but because you have the agency to go from problem to shipped product without waiting on a handoff chain.
-                    </p>
-                    <p>
-                        I'm not saying every PM needs to learn Swift. I'm saying the PMs who can move fluidly between strategy and execution will have an edge. That's what I'm building toward.
-                    </p>
-                </div>
-            </div>
-            <div class="thesis-evidence r rd1">
-                <div class="thesis-point">
-                    <h4>Evidence: Tape</h4>
-                    <p>Full iOS app with on-device LLM inference. PM discovery, prompt engineering, Swift development, UX iteration. One person, idea to TestFlight.</p>
-                </div>
-                <div class="thesis-point">
-                    <h4>Evidence: Grati</h4>
-                    <p>A photo-based gratitude app. On-device LLM generates live captions as you frame a shot, a delayed shutter (press and hold) fades the viewfinder to white. Idea to working prototype in a single day. The turning point where I realized vibe coding was real.</p>
-                </div>
-                <div class="thesis-point">
-                    <h4>Evidence: Daily practice</h4>
-                    <p>At Capital One, I use AI tooling for user research synthesis, acceptance criteria generation, and competitive analysis. Not as a shortcut. As a way to spend more time on the decisions that matter.</p>
-                </div>
-                <div class="testimonial">
-                    <blockquote>"I always felt that I could trust you to do what needed to be done. I never felt like I needed to hover over you or hold your hand. If you didn't know something, you would try it first and then ask for help as needed."</blockquote>
-                    <cite><strong>Sean Webb</strong>, Product Partner, Capital One</cite>
+                <h2>Let's talk.</h2>
+                <div class="contact-sub">Currently exploring AI-native product roles</div>
+                <p class="contact-p">
+                    I'm looking for teams that care about craft, move fast without cutting corners, and solve problems
+                    worth solving. Disruptors over incumbents.
+                </p>
+                <p class="contact-p"
+                    style="font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--t3);font-size:14px;">
+                    Even if it's not about a role, I genuinely like talking to people who care about how things are
+                    made. Say hi.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:ghaziearyan@gmail.com" class="cl">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+                            <path
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        Email
+                    </a>
+                    <a href="https://linkedin.com/in/ghaziaryan" target="_blank" class="cl">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+                            <path
+                                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://x.com/ghazisgizmos" target="_blank" class="cl">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+                            <path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-6.8-8.5L19.5 4h-2l-5.2 6.3L8 4H4z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        @ghazisgizmos
+                    </a>
+                    <a href="https://github.com/GhaziAryan" target="_blank" class="cl">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"
+                                stroke="currentColor" stroke-width="1.5" fill="none" />
+                        </svg>
+                        GitHub
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<div class="divider" style="max-width:600px;margin:0 auto;"></div>
+    <a href="#contact" class="fab" id="fab">Say hi ↗</a>
 
-<!-- ═══ EXPERIENCE ═══ -->
-<section class="timeline-section" id="exp">
-    <div class="wrap">
-        <div class="sec-label r">Experience</div>
-        <h2 class="r">Where I've been.</h2>
-        <div class="tl r rd1">
-            <div class="tl-i">
-                <div class="tl-dot"></div>
-                <div class="tl-when">2025 — now</div>
-                <div class="tl-role">Founder</div>
-                <div class="tl-co">Tape</div>
-                <div class="tl-desc">AI trading journal with on-device LLMs. Three engine rewrites, prompt architecture from scratch, solo from idea to TestFlight.</div>
-            </div>
-            <div class="tl-i">
-                <div class="tl-dot"></div>
-                <div class="tl-when">2023 — now</div>
-                <div class="tl-role">Product Manager</div>
-                <div class="tl-co">Capital One</div>
-                <div class="tl-desc">Zero-to-one platform builds for risk assessment. Question Bank MVP, diagnostics recommender, and early discovery for a cloud core banking platform consolidating 800+ legacy offerings.</div>
-            </div>
-            <div class="tl-i">
-                <div class="tl-dot"></div>
-                <div class="tl-when">2022 — 2023</div>
-                <div class="tl-role">Product Manager</div>
-                <div class="tl-co">Warner Bros. Discovery</div>
-                <div class="tl-desc">Led the ServiceNow + HR portal integration during the $43B merger, coordinating a new design language across both companies' stakeholders. Owned change management planning, built training programs, and shipped the unified portal on deadline.</div>
-            </div>
-            <div class="tl-i">
-                <div class="tl-dot"></div>
-                <div class="tl-when">2021</div>
-                <div class="tl-role">Disaster Recovery PM</div>
-                <div class="tl-co">Apple</div>
-                <div class="tl-desc">Migrated 30+ application teams off a legacy data warehouse. Zero disruption during Apple events and product launches.</div>
-            </div>
+    <footer>
+        <p>&copy; 2026 Ghazi Aryan</p>
+        <div class="sig-wrap">
+            <svg class="sig-svg" id="sigSvg" viewBox="115 125 820 415" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <mask id="mG" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skG"
+                            d="M 916 157 C 830 143, 690 148, 580 180 C 460 215, 330 268, 245 315 C 195 348, 160 385, 143 415 C 125 460, 155 500, 220 520 C 330 535, 480 505, 600 470 C 690 440, 740 410, 765 386 C 785 360, 785 340, 775 328 C 760 315, 730 312, 710 312 C 660 308, 610 308, 570 312 C 530 318, 475 328, 415 348"
+                            stroke="white" stroke-width="50" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </mask>
+                    <mask id="mGap" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skGap"
+                            d="M 916 157 C 830 143, 690 148, 580 180 C 460 215, 330 268, 245 315 C 195 348, 160 385, 143 415 C 125 460, 155 500, 220 520 C 330 535, 480 505, 600 470 C 690 440, 740 410, 765 386 C 785 360, 785 340, 775 328 C 760 315, 730 312, 710 312 C 660 308, 610 308, 570 312 C 530 318, 475 328, 415 348"
+                            stroke="white" stroke-width="10" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </mask>
+                    <mask id="mH1" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skH1" d="M 460 290 C 456 320, 450 355, 445 390" stroke="white" stroke-width="38"
+                            fill="none" stroke-linecap="round" />
+                    </mask>
+                    <mask id="mH2" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skH2" d="M 514 278 C 510 310, 504 345, 500 368" stroke="white" stroke-width="38"
+                            fill="none" stroke-linecap="round" />
+                    </mask>
+                    <mask id="mA" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skA" d="M 534 367 C 555 330, 575 285, 592 258 C 596 280, 598 320, 597 354"
+                            stroke="white" stroke-width="42" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </mask>
+                    <mask id="mZ" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skZ"
+                            d="M 630 272 C 635 262, 650 260, 658 268 C 663 278, 656 300, 650 315 C 644 335, 640 350, 648 358 C 656 352, 662 345, 665 342"
+                            stroke="white" stroke-width="34" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </mask>
+                    <mask id="mI" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skI" d="M 710 264 C 706 280, 702 300, 700 316" stroke="white" stroke-width="28"
+                            fill="none" stroke-linecap="round" />
+                    </mask>
+                </defs>
+                <g mask="url(#mG)" class="sig-fill">
+                    <path fill="#4e5959"
+                        d="M 702.5,317.5 C 704.94,313.852 706.607,309.852 707.5,305.5C 731.03,307.465 753.363,313.632 774.5,324C 782.468,328.632 788.301,335.132 792,343.5C 793.579,362.295 787.079,377.795 772.5,390C 747.807,408.692 721.141,424.359 692.5,437C 616.671,473.165 537.671,500.165 455.5,518C 382.648,532.43 309.315,535.43 235.5,527C 208.361,523.422 183.028,514.755 159.5,501C 129.485,478.938 121.319,450.438 135,415.5C 142.423,398.97 152.09,383.97 164,370.5C 192.273,341.541 223.44,316.374 257.5,295C 290.837,273.161 325.837,254.161 362.5,238C 500.985,179.229 645.318,145.063 795.5,135.5C 828.615,135.524 861.615,137.357 894.5,141C 905.171,142.662 914.671,146.829 923,153.5C 924.075,157.067 923.242,160.067 920.5,162.5C 915.942,163.077 911.942,161.577 908.5,158C 884.864,152.299 860.864,149.299 836.5,149C 795.634,147.012 754.968,149.012 714.5,155C 594.257,171.393 478.257,203.059 366.5,250C 310.408,275.861 258.074,307.527 209.5,345C 186.366,363.124 167.2,384.624 152,409.5C 131.083,447.978 139.916,477.145 178.5,497C 204.706,508.178 232.039,514.844 260.5,517C 346.412,523.442 430.746,514.776 513.5,491C 587.868,469.769 659.201,441.102 727.5,405C 740.044,397.785 752.044,389.785 763.5,381C 774.573,372.026 780.073,360.526 780,346.5C 774.701,339.873 768.201,334.706 760.5,331C 741.701,324.255 722.368,319.755 702.5,317.5 Z" />
+                    <path fill="#4d5959"
+                        d="M 639.5,300.5 C 637.637,304.755 635.97,309.088 634.5,313.5C 622.5,313.5 610.5,313.5 598.5,313.5C 598.5,309.5 598.5,305.5 598.5,301.5C 612.137,300.573 625.804,300.24 639.5,300.5 Z" />
+                    <path fill="#4d5959"
+                        d="M 653.5,301.5 C 667.189,301.74 680.856,302.406 694.5,303.5C 693.989,306.028 693.322,308.528 692.5,311C 692.758,313.009 693.425,314.843 694.5,316.5C 679.198,315.171 663.865,314.171 648.5,313.5C 649.766,309.379 651.432,305.379 653.5,301.5 Z" />
+                    <path fill="#4f5b5b"
+                        d="M 577.5,301.5 C 580.167,301.5 582.833,301.5 585.5,301.5C 585.5,305.833 585.5,310.167 585.5,314.5C 580.819,314.669 576.152,315.002 571.5,315.5C 573.503,310.829 575.503,306.162 577.5,301.5 Z" />
+                    <path fill="#4d5959"
+                        d="M 561.5,303.5 C 559.87,308.081 557.87,312.414 555.5,316.5C 539.841,319.165 524.174,321.832 508.5,324.5C 509.373,320.017 510.373,315.683 511.5,311.5C 527.948,307.556 544.615,304.889 561.5,303.5 Z" />
+                    <path fill="#4e595a"
+                        d="M 496.5,314.5 C 496.046,319.404 495.046,324.07 493.5,328.5C 481.009,331.33 468.676,334.663 456.5,338.5C 457.836,333.483 459.169,328.483 460.5,323.5C 472.425,320.186 484.425,317.186 496.5,314.5 Z" />
+                    <path fill="#4e5a5a"
+                        d="M 445.5,328.5 C 444.319,333.56 442.985,338.56 441.5,343.5C 425.57,347.716 411.07,354.716 398,364.5C 395.461,371.973 391.128,373.306 385,368.5C 383.451,362.264 385.284,357.264 390.5,353.5C 407.434,342.201 425.768,333.868 445.5,328.5 Z" />
+                </g>
+                <g mask="url(#mGap)" class="sig-fill">
+                    <path fill="#22b091"
+                        d="M 460.5,323.5 C 459.169,328.483 457.836,333.483 456.5,338.5C 451.689,354.344 449.356,370.511 449.5,387C 448.653,392.076 445.653,394.076 440.5,393C 434.954,389.268 433.121,384.101 435,377.5C 437.062,366.123 439.229,354.79 441.5,343.5C 442.985,338.56 444.319,333.56 445.5,328.5C 448.311,317.253 450.811,305.919 453,294.5C 454.085,288.394 457.585,285.894 463.5,287C 466.616,289.4 467.949,292.567 467.5,296.5C 464.397,305.242 462.064,314.242 460.5,323.5 Z" />
+                    <path fill="#21b090"
+                        d="M 511.5,311.5 C 510.373,315.683 509.373,320.017 508.5,324.5C 505.196,337.912 503.696,351.578 504,365.5C 499.437,371.151 495.437,370.817 492,364.5C 491.26,352.443 491.76,340.443 493.5,328.5C 495.046,324.07 496.046,319.404 496.5,314.5C 499.124,305.685 501.624,296.685 504,287.5C 506.194,281.926 509.694,277.426 514.5,274C 521.785,273.038 524.618,276.205 523,283.5C 520.23,285.601 518.23,288.268 517,291.5C 514.447,297.99 512.613,304.657 511.5,311.5 Z" />
+                    <path fill="#20af90"
+                        d="M 598.5,301.5 C 598.5,305.5 598.5,309.5 598.5,313.5C 597.96,325.965 598.96,338.298 601.5,350.5C 600.875,354.459 598.542,356.792 594.5,357.5C 590.727,356.219 588.56,353.553 588,349.5C 586.228,337.902 585.395,326.235 585.5,314.5C 585.5,310.167 585.5,305.833 585.5,301.5C 585.666,296.156 585.499,290.823 585,285.5C 582.213,290.739 579.713,296.072 577.5,301.5C 575.503,306.162 573.503,310.829 571.5,315.5C 562.531,332.77 553.031,349.77 543,366.5C 539.333,370.5 535.667,370.5 532,366.5C 531.333,363.5 531.333,360.5 532,357.5C 536.939,348.899 542.272,340.565 548,332.5C 550.785,327.265 553.285,321.932 555.5,316.5C 557.87,312.414 559.87,308.081 561.5,303.5C 568.621,289.259 575.787,274.925 583,260.5C 585.587,255.932 589.421,254.432 594.5,256C 596.049,257.214 597.215,258.714 598,260.5C 598.5,274.163 598.667,287.829 598.5,301.5 Z" />
+                    <path fill="#1fb090"
+                        d="M 653.5,301.5 C 651.432,305.379 649.766,309.379 648.5,313.5C 642.844,324.271 641.011,335.604 643,347.5C 645.579,349.347 648.412,349.847 651.5,349C 656.074,346.243 660.741,343.743 665.5,341.5C 671.567,343.081 673.067,346.748 670,352.5C 660.273,362.393 649.106,364.559 636.5,359C 629.76,352.223 627.26,344.056 629,334.5C 630.059,327.262 631.892,320.262 634.5,313.5C 635.97,309.088 637.637,304.755 639.5,300.5C 643.291,292.792 646.291,284.792 648.5,276.5C 645.432,276.547 642.432,277.047 639.5,278C 637.89,284.805 633.89,286.805 627.5,284C 621.882,278.052 622.548,272.718 629.5,268C 638.253,263.136 647.253,262.47 656.5,266C 661.352,270.41 662.852,275.91 661,282.5C 659.038,289.083 656.538,295.416 653.5,301.5 Z" />
+                    <path fill="#21af90"
+                        d="M 707.5,305.5 C 706.607,309.852 704.94,313.852 702.5,317.5C 699.763,317.599 697.096,317.265 694.5,316.5C 693.425,314.843 692.758,313.009 692.5,311C 693.322,308.528 693.989,306.028 694.5,303.5C 697.416,291.004 699.583,278.337 701,265.5C 703.415,261.649 706.915,260.482 711.5,262C 713.223,262.775 714.223,264.108 714.5,266C 713.041,279.332 710.708,292.498 707.5,305.5 Z" />
+                </g>
+                <g mask="url(#mH1)" class="sig-fill">
+                    <path fill="#22b091"
+                        d="M 460.5,323.5 C 459.169,328.483 457.836,333.483 456.5,338.5C 451.689,354.344 449.356,370.511 449.5,387C 448.653,392.076 445.653,394.076 440.5,393C 434.954,389.268 433.121,384.101 435,377.5C 437.062,366.123 439.229,354.79 441.5,343.5C 442.985,338.56 444.319,333.56 445.5,328.5C 448.311,317.253 450.811,305.919 453,294.5C 454.085,288.394 457.585,285.894 463.5,287C 466.616,289.4 467.949,292.567 467.5,296.5C 464.397,305.242 462.064,314.242 460.5,323.5 Z" />
+                </g>
+                <g mask="url(#mH2)" class="sig-fill">
+                    <path fill="#21b090"
+                        d="M 511.5,311.5 C 510.373,315.683 509.373,320.017 508.5,324.5C 505.196,337.912 503.696,351.578 504,365.5C 499.437,371.151 495.437,370.817 492,364.5C 491.26,352.443 491.76,340.443 493.5,328.5C 495.046,324.07 496.046,319.404 496.5,314.5C 499.124,305.685 501.624,296.685 504,287.5C 506.194,281.926 509.694,277.426 514.5,274C 521.785,273.038 524.618,276.205 523,283.5C 520.23,285.601 518.23,288.268 517,291.5C 514.447,297.99 512.613,304.657 511.5,311.5 Z" />
+                </g>
+                <g mask="url(#mA)" class="sig-fill">
+                    <path fill="#20af90"
+                        d="M 598.5,301.5 C 598.5,305.5 598.5,309.5 598.5,313.5C 597.96,325.965 598.96,338.298 601.5,350.5C 600.875,354.459 598.542,356.792 594.5,357.5C 590.727,356.219 588.56,353.553 588,349.5C 586.228,337.902 585.395,326.235 585.5,314.5C 585.5,310.167 585.5,305.833 585.5,301.5C 585.666,296.156 585.499,290.823 585,285.5C 582.213,290.739 579.713,296.072 577.5,301.5C 575.503,306.162 573.503,310.829 571.5,315.5C 562.531,332.77 553.031,349.77 543,366.5C 539.333,370.5 535.667,370.5 532,366.5C 531.333,363.5 531.333,360.5 532,357.5C 536.939,348.899 542.272,340.565 548,332.5C 550.785,327.265 553.285,321.932 555.5,316.5C 557.87,312.414 559.87,308.081 561.5,303.5C 568.621,289.259 575.787,274.925 583,260.5C 585.587,255.932 589.421,254.432 594.5,256C 596.049,257.214 597.215,258.714 598,260.5C 598.5,274.163 598.667,287.829 598.5,301.5 Z" />
+                    <path data-bg="true" fill="#f9faf9"
+                        d="M 585.5,301.5 C 582.833,301.5 580.167,301.5 577.5,301.5C 579.713,296.072 582.213,290.739 585,285.5C 585.499,290.823 585.666,296.156 585.5,301.5 Z" />
+                </g>
+                <g mask="url(#mZ)" class="sig-fill">
+                    <path fill="#1fb090"
+                        d="M 653.5,301.5 C 651.432,305.379 649.766,309.379 648.5,313.5C 642.844,324.271 641.011,335.604 643,347.5C 645.579,349.347 648.412,349.847 651.5,349C 656.074,346.243 660.741,343.743 665.5,341.5C 671.567,343.081 673.067,346.748 670,352.5C 660.273,362.393 649.106,364.559 636.5,359C 629.76,352.223 627.26,344.056 629,334.5C 630.059,327.262 631.892,320.262 634.5,313.5C 635.97,309.088 637.637,304.755 639.5,300.5C 643.291,292.792 646.291,284.792 648.5,276.5C 645.432,276.547 642.432,277.047 639.5,278C 637.89,284.805 633.89,286.805 627.5,284C 621.882,278.052 622.548,272.718 629.5,268C 638.253,263.136 647.253,262.47 656.5,266C 661.352,270.41 662.852,275.91 661,282.5C 659.038,289.083 656.538,295.416 653.5,301.5 Z" />
+                </g>
+                <g mask="url(#mI)" class="sig-fill">
+                    <path fill="#21af90"
+                        d="M 707.5,305.5 C 706.607,309.852 704.94,313.852 702.5,317.5C 699.763,317.599 697.096,317.265 694.5,316.5C 693.425,314.843 692.758,313.009 692.5,311C 693.322,308.528 693.989,306.028 694.5,303.5C 697.416,291.004 699.583,278.337 701,265.5C 703.415,261.649 706.915,260.482 711.5,262C 713.223,262.775 714.223,264.108 714.5,266C 713.041,279.332 710.708,292.498 707.5,305.5 Z" />
+                </g>
+            </svg>
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- ═══ CONTACT ═══ -->
-<section class="contact" id="contact">
-    <div class="wrap">
-        <div class="r">
-            <h2>Let's talk.</h2>
-            <div class="contact-sub">Currently exploring AI-native product roles</div>
-            <p class="contact-p">
-                I'm looking for teams that care about craft, move fast without cutting corners, and solve problems worth solving. Disruptors over incumbents.
-            </p>
-            <p class="contact-p" style="font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--t3);font-size:14px;">
-                Even if it's not about a role, I genuinely like talking to people who care about how things are made. Say hi.
-            </p>
-            <div class="contact-links">
-                <a href="mailto:ghaziearyan@gmail.com" class="cl">
-                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    Email
-                </a>
-                <a href="https://linkedin.com/in/ghaziaryan" target="_blank" class="cl">
-                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    LinkedIn
-                </a>
-                <a href="https://x.com/ghazisgizmos" target="_blank" class="cl">
-                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-6.8-8.5L19.5 4h-2l-5.2 6.3L8 4H4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    @ghazisgizmos
-                </a>
-                <a href="https://github.com/GhaziAryan" target="_blank" class="cl">
-                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-                    GitHub
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<a href="#contact" class="fab" id="fab">Say hi ↗</a>
-
-<footer>
-    <p>&copy; 2026 Ghazi Aryan</p>
-    <div class="sig-wrap">
-        <svg class="sig-svg" id="sigSvg" viewBox="115 125 820 415" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <mask id="mG" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
-                    <path id="skG" d="M 916 157 C 830 143, 690 148, 580 180 C 460 215, 330 268, 245 315 C 195 348, 160 385, 143 415 C 125 460, 155 500, 220 520 C 330 535, 480 505, 600 470 C 690 440, 740 410, 765 386 C 785 360, 785 340, 775 328 C 760 315, 730 312, 710 312 C 660 308, 610 308, 570 312 C 530 318, 475 328, 415 348" stroke="white" stroke-width="50" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </mask>
-                <mask id="mGap" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
-                    <path id="skGap" d="M 916 157 C 830 143, 690 148, 580 180 C 460 215, 330 268, 245 315 C 195 348, 160 385, 143 415 C 125 460, 155 500, 220 520 C 330 535, 480 505, 600 470 C 690 440, 740 410, 765 386 C 785 360, 785 340, 775 328 C 760 315, 730 312, 710 312 C 660 308, 610 308, 570 312 C 530 318, 475 328, 415 348" stroke="white" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </mask>
-                <mask id="mH1" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
-                    <path id="skH1" d="M 460 290 C 456 320, 450 355, 445 390" stroke="white" stroke-width="38" fill="none" stroke-linecap="round"/>
-                </mask>
-                <mask id="mH2" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
-                    <path id="skH2" d="M 514 278 C 510 310, 504 345, 500 368" stroke="white" stroke-width="38" fill="none" stroke-linecap="round"/>
-                </mask>
-                <mask id="mA" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
-                    <path id="skA" d="M 534 367 C 555 330, 575 285, 592 258 C 596 280, 598 320, 597 354" stroke="white" stroke-width="42" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </mask>
-                <mask id="mZ" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
-                    <path id="skZ" d="M 630 272 C 635 262, 650 260, 658 268 C 663 278, 656 300, 650 315 C 644 335, 640 350, 648 358 C 656 352, 662 345, 665 342" stroke="white" stroke-width="34" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </mask>
-                <mask id="mI" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
-                    <path id="skI" d="M 710 264 C 706 280, 702 300, 700 316" stroke="white" stroke-width="28" fill="none" stroke-linecap="round"/>
-                </mask>
-            </defs>
-            <g mask="url(#mG)" class="sig-fill">
-                <path fill="#4e5959" d="M 702.5,317.5 C 704.94,313.852 706.607,309.852 707.5,305.5C 731.03,307.465 753.363,313.632 774.5,324C 782.468,328.632 788.301,335.132 792,343.5C 793.579,362.295 787.079,377.795 772.5,390C 747.807,408.692 721.141,424.359 692.5,437C 616.671,473.165 537.671,500.165 455.5,518C 382.648,532.43 309.315,535.43 235.5,527C 208.361,523.422 183.028,514.755 159.5,501C 129.485,478.938 121.319,450.438 135,415.5C 142.423,398.97 152.09,383.97 164,370.5C 192.273,341.541 223.44,316.374 257.5,295C 290.837,273.161 325.837,254.161 362.5,238C 500.985,179.229 645.318,145.063 795.5,135.5C 828.615,135.524 861.615,137.357 894.5,141C 905.171,142.662 914.671,146.829 923,153.5C 924.075,157.067 923.242,160.067 920.5,162.5C 915.942,163.077 911.942,161.577 908.5,158C 884.864,152.299 860.864,149.299 836.5,149C 795.634,147.012 754.968,149.012 714.5,155C 594.257,171.393 478.257,203.059 366.5,250C 310.408,275.861 258.074,307.527 209.5,345C 186.366,363.124 167.2,384.624 152,409.5C 131.083,447.978 139.916,477.145 178.5,497C 204.706,508.178 232.039,514.844 260.5,517C 346.412,523.442 430.746,514.776 513.5,491C 587.868,469.769 659.201,441.102 727.5,405C 740.044,397.785 752.044,389.785 763.5,381C 774.573,372.026 780.073,360.526 780,346.5C 774.701,339.873 768.201,334.706 760.5,331C 741.701,324.255 722.368,319.755 702.5,317.5 Z"/>
-                <path fill="#4d5959" d="M 639.5,300.5 C 637.637,304.755 635.97,309.088 634.5,313.5C 622.5,313.5 610.5,313.5 598.5,313.5C 598.5,309.5 598.5,305.5 598.5,301.5C 612.137,300.573 625.804,300.24 639.5,300.5 Z"/>
-                <path fill="#4d5959" d="M 653.5,301.5 C 667.189,301.74 680.856,302.406 694.5,303.5C 693.989,306.028 693.322,308.528 692.5,311C 692.758,313.009 693.425,314.843 694.5,316.5C 679.198,315.171 663.865,314.171 648.5,313.5C 649.766,309.379 651.432,305.379 653.5,301.5 Z"/>
-                <path fill="#4f5b5b" d="M 577.5,301.5 C 580.167,301.5 582.833,301.5 585.5,301.5C 585.5,305.833 585.5,310.167 585.5,314.5C 580.819,314.669 576.152,315.002 571.5,315.5C 573.503,310.829 575.503,306.162 577.5,301.5 Z"/>
-                <path fill="#4d5959" d="M 561.5,303.5 C 559.87,308.081 557.87,312.414 555.5,316.5C 539.841,319.165 524.174,321.832 508.5,324.5C 509.373,320.017 510.373,315.683 511.5,311.5C 527.948,307.556 544.615,304.889 561.5,303.5 Z"/>
-                <path fill="#4e595a" d="M 496.5,314.5 C 496.046,319.404 495.046,324.07 493.5,328.5C 481.009,331.33 468.676,334.663 456.5,338.5C 457.836,333.483 459.169,328.483 460.5,323.5C 472.425,320.186 484.425,317.186 496.5,314.5 Z"/>
-                <path fill="#4e5a5a" d="M 445.5,328.5 C 444.319,333.56 442.985,338.56 441.5,343.5C 425.57,347.716 411.07,354.716 398,364.5C 395.461,371.973 391.128,373.306 385,368.5C 383.451,362.264 385.284,357.264 390.5,353.5C 407.434,342.201 425.768,333.868 445.5,328.5 Z"/>
-            </g>
-            <g mask="url(#mGap)" class="sig-fill">
-                <path fill="#22b091" d="M 460.5,323.5 C 459.169,328.483 457.836,333.483 456.5,338.5C 451.689,354.344 449.356,370.511 449.5,387C 448.653,392.076 445.653,394.076 440.5,393C 434.954,389.268 433.121,384.101 435,377.5C 437.062,366.123 439.229,354.79 441.5,343.5C 442.985,338.56 444.319,333.56 445.5,328.5C 448.311,317.253 450.811,305.919 453,294.5C 454.085,288.394 457.585,285.894 463.5,287C 466.616,289.4 467.949,292.567 467.5,296.5C 464.397,305.242 462.064,314.242 460.5,323.5 Z"/>
-                <path fill="#21b090" d="M 511.5,311.5 C 510.373,315.683 509.373,320.017 508.5,324.5C 505.196,337.912 503.696,351.578 504,365.5C 499.437,371.151 495.437,370.817 492,364.5C 491.26,352.443 491.76,340.443 493.5,328.5C 495.046,324.07 496.046,319.404 496.5,314.5C 499.124,305.685 501.624,296.685 504,287.5C 506.194,281.926 509.694,277.426 514.5,274C 521.785,273.038 524.618,276.205 523,283.5C 520.23,285.601 518.23,288.268 517,291.5C 514.447,297.99 512.613,304.657 511.5,311.5 Z"/>
-                <path fill="#20af90" d="M 598.5,301.5 C 598.5,305.5 598.5,309.5 598.5,313.5C 597.96,325.965 598.96,338.298 601.5,350.5C 600.875,354.459 598.542,356.792 594.5,357.5C 590.727,356.219 588.56,353.553 588,349.5C 586.228,337.902 585.395,326.235 585.5,314.5C 585.5,310.167 585.5,305.833 585.5,301.5C 585.666,296.156 585.499,290.823 585,285.5C 582.213,290.739 579.713,296.072 577.5,301.5C 575.503,306.162 573.503,310.829 571.5,315.5C 562.531,332.77 553.031,349.77 543,366.5C 539.333,370.5 535.667,370.5 532,366.5C 531.333,363.5 531.333,360.5 532,357.5C 536.939,348.899 542.272,340.565 548,332.5C 550.785,327.265 553.285,321.932 555.5,316.5C 557.87,312.414 559.87,308.081 561.5,303.5C 568.621,289.259 575.787,274.925 583,260.5C 585.587,255.932 589.421,254.432 594.5,256C 596.049,257.214 597.215,258.714 598,260.5C 598.5,274.163 598.667,287.829 598.5,301.5 Z"/>
-                <path fill="#1fb090" d="M 653.5,301.5 C 651.432,305.379 649.766,309.379 648.5,313.5C 642.844,324.271 641.011,335.604 643,347.5C 645.579,349.347 648.412,349.847 651.5,349C 656.074,346.243 660.741,343.743 665.5,341.5C 671.567,343.081 673.067,346.748 670,352.5C 660.273,362.393 649.106,364.559 636.5,359C 629.76,352.223 627.26,344.056 629,334.5C 630.059,327.262 631.892,320.262 634.5,313.5C 635.97,309.088 637.637,304.755 639.5,300.5C 643.291,292.792 646.291,284.792 648.5,276.5C 645.432,276.547 642.432,277.047 639.5,278C 637.89,284.805 633.89,286.805 627.5,284C 621.882,278.052 622.548,272.718 629.5,268C 638.253,263.136 647.253,262.47 656.5,266C 661.352,270.41 662.852,275.91 661,282.5C 659.038,289.083 656.538,295.416 653.5,301.5 Z"/>
-                <path fill="#21af90" d="M 707.5,305.5 C 706.607,309.852 704.94,313.852 702.5,317.5C 699.763,317.599 697.096,317.265 694.5,316.5C 693.425,314.843 692.758,313.009 692.5,311C 693.322,308.528 693.989,306.028 694.5,303.5C 697.416,291.004 699.583,278.337 701,265.5C 703.415,261.649 706.915,260.482 711.5,262C 713.223,262.775 714.223,264.108 714.5,266C 713.041,279.332 710.708,292.498 707.5,305.5 Z"/>
-            </g>
-            <g mask="url(#mH1)" class="sig-fill"><path fill="#22b091" d="M 460.5,323.5 C 459.169,328.483 457.836,333.483 456.5,338.5C 451.689,354.344 449.356,370.511 449.5,387C 448.653,392.076 445.653,394.076 440.5,393C 434.954,389.268 433.121,384.101 435,377.5C 437.062,366.123 439.229,354.79 441.5,343.5C 442.985,338.56 444.319,333.56 445.5,328.5C 448.311,317.253 450.811,305.919 453,294.5C 454.085,288.394 457.585,285.894 463.5,287C 466.616,289.4 467.949,292.567 467.5,296.5C 464.397,305.242 462.064,314.242 460.5,323.5 Z"/></g>
-            <g mask="url(#mH2)" class="sig-fill"><path fill="#21b090" d="M 511.5,311.5 C 510.373,315.683 509.373,320.017 508.5,324.5C 505.196,337.912 503.696,351.578 504,365.5C 499.437,371.151 495.437,370.817 492,364.5C 491.26,352.443 491.76,340.443 493.5,328.5C 495.046,324.07 496.046,319.404 496.5,314.5C 499.124,305.685 501.624,296.685 504,287.5C 506.194,281.926 509.694,277.426 514.5,274C 521.785,273.038 524.618,276.205 523,283.5C 520.23,285.601 518.23,288.268 517,291.5C 514.447,297.99 512.613,304.657 511.5,311.5 Z"/></g>
-            <g mask="url(#mA)" class="sig-fill">
-                <path fill="#20af90" d="M 598.5,301.5 C 598.5,305.5 598.5,309.5 598.5,313.5C 597.96,325.965 598.96,338.298 601.5,350.5C 600.875,354.459 598.542,356.792 594.5,357.5C 590.727,356.219 588.56,353.553 588,349.5C 586.228,337.902 585.395,326.235 585.5,314.5C 585.5,310.167 585.5,305.833 585.5,301.5C 585.666,296.156 585.499,290.823 585,285.5C 582.213,290.739 579.713,296.072 577.5,301.5C 575.503,306.162 573.503,310.829 571.5,315.5C 562.531,332.77 553.031,349.77 543,366.5C 539.333,370.5 535.667,370.5 532,366.5C 531.333,363.5 531.333,360.5 532,357.5C 536.939,348.899 542.272,340.565 548,332.5C 550.785,327.265 553.285,321.932 555.5,316.5C 557.87,312.414 559.87,308.081 561.5,303.5C 568.621,289.259 575.787,274.925 583,260.5C 585.587,255.932 589.421,254.432 594.5,256C 596.049,257.214 597.215,258.714 598,260.5C 598.5,274.163 598.667,287.829 598.5,301.5 Z"/>
-                <path data-bg="true" fill="#f9faf9" d="M 585.5,301.5 C 582.833,301.5 580.167,301.5 577.5,301.5C 579.713,296.072 582.213,290.739 585,285.5C 585.499,290.823 585.666,296.156 585.5,301.5 Z"/>
-            </g>
-            <g mask="url(#mZ)" class="sig-fill"><path fill="#1fb090" d="M 653.5,301.5 C 651.432,305.379 649.766,309.379 648.5,313.5C 642.844,324.271 641.011,335.604 643,347.5C 645.579,349.347 648.412,349.847 651.5,349C 656.074,346.243 660.741,343.743 665.5,341.5C 671.567,343.081 673.067,346.748 670,352.5C 660.273,362.393 649.106,364.559 636.5,359C 629.76,352.223 627.26,344.056 629,334.5C 630.059,327.262 631.892,320.262 634.5,313.5C 635.97,309.088 637.637,304.755 639.5,300.5C 643.291,292.792 646.291,284.792 648.5,276.5C 645.432,276.547 642.432,277.047 639.5,278C 637.89,284.805 633.89,286.805 627.5,284C 621.882,278.052 622.548,272.718 629.5,268C 638.253,263.136 647.253,262.47 656.5,266C 661.352,270.41 662.852,275.91 661,282.5C 659.038,289.083 656.538,295.416 653.5,301.5 Z"/></g>
-            <g mask="url(#mI)" class="sig-fill"><path fill="#21af90" d="M 707.5,305.5 C 706.607,309.852 704.94,313.852 702.5,317.5C 699.763,317.599 697.096,317.265 694.5,316.5C 693.425,314.843 692.758,313.009 692.5,311C 693.322,308.528 693.989,306.028 694.5,303.5C 697.416,291.004 699.583,278.337 701,265.5C 703.415,261.649 706.915,260.482 711.5,262C 713.223,262.775 714.223,264.108 714.5,266C 713.041,279.332 710.708,292.498 707.5,305.5 Z"/></g>
-        </svg>
-    </div>
-</footer>
-
-<script>
-    // Theme toggle
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    function setTheme(t) {
-        html.setAttribute('data-theme', t);
-        toggle.textContent = t === 'dark' ? '☀' : '☾';
-        localStorage.setItem('theme', t);
-    }
-    toggle.addEventListener('click', () => {
-        setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-    });
-    const saved = localStorage.getItem('theme');
-    if (saved) setTheme(saved);
-
-    // Marquee — JS-driven for smooth deceleration on hover
-    (function() {
-        const track = document.querySelector('.marquee-track');
-        if (!track) return;
-        let pos = 0;
-        let speed = 1.2;
-        let targetSpeed = 1.2;
-        const half = track.scrollWidth / 2;
-        track.parentElement.addEventListener('mouseenter', () => { targetSpeed = 0.3; });
-        track.parentElement.addEventListener('mouseleave', () => { targetSpeed = 1.2; });
-        function tick() {
-            speed += (targetSpeed - speed) * 0.04;
-            pos -= speed;
-            if (pos <= -half) pos += half;
-            track.style.transform = 'translateX(' + pos + 'px)';
-            requestAnimationFrame(tick);
+    <script>
+        // Theme toggle
+        const toggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        function setTheme(t) {
+            html.setAttribute('data-theme', t);
+            toggle.textContent = t === 'dark' ? '☀' : '☾';
+            localStorage.setItem('theme', t);
         }
-        tick();
-    })();
+        toggle.addEventListener('click', () => {
+            setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+        });
+        const saved = localStorage.getItem('theme');
+        if (saved) setTheme(saved);
 
-    // Cursor glow
-    const glow = document.getElementById('cursorGlow');
-    let mx = 0, my = 0, gx = 0, gy = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    function animGlow() {
-        gx += (mx - gx) * 0.08;
-        gy += (my - gy) * 0.08;
-        glow.style.left = gx + 'px';
-        glow.style.top = gy + 'px';
-        requestAnimationFrame(animGlow);
-    }
-    animGlow();
+        // Marquee — JS-driven for smooth deceleration on hover
+        (function () {
+            const track = document.querySelector('.marquee-track');
+            if (!track) return;
+            let pos = 0;
+            let speed = 1.2;
+            let targetSpeed = 1.2;
+            const half = track.scrollWidth / 2;
+            track.parentElement.addEventListener('mouseenter', () => { targetSpeed = 0.3; });
+            track.parentElement.addEventListener('mouseleave', () => { targetSpeed = 1.2; });
+            function tick() {
+                speed += (targetSpeed - speed) * 0.04;
+                pos -= speed;
+                if (pos <= -half) pos += half;
+                track.style.transform = 'translateX(' + pos + 'px)';
+                requestAnimationFrame(tick);
+            }
+            tick();
+        })();
 
-    // Scroll observer
-    const obs = new IntersectionObserver(es => {
-        es.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('v');
-                e.target.querySelectorAll('.acc-bar').forEach(b => b.classList.add('fill'));
+        // Cursor glow
+        const glow = document.getElementById('cursorGlow');
+        let mx = 0, my = 0, gx = 0, gy = 0;
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+        function animGlow() {
+            gx += (mx - gx) * 0.08;
+            gy += (my - gy) * 0.08;
+            glow.style.left = gx + 'px';
+            glow.style.top = gy + 'px';
+            requestAnimationFrame(animGlow);
+        }
+        animGlow();
+
+        // Scroll observer
+        const obs = new IntersectionObserver(es => {
+            es.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('v');
+                    e.target.querySelectorAll('.acc-bar').forEach(b => b.classList.add('fill'));
+                }
+            });
+        }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+        document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+        // Scroll events
+        const sections = ['about', 'work', 'thesis', 'exp', 'contact'];
+        const navLinks = document.querySelectorAll('.nav-r a');
+        const fab = document.getElementById('fab');
+        const heroEl = document.getElementById('hero');
+        const contactEl = document.getElementById('contact');
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('compact', scrollY > 50);
+            const h = document.documentElement.scrollHeight - window.innerHeight;
+            document.getElementById('scrollBar').style.width = (scrollY / h * 100) + '%';
+            let current = '';
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el.getBoundingClientRect().top < 200) current = id;
+            });
+            navLinks.forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+            });
+            // Show/hide FAB after hero, hide near contact
+            const pastHero = scrollY > heroEl.offsetHeight;
+            const nearContact = contactEl.getBoundingClientRect().top < window.innerHeight;
+            fab.classList.toggle('show', pastHero && !nearContact);
+        }, { passive: true });
+
+        // Easter egg: click the nav name 5 times fast — Severance "innies" mode
+        let clickCount = 0;
+        let clickTimer = null;
+        document.querySelector('.nav-name').addEventListener('click', (e) => {
+            e.stopPropagation();
+            clickCount++;
+            clearTimeout(clickTimer);
+            clickTimer = setTimeout(() => clickCount = 0, 800);
+            if (clickCount >= 5) {
+                clickCount = 0;
+                // Severance-style cold open
+                const overlay = document.createElement('div');
+                overlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;height:100dvh;background:#fff;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.8s;padding:24px;text-align:center;';
+                const lines = [
+                    { text: 'Who are you?', delay: 800, style: 'font-family:Manrope,sans-serif;font-size:14px;color:#888;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:32px;' },
+                    { text: 'Ghazi Aryan', delay: 2000, style: 'font-family:Syne,sans-serif;font-size:clamp(32px,8vw,48px);font-weight:800;color:#111;letter-spacing:-0.03em;margin-bottom:8px;' },
+                    { text: 'Your outie is a product manager.', delay: 3200, style: 'font-family:Fraunces,Georgia,serif;font-style:italic;font-size:clamp(15px,4vw,18px);color:#666;margin-bottom:40px;' },
+                    { text: 'Please enjoy each section equally.', delay: 4400, style: 'font-family:IBM Plex Mono,monospace;font-size:12px;color:#aaa;letter-spacing:0.06em;' }
+                ];
+                document.body.appendChild(overlay);
+                requestAnimationFrame(() => overlay.style.opacity = '1');
+                lines.forEach(l => {
+                    const el = document.createElement('div');
+                    el.style.cssText = l.style + 'opacity:0;transform:translateY(10px);transition:opacity 0.6s,transform 0.6s;';
+                    el.textContent = l.text;
+                    overlay.appendChild(el);
+                    setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, l.delay);
+                });
+                setTimeout(() => {
+                    overlay.style.opacity = '0';
+                    setTimeout(() => overlay.remove(), 800);
+                }, 6500);
             }
         });
-    }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
-    document.querySelectorAll('.r').forEach(el => obs.observe(el));
 
-    // Scroll events
-    const sections = ['about','work','thesis','exp','contact'];
-    const navLinks = document.querySelectorAll('.nav-r a');
-    const fab = document.getElementById('fab');
-    const heroEl = document.getElementById('hero');
-    const contactEl = document.getElementById('contact');
-    window.addEventListener('scroll', () => {
-        document.getElementById('nav').classList.toggle('compact', scrollY > 50);
-        const h = document.documentElement.scrollHeight - window.innerHeight;
-        document.getElementById('scrollBar').style.width = (scrollY / h * 100) + '%';
-        let current = '';
-        sections.forEach(id => {
-            const el = document.getElementById(id);
-            if (el && el.getBoundingClientRect().top < 200) current = id;
-        });
-        navLinks.forEach(a => {
-            a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-        });
-        // Show/hide FAB after hero, hide near contact
-        const pastHero = scrollY > heroEl.offsetHeight;
-        const nearContact = contactEl.getBoundingClientRect().top < window.innerHeight;
-        fab.classList.toggle('show', pastHero && !nearContact);
-    }, { passive: true });
+        // Timeline draw-on-scroll
+        const tl = document.querySelector('.tl');
+        const tlItems = document.querySelectorAll('.tl-i');
+        if (tl) {
+            const tlObs = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        tl.classList.add('tl-draw');
+                        tlObs.unobserve(tl);
+                    }
+                });
+            }, { threshold: 0.1 });
+            tlObs.observe(tl);
 
-    // Easter egg: click the nav name 5 times fast — Severance "innies" mode
-    let clickCount = 0;
-    let clickTimer = null;
-    document.querySelector('.nav-name').addEventListener('click', (e) => {
-        e.stopPropagation();
-        clickCount++;
-        clearTimeout(clickTimer);
-        clickTimer = setTimeout(() => clickCount = 0, 800);
-        if (clickCount >= 5) {
-            clickCount = 0;
-            // Severance-style cold open
-            const overlay = document.createElement('div');
-            overlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;height:100dvh;background:#fff;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.8s;padding:24px;text-align:center;';
-            const lines = [
-                {text: 'Who are you?', delay: 800, style: 'font-family:Manrope,sans-serif;font-size:14px;color:#888;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:32px;'},
-                {text: 'Ghazi Aryan', delay: 2000, style: 'font-family:Syne,sans-serif;font-size:clamp(32px,8vw,48px);font-weight:800;color:#111;letter-spacing:-0.03em;margin-bottom:8px;'},
-                {text: 'Your outie is a product manager.', delay: 3200, style: 'font-family:Fraunces,Georgia,serif;font-style:italic;font-size:clamp(15px,4vw,18px);color:#666;margin-bottom:40px;'},
-                {text: 'Please enjoy each section equally.', delay: 4400, style: 'font-family:IBM Plex Mono,monospace;font-size:12px;color:#aaa;letter-spacing:0.06em;'}
+            const itemObs = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('tl-active');
+                        itemObs.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+            tlItems.forEach(item => itemObs.observe(item));
+        }
+
+        // Phone frame parallax on scroll — staggered vertical offset
+        const phoneFrames = document.querySelectorAll('.phone-frame');
+        if (phoneFrames.length) {
+            const gallery = document.querySelector('.screenshot-break');
+            const speeds = [-0.15, 0.08, -0.12];
+            function updateParallax() {
+                if (!gallery) return;
+                const rect = gallery.getBoundingClientRect();
+                const center = window.innerHeight / 2;
+                const progress = (rect.top + rect.height / 2 - center) / center;
+                phoneFrames.forEach((frame, i) => {
+                    const y = progress * speeds[i] * 80;
+                    frame.style.transform = `translateY(${y}px)`;
+                });
+            }
+            window.addEventListener('scroll', updateParallax, { passive: true });
+            updateParallax();
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Signature animation — skeleton mask paths + neon flicker
+        (function () {
+            const svg = document.getElementById('sigSvg');
+            if (!svg) return;
+
+            const strokes = [
+                { id: 'skG', dur: 1000, gap: 100 },   // gray sweep
+                { id: 'skH1', dur: 200, gap: 40 },    // h left ↓
+                { id: 'skH2', dur: 200, gap: 40 },    // h right ↓
+                { id: 'skA', dur: 280, gap: 40 },    // a ↗↘
+                { id: 'skZ', dur: 280, gap: 40 },    // z loop ↓
+                { id: 'skI', dur: 160, gap: 0 },     // i ↓
             ];
-            document.body.appendChild(overlay);
-            requestAnimationFrame(() => overlay.style.opacity = '1');
-            lines.forEach(l => {
-                const el = document.createElement('div');
-                el.style.cssText = l.style + 'opacity:0;transform:translateY(10px);transition:opacity 0.6s,transform 0.6s;';
-                el.textContent = l.text;
-                overlay.appendChild(el);
-                setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, l.delay);
+
+            strokes.forEach(s => {
+                s.el = document.getElementById(s.id);
+                s.len = s.el.getTotalLength();
+                s.el.style.strokeDasharray = s.len;
+                s.el.style.strokeDashoffset = s.len;
             });
-            setTimeout(() => {
-                overlay.style.opacity = '0';
-                setTimeout(() => overlay.remove(), 800);
-            }, 6500);
-        }
-    });
 
-    // Timeline draw-on-scroll
-    const tl = document.querySelector('.tl');
-    const tlItems = document.querySelectorAll('.tl-i');
-    if (tl) {
-        const tlObs = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    tl.classList.add('tl-draw');
-                    tlObs.unobserve(tl);
-                }
-            });
-        }, { threshold: 0.1 });
-        tlObs.observe(tl);
-
-        const itemObs = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('tl-active');
-                    itemObs.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
-        tlItems.forEach(item => itemObs.observe(item));
-    }
-
-    // Phone frame parallax on scroll — staggered vertical offset
-    const phoneFrames = document.querySelectorAll('.phone-frame');
-    if (phoneFrames.length) {
-        const gallery = document.querySelector('.screenshot-break');
-        const speeds = [-0.15, 0.08, -0.12];
-        function updateParallax() {
-            if (!gallery) return;
-            const rect = gallery.getBoundingClientRect();
-            const center = window.innerHeight / 2;
-            const progress = (rect.top + rect.height / 2 - center) / center;
-            phoneFrames.forEach((frame, i) => {
-                const y = progress * speeds[i] * 80;
-                frame.style.transform = `translateY(${y}px)`;
-            });
-        }
-        window.addEventListener('scroll', updateParallax, { passive: true });
-        updateParallax();
-    }
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', e => {
-            e.preventDefault();
-            document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-
-    // Signature animation — skeleton mask paths + neon flicker
-    (function() {
-        const svg = document.getElementById('sigSvg');
-        if (!svg) return;
-
-        const strokes = [
-            { id: 'skG',  dur: 1000, gap: 100 },   // gray sweep
-            { id: 'skH1', dur: 200,  gap: 40 },    // h left ↓
-            { id: 'skH2', dur: 200,  gap: 40 },    // h right ↓
-            { id: 'skA',  dur: 280,  gap: 40 },    // a ↗↘
-            { id: 'skZ',  dur: 280,  gap: 40 },    // z loop ↓
-            { id: 'skI',  dur: 160,  gap: 0 },     // i ↓
-        ];
-
-        strokes.forEach(s => {
-            s.el = document.getElementById(s.id);
-            s.len = s.el.getTotalLength();
-            s.el.style.strokeDasharray = s.len;
-            s.el.style.strokeDashoffset = s.len;
-        });
-
-        // Sync the narrow gap-filler mask with the G stroke
-        const gapEl = document.getElementById('skGap');
-        if (gapEl) {
-            const gapLen = gapEl.getTotalLength();
-            gapEl.style.strokeDasharray = gapLen;
-            gapEl.style.strokeDashoffset = gapLen;
-        }
-
-        // Aggressive cubic ease — fast start/end, smooth middle
-        function easeInOutCubic(t) {
-            return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3) / 2;
-        }
-        function easeOutCubic(t) {
-            return 1 - Math.pow(1 - t, 3);
-        }
-
-        function animateStroke(s, cb) {
-            const easeFn = s === strokes[0] ? easeInOutCubic : easeOutCubic;
-            const start = performance.now();
-            (function tick(now) {
-                const t = Math.min((now - start) / s.dur, 1);
-                const eased = easeFn(t);
-                s.el.style.strokeDashoffset = s.len * (1 - eased);
-                // Sync gap-filler mask with the G stroke
-                if (s === strokes[0] && gapEl) {
-                    const gapLen = parseFloat(gapEl.style.strokeDasharray);
-                    gapEl.style.strokeDashoffset = gapLen * (1 - eased);
-                }
-                if (t < 1) requestAnimationFrame(tick);
-                else if (cb) cb();
-            })(performance.now());
-        }
-
-        function runSequence(i) {
-            if (i >= strokes.length) {
-                setTimeout(() => { svg.classList.add('neon-on'); }, 120);
-                return;
+            // Sync the narrow gap-filler mask with the G stroke
+            const gapEl = document.getElementById('skGap');
+            if (gapEl) {
+                const gapLen = gapEl.getTotalLength();
+                gapEl.style.strokeDasharray = gapLen;
+                gapEl.style.strokeDashoffset = gapLen;
             }
-            animateStroke(strokes[i], () => {
-                setTimeout(() => runSequence(i + 1), strokes[i].gap);
-            });
-        }
 
-        let triggered = false;
-        const sigObs = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting && !triggered) {
-                triggered = true;
-                sigObs.disconnect();
-                setTimeout(() => runSequence(0), 300);
+            // Aggressive cubic ease — fast start/end, smooth middle
+            function easeInOutCubic(t) {
+                return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
             }
-        }, { threshold: 0.3 });
-        sigObs.observe(svg);
-    })();
-</script>
+            function easeOutCubic(t) {
+                return 1 - Math.pow(1 - t, 3);
+            }
+
+            function animateStroke(s, cb) {
+                const easeFn = s === strokes[0] ? easeInOutCubic : easeOutCubic;
+                const start = performance.now();
+                (function tick(now) {
+                    const t = Math.min((now - start) / s.dur, 1);
+                    const eased = easeFn(t);
+                    s.el.style.strokeDashoffset = s.len * (1 - eased);
+                    // Sync gap-filler mask with the G stroke
+                    if (s === strokes[0] && gapEl) {
+                        const gapLen = parseFloat(gapEl.style.strokeDasharray);
+                        gapEl.style.strokeDashoffset = gapLen * (1 - eased);
+                    }
+                    if (t < 1) requestAnimationFrame(tick);
+                    else if (cb) cb();
+                })(performance.now());
+            }
+
+            function runSequence(i) {
+                if (i >= strokes.length) {
+                    setTimeout(() => { svg.classList.add('neon-on'); }, 120);
+                    return;
+                }
+                animateStroke(strokes[i], () => {
+                    setTimeout(() => runSequence(i + 1), strokes[i].gap);
+                });
+            }
+
+            let triggered = false;
+            const sigObs = new IntersectionObserver(([entry]) => {
+                if (entry.isIntersecting && !triggered) {
+                    triggered = true;
+                    sigObs.disconnect();
+                    setTimeout(() => runSequence(0), 300);
+                }
+            }, { threshold: 0.3 });
+            sigObs.observe(svg);
+        })();
+
+        // ═══ Flagship agent-surge interactive ═══
+        (function () {
+            const phases = [
+                {
+                    nodes: ['generator'], wires: ['gen'], human: false, comp: 28, repos: 0,
+                    text: 'First, a one-time setup. <strong>The Generator</strong> reads the design system and writes a logic-aware spec sheet for every component, the rules to follow and the deep API logic to never touch.'
+                },
+                {
+                    nodes: ['orchestrator'], wires: [], human: false, comp: 28, repos: 0,
+                    text: '<strong>The Orchestrator</strong> takes those specs and runs the show, breaking the work into tasks and handing them out to the auditor and the implementer.'
+                },
+                {
+                    nodes: ['orchestrator', 'auditor', 'implementer'], wires: ['loop'], human: false, comp: 92, repos: 4,
+                    text: '<strong>The Auditor</strong> flags every drift from spec; <strong>the Implementer</strong> fixes what it\'s allowed to. Both loop back through the orchestrator, pass after pass, until the code is compliant.'
+                },
+                {
+                    nodes: ['human'], wires: ['human'], human: true, comp: 92, repos: 4,
+                    text: 'The orchestrator reports out to <strong>you</strong>. You set the guardrails, review each pass, and approve the merge. Agents on the tools, the PM on the rulebook.'
+                },
+            ];
+            const q = s => document.querySelector(s);
+            const nodesEls = {};
+            document.querySelectorAll('#fuseCase .node').forEach(n => nodesEls[n.dataset.node] = n);
+            const wiresEls = Array.from(document.querySelectorAll('#fuseCase .wire'));
+            const wireLabels = Array.from(document.querySelectorAll('#fuseCase .wire-label'));
+            const storyEl = q('#fuseStory'), storyText = q('#storyText');
+            const compVal = q('#compVal'), compBar = q('#compBar');
+            const timeVal = q('#timeVal'), timeUnit = q('#timeUnit'), timeWas = q('#timeWas'), timeRv = q('#timeRv');
+            const repoVal = q('#repoVal'), repoTrack = q('#repoTrack').children;
+            const runBtn = q('#runBtn'), runLabel = q('#runLabel'), runIcon = q('#runIcon'), runHint = q('#runHint');
+            const quote = q('#fuseQuote');
+            const roComp = q('#ro-comp'), roTime = q('#ro-time'), roRepo = q('#ro-repo');
+            if (!runBtn) return;
+            let running = false;
+            const wait = ms => new Promise(r => setTimeout(r, ms));
+            function clearActive() {
+                Object.values(nodesEls).forEach(n => n.classList.remove('active'));
+                wiresEls.forEach(w => w.classList.remove('on'));
+                wireLabels.forEach(l => l.classList.remove('on'));
+                storyEl.classList.remove('human');
+                timeRv.classList.remove('striking', 'fading');
+            }
+            function reset() {
+                clearActive();
+                Object.values(nodesEls).forEach(n => n.classList.remove('done'));
+                quote.classList.remove('show');
+                [roComp, roTime, roRepo].forEach(r => r.classList.remove('lit'));
+                compVal.textContent = '28'; compBar.style.width = '28%';
+                timeVal.textContent = '6+'; timeUnit.textContent = 'weeks'; timeWas.innerHTML = '';
+                repoVal.textContent = '0'; Array.from(repoTrack).forEach(i => i.classList.remove('on'));
+                storyText.innerHTML = 'Four codebases, <strong>28% on-spec</strong>, fixed by hand, 6+ weeks a pass. Watch how it changes.';
+            }
+            function showAchieved() {
+                clearActive();
+                Object.values(nodesEls).forEach(n => n.classList.add('done'));
+                roComp.classList.add('lit'); roRepo.classList.add('lit'); roTime.classList.add('lit');
+                compVal.textContent = '92'; compBar.style.width = '92%';
+                repoVal.textContent = '4'; Array.from(repoTrack).forEach(i => i.classList.add('on'));
+                timeVal.textContent = '<1'; timeUnit.textContent = 'day';
+                timeWas.innerHTML = 'sometimes under an hour · down from <s>6+ weeks</s>';
+                quote.classList.add('show');
+                storyText.innerHTML = 'The pilot: <strong>28% → 92%</strong> on-spec across four codebases, and 6+ weeks of manual work down to <strong>under a day</strong>, with more of the platform in line. Press play to watch how, or hover any node.';
+            }
+            function animateNumber(el, to, dur) {
+                const from = parseInt(el.textContent) || 0;
+                const start = performance.now();
+                (function tick(now) {
+                    const t = Math.min((now - start) / dur, 1);
+                    const e = 1 - Math.pow(1 - t, 3);
+                    el.textContent = Math.round(from + (to - from) * e);
+                    if (t < 1) requestAnimationFrame(tick);
+                })(performance.now());
+                setTimeout(() => { el.textContent = to; }, dur + 140);
+            }
+            function collapseTime() {
+                timeRv.classList.add('striking');
+                setTimeout(() => {
+                    timeRv.classList.add('fading');
+                    setTimeout(() => {
+                        timeVal.textContent = '<1'; timeUnit.textContent = 'day';
+                        timeRv.classList.remove('striking');
+                        roTime.classList.add('lit');
+                        timeWas.innerHTML = 'sometimes under an hour · down from <s>6+ weeks</s>';
+                        timeRv.classList.remove('fading');
+                    }, 220);
+                }, 560);
+            }
+            async function runPhase(p, i) {
+                clearActive();
+                phases.slice(0, i).forEach(pp => pp.nodes.forEach(n => nodesEls[n].classList.add('done')));
+                p.nodes.forEach(n => nodesEls[n].classList.add('active'));
+                p.wires.forEach(w => {
+                    wiresEls.filter(el => el.dataset.w === w).forEach(el => el.classList.add('on'));
+                    wireLabels.filter(el => el.dataset.wl === w).forEach(el => el.classList.add('on'));
+                });
+                storyEl.classList.toggle('human', p.human);
+                storyText.style.opacity = 0;
+                await wait(260);
+                storyText.innerHTML = p.text;
+                storyText.style.opacity = 1;
+                if (i === 2) {
+                    roComp.classList.add('lit'); roRepo.classList.add('lit');
+                    animateNumber(compVal, p.comp, 2800);
+                    compBar.style.width = p.comp + '%';
+                    for (let k = 0; k < 4; k++) { setTimeout(() => { repoTrack[k].classList.add('on'); repoVal.textContent = k + 1; }, 600 + k * 700); }
+                    setTimeout(collapseTime, 1900);
+                }
+                await wait(i === 2 ? 5600 : 4400);
+            }
+            async function run() {
+                if (running) return;
+                running = true;
+                runBtn.disabled = true; runIcon.textContent = ''; runLabel.textContent = 'Running…';
+                runHint.textContent = 'generator → orchestrator → audit/implement loop → you';
+                reset();
+                await wait(400);
+                for (let i = 0; i < phases.length; i++) await runPhase(phases[i], i);
+                clearActive();
+                Object.values(nodesEls).forEach(n => n.classList.add('done'));
+                roComp.classList.add('lit'); roRepo.classList.add('lit'); roTime.classList.add('lit');
+                compVal.textContent = '92'; compBar.style.width = '92%';
+                repoVal.textContent = '4'; Array.from(repoTrack).forEach(i => i.classList.add('on'));
+                timeVal.textContent = '<1'; timeUnit.textContent = 'day';
+                timeWas.innerHTML = 'sometimes under an hour · down from <s>6+ weeks</s>';
+                storyText.style.opacity = 0; await wait(260);
+                storyText.innerHTML = 'The pilot proved it: <strong>28% → 92%</strong> on-spec across four codebases, 6+ weeks of work down to <strong>under a day</strong>, with more of the platform in line.';
+                storyText.style.opacity = 1;
+                quote.classList.add('show');
+                runBtn.disabled = false; runIcon.textContent = '↻'; runLabel.textContent = 'Walk me through it again';
+                runHint.textContent = 'design compliance: 28% → 92%';
+                running = false;
+            }
+            runBtn.addEventListener('click', run);
+            const nodeText = {
+                generator: '<strong>The Generator</strong> — a one-time setup that reads the design system and writes a logic-aware spec sheet per component.',
+                orchestrator: '<strong>The Orchestrator</strong> — the hub. Breaks work into tasks, dispatches to the auditor and implementer, and reports out to you.',
+                auditor: '<strong>The Auditor</strong> — scans the codebases and flags every place the UI drifts from spec. Loops back through the orchestrator.',
+                implementer: '<strong>The Implementer</strong> — makes the changes the spec allows; deep business logic stays fenced off. Loops back through the orchestrator.',
+                human: '<strong>You — the PM</strong> — set the guardrails, review each pass, and approve the merge. The human in the loop.'
+            };
+            Object.entries(nodesEls).forEach(([k, el]) => {
+                el.addEventListener('mouseenter', () => { if (!running) { storyText.style.opacity = 0; setTimeout(() => { storyText.innerHTML = nodeText[k]; storyText.style.opacity = 1; storyEl.classList.toggle('human', k === 'human'); }, 120); } });
+            });
+            showAchieved();
+        })();
+    </script>
 
 </body>
+
 </html>
