@@ -39,7 +39,7 @@
             --bg2: #ede9df;
             --ink: #16140f;
             --t2: #5d584c;
-            --t3: #8f8a7d;
+            --t3: #7d7768;
             --line: rgba(22, 20, 15, 0.14);
             --line-strong: rgba(22, 20, 15, 0.85);
             --card: #fffef9;
@@ -52,8 +52,8 @@
             --bg: #12100c;
             --bg2: #1a1812;
             --ink: #ece8dc;
-            --t2: #999385;
-            --t3: #635e51;
+            --t2: #aaa497;
+            --t3: #857f70;
             --line: rgba(236, 232, 220, 0.13);
             --line-strong: rgba(236, 232, 220, 0.8);
             --card: #1c1913;
@@ -106,6 +106,19 @@
 
         html {
             scroll-behavior: smooth;
+        }
+
+        /* anchored sections clear the fixed nav on hash jumps */
+        #work,
+        #advocate,
+        #platform,
+        #index,
+        #taste,
+        #about,
+        #thesis,
+        #history,
+        #contact {
+            scroll-margin-top: 72px;
         }
 
         body {
@@ -282,7 +295,7 @@
             display: flex;
             align-items: center;
             gap: 14px;
-            margin-bottom: 34px;
+            margin-bottom: 24px;
         }
 
         .hero-kicker::before {
@@ -301,7 +314,7 @@
             font-size: 11.5px;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            margin: -14px 0 34px;
+            margin: -14px 0 24px;
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.7s var(--ease) 0.3s, transform 0.7s var(--ease) 0.3s;
@@ -334,7 +347,7 @@
             letter-spacing: -0.035em;
             font-weight: 700;
             max-width: 12ch;
-            margin-bottom: 36px;
+            margin-bottom: 26px;
         }
 
         .hero h1 .w {
@@ -434,7 +447,8 @@
         }
 
         .scroll-cue {
-            margin-top: 36px;
+            margin-top: auto;
+            padding-top: 28px;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -512,7 +526,7 @@
             align-items: baseline;
             gap: 20px;
             padding: 0 48px;
-            margin-bottom: 54px;
+            margin-bottom: 40px;
         }
 
         .sec-no {
@@ -535,7 +549,7 @@
             display: grid;
             grid-template-columns: 380px 1fr;
             gap: 70px;
-            padding: 110px 48px 60px;
+            padding: 84px 48px 56px;
             border-top: 1px solid var(--line);
         }
 
@@ -1184,7 +1198,7 @@
         }
 
         .hhead {
-            padding: 84px 48px 30px;
+            padding: 64px 48px 30px;
             display: flex;
             align-items: baseline;
             gap: 20px;
@@ -1420,7 +1434,7 @@
         /* ═══ THE INDEX ═══ */
         .bento-wrap {
             border-top: 1px solid var(--line);
-            padding: 100px 48px 110px;
+            padding: 80px 48px 88px;
         }
 
         .bento {
@@ -1447,8 +1461,9 @@
 
         .ck {
             font-family: 'Spline Sans Mono', monospace;
-            font-size: 10px;
-            letter-spacing: 0.15em;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--t3);
             margin-bottom: 16px;
@@ -2249,14 +2264,12 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 8px;
         }
 
         .ah-item {
             font-size: 12.5px;
-            padding: 9px 14px;
-            border-radius: 10px;
-            border: 1px solid var(--line);
+            padding: 11px 4px;
+            border-bottom: 1px dashed var(--line);
             color: var(--t2);
             cursor: default;
             transition: all 0.25s var(--ease);
@@ -2264,6 +2277,10 @@
             align-items: center;
             justify-content: space-between;
             gap: 12px;
+        }
+
+        .ah-item:last-child {
+            border-bottom: none;
         }
 
         .ah-item b {
@@ -2276,9 +2293,7 @@
         }
 
         .ah-item:hover {
-            border-color: var(--accent2);
-            color: var(--ink);
-            transform: translateY(-2px);
+            transform: translateX(5px);
         }
 
         /* ═══ STAMP (borrowed from Press) ═══ */
@@ -2316,7 +2331,7 @@
         .tt-wrap {
             border-top: 1px solid var(--line);
             background: var(--bg2);
-            padding: 100px 48px 110px;
+            padding: 80px 48px 88px;
         }
 
         .tt-claim {
@@ -2351,6 +2366,17 @@
 
         .tt-round {
             margin-bottom: 34px;
+        }
+
+        .tt-round.tt-next {
+            opacity: 0;
+            transform: translateY(22px);
+        }
+
+        .tt-round.tt-next.in {
+            opacity: 1;
+            transform: none;
+            transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
         }
 
         .tt-q {
@@ -2563,7 +2589,7 @@
         /* ═══ WALL TEXT ═══ */
         .walltext {
             border-top: 1px solid var(--line);
-            padding: 110px 48px 120px;
+            padding: 80px 48px 88px;
             display: grid;
             grid-template-columns: 240px 1fr;
             gap: 70px;
@@ -2656,7 +2682,7 @@
         /* ═══ THESIS ═══ */
         .thesis {
             border-top: 1px solid var(--line);
-            padding: 130px 48px;
+            padding: 96px 48px;
             background: var(--bg2);
         }
 
@@ -3040,6 +3066,83 @@
             color: var(--on-signal);
         }
 
+        /* ═══ PROGRESS RAIL ═══ */
+        .rail {
+            position: fixed;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 110;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .rail-dot {
+            position: relative;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            touch-action: manipulation;
+        }
+
+        .rail-dot i {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--t3);
+            transition: transform 0.3s var(--ease), background 0.3s;
+        }
+
+        .rail-dot:hover i {
+            background: var(--ink);
+            transform: scale(1.4);
+        }
+
+        .rail-dot.on i {
+            background: var(--signal);
+            transform: scale(1.55);
+        }
+
+        .rail-dot span {
+            position: absolute;
+            right: 32px;
+            top: 50%;
+            translate: 6px -50%;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 9.5px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--t2);
+            background: var(--bg);
+            border: 1px solid var(--line);
+            padding: 4px 9px;
+            border-radius: 6px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s var(--ease), translate 0.25s var(--ease);
+        }
+
+        .rail-dot:hover span,
+        .rail-dot:focus-visible span {
+            opacity: 1;
+            translate: 0 -50%;
+        }
+
+        @media(max-width:900px) {
+            .rail {
+                display: none;
+            }
+        }
+
         @media(max-width:900px) {
 
             .hero,
@@ -3230,7 +3333,7 @@
         <span class="name">ghazi<i>.</i></span>
         <div class="links">
             <span onclick="location.hash='#work'">Work</span>
-            <span onclick="location.hash='#index'">Index</span>
+            <span onclick="location.hash='#index'">Beyond work</span>
             <span onclick="location.hash='#thesis'">Thesis</span>
             <span onclick="location.hash='#history'">History</span>
             <span onclick="location.hash='#contact'">Contact</span>
@@ -3557,7 +3660,7 @@
     <!-- ═══ THE INDEX ═══ -->
     <section class="bento-wrap" id="index">
         <div class="sec-head">
-            <span class="sec-no">INDEX</span>
+            <span class="sec-no">BEYOND WORK</span>
             <span class="sec-title">Live demos and receipts.</span>
         </div>
         <div class="bento">
@@ -3901,6 +4004,7 @@
     </footer>
 
     <a href="#contact" class="fab" id="fab">Say hi ↗</a>
+    <nav class="rail" id="rail" aria-label="Section navigation"></nav>
 
 
     <script>
@@ -3912,6 +4016,49 @@
             tbtn.querySelector('.t-ico').textContent = next === 'light' ? '◐' : '◑';
             tbtn.querySelector('.t-txt').textContent = next === 'light' ? ' DARK' : ' LIGHT';
         });
+
+        // ── progress rail ──
+        (function () {
+            const stops = [
+                ['Surge', 'work'],
+                ['Advocate', 'advocate'],
+                ['Platform', 'platform'],
+                ['Beyond work', 'index'],
+                ['Taste Test', 'taste'],
+                ['Story', 'about'],
+                ['History', 'history'],
+                ['Contact', 'contact'],
+            ];
+            const rail = document.getElementById('rail');
+            rail.innerHTML = stops.map(([label, id]) =>
+                `<button class="rail-dot" data-t="${id}" aria-label="Jump to ${label}"><i></i><span>${label}</span></button>`
+            ).join('');
+            const dots = [...rail.querySelectorAll('.rail-dot')];
+            dots.forEach(d => d.addEventListener('click', () => {
+                document.getElementById(d.dataset.t).scrollIntoView({ behavior: 'smooth' });
+            }));
+            const zones = [
+                { el: document.getElementById('hero'), dot: -1 },
+                ...stops.slice(0, 6).map(([label, id], i) => ({ el: document.getElementById(id), dot: i })),
+                { el: document.getElementById('thesis'), dot: 5 },
+                ...stops.slice(6).map(([label, id], i) => ({ el: document.getElementById(id), dot: i + 6 })),
+            ];
+            function update() {
+                const mid = window.scrollY + window.innerHeight * 0.45;
+                const docEnd = document.documentElement.scrollHeight - window.innerHeight;
+                let cur;
+                if (window.scrollY >= docEnd - 60) {
+                    cur = dots.length - 1;
+                } else {
+                    cur = -1;
+                    zones.forEach(z => { if (z.el && z.el.offsetTop <= mid) cur = z.dot; });
+                }
+                dots.forEach((d, i) => d.classList.toggle('on', i === cur));
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        })();
 
         // ── ticker ──
         (function () {
@@ -4214,34 +4361,39 @@
             const scoreEl = document.getElementById('ttScore');
             const lineEl = document.getElementById('ttLine');
             const restartBtn = document.getElementById('ttRestart');
-            let score = 0, done = 0;
+            let score = 0, done = 0, built = 0;
+
+            function buildRound(i) {
+                const r = ROUNDS[i];
+                const round = document.createElement('div');
+                round.className = 'tt-round' + (i > 0 ? ' tt-next' : '');
+                round.innerHTML = `
+                    <div class="tt-q"><span>${r.q}</span><span class="tt-status" data-i="${i}"></span></div>
+                    <div class="tt-pair">
+                        <div class="tt-card" data-side="a"><div class="tt-tag">A</div>${r.a}</div>
+                        <div class="tt-card" data-side="b"><div class="tt-tag">B</div>${r.b}</div>
+                    </div>
+                    <div class="tt-explain">${r.explain}</div>`;
+                host.appendChild(round);
+                built = i + 1;
+                if (i > 0) requestAnimationFrame(() => requestAnimationFrame(() => round.classList.add('in')));
+                round.querySelectorAll('.tt-card').forEach(card => {
+                    card.setAttribute('tabindex', '0');
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('aria-label', 'Choose ' + card.querySelector('.tt-tag').textContent);
+                    card.addEventListener('click', () => pick(round, r, card));
+                    card.addEventListener('keydown', e => {
+                        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(round, r, card); }
+                    });
+                });
+            }
 
             function render() {
-                score = 0; done = 0;
+                score = 0; done = 0; built = 0;
                 verdict.classList.remove('show');
                 restartBtn.style.display = 'none';
                 host.innerHTML = '';
-                ROUNDS.forEach((r, i) => {
-                    const round = document.createElement('div');
-                    round.className = 'tt-round';
-                    round.innerHTML = `
-                        <div class="tt-q"><span>${r.q}</span><span class="tt-status" data-i="${i}"></span></div>
-                        <div class="tt-pair">
-                            <div class="tt-card" data-side="a"><div class="tt-tag">A</div>${r.a}</div>
-                            <div class="tt-card" data-side="b"><div class="tt-tag">B</div>${r.b}</div>
-                        </div>
-                        <div class="tt-explain">${r.explain}</div>`;
-                    host.appendChild(round);
-                    round.querySelectorAll('.tt-card').forEach(card => {
-                        card.setAttribute('tabindex', '0');
-                        card.setAttribute('role', 'button');
-                        card.setAttribute('aria-label', 'Choose ' + card.querySelector('.tt-tag').textContent);
-                        card.addEventListener('click', () => pick(round, r, card));
-                        card.addEventListener('keydown', e => {
-                            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(round, r, card); }
-                        });
-                    });
-                });
+                buildRound(0);
             }
 
             function pick(round, r, card) {
@@ -4268,6 +4420,7 @@
                 round.querySelector('.tt-explain').classList.add('show');
                 done++;
                 if (done === ROUNDS.length) finish();
+                else if (built < ROUNDS.length) buildRound(built);
             }
 
             function finish() {
