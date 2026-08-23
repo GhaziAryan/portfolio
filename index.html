@@ -1810,6 +1810,8 @@
 
         .vinyl-deck {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 22px;
             align-items: center;
         }
@@ -1925,8 +1927,10 @@
             transform: rotate(54deg);
         }
 
+        /* flex-basis = widest label + year tag; below that the list wraps
+           under the platter instead of clipping text (fluid, no breakpoint) */
         .v-tracks {
-            flex: 1;
+            flex: 1 1 310px;
             min-width: 0;
             display: flex;
             flex-direction: column;
@@ -2065,19 +2069,6 @@
         .v-np-toggle:hover {
             background: var(--signal);
             color: var(--on-signal);
-        }
-
-        /* buried player — spotify swaps the host out for a bare iframe,
-           so the wrapper (not the player) does the hiding */
-        .v-buried {
-            position: absolute;
-            width: 160px;
-            height: 90px;
-            left: -9999px;
-            top: -9999px;
-            opacity: 0.001;
-            pointer-events: none;
-            overflow: hidden;
         }
 
         .v-note {
@@ -3650,7 +3641,6 @@
                     </div>
                     <button class="v-np-toggle" id="vNpBtn" aria-label="Play or pause">▶</button>
                 </div>
-                <div class="v-buried" aria-hidden="true"><div id="vHost"></div></div>
                 <div class="v-note">side a · three records on heavy rotation</div>
             </div>
 
@@ -4623,11 +4613,13 @@
         })();
 
         // ── listening · side a ──
+        // direct preview files (apple's cdn, same 30s clips spotify serves),
+        // buffered on page load so a click starts instantly, with volume fades
         (function () {
             const TRACKS = [
-                { artist: 'Tame Impala', song: 'Let It Happen', tag: '2015 · CURRENTS', id: '2X485T9Z5Ly0xyaghN73ed', color: '#7B5EA7' },
-                { artist: 'Beach House', song: 'Lemon Glow', tag: '2018 · 7', id: '6NLRMu1qF1kJQnntDNWDmy', color: '#C9972C' },
-                { artist: 'Daft Punk', song: 'Veridis Quo', tag: '2001 · DISCOVERY', id: '28qpFPkwKQWFeSw2Le6aoV', color: '#46586B' }
+                { artist: 'Tame Impala', song: 'Let It Happen', tag: '2015 · CURRENTS', color: '#7B5EA7', album: 'Currents', q: 'tame impala let it happen', src: 'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/8d/60/fb/8d60fb3b-208b-70db-f712-801034be3130/mzaf_14872027621360090334.plus.aac.p.m4a' },
+                { artist: 'Beach House', song: 'Lemon Glow', tag: '2018 · 7', color: '#C9972C', album: '7', q: 'beach house lemon glow', src: 'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/61/2f/6e/612f6e2d-3f18-ece6-d77b-99a33d408052/mzaf_5709031647347199909.plus.aac.p.m4a' },
+                { artist: 'Daft Punk', song: 'Veridis Quo', tag: '2001 · DISCOVERY', color: '#46586B', album: 'Discovery', q: 'daft punk veridis quo', src: 'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/7a/f8/4d/7af84d3a-fc7b-1569-766b-8adf13dab451/mzaf_3503155761614342520.plus.aac.p.m4a' }
             ];
             const platter = document.getElementById('vPlatter');
             const label = document.getElementById('vLabel');
@@ -4639,9 +4631,53 @@
             const npBtn = document.getElementById('vNpBtn');
             if (!platter || !tracksEl || !np) return;
             let current = -1;
-            let pendingPlay = false;
 
-            const sp = () => window.__spController || null;
+            const audio = TRACKS.map(t => {
+                const a = new Audio();
+                a.preload = 'auto';
+                a.src = t.src;
+                a.volume = 0;
+                return a;
+            });
+
+            // refresh preview links from apple's cors-open search api,
+            // so the baked-in urls never rot silently
+            TRACKS.forEach((t, i) => {
+                fetch('https://itunes.apple.com/search?term=' + encodeURIComponent(t.q) + '&entity=song&limit=8')
+                    .then(r => r.ok ? r.json() : null)
+                    .then(d => {
+                        if (!d || !d.results || current === i) return;
+                        const name = t.song.toLowerCase();
+                        const hits = d.results.filter(x => x.previewUrl && x.trackName && x.trackName.toLowerCase() === name);
+                        if (!hits.length) return;
+                        const best = hits.find(x => x.collectionName && x.collectionName.toLowerCase().indexOf(t.album.toLowerCase()) >= 0);
+                        const url = (best || hits[0]).previewUrl;
+                        if (url !== audio[i].src) audio[i].src = url;
+                    })
+                    .catch(() => {});
+            });
+
+            // ease-in-out volume ramps — no more abrupt clip edges
+            const fades = new WeakMap();
+            function fade(a, to, dur, done) {
+                const prev = fades.get(a);
+                if (prev) cancelAnimationFrame(prev);
+                const from = a.volume;
+                const t0 = performance.now();
+                const step = now => {
+                    const p = Math.min(1, (now - t0) / dur);
+                    const e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+                    a.volume = Math.max(0, Math.min(1, from + (to - from) * e));
+                    if (p < 1) fades.set(a, requestAnimationFrame(step));
+                    else { fades.set(a, 0); if (done) done(); }
+                };
+                fades.set(a, requestAnimationFrame(step));
+            }
+
+            function setNp(on) {
+                np.classList.toggle('playing', on);
+                npBtn.textContent = on ? '❚❚' : '▶';
+            }
 
             TRACKS.forEach((t, i) => {
                 const b = document.createElement('button');
@@ -4649,81 +4685,70 @@
                 b.innerHTML = `<span>${t.artist} — ${t.song}</span><em>${t.tag}</em>`;
                 b.addEventListener('click', () => play(i));
                 tracksEl.appendChild(b);
+
+                // soften the hard 30s cutoff — ride the last second out
+                audio[i].addEventListener('timeupdate', () => {
+                    const a = audio[i];
+                    if (!a.paused && a.duration && a.duration - a.currentTime < 1.1 && a.volume > 0) fade(a, 0, 1050);
+                });
+                audio[i].addEventListener('ended', () => { if (current === i) stop(); });
             });
             const btns = [...tracksEl.children];
 
-            // reflect real playback state coming back from the spotify iframe
-            window.__vinylPlayback = function (playing) {
-                if (current < 0) return;
-                if (!playing && pendingPlay) {
-                    pendingPlay = false;
-                    const c = sp();
-                    if (c) c.play();
-                    return;
-                }
-                np.classList.toggle('playing', playing);
-                npBtn.textContent = playing ? '❚❚' : '▶';
-            };
+            function dropNeedle(i) {
+                fade(audio[i], 0, 380, () => audio[i].pause());
+            }
 
             function play(i) {
                 if (i === current) { stop(); return; }
-                if (current >= 0) {
-                    const pc = sp();
-                    if (pc) pc.pause();
-                    btns[current].querySelector('em').textContent = TRACKS[current].tag;
-                    btns[current].classList.remove('playing');
-                }
+                if (current >= 0) dropNeedle(current);
                 current = i;
                 const t = TRACKS[i];
-                btns.forEach((b, k) => b.classList.toggle('playing', k === i));
-                btns.forEach((b, k) => { b.querySelector('em').textContent = k === i ? '▶ ON' : TRACKS[k].tag; });
+                btns.forEach((b, k) => {
+                    b.classList.toggle('playing', k === i);
+                    b.querySelector('em').textContent = k === i ? '▶ ON' : TRACKS[k].tag;
+                });
                 label.style.background = t.color;
                 platter.classList.add('spin');
                 arm.classList.add('on');
                 npTitle.textContent = t.artist + ' — ' + t.song;
-                npSub.textContent = 'streaming via spotify · 30s preview';
-                npBtn.textContent = '❚❚';
-                np.classList.add('playing');
-                const c = sp();
-                if (c) {
-                    pendingPlay = true;
-                    c.loadUri('spotify:track:' + t.id);
-                    c.play();
-                } else {
-                    window.__vinylReadyCbs = window.__vinylReadyCbs || [];
-                    window.__vinylReadyCbs.push(() => {
-                        if (current !== i) return;
-                        const cc = sp();
-                        if (cc) {
-                            pendingPlay = true;
-                            cc.loadUri('spotify:track:' + t.id);
-                            cc.play();
-                        }
-                    });
-                }
+                npSub.textContent = '30-second preview · via apple music';
+                setNp(true);
+                const a = audio[i];
+                a.currentTime = 0;
+                a.play().then(() => fade(a, 1, 700)).catch(() => setNp(false));
             }
 
             function stop() {
                 if (current < 0) return;
-                const c = sp();
-                if (c) c.pause();
-                pendingPlay = false;
-                btns[current].querySelector('em').textContent = TRACKS[current].tag;
-                btns[current].classList.remove('playing');
+                const i = current;
+                current = -1;
+                fade(audio[i], 0, 380, () => { audio[i].pause(); audio[i].currentTime = 0; });
+                btns[i].querySelector('em').textContent = TRACKS[i].tag;
+                btns[i].classList.remove('playing');
                 platter.classList.remove('spin');
                 arm.classList.remove('on');
                 np.classList.remove('playing');
                 npTitle.textContent = 'Nothing on the platter';
                 npSub.textContent = 'pick a record to drop the needle';
                 npBtn.textContent = '▶';
-                current = -1;
             }
 
             npBtn.addEventListener('click', () => {
-                const c = sp();
-                if (!c || current < 0) return;
-                c.togglePlay();
+                if (current < 0) return;
+                const a = audio[current];
+                if (a.paused) { a.play().then(() => fade(a, 1, 500)).catch(() => setNp(false)); }
+                else { fade(a, 0, 300, () => a.pause()); setNp(false); }
             });
+
+            // first tap anywhere unlocks ios buffering — silent and reverted
+            window.addEventListener('pointerdown', function unlock() {
+                window.removeEventListener('pointerdown', unlock);
+                audio.forEach((a, i) => {
+                    if (i === current || a.readyState >= 3) return;
+                    a.play().then(() => { if (i !== current) { a.pause(); a.currentTime = 0; } }).catch(() => {});
+                });
+            }, true);
         })();
 
         // ── say-hi fab ──
@@ -4742,37 +4767,6 @@
             update();
         })();
     </script>
-
-    <script>
-        function __vinylBuryWraps() {
-            document.querySelectorAll('.v-buried').forEach(function (el) {
-                el.style.cssText = 'position:absolute!important;width:160px!important;height:90px!important;left:-9999px!important;top:-9999px!important;opacity:0.001!important;pointer-events:none!important;overflow:hidden!important;';
-                const inner = el.firstElementChild;
-                if (inner) inner.style.cssText = 'width:100%!important;height:100%!important;border:0!important;display:block!important;visibility:visible!important;';
-            });
-        }
-
-        window.__vinylReadyCbs = window.__vinylReadyCbs || [];
-        window.onSpotifyIframeApiReady = function (IFrameAPI) {
-            const host = document.getElementById('vHost');
-            if (!host || !IFrameAPI) return;
-            const createFn = IFrameAPI.createController || IFrameAPI.CreateController;
-            if (!createFn) return;
-            createFn.call(IFrameAPI, host, { width: '100%', height: '90' }, function (controller) {
-                window.__spController = controller;
-                __vinylBuryWraps();
-                if (controller.addListener) {
-                    controller.addListener('playback_update', function (e) {
-                        const paused = !!(e && e.data && e.data.isPaused);
-                        if (window.__vinylPlayback) window.__vinylPlayback(!paused);
-                    });
-                }
-                window.__vinylReadyCbs.forEach(function (cb) { try { cb(controller); } catch (err) {} });
-                window.__vinylReadyCbs = [];
-            });
-        };
-    </script>
-    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 </body>
 
 </html>

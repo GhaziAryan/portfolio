@@ -1,0 +1,4772 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-pal="deep-sage" class="serif-display">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghazi Aryan — The Exhibition</title>
+    <meta name="description" content="Product manager who ships. Taste is the new barrier to entry. Apple, Warner Bros. Discovery, Capital One. Founder of Advocate.">
+    <meta property="og:title" content="Ghazi Aryan — The Exhibition">
+    <meta property="og:description" content="I build things because I want the things I build. Taste is the new barrier to entry. Apple, WBD, Capital One · Founder of Advocate.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ghaziaryan.github.io/portfolio/">
+    <meta property="og:image" content="https://ghaziaryan.github.io/portfolio/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ghazi Aryan — The Exhibition">
+    <meta name="twitter:description" content="I build things because I want the things I build. Taste is the new barrier to entry.">
+    <meta name="twitter:image" content="https://ghaziaryan.github.io/portfolio/og-image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-theme="light"] {
+            --bg: #f6f3ec;
+            --bg2: #ede9df;
+            --ink: #16140f;
+            --t2: #5d584c;
+            --t3: #8f8a7d;
+            --line: rgba(22, 20, 15, 0.14);
+            --line-strong: rgba(22, 20, 15, 0.85);
+            --card: #fffef9;
+            --shadow: 0 24px 60px rgba(22, 20, 15, 0.09);
+            --on-signal: #fffefa;
+            --accent2: #5e7d68;
+        }
+
+        [data-theme="dark"] {
+            --bg: #12100c;
+            --bg2: #1a1812;
+            --ink: #ece8dc;
+            --t2: #999385;
+            --t3: #635e51;
+            --line: rgba(236, 232, 220, 0.13);
+            --line-strong: rgba(236, 232, 220, 0.8);
+            --card: #1c1913;
+            --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+            --on-signal: #12100c;
+            --accent2: #82a18b;
+        }
+
+        /* cooler gallery-white variant */
+        html[data-paper="cool"][data-theme="light"],
+        html[data-paper="cool"] [data-theme] {
+            --bg: #fafaf6;
+            --bg2: #efefe9;
+        }
+
+        /* ═══ SIGNAL PALETTES ═══ */
+        [data-pal="madder"] { --signal: #96342b; }
+        [data-pal="oxblood"] { --signal: #7c2626; }
+        [data-pal="merlot"] { --signal: #5d2231; }
+        [data-pal="ultramarine"] { --signal: #2438c9; }
+        [data-pal="french-blue"] { --signal: #2062d4; }
+        [data-pal="ink-navy"] { --signal: #27406e; }
+        [data-pal="meadow"] { --signal: #33714f; }
+        [data-pal="deep-sage"] { --signal: #55703f; }
+        [data-pal="eucalyptus"] { --signal: #3f7268; }
+
+        /* optional serif display mode (default ON) — with descender-safe masks */
+        html.serif-display .hero h1,
+        html.serif-display .sec-title,
+        html.serif-display .wall-label h3,
+        html.serif-display .thesis h2 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+        }
+
+        html.serif-display .hero h1 {
+            line-height: 1.04;
+        }
+
+        html.serif-display .thesis h2 {
+            line-height: 1.16;
+        }
+
+        .hero h1 .w,
+        .thesis h2 .w {
+            padding-bottom: 0.14em;
+            margin-bottom: -0.14em;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            transition: background 0.45s var(--ease), color 0.45s var(--ease);
+        }
+
+        ::selection {
+            background: var(--signal);
+            color: var(--on-signal);
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* ═══ NAV ═══ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 90;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 15px 34px;
+            background: color-mix(in srgb, var(--bg) 82%, transparent);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav .name {
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .nav .name i {
+            font-style: normal;
+            color: var(--signal);
+        }
+
+        .nav .links {
+            margin-left: auto;
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--t2);
+        }
+
+        .nav .links span {
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        .nav .links span:hover {
+            color: var(--ink);
+        }
+
+        .nav .links span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 1.5px;
+            background: var(--signal);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s var(--ease);
+        }
+
+        .nav .links span:hover::after {
+            transform: scaleX(1);
+        }
+
+        .ctl {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.07em;
+            padding: 7px 12px;
+            border-radius: 100px;
+            border: 1px solid var(--line);
+            background: transparent;
+            color: var(--t2);
+            cursor: pointer;
+            transition: all 0.25s;
+            white-space: nowrap;
+        }
+
+        .ctl:hover {
+            border-color: var(--signal);
+            color: var(--signal);
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .scroll-cue i {
+                animation: none;
+            }
+
+            .ticker-track {
+                transform: none !important;
+            }
+        }
+
+        /* ═══ REGISTRATION MARKS ═══ */
+        .plate {
+            position: relative;
+        }
+
+        .plate .rm {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            pointer-events: none;
+            opacity: 0.55;
+        }
+
+        .plate .rm::before,
+        .plate .rm::after {
+            content: '';
+            position: absolute;
+            background: var(--t3);
+        }
+
+        .plate .rm::before {
+            left: 50%;
+            top: 0;
+            width: 1px;
+            height: 100%;
+        }
+
+        .plate .rm::after {
+            top: 50%;
+            left: 0;
+            height: 1px;
+            width: 100%;
+        }
+
+        .plate .rm.tl { top: 18px; left: 18px; }
+        .plate .rm.tr { top: 18px; right: 18px; }
+        .plate .rm.bl { bottom: 18px; left: 18px; }
+        .plate .rm.br { bottom: 18px; right: 18px; }
+
+        /* ═══ HERO ═══ */
+        .hero {
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(96px, 11vh, 130px) 48px 112px;
+            position: relative;
+        }
+
+        .hero-kicker {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--t2);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 34px;
+        }
+
+        .hero-kicker::before {
+            content: '';
+            width: 44px;
+            height: 1px;
+            background: var(--signal);
+        }
+
+        /* artist placard — the museum label under the work */
+        .hero-placard {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11.5px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin: -14px 0 34px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.7s var(--ease) 0.3s, transform 0.7s var(--ease) 0.3s;
+        }
+
+        .hero.in .hero-placard {
+            opacity: 1;
+            transform: none;
+        }
+
+        .hero-placard::before {
+            content: '';
+            width: 34px;
+            height: 1px;
+            background: var(--signal);
+        }
+
+        .hero-placard b {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        .hero-placard span {
+            color: var(--t2);
+        }
+
+        .hero h1 {
+            font-size: clamp(44px, 8vw, 112px);
+            line-height: 0.98;
+            letter-spacing: -0.035em;
+            font-weight: 700;
+            max-width: 12ch;
+            margin-bottom: 36px;
+        }
+
+        .hero h1 .w {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: bottom;
+        }
+
+        .hero h1 .w>span {
+            display: inline-block;
+            transform: translateY(115%);
+            transition: transform 0.9s var(--ease);
+        }
+
+        .hero.in h1 .w>span {
+            transform: translateY(0);
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--signal);
+        }
+
+        .hero-sub-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: end;
+            max-width: 1080px;
+        }
+
+        .hero-sub {
+            font-size: 17px;
+            line-height: 1.65;
+            color: var(--t2);
+            max-width: 46ch;
+        }
+
+        .hero-sub strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .exhibit-tags {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-end;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            color: var(--t3);
+        }
+
+        .exhibit-tags a {
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            padding-bottom: 2px;
+            transition: transform 0.25s var(--ease);
+        }
+
+        .exhibit-tags a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1.5px;
+            background: var(--signal);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s var(--ease);
+        }
+
+        .exhibit-tags a:hover {
+            transform: translateX(4px);
+        }
+
+        .exhibit-tags a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .exhibit-tags a:hover span {
+            color: var(--ink);
+        }
+
+        .exhibit-tags a:hover span b {
+            color: var(--ink);
+        }
+
+        .exhibit-tags span b {
+            color: var(--signal);
+            font-weight: 600;
+            margin-right: 8px;
+            transition: color 0.2s;
+        }
+
+        .scroll-cue {
+            margin-top: 36px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.2em;
+            color: var(--t3);
+        }
+
+        .scroll-cue i {
+            display: block;
+            width: 1px;
+            height: 30px;
+            background: var(--t3);
+            animation: cueDrop 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+        }
+
+        @keyframes cueDrop {
+
+            0% {
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+
+            45% {
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+
+            46% {
+                transform-origin: bottom;
+            }
+
+            100% {
+                transform: scaleY(0);
+                transform-origin: bottom;
+            }
+        }
+
+        .ticker {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-top: 1px solid var(--line-strong);
+            background: var(--bg);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 13px 0;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--t2);
+        }
+
+        .ticker-track {
+            display: inline-flex;
+            will-change: transform;
+        }
+
+        .ticker b {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        .ticker .dot {
+            color: var(--accent2);
+            margin: 0 22px;
+        }
+
+        /* ═══ SECTION HEADS ═══ */
+        .sec-head {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+            padding: 0 48px;
+            margin-bottom: 54px;
+        }
+
+        .sec-no {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.14em;
+            color: var(--signal);
+            white-space: nowrap;
+        }
+
+        .sec-title {
+            font-size: clamp(28px, 4.4vw, 54px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        /* ═══ EXHIBIT SPLIT ═══ */
+        .exhibit {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 70px;
+            padding: 110px 48px 60px;
+            border-top: 1px solid var(--line);
+        }
+
+        .exhibit.flip {
+            grid-template-columns: 1fr 380px;
+        }
+
+        .exhibit.flip .wall-label {
+            order: 2;
+        }
+
+        .exhibit.flip .exhibit-body {
+            order: 1;
+        }
+
+        .wall-label {
+            position: sticky;
+            top: 110px;
+            align-self: start;
+        }
+
+        .wall-label .wl-tag {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--on-signal);
+            background: var(--signal);
+            display: inline-block;
+            padding: 5px 11px;
+            margin-bottom: 22px;
+        }
+
+        .wall-label h3 {
+            font-size: clamp(26px, 2.6vw, 36px);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.08;
+            margin-bottom: 18px;
+        }
+
+        .wall-label p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--t2);
+            margin-bottom: 22px;
+        }
+
+        .wall-label p strong {
+            color: var(--ink);
+        }
+
+        .placard {
+            border-left: 2px solid var(--accent2);
+            padding: 4px 0 4px 16px;
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--t2);
+            font-style: italic;
+        }
+
+        .placard cite {
+            display: block;
+            margin-top: 8px;
+            font-family: 'Spline Sans Mono', monospace;
+            font-style: normal;
+            font-size: 10.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent2);
+        }
+
+        .exhibit-body {
+            display: flex;
+            flex-direction: column;
+            gap: 54px;
+        }
+
+        .exhibit-lede {
+            font-size: 19px;
+            line-height: 1.6;
+            max-width: 58ch;
+        }
+
+        .exhibit-lede .hl {
+            background: linear-gradient(transparent 62%, color-mix(in srgb, var(--signal) 24%, transparent) 62%);
+        }
+
+        .exhibit-kicker {
+            margin-top: -18px;
+            font-family: 'Fraunces', Georgia, serif;
+            font-style: italic;
+            font-size: 17px;
+            color: var(--signal);
+        }
+
+        .scoreboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-block: 2px solid var(--line-strong);
+        }
+
+        .score {
+            padding: 30px 26px 34px;
+            border-right: 1px solid var(--line);
+            transition: background 0.3s;
+        }
+
+        .score:last-child {
+            border-right: none;
+        }
+
+        .score:hover {
+            background: var(--bg2);
+        }
+
+        .score .k {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--t3);
+            margin-bottom: 16px;
+        }
+
+        .score .v {
+            font-size: clamp(42px, 4.8vw, 74px);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+            display: flex;
+            align-items: baseline;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .score .v .u {
+            font-size: 0.4em;
+            font-weight: 700;
+            margin-left: 4px;
+        }
+
+        .score .was {
+            font-size: 0.32em;
+            font-weight: 500;
+            color: var(--t3);
+            text-decoration: line-through;
+            text-decoration-color: var(--signal);
+            text-decoration-thickness: 2px;
+            margin-left: 12px;
+        }
+
+        .score .foot {
+            margin-top: 14px;
+            font-size: 12.5px;
+            color: var(--t2);
+        }
+
+        .process-zone {
+            border: 1px dashed var(--line-strong);
+            border-radius: 14px;
+            padding: 30px 30px 24px;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .process-zone:hover {
+            border-color: var(--signal);
+            background: var(--bg2);
+        }
+
+        .pz-label {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--t3);
+            margin-bottom: 20px;
+        }
+
+        .flow {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 6px 2px 12px;
+        }
+
+        .flow-node {
+            flex-shrink: 0;
+            border: 1.5px solid var(--line-strong);
+            border-radius: 10px;
+            padding: 13px 17px;
+            font-size: 13.5px;
+            font-weight: 600;
+            background: var(--card);
+            transition: all 0.3s var(--ease);
+        }
+
+        .flow-node small {
+            display: block;
+            font-weight: 400;
+            font-size: 11px;
+            color: var(--t2);
+            margin-top: 3px;
+        }
+
+        .flow-node:hover {
+            border-color: var(--signal);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .flow-node.hot {
+            border-color: var(--signal);
+            color: var(--signal);
+        }
+
+        .flow-sep {
+            flex-shrink: 0;
+            width: 46px;
+            height: 2px;
+            background: var(--line-strong);
+            position: relative;
+        }
+
+        .flow-sep::after {
+            content: '';
+            position: absolute;
+            right: -2px;
+            top: -4px;
+            border: 5px solid transparent;
+            border-left-color: var(--line-strong);
+        }
+
+        .pz-hint {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--t3);
+        }
+
+        /* surge diagram — state ring, no wires */
+        .process-zone {
+            position: relative;
+        }
+
+        .loopgrid {
+            position: relative;
+            width: min(560px, 100%);
+            margin: 6px auto 14px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto auto auto;
+            gap: 10px 14px;
+            justify-items: stretch;
+            align-items: center;
+            text-align: center;
+        }
+
+        .lg-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            padding: 13px 10px 12px;
+            border-radius: 12px;
+            transition: all 0.35s var(--ease);
+            min-width: 0;
+        }
+
+        .lg-node b {
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .lg-node small {
+            font-weight: 400;
+            font-size: 10.5px;
+            color: var(--t2);
+            line-height: 1.35;
+        }
+
+        .lg-gen { grid-column: 1; grid-row: 1; }
+        .lg-orch { grid-column: 2; grid-row: 1; }
+        .lg-aud { grid-column: 1; grid-row: 2; }
+        .lg-imp { grid-column: 3; grid-row: 2; }
+        .lg-pm { grid-column: 2; grid-row: 4; }
+
+        /* connector overlay — drawn by JS between live node boxes */
+        .lg-wires {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: visible;
+        }
+
+        .lg-wires path {
+            fill: none;
+            stroke: var(--line-strong);
+            stroke-width: 1.5;
+            opacity: 0.16;
+            transition: opacity 0.35s var(--ease), stroke 0.35s;
+        }
+
+        .lg-wires path.on {
+            stroke: var(--signal);
+            opacity: 0.85;
+            stroke-dasharray: 7 9;
+            animation: wiredash 0.9s linear infinite;
+        }
+
+        .lg-wires path.human {
+            stroke-dasharray: 3 7;
+        }
+
+        .lg-wires path.human.on {
+            animation-duration: 1.7s;
+        }
+
+        @keyframes wiredash {
+            to { stroke-dashoffset: -32; }
+        }
+
+        .loopgrid>.lg-node,
+        .loopgrid>.lg-ring {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .lg-ring.lit {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* the pass ring — one lap per pass through the loop */
+        .lg-ring {
+            grid-column: 2;
+            grid-row: 2;
+            justify-self: center;
+            align-self: center;
+            width: 116px;
+            height: 116px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1px;
+        }
+
+        .lg-ring svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            transform-origin: center;
+        }
+
+        .lg-ring circle {
+            fill: var(--card);
+            stroke: var(--line-strong);
+            stroke-width: 1.5;
+            stroke-dasharray: 4 7;
+            opacity: 0.5;
+            transition: stroke 0.35s, opacity 0.35s;
+        }
+
+        .lg-ring b {
+            font-family: 'Spline Sans Mono', monospace;
+            font-weight: 500;
+            font-size: 8.5px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--t3);
+            transition: color 0.35s;
+        }
+
+        /* keep labels above the spinning svg layer */
+        .lg-ring b,
+        .lg-ring .lg-count {
+            position: relative;
+            z-index: 2;
+        }
+
+        .lg-ring .lg-count {
+            font-style: normal;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--t2);
+            transition: color 0.35s;
+        }
+
+        .lg-ring.lit circle {
+            stroke: var(--signal);
+            opacity: 1;
+        }
+
+        /* spin the <svg> box itself — Safari rotates SVG children
+           around the viewport origin, which flings the circle across the grid */
+        .lg-ring.lit svg {
+            animation: ringspin 9s linear infinite;
+        }
+
+        .lg-ring.lit b { color: var(--signal); }
+        .lg-ring.lit .lg-count { color: var(--signal); }
+
+        .lg-ring.tick .lg-count {
+            animation: countpop 0.4s var(--ease);
+        }
+
+        @keyframes ringspin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes countpop {
+            40% { transform: scale(1.4); }
+        }
+
+        /* narration states */
+        .lg-node.lit {
+            border-color: var(--signal);
+            box-shadow: 0 0 0 1.5px var(--signal), var(--shadow);
+        }
+
+        .lg-node.lit b { color: var(--signal); }
+        .lg-node.dim { opacity: 0.45; }
+
+        .lg-node.done {
+            opacity: 1;
+        }
+
+        .lg-node.done b {
+            color: var(--t2);
+        }
+
+        .lg-node.done small {
+            opacity: 0.55;
+        }
+
+        /* run control + narration line */
+        .fuse-run {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .run-btn {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 12px 26px;
+            border-radius: 100px;
+            border: 1.5px solid var(--signal);
+            background: var(--card);
+            color: var(--signal);
+            cursor: pointer;
+            transition: all 0.3s var(--ease);
+        }
+
+        .run-btn:hover:not(:disabled) {
+            background: var(--signal);
+            color: var(--on-signal);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .run-btn:disabled {
+            opacity: 0.55;
+            cursor: default;
+        }
+
+        .fuse-story {
+            max-width: 62ch;
+            margin: 18px auto 0;
+            text-align: center;
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: var(--t2);
+            min-height: 3.4em;
+            transition: opacity 0.24s ease;
+        }
+
+        .fuse-story strong { color: var(--ink); }
+        .fuse-story.human strong { color: var(--accent2); }
+
+        /* modules grid (platform case) */
+        .mods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .mod {
+            border: 1.5px solid var(--line-strong);
+            border-radius: 10px;
+            background: var(--card);
+            padding: 16px 18px;
+            transition: all 0.3s var(--ease);
+            cursor: default;
+        }
+
+        .mod:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            border-color: var(--signal);
+        }
+
+        .mod span {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 9.5px;
+            letter-spacing: 0.14em;
+            color: var(--signal);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .mod b {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .mod small {
+            font-size: 12px;
+            line-height: 1.5;
+            color: var(--t2);
+        }
+
+        /* ═══ EXPANDERS ═══ */
+        .more {
+            border-top: 1px solid var(--line);
+        }
+
+        .more-btn {
+            width: 100%;
+            background: none;
+            border: none;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--signal);
+            padding: 20px 48px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            text-align: left;
+            transition: color 0.25s;
+        }
+
+        .more-btn:hover {
+            color: var(--ink);
+        }
+
+        .more-btn .plus {
+            font-size: 16px;
+            line-height: 1;
+            transition: transform 0.4s var(--ease);
+            width: 14px;
+        }
+
+        .more.open .more-btn .plus {
+            transform: rotate(45deg);
+        }
+
+        .more-btn em {
+            font-style: normal;
+            color: var(--t3);
+            letter-spacing: 0.08em;
+            text-transform: lowercase;
+            font-size: 10.5px;
+        }
+
+        .more-panel {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.55s var(--ease);
+        }
+
+        .more-panel>.more-inner {
+            overflow: hidden;
+        }
+
+        .more.open .more-panel {
+            grid-template-rows: 1fr;
+        }
+
+        .ms-grid {
+            padding: 10px 48px 44px;
+            display: flex;
+            flex-direction: column;
+            gap: 26px;
+            max-width: 900px;
+        }
+
+        .ms {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 20px;
+        }
+
+        .ms b {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--signal);
+            padding-top: 3px;
+        }
+
+        .ms p {
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: var(--t2);
+        }
+
+        .ms p strong {
+            color: var(--ink);
+        }
+
+        .ms .placard {
+            margin-top: 12px;
+        }
+
+        /* ═══ HORIZONTAL GALLERY ═══ */
+        .hwrap {
+            height: 320vh;
+            position: relative;
+            border-top: 1px solid var(--line);
+        }
+
+        .hsticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hhead {
+            padding: 84px 48px 30px;
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+        }
+
+        .htrack-outer {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .htrack {
+            display: flex;
+            gap: 4vw;
+            padding: 0 48px;
+            will-change: transform;
+        }
+
+        .slide {
+            width: min(66vw, 780px);
+            flex-shrink: 0;
+            background: var(--card);
+            border: 1.5px solid var(--line-strong);
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .slide-screen {
+            aspect-ratio: 16/9.4;
+            background: var(--bg2);
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 32px;
+        }
+
+        .slide-screen .scr-no {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.14em;
+            color: var(--t3);
+        }
+
+        .slide-screen .scr-title {
+            font-size: clamp(26px, 3vw, 42px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.02;
+        }
+
+        .slide-screen .scr-title em {
+            font-style: normal;
+            color: var(--signal);
+        }
+
+        .scr-copy {
+            font-size: 13.5px;
+            line-height: 1.55;
+            color: var(--t2);
+            max-width: 44ch;
+        }
+
+        .scr-sample {
+            border-left: 2px solid var(--signal);
+            padding: 2px 0 2px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .scr-sample .ss-q {
+            font-family: 'Fraunces', Georgia, serif;
+            font-style: italic;
+            font-size: 13.5px;
+            line-height: 1.4;
+            color: var(--ink);
+        }
+
+        .scr-sample .ss-meta {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--t3);
+        }
+
+        /* slide 02 — cited review rows */
+        .scr-review {
+            border-left: 2px solid var(--signal);
+            padding-left: 12px;
+        }
+
+        .sr-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 14px;
+            padding: 5px 0;
+            border-bottom: 1px dashed var(--line);
+        }
+
+        .sr-row:last-child {
+            border-bottom: none;
+        }
+
+        .sr-claim {
+            font-family: 'Fraunces', Georgia, serif;
+            font-style: italic;
+            font-size: 13px;
+            color: var(--ink);
+        }
+
+        .sr-src {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 8.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--t3);
+            flex-shrink: 0;
+        }
+
+        .sr-area {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2px;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 8.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--signal);
+            flex-shrink: 0;
+        }
+
+        .sr-area em {
+            font-style: normal;
+            color: var(--t3);
+        }
+
+        .sr-gap .sr-area {
+            color: var(--t3);
+        }
+
+        /* slide 03 — resume bullets */
+        .scr-bullets {
+            list-style: none;
+            margin: 0;
+            border-left: 2px solid var(--signal);
+            padding: 2px 0 2px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .scr-bullets li {
+            position: relative;
+            padding-left: 15px;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1.45;
+            color: var(--ink);
+            text-align: left;
+        }
+
+        .scr-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--signal);
+            font-weight: 700;
+        }
+
+        .scr-chiprow {
+            display: flex;
+            gap: 8px;
+        }
+
+        .scr-chip {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 9.5px;
+            letter-spacing: 0.08em;
+            padding: 4px 9px;
+            border-radius: 5px;
+            border: 1px solid var(--accent2);
+            color: var(--accent2);
+        }
+
+        .slide-cap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 28px;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--t3);
+        }
+
+        .slide-cap b {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .hprogress {
+            padding: 0 48px 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.12em;
+            color: var(--t3);
+        }
+
+        .hp-bar {
+            flex: 1;
+            max-width: 260px;
+            height: 2px;
+            background: var(--line);
+            position: relative;
+        }
+
+        .hp-bar i {
+            position: absolute;
+            inset: 0;
+            background: var(--signal);
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+
+        /* ═══ THE INDEX ═══ */
+        .bento-wrap {
+            border-top: 1px solid var(--line);
+            padding: 100px 48px 110px;
+        }
+
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .cell {
+            border: 1.5px solid var(--line-strong);
+            border-radius: 16px;
+            padding: 22px;
+            background: var(--card);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            transition: box-shadow 0.35s var(--ease);
+        }
+
+        .cell:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .ck {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--t3);
+            margin-bottom: 16px;
+        }
+
+        .c-demo {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .c-film,
+        .c-log,
+        .c-quote,
+        .c-text {
+            grid-column: span 2;
+        }
+
+        /* ── advocate demo: REAL design-system tokens ── */
+        .adv {
+            flex: 1;
+            background: #0D0D0C;
+            border-radius: 12px;
+            padding: 20px 16px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            color: #F5F4F2;
+            min-height: 430px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .adv-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #948D87;
+        }
+
+        .adv-head b {
+            color: #F5F4F2;
+            font-weight: 500;
+        }
+
+        .adv-scroll {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 4px 2px 10px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #2a2823 transparent;
+        }
+
+        .adv-entry {
+            background: #1A1918;
+            border: 1px solid #27251F;
+            border-radius: 6px 12px 12px 12px;
+            padding: 13px 15px 11px;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.45s var(--ease);
+        }
+
+        .adv-entry.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ae-text {
+            display: block;
+            font-size: 13.5px;
+            line-height: 1.5;
+            font-weight: 400;
+            color: #F5F4F2;
+        }
+
+        .ae-text sup {
+            color: #7B96C4;
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            margin-right: 4px;
+        }
+
+        .ae-reflect {
+            font-family: 'Fraunces', Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 14.5px;
+            line-height: 1.5;
+            color: #948D87;
+            margin-top: 8px;
+            min-height: 1.2em;
+        }
+
+        .adv-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 9px;
+        }
+
+        .adv-time {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #6b675e;
+        }
+
+        .adv-comp {
+            font-family: 'DM Mono', monospace;
+            font-size: 9.5px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #7B96C4;
+            background: #111827;
+            border-radius: 100px;
+            padding: 3px 9px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.4s var(--ease) 0.2s;
+        }
+
+        .adv-comp.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .adv-input {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            background: #1A1918;
+            border: 1px solid #27251F;
+            border-radius: 26px;
+            padding: 5px 5px 5px 18px;
+            transition: border-color 0.25s;
+        }
+
+        .adv-input:focus-within {
+            border-color: #7B96C4;
+        }
+
+        .adv-input input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: #F5F4F2;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13.5px;
+            outline: none;
+        }
+
+        .adv-input input::placeholder {
+            color: #6b675e;
+        }
+
+        .adv-send {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            border: none;
+            background: #7B96C4;
+            color: #0D0D0C;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.25s var(--ease);
+        }
+
+        .adv-send:hover {
+            transform: scale(1.08);
+        }
+
+        .adv-story {
+            background: #1A1918;
+            border: 1px solid #27251F;
+            border-radius: 18px;
+            padding: 15px 17px 13px;
+        }
+
+        .adv-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 9.5px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #948D87;
+            margin-bottom: 9px;
+        }
+
+        .as-line {
+            font-family: 'Fraunces', Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 15.5px;
+            line-height: 1.55;
+            color: #EDEAE2;
+            padding-left: 16px;
+            text-indent: -16px;
+            margin-bottom: 4px;
+        }
+
+        .as-line sup {
+            color: #7B96C4;
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            font-style: normal;
+            margin-right: 5px;
+        }
+
+        .as-line.new {
+            opacity: 0;
+        }
+
+        .as-line {
+            transition: opacity 0.6s var(--ease);
+        }
+
+        .adv-note {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.05em;
+            color: #6b675e;
+            margin-top: 10px;
+        }
+
+        /* ── build log ── */
+        .bl-list {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-evenly;
+        }
+
+        .bl-row {
+            display: flex;
+            gap: 16px;
+            padding: 10px 4px;
+            border-bottom: 1px dashed var(--line);
+            cursor: default;
+            transition: all 0.25s var(--ease);
+        }
+
+        .bl-row:last-child {
+            border-bottom: none;
+        }
+
+        .bl-row:hover {
+            transform: translateX(5px);
+        }
+
+        .bl-year {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--signal);
+            width: 48px;
+            flex-shrink: 0;
+            padding-top: 2px;
+        }
+
+        .bl-row p {
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: var(--t2);
+        }
+
+        .bl-row p b {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ── film contact sheet ── */
+        .film {
+            flex: 1;
+            background: #16140f;
+            border-radius: 10px;
+            padding: 13px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .sprockets {
+            height: 12px;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.16) 3px, transparent 3.5px);
+            background-size: 22px 12px;
+            background-position: center;
+        }
+
+        .frames {
+            display: flex;
+            gap: 9px;
+            flex: 1;
+        }
+
+        .frame {
+            flex: 1;
+            position: relative;
+            border-radius: 3px;
+            overflow: hidden;
+            cursor: crosshair;
+            min-height: 110px;
+        }
+
+        .frame .ph {
+            position: absolute;
+            inset: 0;
+            transition: transform 0.5s var(--ease), filter 0.4s;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s var(--ease), filter 0.4s;
+        }
+
+        .frame .cap {
+            position: absolute;
+            inset: auto 0 0 0;
+            background: rgba(10, 9, 7, 0.82);
+            color: #d8d3c8;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 8.5px;
+            letter-spacing: 0.06em;
+            padding: 7px 9px;
+            transform: translateY(102%);
+            transition: transform 0.35s var(--ease);
+        }
+
+        .frame:hover img {
+            transform: scale(1.06);
+            filter: brightness(1.08) contrast(1.02);
+        }
+
+        .frame:hover .cap {
+            transform: translateY(0);
+        }
+
+        .film-note {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.05em;
+            color: #8f8a7d;
+            text-align: center;
+        }
+
+        /* ── listening · side a — the turntable ── */
+        .c-vinyl {
+            grid-column: span 2;
+        }
+
+        .vinyl-deck {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .platter-wrap {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            flex: none;
+        }
+
+        .platter {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.07), transparent 55%),
+                repeating-radial-gradient(circle, #191814 0 2.5px, #100f0d 2.5px 5px);
+            border: 1px solid var(--line-strong);
+            box-shadow: inset 0 0 0 7px #0b0a09, var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .platter.spin {
+            animation: vspin 5.5s linear infinite;
+        }
+
+        @keyframes vspin {
+            to { transform: rotate(360deg); }
+        }
+
+        .v-label {
+            position: relative;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #A63A2B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.55);
+            transition: background 0.45s var(--ease);
+        }
+
+        /* off-center marker — makes the spin readable without shouting */
+        .v-label::after {
+            content: '';
+            position: absolute;
+            top: 9px;
+            left: 50%;
+            margin-left: -2px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .v-hole {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--card);
+            border: 1.5px solid #0b0a09;
+        }
+
+        .tonearm {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            width: 12px;
+            height: 12px;
+            z-index: 2;
+        }
+
+        .tonearm::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #6b675d, #2c2a25);
+            border: 1.5px solid var(--line-strong);
+        }
+
+        .tonearm i {
+            display: block;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 62px;
+            height: 4.5px;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #3a3831, #57544b);
+            transform-origin: 2px 2px;
+            transform: rotate(6deg);
+            transition: transform 0.75s var(--ease);
+        }
+
+        .tonearm i::after {
+            content: '';
+            position: absolute;
+            right: -4px;
+            bottom: -5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #6b675d;
+            border: 1.5px solid #26241f;
+        }
+
+        .tonearm.on i {
+            transform: rotate(54deg);
+        }
+
+        /* flex-basis = widest label + year tag; below that the list wraps
+           under the platter instead of clipping text (fluid, no breakpoint) */
+        .v-tracks {
+            flex: 1 1 310px;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .v-track {
+            text-align: left;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.03em;
+            color: var(--t2);
+            background: var(--bg);
+            border: 1.5px solid var(--line);
+            border-radius: 9px;
+            padding: 9px 12px;
+            cursor: pointer;
+            transition: all 0.25s var(--ease);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .v-track em {
+            font-style: normal;
+            color: var(--t3);
+            font-size: 9px;
+            letter-spacing: 0.08em;
+        }
+
+        .v-track:hover:not(.playing) {
+            border-color: var(--line-strong);
+            transform: translateX(2px);
+        }
+
+        .v-track.playing {
+            border-color: var(--signal);
+            color: var(--ink);
+        }
+
+        .v-track.playing em {
+            color: var(--signal);
+        }
+
+        .v-nowplaying {
+            margin-top: 14px;
+            border: 1.5px solid var(--line);
+            border-radius: 10px;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            min-height: 48px;
+        }
+
+        .v-eq {
+            display: flex;
+            gap: 2.5px;
+            align-items: flex-end;
+            height: 16px;
+            flex: none;
+        }
+
+        .v-eq i {
+            width: 3px;
+            height: 4px;
+            border-radius: 1.5px;
+            background: var(--t3);
+            transition: background 0.3s;
+        }
+
+        .v-nowplaying.playing .v-eq i {
+            background: var(--signal);
+            animation: veq 0.9s ease-in-out infinite;
+        }
+
+        .v-nowplaying.playing .v-eq i:nth-child(2) { animation-delay: 0.18s; }
+        .v-nowplaying.playing .v-eq i:nth-child(3) { animation-delay: 0.36s; }
+        .v-nowplaying.playing .v-eq i:nth-child(4) { animation-delay: 0.54s; }
+
+        @keyframes veq {
+            0%, 100% { height: 4px; }
+            50% { height: 15px; }
+        }
+
+        .v-np-meta {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .v-np-meta b {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--ink);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .v-np-meta span {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 8.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--t3);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .v-np-toggle {
+            flex: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1.5px solid var(--signal);
+            background: transparent;
+            color: var(--signal);
+            font-size: 10px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s var(--ease);
+        }
+
+        .v-np-toggle:hover {
+            background: var(--signal);
+            color: var(--on-signal);
+        }
+
+        .v-note {
+            margin-top: 12px;
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.05em;
+            color: var(--t3);
+            text-align: center;
+        }
+
+        /* ── imessage ── */
+        .im-thread {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            overflow-y: auto;
+            min-height: 168px;
+            padding-right: 4px;
+            scrollbar-width: thin;
+        }
+
+        .im-msg {
+            max-width: 84%;
+            padding: 9px 14px;
+            border-radius: 16px;
+            font-size: 13px;
+            line-height: 1.45;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.35s var(--ease);
+        }
+
+        .im-msg.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .im-me {
+            align-self: flex-end;
+            background: var(--signal);
+            color: var(--on-signal);
+            border-bottom-right-radius: 4px;
+        }
+
+        .im-g {
+            align-self: flex-start;
+            background: var(--bg2);
+            border: 1px solid var(--line);
+            color: var(--ink);
+            border-bottom-left-radius: 4px;
+        }
+
+        .im-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 14px;
+        }
+
+        .im-chip {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10.5px;
+            padding: 7px 12px;
+            border-radius: 100px;
+            border: 1.5px solid var(--signal);
+            color: var(--signal);
+            background: none;
+            cursor: pointer;
+            transition: all 0.25s var(--ease);
+        }
+
+        .im-chip:hover:not(:disabled) {
+            background: var(--signal);
+            color: var(--on-signal);
+            transform: translateY(-2px);
+        }
+
+        .im-chip:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        .im-status {
+            margin-top: 10px;
+            font-size: 11px;
+            color: var(--t3);
+        }
+
+        .im-status a {
+            color: var(--signal);
+        }
+
+        /* inline deep links match the site — no browser blue, animated line on hover */
+        .tt-line a,
+        .tt-explain a,
+        .im-status a {
+            color: var(--signal);
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .tt-line a::after,
+        .tt-explain a::after,
+        .im-status a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 1.5px;
+            background: var(--signal);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s var(--ease);
+        }
+
+        .tt-line a:hover::after,
+        .tt-explain a:hover::after,
+        .im-status a:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* ── quote rotator ── */
+        .quote-stage {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            min-height: 92px;
+        }
+
+        .q-item {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+            pointer-events: none;
+        }
+
+        .q-item.on {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .q-item p {
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            line-height: 1.35;
+        }
+
+        .q-item cite {
+            margin-top: 10px;
+            font-family: 'Spline Sans Mono', monospace;
+            font-style: normal;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent2);
+        }
+
+        /* ── after hours cell ── */
+        .ah-cell {
+            grid-column: span 2;
+        }
+
+        .ah-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .ah-item {
+            font-size: 12.5px;
+            padding: 9px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--line);
+            color: var(--t2);
+            cursor: default;
+            transition: all 0.25s var(--ease);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .ah-item b {
+            font-family: 'Spline Sans Mono', monospace;
+            font-weight: 500;
+            font-size: 9.5px;
+            letter-spacing: 0.06em;
+            color: var(--accent2);
+            text-align: right;
+        }
+
+        .ah-item:hover {
+            border-color: var(--accent2);
+            color: var(--ink);
+            transform: translateY(-2px);
+        }
+
+        /* ═══ STAMP (borrowed from Press) ═══ */
+        .stamp {
+            display: inline-block;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            border: 1.5px solid var(--signal);
+            color: var(--signal);
+            background: var(--card);
+            padding: 3px 8px;
+            transform: rotate(5deg);
+        }
+
+        .score {
+            position: relative;
+        }
+
+        .score .stamp {
+            position: absolute;
+            right: 12px;
+            top: 12px;
+        }
+
+        .stamp.solid {
+            font-size: 10px;
+            padding: 6px 12px;
+            transform: rotate(-3deg);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+        }
+
+        /* ═══ THE TASTE TEST ═══ */
+        .tt-wrap {
+            border-top: 1px solid var(--line);
+            background: var(--bg2);
+            padding: 100px 48px 110px;
+        }
+
+        .tt-claim {
+            max-width: 60ch;
+            padding: 0 48px;
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(20px, 2.4vw, 28px);
+            font-weight: 500;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            margin-bottom: 16px;
+        }
+
+        .tt-claim strong {
+            font-style: italic;
+            color: var(--signal);
+        }
+
+        .tt-lede {
+            max-width: 60ch;
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--t2);
+            padding: 0 48px;
+            margin-bottom: 44px;
+        }
+
+        .tt-lede strong {
+            color: var(--ink);
+        }
+
+        .tt-round {
+            margin-bottom: 34px;
+        }
+
+        .tt-q {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--t3);
+            margin-bottom: 14px;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .tt-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            max-width: 900px;
+        }
+
+        .tt-card {
+            position: relative;
+            border: 1.5px solid var(--line-strong);
+            border-radius: 12px;
+            background: var(--card);
+            cursor: pointer;
+            transition: all 0.25s var(--ease);
+            overflow: hidden;
+        }
+
+        .tt-card:hover:not(.locked) {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .tt-tag {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 9.5px;
+            letter-spacing: 0.14em;
+            color: var(--t3);
+            padding: 8px 12px 0;
+        }
+
+        .locked {
+            cursor: default;
+        }
+
+        .tt-card.right {
+            border-color: var(--signal);
+            box-shadow: 0 0 0 1.5px var(--signal);
+        }
+
+        .tt-card.wrong {
+            opacity: 0.55;
+        }
+
+        .tt-card .verdict-stamp {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border-color: var(--signal);
+            color: var(--signal);
+            transform: rotate(7deg) scale(0.6);
+            opacity: 0;
+            transition: all 0.4s var(--ease) 0.15s;
+        }
+
+        .tt-card.right .verdict-stamp {
+            opacity: 1;
+            transform: rotate(7deg) scale(1);
+        }
+
+        @keyframes ttshake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        .tt-card.wrong.shake {
+            animation: ttshake 0.3s ease-in-out;
+        }
+
+        /* mini mockup UI inside cards */
+        .mock {
+            padding: 14px 14px 18px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .m-notif {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--bg);
+        }
+
+        .m-notify-title {
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--ink);
+        }
+
+        .m-notify-body {
+            font-size: 12px;
+            color: var(--t2);
+            line-height: 1.45;
+        }
+
+        .m-quote {
+            font-family: 'Fraunces', Georgia, serif;
+            font-style: italic;
+            font-size: 16px;
+            color: var(--ink);
+        }
+
+        .m-quote-src {
+            font-family: 'DM Mono', monospace;
+            font-size: 9.5px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--t3);
+            margin-top: 8px;
+        }
+
+        .m-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px dashed var(--line);
+        }
+
+        .m-price-name {
+            font-size: 13px;
+            color: var(--t2);
+        }
+
+        .m-price-val {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--ink);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .tt-explain {
+            max-width: 900px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--t2);
+            margin-top: 12px;
+            border-left: 2px solid var(--accent2);
+            padding-left: 14px;
+            display: none;
+        }
+
+        .tt-explain.show {
+            display: block;
+        }
+
+        .tt-verdict {
+            display: none;
+            margin-top: 30px;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .tt-verdict.show {
+            display: flex;
+        }
+
+        .tt-score {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .tt-line {
+            font-size: 15px;
+            color: var(--t2);
+        }
+
+        .tt-line a {
+            color: var(--signal);
+        }
+
+        @media(max-width:900px) {
+            .tt-wrap,
+            .tt-claim,
+            .tt-lede {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+
+            .tt-pair {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ═══ WALL TEXT ═══ */
+        .walltext {
+            border-top: 1px solid var(--line);
+            padding: 110px 48px 120px;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 70px;
+            overflow-x: clip;
+        }
+
+        .wt-side {
+            position: sticky;
+            top: 110px;
+            align-self: start;
+        }
+
+        .wt-side .wl-tag {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            border: 1px solid var(--line-strong);
+            display: inline-block;
+            padding: 5px 11px;
+            margin-bottom: 18px;
+        }
+
+        .wt-side p {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 12px;
+            line-height: 1.8;
+            color: var(--t2);
+        }
+
+        .wt-body {
+            font-size: clamp(21px, 2.4vw, 30px);
+            line-height: 1.5;
+            letter-spacing: -0.015em;
+            font-weight: 400;
+            max-width: 26em;
+        }
+
+        .anno {
+            cursor: help;
+            border-bottom: 2px solid color-mix(in srgb, var(--signal) 55%, transparent);
+            transition: background 0.25s;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            padding: 0 2px;
+            position: relative;
+            display: inline;
+        }
+
+        .anno:hover {
+            background: color-mix(in srgb, var(--signal) 10%, transparent);
+        }
+
+        .anno .pop {
+            position: absolute;
+            left: clamp(0px, calc(50% - 125px), calc(100% - 250px));
+            bottom: calc(100% + 12px);
+            width: 250px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 13px 15px;
+            font-size: 12.5px;
+            line-height: 1.55;
+            letter-spacing: 0;
+            font-family: 'Spline Sans Mono', monospace;
+            color: var(--t2);
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(6px);
+            pointer-events: none;
+            transition: all 0.3s var(--ease);
+            z-index: 20;
+        }
+
+        .anno .pop b {
+            color: var(--signal);
+            display: block;
+            font-size: 9.5px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .anno:hover .pop {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ═══ THESIS ═══ */
+        .thesis {
+            border-top: 1px solid var(--line);
+            padding: 130px 48px;
+            background: var(--bg2);
+        }
+
+        .thesis .tk-label {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--signal);
+            margin-bottom: 30px;
+        }
+
+        .thesis h2 {
+            font-size: clamp(34px, 5.4vw, 74px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            max-width: 20ch;
+        }
+
+        .thesis h2 .w {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: bottom;
+            margin-right: 0.24em;
+        }
+
+        .thesis h2 .w>span {
+            display: inline-block;
+            transform: translateY(112%);
+            transition: transform 0.75s var(--ease);
+        }
+
+        .thesis.in h2 .w>span {
+            transform: translateY(0);
+        }
+
+        .thesis h2 .sig {
+            color: var(--signal);
+        }
+
+        .thesis .sub {
+            margin-top: 30px;
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--t2);
+            max-width: 52ch;
+        }
+
+        /* ═══ HISTORY ═══ */
+        .hist {
+            border-top: 1px solid var(--line);
+            padding-bottom: 60px;
+        }
+
+        .hist-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .hist-inner .sec-head {
+            padding: 56px 0 30px;
+        }
+
+        .hist-rows {
+            position: relative;
+            padding-left: 38px;
+        }
+
+        .hist-rows::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            bottom: 14px;
+            width: 2px;
+            background: var(--line-strong);
+        }
+
+        .h-row {
+            position: relative;
+            display: grid;
+            grid-template-columns: 118px 1fr;
+            gap: 26px;
+            padding: 15px 8px 17px;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+        }
+
+        .h-row.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .h-row::before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 32px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2.5px solid var(--signal);
+            box-sizing: border-box;
+            transform: scale(0.4);
+            opacity: 0.35;
+            transition: all 0.45s var(--ease) 0.15s;
+        }
+
+        .h-row.in::before {
+            transform: scale(1);
+            opacity: 1;
+            background: var(--signal);
+        }
+
+        .h-row:hover .h-when {
+            color: var(--signal);
+        }
+
+        .h-when {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            color: var(--t3);
+            padding-top: 6px;
+        }
+
+        .h-main h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .h-main .h-co {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--signal);
+            margin-bottom: 10px;
+        }
+
+        .h-main p {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--t2);
+            max-width: 58ch;
+        }
+
+        .h-main p strong {
+            color: var(--ink);
+        }
+
+        .h-badge {
+            display: inline-block;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 9.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid var(--accent2);
+            border-radius: 100px;
+            padding: 3px 9px;
+            color: var(--accent2);
+            margin-left: 10px;
+            vertical-align: 2px;
+        }
+
+        /* ═══ COLOPHON ═══ */
+        .colophon {
+            border-top: 1px solid var(--line-strong);
+            padding: 80px 48px 130px;
+        }
+
+        /* neon signature plaque */
+        .sig-plaque {
+            width: fit-content;
+            margin: 0 auto 52px;
+            background: #141210;
+            border: 1px solid color-mix(in srgb, var(--signal) 35%, transparent);
+            border-radius: 14px;
+            padding: 16px 22px 12px;
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            flex-wrap: wrap;
+            position: relative;
+            color: var(--signal);
+        }
+
+        .sig-plaque::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            background: radial-gradient(340px 120px at 30% 50%, color-mix(in srgb, var(--signal) 13%, transparent), transparent 70%);
+            pointer-events: none;
+        }
+
+        #sigSvg {
+            width: 170px;
+            height: auto;
+            display: block;
+            overflow: visible;
+        }
+
+        @media(max-width:600px) {
+            #sigSvg {
+                width: 120px;
+            }
+        }
+
+        .sig-plaque {
+            --neon: color-mix(in srgb, var(--signal) 72%, #ffffff);
+        }
+
+        .sig-fill path:not([data-bg]) {
+            fill: #5d584c;
+            transition: fill 0.35s ease;
+        }
+
+        .sig-fill [data-bg] {
+            fill: transparent;
+        }
+
+        #sigSvg.neon-on .sig-fill path:not([data-bg]) {
+            fill: var(--neon);
+        }
+
+        @keyframes neon-flicker {
+
+            0% { filter: none; }
+
+            5% { filter: drop-shadow(0 0 5px var(--neon)) drop-shadow(0 0 14px color-mix(in srgb, var(--neon) 40%, transparent)); }
+
+            6% { filter: none; }
+
+            9% { filter: drop-shadow(0 0 3px color-mix(in srgb, var(--neon) 60%, transparent)); }
+
+            10% { filter: none; }
+
+            18% { filter: none; }
+
+            20% { filter: drop-shadow(0 0 6px var(--neon)) drop-shadow(0 0 16px color-mix(in srgb, var(--neon) 45%, transparent)); }
+
+            21% { filter: none; }
+
+            22% { filter: drop-shadow(0 0 6px var(--neon)) drop-shadow(0 0 16px color-mix(in srgb, var(--neon) 45%, transparent)); }
+
+            44% { filter: drop-shadow(0 0 6px var(--neon)) drop-shadow(0 0 14px color-mix(in srgb, var(--neon) 40%, transparent)); }
+
+            45% { filter: none; }
+
+            47% { filter: drop-shadow(0 0 7px var(--neon)) drop-shadow(0 0 18px color-mix(in srgb, var(--neon) 50%, transparent)); }
+
+            100% { filter: drop-shadow(0 0 6px var(--neon)) drop-shadow(0 0 16px color-mix(in srgb, var(--neon) 35%, transparent)); }
+        }
+
+        #sigSvg.neon-on {
+            animation: neon-flicker 1.2s ease-out forwards;
+        }
+
+        .sig-cap {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: color-mix(in srgb, var(--signal) 72%, #cfc9bd);
+        }
+
+        .colophon-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .colophon h4 {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--t3);
+            margin-bottom: 20px;
+        }
+
+        .colophon .big-line {
+            font-size: clamp(26px, 3vw, 40px);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .colophon .big-line em {
+            font-style: normal;
+            color: var(--signal);
+        }
+
+        .colophon .intent {
+            margin-top: 14px;
+            font-size: 13.5px;
+            color: var(--t2);
+        }
+
+        .clinks {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .clinks a {
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            width: fit-content;
+            position: relative;
+        }
+
+        .clinks a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 1.5px;
+            background: var(--signal);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s var(--ease);
+        }
+
+        .clinks a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .colophon .credits {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11.5px;
+            line-height: 2;
+            color: var(--t2);
+        }
+
+        .egg-hint {
+            margin-top: 26px;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 10.5px;
+            color: var(--t3);
+            opacity: 0.75;
+        }
+
+        /* ═══ SAY-HI FAB ═══ */
+        .fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 120;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11.5px;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            background: var(--ink);
+            color: var(--bg);
+            border-radius: 100px;
+            padding: 13px 22px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(14px);
+            pointer-events: none;
+            transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), background 0.25s, color 0.25s;
+        }
+
+        .fab.show {
+            opacity: 1;
+            transform: none;
+            pointer-events: auto;
+        }
+
+        .fab:hover {
+            background: var(--signal);
+            color: var(--on-signal);
+        }
+
+        @media(max-width:900px) {
+
+            .hero,
+            .sec-head,
+            .exhibit,
+            .walltext,
+            .thesis,
+            .colophon,
+            .hhead,
+            .hprogress,
+            .bento-wrap {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+
+            .more-btn {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+
+            .ms-grid {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+
+            .hero-sub-row {
+                grid-template-columns: 1fr;
+            }
+
+            .exhibit-tags {
+                align-items: flex-start;
+            }
+
+            .exhibit,
+            .exhibit.flip,
+            .walltext,
+            .colophon-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .exhibit.flip .wall-label {
+                order: 0;
+            }
+
+            .wall-label,
+            .wt-side {
+                position: static;
+            }
+
+            .scoreboard {
+                grid-template-columns: 1fr;
+            }
+
+            .score {
+                border-right: none;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .bento {
+                grid-template-columns: 1fr;
+            }
+
+            .c-demo,
+            .c-film,
+            .c-log,
+            .c-quote,
+            .c-text,
+            .c-vinyl {
+                grid-column: span 1;
+            }
+
+            .c-demo {
+                grid-row: auto;
+            }
+
+            .ah-cell {
+                grid-column: span 1;
+            }
+
+            /* surge loopgrid — shrink to fit narrow screens */
+            .process-zone {
+                padding: 24px 18px 20px;
+            }
+
+            .loopgrid {
+                gap: 8px 10px;
+            }
+
+            .lg-node {
+                padding: 10px 6px 9px;
+            }
+
+            .lg-node b {
+                font-size: 12px;
+            }
+
+            .lg-node small {
+                font-size: 9px;
+            }
+
+            .lg-ring {
+                width: 84px;
+                height: 84px;
+            }
+
+            .lg-ring .lg-count {
+                font-size: 13px;
+            }
+
+            /* vinyl — stack turntable above the track list on phones */
+            .vinyl-deck {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .v-tracks {
+                width: 100%;
+            }
+
+            .ms {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
+            .hwrap {
+                height: auto;
+            }
+
+            .hsticky {
+                position: static;
+                height: auto;
+            }
+
+            .htrack {
+                flex-direction: column;
+                transform: none !important;
+                gap: 20px;
+                padding-bottom: 40px;
+            }
+
+            .slide {
+                width: 100%;
+            }
+
+            .hprogress {
+                display: none;
+            }
+
+            .h-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .hist-inner {
+                padding: 0 22px;
+            }
+
+            /* compact nav — links stay, everything tightens */
+            .nav {
+                padding: 10px 14px;
+                gap: 10px;
+            }
+
+            .nav .links {
+                margin-left: auto;
+                gap: 11px;
+                font-size: 9.5px;
+                letter-spacing: 0.02em;
+            }
+
+            .nav .ctl {
+                margin-left: 0;
+                padding: 5px 9px;
+                font-size: 12px;
+                line-height: 1;
+            }
+
+            .nav .ctl .t-txt {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <span class="name">ghazi<i>.</i></span>
+        <div class="links">
+            <span onclick="location.hash='#work'">Work</span>
+            <span onclick="location.hash='#index'">Index</span>
+            <span onclick="location.hash='#thesis'">Thesis</span>
+            <span onclick="location.hash='#history'">History</span>
+            <span onclick="location.hash='#contact'">Contact</span>
+        </div>
+        <button class="ctl" id="themeBtn"><span class="t-ico">◐</span><span class="t-txt"> DARK</span></button>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <header class="hero plate" id="hero">
+        <span class="rm tl"></span><span class="rm tr"></span><span class="rm bl"></span><span class="rm br"></span>
+        <div class="hero-kicker">Selected work · 2018 — 2026 · Arlington, VA</div>
+        <h1>
+            <span class="w"><span>I build things because I</span></span>
+            <span class="w"><span><em>want</em></span></span>
+            <span class="w"><span>the things I build.</span></span>
+        </h1>
+        <div class="hero-placard"><b>Ghazi Aryan</b><span>— product manager</span></div>
+        <div class="hero-sub-row">
+            <p class="hero-sub"><strong>Taste is the new barrier to entry.</strong> When anyone can ship in an
+                afternoon, the edge is knowing what to build, then actually shipping it. Product manager at Apple,
+                Warner Bros. Discovery, Capital One. Founder of Advocate.</p>
+            <div class="exhibit-tags">
+                <a href="#work"><span><b>01</b> THE SURGE — CAPITAL ONE</span></a>
+                <a href="#advocate"><span><b>02</b> ADVOCATE — FOUNDER</span></a>
+                <a href="#platform"><span><b>03</b> LAUNCH PLATFORM — CAPITAL ONE</span></a>
+                <a href="#history"><span><b>04</b> TAPE — TESTFLIGHT</span></a>
+            </div>
+        </div>
+        <div class="scroll-cue"><i></i> SCROLL</div>
+
+        <div class="ticker" id="ticker">
+            <div class="ticker-track" id="tickerTrack"></div>
+        </div>
+    </header>
+
+    <!-- ═══ EXHIBIT 01 — THE SURGE ═══ -->
+    <section class="exhibit" id="work">
+        <aside class="wall-label">
+            <span class="wl-tag">Exhibit 01 · Flagship</span>
+            <h3>A six-week job, redesigned to take a day.</h3>
+            <p>An agent workflow system unifying design consistency across Capital One's platform. Four-person tiger
+                team, <strong>two weeks, no brief</strong>. Proven on four codebases, guardrails set where only human
+                judgment belongs.</p>
+            <div class="placard">
+                "This is exactly how we should be operating."
+                <cite>— Senior risk leadership, after first pass</cite>
+            </div>
+        </aside>
+        <div class="exhibit-body">
+            <p class="exhibit-lede">Fixing one codebase by hand took <span class="hl">six-plus weeks</span>, long
+                enough to block launches. The system we built does a full pass in under a day, and the auditor never
+                ships a fix the spec doesn't allow.</p>
+
+            <div class="scoreboard">
+                <div class="score" id="ro-comp">
+                    <span class="stamp">VERIFIED ×4</span>
+                    <div class="k">Design compliance</div>
+                    <div class="v"><span id="compValN">92</span><span class="u">%</span><span
+                            class="was" id="compWasN">28%</span></div>
+                    <div class="foot">across four pilot codebases</div>
+                </div>
+                <div class="score" id="ro-time">
+                    <div class="k">Time per full pass</div>
+                    <div class="v"><span id="timeValN">&lt;1</span><span class="u" id="timeUnitN">day</span><span
+                            class="was" id="timeWasN">6 wks</span></div>
+                    <div class="foot">manual pass retired</div>
+                </div>
+                <div class="score" id="ro-repo">
+                    <div class="k">Org verdict</div>
+                    <div class="v"><span id="repoNum">4</span><span class="u">/4</span></div>
+                    <div class="foot">repos on-spec · more in line</div>
+                </div>
+            </div>
+
+            <div class="process-zone">
+                <div class="pz-label">The system — five roles, one loop</div>
+                <div class="loopgrid">
+                    <svg class="lg-wires" aria-hidden="true"></svg>
+                    <span class="flow-node lg-node lg-gen" data-step="0"><b>Generator</b><small>spec sheets, once</small></span>
+                    <span class="flow-node lg-node lg-orch" data-step="1"><b>Orchestrator</b><small>runs the pass</small></span>
+                    <span class="flow-node lg-node lg-aud" data-step="2"><b>Auditor</b><small>finds drift</small></span>
+                    <span class="lg-ring" data-step="4">
+                        <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/></svg>
+                        <b>pass</b>
+                        <i class="lg-count">×n</i>
+                    </span>
+                    <span class="flow-node lg-node lg-imp" data-step="3"><b>Implementer</b><small>fixes what's allowed</small></span>
+                    <span class="flow-node hot lg-node lg-pm" data-step="5"><b>You — PM</b><small>guardrails &amp; sign-off</small></span>
+                </div>
+                <span class="stamp solid" style="position:absolute;right:18px;top:-15px;">SHOWN AT ALL-HANDS</span>
+                <div class="fuse-run">
+                    <button class="run-btn" id="runBtn"><span id="runIcon">▶</span>&nbsp;<span id="runLabel">Walk me through it</span></button>
+                </div>
+                <p class="fuse-story" id="fuseStory">Four codebases sat at <strong>28% on-spec</strong>, fixed by hand,
+                    six-plus weeks a pass. Run it.</p>
+            </div>
+
+            <div class="more" id="moreEx1">
+                <button class="more-btn"><span class="plus">+</span> EXPLORE THE FULL STORY <em>the brief · the insight · the guardrail tradeoff</em></button>
+                <div class="more-panel">
+                    <div class="more-inner">
+                        <div class="ms-grid">
+                            <div class="ms">
+                                <b>The brief</b>
+                                <p>Two weeks, four people, <strong>no brief</strong>: one mandate to build
+                                    something that matters. Platform design consistency had drifted for years; fixing a
+                                    single codebase by hand took six-plus weeks, long enough to block launches.</p>
+                            </div>
+                            <div class="ms">
+                                <b>The insight</b>
+                                <p>The drift was never a people failure. It was an economics problem. Nobody can
+                                    hand-audit five platforms and ship features too. <strong>Spec the consistency once,
+                                        let agents run the passes,</strong> and keep the judgment calls where they
+                                    belong: with the PM.</p>
+                            </div>
+                            <div class="ms">
+                                <b>The tradeoff</b>
+                                <p>We proved the pilot on <strong>four codebases before asking the org for
+                                    anything</strong>. And we deliberately kept deep API logic off-limits to the
+                                    implementer: coverage you can't trust is worth less than coverage you can. Guardrails
+                                    first, scope second.</p>
+                            </div>
+                            <div class="ms">
+                                <b>Aftermath</b>
+                                <p>Compliance went 28% → 92% across the pilots, a full pass collapsed to under a day,
+                                    and senior leadership called it <strong>"how the whole org should operate."</strong>
+                                    We presented it at an all-hands with executive leadership — held up as
+                                    the model for how AI work should run here. More codebases are in line.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ EXHIBIT 02 — ADVOCATE GALLERY ═══ -->
+    <section class="hwrap" id="advocate">
+        <div class="hsticky">
+            <div class="hhead">
+                <span class="sec-no">EXHIBIT 02</span>
+                <span class="sec-title" style="font-size:clamp(24px,3vw,40px)">Advocate — a journal that argues your
+                    case.</span>
+            </div>
+            <div class="htrack-outer">
+                <div class="htrack" id="htrack">
+                    <div class="slide">
+                        <div class="slide-screen">
+                            <span class="scr-no">SCREEN 01 / JOURNAL</span>
+                            <div class="scr-title">Capture is<br>one <em>tap.</em><br>Zero friction.</div>
+                            <p class="scr-copy">Get it down while it's still fresh. No form fields, no framing for an audience.</p>
+                            <div class="scr-sample"><span class="ss-q">“Shipped scoping today — Drew noticed within the hour.”</span><span class="ss-meta">auto-tagged · delivery</span></div>
+                            <div class="scr-chiprow"><span class="scr-chip">one-tap log</span><span class="scr-chip">agent reflects it back</span></div>
+                        </div>
+                        <div class="slide-cap"><b>The pitch</b><span>log a win, a mess, a quote</span></div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-screen">
+                            <span class="scr-no">SCREEN 02 / YOUR STORY</span>
+                            <div class="scr-title">Every claim,<br><em>cited.</em></div>
+                            <p class="scr-copy">Your Story assembles a live review where each line links to the entry that proves it. Gaps say so honestly.</p>
+                            <div class="scr-review">
+                                <div class="sr-row"><span class="sr-claim">“Led the HR-portal integration.”</span><span class="sr-area">stakeholder mgmt<em>cites · mar 12</em></span></div>
+                                <div class="sr-row"><span class="sr-claim">“Sat with 12 assessors before writing scope.”</span><span class="sr-area">human-centered<em>cites · feb 03</em></span></div>
+                                <div class="sr-row sr-gap"><span class="sr-claim">Q3 ownership</span><span class="sr-area">gap<em>no entry yet — honestly</em></span></div>
+                            </div>
+                            <div class="scr-chiprow"><span class="scr-chip">live review</span><span class="scr-chip">gaps shown honestly</span></div>
+                        </div>
+                        <div class="slide-cap"><b>Entry → cited story</b><span>always assembling itself</span></div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-screen">
+                            <span class="scr-no">SCREEN 03 / PREPARE</span>
+                            <div class="scr-title">Your career,<br><em>wrapped.</em></div>
+                            <p class="scr-copy">Promo cases, 1:1 notes, resume bullets, prep for a hard conversation — if it's about your work, Prepare assembles it from real entries.</p>
+                            <ul class="scr-bullets">
+                                <li>Drove design compliance 28% → 92% across four codebases</li>
+                                <li>Landed the Question Bank a month early</li>
+                                <li>Presented to 150+ at SECON</li>
+                            </ul>
+                            <div class="scr-chiprow"><span class="scr-chip">1:1 prep</span><span class="scr-chip">any format you need</span></div>
+                        </div>
+                        <div class="slide-cap"><b>Your career, wrapped</b><span>assembled from real entries</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hprogress">GALLERY WALK <div class="hp-bar"><i id="hpFill"></i></div> <span id="hpPct">0%</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="strip-more">
+        <div class="more" id="moreAdv">
+            <button class="more-btn"><span class="plus">+</span> HOW ADVOCATE ACTUALLY WORKS <em>the idea · the loop · three surfaces · why it's different</em></button>
+            <div class="more-panel">
+                <div class="more-inner">
+                    <div class="ms-grid">
+                        <div class="ms">
+                            <b>The idea</b>
+                            <p>A work journal that <strong>advocates for you</strong>. Log a win, a mess, something
+                                someone said, and it starts building the record you'll need six months from now.</p>
+                        </div>
+                        <div class="ms">
+                            <b>The loop</b>
+                            <p>Capture is one tap. An agent reflects it back in a sentence, weaves it into threads, and
+                                files it under what counts: your framework, or pasted straight from your company's
+                                ladder. <strong>Rambles become STAR stories.</strong></p>
+                        </div>
+                        <div class="ms">
+                            <b>Three surfaces</b>
+                            <p><strong>Journal</strong> captures. <strong>Your Story</strong> assembles a live review,
+                                cited claim by claim. <strong>Prepare</strong> turns it into promo cases, 1:1 prep,
+                                resume bullets.</p>
+                        </div>
+                        <div class="ms">
+                            <b>Why different</b>
+                            <p>Built for you, not your manager. Corrections stick forever. Your voice, not LinkedIn's.
+                                Your record, not the company's.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ EXHIBIT 03 — LAUNCH PLATFORM ═══ -->
+    <section class="exhibit flip" id="platform">
+        <aside class="wall-label">
+            <span class="wl-tag">Exhibit 03 · Platform</span>
+            <h3>300 annual risk assessments. Zero shared tools.</h3>
+            <p>Built the platform that unified them: scoping, Question Bank as questionnaire-as-a-service, diagnostics,
+                standardized BPMN workflows. <strong>Shipped to production, adopted across teams, presented at
+                    SECON.</strong></p>
+            <div class="placard">
+                "His thoughtful, customer-first approach was instrumental in getting that work pushed through."
+                <cite>— Drew Magyar, Product Team</cite>
+            </div>
+        </aside>
+        <div class="exhibit-body">
+            <p class="exhibit-lede"><span class="hl">Not a tech problem. A people problem with regulatory
+                consequences.</span> Every assessment was gated behind stage reviews with siloed tools, while
+                regulatory deadlines refused to move. So I split my week: discovery with methodology partners,
+                execution on the platform.</p>
+            <p class="exhibit-kicker">Trust first. Adoption second.</p>
+
+            <div class="scoreboard">
+                <div class="score">
+                    <div class="k">Faster per assessment</div>
+                    <div class="v"><span class="cnt" data-to="15">0</span><span class="u">%</span></div>
+                    <div class="foot">stage-gate reduction, measured</div>
+                </div>
+                <div class="score">
+                    <div class="k">Teams expressed interest</div>
+                    <div class="v"><span class="cnt" data-to="50">0</span><span class="u">+</span></div>
+                    <div class="foot">10+ onboarded to start</div>
+                </div>
+                <div class="score">
+                    <div class="k">Reached at SECON</div>
+                    <div class="v"><span class="cnt" data-to="150">0</span><span class="u">+</span></div>
+                    <div class="foot">booth selected from hundreds</div>
+                </div>
+            </div>
+
+            <div class="process-zone">
+                <div class="pz-label">What shipped — four modules, one platform</div>
+                <div class="mods">
+                    <div class="mod"><span>M1</span><b>Scoping module</b><small>consolidates data across every platform; powers all downstream pages</small></div>
+                    <div class="mod"><span>M2</span><b>Question Bank</b><small>questionnaire-as-a-service · landed a month early</small></div>
+                    <div class="mod"><span>M3</span><b>Diagnostics recommender</b><small>guides each assessor to the right checks</small></div>
+                    <div class="mod"><span>M4</span><b>BPMN workflows</b><small>standardized on Camunda</small></div>
+                </div>
+                <div class="pz-hint">Plus: mentored three associate PMs through their first year.</div>
+            </div>
+
+            <div class="more" id="moreEx3">
+                <button class="more-btn"><span class="plus">+</span> EXPLORE THE FULL STORY <em>problem · the tradeoff · what shipped · two quotes</em></button>
+                <div class="more-panel">
+                    <div class="more-inner">
+                        <div class="ms-grid">
+                            <div class="ms">
+                                <b>Problem</b>
+                                <p>300+ assessments a year, each gated behind stage reviews. Teams couldn't work the way
+                                    their org actually operated, and regulatory deadlines don't move. <strong>Not a tech
+                                        problem. A people problem with regulatory consequences.</strong></p>
+                            </div>
+                            <div class="ms">
+                                <b>Approach &amp; tradeoff</b>
+                                <p>Half the week on stakeholder discovery, half on execution, with trust built with
+                                    methodology partners first, spent driving adoption later. Owned the BPMN model, which
+                                    ran far past scope. <strong>We deferred custom reporting to Release 2</strong>, though
+                                    leadership wanted it upfront: scoping consolidated data across platforms and powered
+                                    every downstream page. Reporting could wait. It did, and scoping shipped on time.</p>
+                            </div>
+                            <div class="ms">
+                                <b>What shipped</b>
+                                <p>Scoping module live. Question Bank landed <strong>a month ahead of its 6-month
+                                    timeline</strong>. Presented at SECON, selected from hundreds of applications; 150+
+                                    conversations, 3 new tenants onboarded. Mentored three associate PMs through their
+                                    first year along the way.</p>
+                            </div>
+                            <div class="ms">
+                                <b>Said then</b>
+                                <div>
+                                    <div class="placard">
+                                        "Ghazi has been the most proactive of any team I've collaborated with for this
+                                        initiative. He reached out early, set time for us to sit down together, and
+                                        worked until the requirement was crystal clear."
+                                        <cite>— Megan Wiser, PDP Mentee</cite>
+                                    </div>
+                                    <div class="placard" style="margin-top:12px;">
+                                        "I appreciate your myriad contributions that have propelled the Future of
+                                        Assessments initiative forward."
+                                        <cite>— Rachel Rique, Manager</cite>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ THE INDEX ═══ -->
+    <section class="bento-wrap" id="index">
+        <div class="sec-head">
+            <span class="sec-no">INDEX</span>
+            <span class="sec-title">Live demos and receipts.</span>
+        </div>
+        <div class="bento">
+
+            <!-- advocate demo — real product design language -->
+            <div class="cell c-demo">
+                <div class="ck">NOW BUILDING · ADVOCATE — LIVE DEMO</div>
+                <div class="adv">
+                    <div class="adv-head"><span><b>ghazi's journal</b> · example</span><span>↓ log a work ramble</span></div>
+                    <div class="adv-scroll" id="advScroll">
+                        <div class="adv-entry show">
+                            <p class="ae-text"><sup>1</sup>Fed LAUNCH learnings into the PLA build before problems hit —
+                                partners adopted without a push.</p>
+                            <p class="ae-reflect">Trust built early is leverage spent later.</p>
+                            <div class="adv-meta"><span class="adv-time">mon · 9:14 AM</span><span
+                                    class="adv-comp show">Stakeholder buy-in</span></div>
+                        </div>
+                    </div>
+                    <div class="adv-input">
+                        <input id="advInput" type="text" maxlength="140" placeholder="Log a work ramble…">
+                        <button class="adv-send" id="advBtn">↑</button>
+                    </div>
+                    <div class="adv-story">
+                        <div class="adv-label">Your story</div>
+                        <div id="advStory">
+                            <div class="as-line"><sup>1</sup>Built stakeholder trust before rollout — and it carried the
+                                launch.</div>
+                        </div>
+                        <div class="adv-note">rambles → star stories, cited · demo runs templates; the app runs an LLM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- build log -->
+            <div class="cell c-log">
+                <div class="ck">BUILD LOG — SHIPPED THINGS</div>
+                <div class="bl-list">
+                    <div class="bl-row"><span class="bl-year">'16</span><p><b>First game on the App Store</b>, age 16.
+                            Sold jailbreak tweaks before that.</p></div>
+                    <div class="bl-row"><span class="bl-year">'24</span><p><b>Tape</b>, AI trading journal — rebuilt the
+                            insight engine three times. Raw notes beat aggregates. TestFlight.</p></div>
+                    <div class="bl-row"><span class="bl-year">'26</span><p><b>Advocate</b>, solo — idea to working build.
+                            PM, prompt design, UX, one person.</p></div>
+                    <div class="bl-row"><span class="bl-year">now</span><p><b>This portfolio.</b> Built with agents,
+                            reviewed like product copy, shipped on GitHub Pages.</p></div>
+                </div>
+            </div>
+
+            <!-- film contact sheet -->
+            <div class="cell c-film">
+                <div class="ck">AFTER HOURS · 35MM CONTACT SHEET</div>
+                <div class="film">
+                    <div class="sprockets"></div>
+                    <div class="frames">
+                        <div class="frame"><img src="film/masjid.jpg" alt="Masjid an-Nabawi, Medina — 35mm"><div class="cap">masjid an-nabawi · medina</div></div>
+                        <div class="frame"><img src="film/umbrellas.jpg" alt="The white umbrellas of the Prophet's Mosque, midday flare — 35mm"><div class="cap">the umbrellas, midday flare · medina</div></div>
+                        <div class="frame"><img src="film/venice.jpg" alt="Venice canals at last light — 35mm"><div class="cap">venice canals, last light</div></div>
+                        <div class="frame"><img src="film/dusk.jpg" alt="Dusk over Manhattan Beach — 35mm"><div class="cap">dusk over manhattan beach</div></div>
+                    </div>
+                    <div class="sprockets"></div>
+                </div>
+            </div>
+
+            <!-- listening — side a -->
+            <div class="cell c-vinyl">
+                <div class="ck">LISTENING · SIDE A — THREE RECORDS</div>
+                <div class="vinyl-deck">
+                    <div class="platter-wrap">
+                        <div class="platter" id="vPlatter">
+                            <div class="v-label" id="vLabel"><span class="v-hole"></span></div>
+                        </div>
+                        <div class="tonearm" id="vArm"><i></i></div>
+                    </div>
+                    <div class="v-tracks" id="vTracks"></div>
+                </div>
+                <div class="v-nowplaying" id="vNp">
+                    <div class="v-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                    <div class="v-np-meta">
+                        <b id="vNpTitle">Nothing on the platter</b>
+                        <span id="vNpSub">pick a record to drop the needle</span>
+                    </div>
+                    <button class="v-np-toggle" id="vNpBtn" aria-label="Play or pause">▶</button>
+                </div>
+                <div class="v-note">side a · three records on heavy rotation</div>
+            </div>
+
+            <!-- text ghazi -->
+            <div class="cell c-text">
+                <div class="ck">TEXT GHAZI — ASK HIM DIRECTLY</div>
+                <div class="im-thread" id="imThread"></div>
+                <div class="im-chips" id="imChips">
+                    <button class="im-chip" data-q="hire">Why you over another PM?</button>
+                    <button class="im-chip" data-q="fsd">An FSD hot take?</button>
+                    <button class="im-chip" data-q="respect">What earns your respect?</button>
+                </div>
+                <div class="im-status">Real inbox is faster: <a href="mailto:ghaziearyan@gmail.com">ghaziearyan@gmail.com</a></div>
+            </div>
+
+            <!-- quotes -->
+            <div class="cell c-quote">
+                <div class="ck">SAID ABOUT HIM</div>
+                <div class="quote-stage" id="quoteStage"></div>
+            </div>
+
+            <!-- after hours cell -->
+            <div class="cell ah-cell">
+                <div class="ck">ALSO · OFF THE CLOCK</div>
+                <div class="ah-list">
+                    <span class="ah-item">Snowboarding<b>WEST &gt; EAST</b></span>
+                    <span class="ah-item">Beli food critic<b>DETAILED</b></span>
+                    <span class="ah-item">LEGO machines<b>PEAK YT</b></span>
+                    <span class="ah-item">Roth IRAs<b>UNPROMPTED</b></span>
+                    <span class="ah-item">Severance<b>PERFECT SHOW</b></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ EXHIBIT 04 — THE TASTE TEST ═══ -->
+    <section class="tt-wrap" id="taste">
+        <div class="sec-head">
+            <span class="sec-no">EXHIBIT 04</span>
+            <span class="sec-title">The Taste Test.</span>
+        </div>
+        <p class="tt-claim">The claim on this site is that <strong>taste is the new barrier to entry</strong> — so it
+            felt fair to have you check mine.</p>
+        <p class="tt-lede">Three pairs of near-identical product decisions. None of it is about pixels — it's about
+            what it feels like to use, and whether it solves the actual problem. In each pair, one was shipped by
+            someone who cared. <strong>Pick it.</strong> No hints, no takebacks.</p>
+
+        <div id="ttRounds"></div>
+
+        <div class="tt-verdict" id="ttVerdict">
+            <span class="tt-score" id="ttScore"></span>
+            <span class="tt-line" id="ttLine"></span>
+            <button class="ctl" id="ttRestart" style="display:none;">RUN IT AGAIN</button>
+        </div>
+    </section>
+
+    <!-- ═══ WALL TEXT ═══ -->
+    <section class="walltext" id="about">
+        <aside class="wt-side">
+            <span class="wl-tag">Wall text</span>
+            <p>Curator's note: the subject describes his own method. Annotations link to primary sources. Hover any
+                marked phrase.</p>
+        </aside>
+        <p class="wt-body">
+            I've always been the person who researches everything to death before buying it. I notice the details most
+            people don't, and
+            <span class="anno">I can't unsee them.<span class="pop"><b>Annotation 01</b>The Tesla preconditioner that
+                warms your battery before the Supercharger. The way iOS gets out of your way.</span></span>
+            At fifteen I was customizing
+            <span class="anno">hoverboard specs<span class="pop"><b>Annotation 02</b>Directly with Shenzhen suppliers —
+                best balance of value and quality. First product sense test, passed.</span></span>
+            with suppliers in Shenzhen, charging classmates to
+            <span class="anno">jailbreak their iPhones<span class="pop"><b>Annotation 03</b>Shaped them to look and work
+                the way I thought they should. Design opinion, pre-career.</span></span>.
+            Now I do it at scale — Apple launches where nothing can break, a $43B merger's HR portal, risk platforms
+            for auditors with zero patience for bad UX.
+        </p>
+    </section>
+
+    <!-- ═══ THESIS ═══ -->
+    <section class="thesis" id="thesis">
+        <div class="tk-label">Point of view · the thesis</div>
+        <h2 id="thesisH">The next great PMs won't just define products. They'll <span class="sig">build them.</span>
+        </h2>
+        <p class="sub">I call the emerging role the Agent Manager — product thinking, technical execution, and design
+            intuition merging into one skill set. Not every PM needs to learn Swift. But the ones who move fluidly
+            between strategy and execution will have an edge. That's what I'm building toward.</p>
+    </section>
+
+    <!-- ═══ HISTORY ═══ -->
+    <section class="hist" id="history">
+        <div class="hist-inner">
+            <div class="sec-head" style="padding:56px 0 30px;">
+                <span class="sec-no">CATALOG</span>
+                <span class="sec-title">Where I've been.</span>
+            </div>
+            <div class="hist-rows">
+                <div class="h-row">
+                    <div class="h-when">2026 — NOW</div>
+                    <div class="h-main">
+                        <h4>Founder</h4>
+                        <div class="h-co">ADVOCATE</div>
+                        <p>An AI career-journaling app: an agent turns messy work notes into a live, evidence-cited
+                            performance narrative. <strong>Solo, idea to working build.</strong> Before it came Tape,
+                            an AI trading journal on TestFlight.</p>
+                    </div>
+                </div>
+                <div class="h-row">
+                    <div class="h-when">2023 — NOW</div>
+                    <div class="h-main">
+                        <h4>Product Manager <span class="h-badge">PROMOTED 2025</span></h4>
+                        <div class="h-co">CAPITAL ONE</div>
+                        <p>Helped lead the agent-workflow surge: design compliance <strong>28% → 92%</strong>, full pass
+                            from 6+ weeks to under a day. Shipped the assessment platform to production and presented at
+                            SECON.</p>
+                    </div>
+                </div>
+                <div class="h-row">
+                    <div class="h-when">2022 — 2023</div>
+                    <div class="h-main">
+                        <h4>Product Manager</h4>
+                        <div class="h-co">WARNER BROS. DISCOVERY</div>
+                        <p>Led the ServiceNow and HR-portal integration during the <strong>$43B merger</strong>,
+                            shipping the unified portal on deadline.</p>
+                    </div>
+                </div>
+                <div class="h-row">
+                    <div class="h-when">2018 — 2022</div>
+                    <div class="h-main">
+                        <h4>Disaster Recovery Project Manager <span class="h-badge">PROMOTED ×2</span></h4>
+                        <div class="h-co">APPLE</div>
+                        <p>Capping four years at Apple Retail up to Genius. Migrated <strong>30+ application teams</strong>
+                            off legacy infrastructure with zero disruption through Apple events.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ COLOPHON ═══ -->
+    <footer class="colophon" id="contact">
+        <div class="sig-plaque" id="sigPlaque">
+            <svg id="sigSvg" viewBox="115 125 820 415" xmlns="http://www.w3.org/2000/svg" aria-label="Ghazi's signature, drawn in neon">
+                <defs>
+                    <mask id="mG" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skG"
+                            d="M 916 157 C 830 143, 690 148, 580 180 C 460 215, 330 268, 245 315 C 195 348, 160 385, 143 415 C 125 460, 155 500, 220 520 C 330 535, 480 505, 600 470 C 690 440, 740 410, 765 386 C 785 360, 785 340, 775 328 C 760 315, 730 312, 710 312 C 660 308, 610 308, 570 312 C 530 318, 475 328, 415 348"
+                            stroke="white" stroke-width="50" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </mask>
+                    <mask id="mGap" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skGap"
+                            d="M 916 157 C 830 143, 690 148, 580 180 C 460 215, 330 268, 245 315 C 195 348, 160 385, 143 415 C 125 460, 155 500, 220 520 C 330 535, 480 505, 600 470 C 690 440, 740 410, 765 386 C 785 360, 785 340, 775 328 C 760 315, 730 312, 710 312 C 660 308, 610 308, 570 312 C 530 318, 475 328, 415 348"
+                            stroke="white" stroke-width="10" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </mask>
+                    <mask id="mH1" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skH1" d="M 460 290 C 456 320, 450 355, 445 390" stroke="white" stroke-width="38"
+                            fill="none" stroke-linecap="round" />
+                    </mask>
+                    <mask id="mH2" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skH2" d="M 514 278 C 510 310, 504 345, 500 368" stroke="white" stroke-width="38"
+                            fill="none" stroke-linecap="round" />
+                    </mask>
+                    <mask id="mA" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skA" d="M 534 367 C 555 330, 575 285, 592 258 C 596 280, 598 320, 597 354"
+                            stroke="white" stroke-width="42" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </mask>
+                    <mask id="mZ" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skZ"
+                            d="M 630 272 C 635 262, 650 260, 658 268 C 663 278, 656 300, 650 315 C 644 335, 640 350, 648 358 C 656 352, 662 345, 665 342"
+                            stroke="white" stroke-width="34" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </mask>
+                    <mask id="mI" maskUnits="userSpaceOnUse" x="0" y="0" width="1021" height="635">
+                        <path id="skI" d="M 710 264 C 706 280, 702 300, 700 316" stroke="white" stroke-width="28"
+                            fill="none" stroke-linecap="round" />
+                    </mask>
+                </defs>
+                <g mask="url(#mG)" class="sig-fill">
+                    <path fill="#4e5959"
+                        d="M 702.5,317.5 C 704.94,313.852 706.607,309.852 707.5,305.5C 731.03,307.465 753.363,313.632 774.5,324C 782.468,328.632 788.301,335.132 792,343.5C 793.579,362.295 787.079,377.795 772.5,390C 747.807,408.692 721.141,424.359 692.5,437C 616.671,473.165 537.671,500.165 455.5,518C 382.648,532.43 309.315,535.43 235.5,527C 208.361,523.422 183.028,514.755 159.5,501C 129.485,478.938 121.319,450.438 135,415.5C 142.423,398.97 152.09,383.97 164,370.5C 192.273,341.541 223.44,316.374 257.5,295C 290.837,273.161 325.837,254.161 362.5,238C 500.985,179.229 645.318,145.063 795.5,135.5C 828.615,135.524 861.615,137.357 894.5,141C 905.171,142.662 914.671,146.829 923,153.5C 924.075,157.067 923.242,160.067 920.5,162.5C 915.942,163.077 911.942,161.577 908.5,158C 884.864,152.299 860.864,149.299 836.5,149C 795.634,147.012 754.968,149.012 714.5,155C 594.257,171.393 478.257,203.059 366.5,250C 310.408,275.861 258.074,307.527 209.5,345C 186.366,363.124 167.2,384.624 152,409.5C 131.083,447.978 139.916,477.145 178.5,497C 204.706,508.178 232.039,514.844 260.5,517C 346.412,523.442 430.746,514.776 513.5,491C 587.868,469.769 659.201,441.102 727.5,405C 740.044,397.785 752.044,389.785 763.5,381C 774.573,372.026 780.073,360.526 780,346.5C 774.701,339.873 768.201,334.706 760.5,331C 741.701,324.255 722.368,319.755 702.5,317.5 Z" />
+                    <path fill="#4d5959"
+                        d="M 639.5,300.5 C 637.637,304.755 635.97,309.088 634.5,313.5C 622.5,313.5 610.5,313.5 598.5,313.5C 598.5,309.5 598.5,305.5 598.5,301.5C 612.137,300.573 625.804,300.24 639.5,300.5 Z" />
+                    <path fill="#4d5959"
+                        d="M 653.5,301.5 C 667.189,301.74 680.856,302.406 694.5,303.5C 693.989,306.028 693.322,308.528 692.5,311C 692.758,313.009 693.425,314.843 694.5,316.5C 679.198,315.171 663.865,314.171 648.5,313.5C 649.766,309.379 651.432,305.379 653.5,301.5 Z" />
+                    <path fill="#4f5b5b"
+                        d="M 577.5,301.5 C 580.167,301.5 582.833,301.5 585.5,301.5C 585.5,305.833 585.5,310.167 585.5,314.5C 580.819,314.669 576.152,315.002 571.5,315.5C 573.503,310.829 575.503,306.162 577.5,301.5 Z" />
+                    <path fill="#4d5959"
+                        d="M 561.5,303.5 C 559.87,308.081 557.87,312.414 555.5,316.5C 539.841,319.165 524.174,321.832 508.5,324.5C 509.373,320.017 510.373,315.683 511.5,311.5C 527.948,307.556 544.615,304.889 561.5,303.5 Z" />
+                    <path fill="#4e595a"
+                        d="M 496.5,314.5 C 496.046,319.404 495.046,324.07 493.5,328.5C 481.009,331.33 468.676,334.663 456.5,338.5C 457.836,333.483 459.169,328.483 460.5,323.5C 472.425,320.186 484.425,317.186 496.5,314.5 Z" />
+                    <path fill="#4e5a5a"
+                        d="M 445.5,328.5 C 444.319,333.56 442.985,338.56 441.5,343.5C 425.57,347.716 411.07,354.716 398,364.5C 395.461,371.973 391.128,373.306 385,368.5C 383.451,362.264 385.284,357.264 390.5,353.5C 407.434,342.201 425.768,333.868 445.5,328.5 Z" />
+                </g>
+                <g mask="url(#mGap)" class="sig-fill">
+                    <path fill="#22b091"
+                        d="M 460.5,323.5 C 459.169,328.483 457.836,333.483 456.5,338.5C 451.689,354.344 449.356,370.511 449.5,387C 448.653,392.076 445.653,394.076 440.5,393C 434.954,389.268 433.121,384.101 435,377.5C 437.062,366.123 439.229,354.79 441.5,343.5C 442.985,338.56 444.319,333.56 445.5,328.5C 448.311,317.253 450.811,305.919 453,294.5C 454.085,288.394 457.585,285.894 463.5,287C 466.616,289.4 467.949,292.567 467.5,296.5C 464.397,305.242 462.064,314.242 460.5,323.5 Z" />
+                    <path fill="#21b090"
+                        d="M 511.5,311.5 C 510.373,315.683 509.373,320.017 508.5,324.5C 505.196,337.912 503.696,351.578 504,365.5C 499.437,371.151 495.437,370.817 492,364.5C 491.26,352.443 491.76,340.443 493.5,328.5C 495.046,324.07 496.046,319.404 496.5,314.5C 499.124,305.685 501.624,296.685 504,287.5C 506.194,281.926 509.694,277.426 514.5,274C 521.785,273.038 524.618,276.205 523,283.5C 520.23,285.601 518.23,288.268 517,291.5C 514.447,297.99 512.613,304.657 511.5,311.5 Z" />
+                    <path fill="#20af90"
+                        d="M 598.5,301.5 C 598.5,305.5 598.5,309.5 598.5,313.5C 597.96,325.965 598.96,338.298 601.5,350.5C 600.875,354.459 598.542,356.792 594.5,357.5C 590.727,356.219 588.56,353.553 588,349.5C 586.228,337.902 585.395,326.235 585.5,314.5C 585.5,310.167 585.5,305.833 585.5,301.5C 585.666,296.156 585.499,290.823 585,285.5C 582.213,290.739 579.713,296.072 577.5,301.5C 575.503,306.162 573.503,310.829 571.5,315.5C 562.531,332.77 553.031,349.77 543,366.5C 539.333,370.5 535.667,370.5 532,366.5C 531.333,363.5 531.333,360.5 532,357.5C 536.939,348.899 542.272,340.565 548,332.5C 550.785,327.265 553.285,321.932 555.5,316.5C 557.87,312.414 559.87,308.081 561.5,303.5C 568.621,289.259 575.787,274.925 583,260.5C 585.587,255.932 589.421,254.432 594.5,256C 596.049,257.214 597.215,258.714 598,260.5C 598.5,274.163 598.667,287.829 598.5,301.5 Z" />
+                    <path fill="#1fb090"
+                        d="M 653.5,301.5 C 651.432,305.379 649.766,309.379 648.5,313.5C 642.844,324.271 641.011,335.604 643,347.5C 645.579,349.347 648.412,349.847 651.5,349C 656.074,346.243 660.741,343.743 665.5,341.5C 671.567,343.081 673.067,346.748 670,352.5C 660.273,362.393 649.106,364.559 636.5,359C 629.76,352.223 627.26,344.056 629,334.5C 630.059,327.262 631.892,320.262 634.5,313.5C 635.97,309.088 637.637,304.755 639.5,300.5C 643.291,292.792 646.291,284.792 648.5,276.5C 645.432,276.547 642.432,277.047 639.5,278C 637.89,284.805 633.89,286.805 627.5,284C 621.882,278.052 622.548,272.718 629.5,268C 638.253,263.136 647.253,262.47 656.5,266C 661.352,270.41 662.852,275.91 661,282.5C 659.038,289.083 656.538,295.416 653.5,301.5 Z" />
+                    <path fill="#21af90"
+                        d="M 707.5,305.5 C 706.607,309.852 704.94,313.852 702.5,317.5C 699.763,317.599 697.096,317.265 694.5,316.5C 693.425,314.843 692.758,313.009 692.5,311C 693.322,308.528 693.989,306.028 694.5,303.5C 697.416,291.004 699.583,278.337 701,265.5C 703.415,261.649 706.915,260.482 711.5,262C 713.223,262.775 714.223,264.108 714.5,266C 713.041,279.332 710.708,292.498 707.5,305.5 Z" />
+                </g>
+                <g mask="url(#mH1)" class="sig-fill">
+                    <path fill="#22b091"
+                        d="M 460.5,323.5 C 459.169,328.483 457.836,333.483 456.5,338.5C 451.689,354.344 449.356,370.511 449.5,387C 448.653,392.076 445.653,394.076 440.5,393C 434.954,389.268 433.121,384.101 435,377.5C 437.062,366.123 439.229,354.79 441.5,343.5C 442.985,338.56 444.319,333.56 445.5,328.5C 448.311,317.253 450.811,305.919 453,294.5C 454.085,288.394 457.585,285.894 463.5,287C 466.616,289.4 467.949,292.567 467.5,296.5C 464.397,305.242 462.064,314.242 460.5,323.5 Z" />
+                </g>
+                <g mask="url(#mH2)" class="sig-fill">
+                    <path fill="#21b090"
+                        d="M 511.5,311.5 C 510.373,315.683 509.373,320.017 508.5,324.5C 505.196,337.912 503.696,351.578 504,365.5C 499.437,371.151 495.437,370.817 492,364.5C 491.26,352.443 491.76,340.443 493.5,328.5C 495.046,324.07 496.046,319.404 496.5,314.5C 499.124,305.685 501.624,296.685 504,287.5C 506.194,281.926 509.694,277.426 514.5,274C 521.785,273.038 524.618,276.205 523,283.5C 520.23,285.601 518.23,288.268 517,291.5C 514.447,297.99 512.613,304.657 511.5,311.5 Z" />
+                </g>
+                <g mask="url(#mA)" class="sig-fill">
+                    <path fill="#20af90"
+                        d="M 598.5,301.5 C 598.5,305.5 598.5,309.5 598.5,313.5C 597.96,325.965 598.96,338.298 601.5,350.5C 600.875,354.459 598.542,356.792 594.5,357.5C 590.727,356.219 588.56,353.553 588,349.5C 586.228,337.902 585.395,326.235 585.5,314.5C 585.5,310.167 585.5,305.833 585.5,301.5C 585.666,296.156 585.499,290.823 585,285.5C 582.213,290.739 579.713,296.072 577.5,301.5C 575.503,306.162 573.503,310.829 571.5,315.5C 562.531,332.77 553.031,349.77 543,366.5C 539.333,370.5 535.667,370.5 532,366.5C 531.333,363.5 531.333,360.5 532,357.5C 536.939,348.899 542.272,340.565 548,332.5C 550.785,327.265 553.285,321.932 555.5,316.5C 557.87,312.414 559.87,308.081 561.5,303.5C 568.621,289.259 575.787,274.925 583,260.5C 585.587,255.932 589.421,254.432 594.5,256C 596.049,257.214 597.215,258.714 598,260.5C 598.5,274.163 598.667,287.829 598.5,301.5 Z" />
+                    <path data-bg="true" fill="#f9faf9"
+                        d="M 585.5,301.5 C 582.833,301.5 580.167,301.5 577.5,301.5C 579.713,296.072 582.213,290.739 585,285.5C 585.499,290.823 585.666,296.156 585.5,301.5 Z" />
+                </g>
+                <g mask="url(#mZ)" class="sig-fill">
+                    <path fill="#1fb090"
+                        d="M 653.5,301.5 C 651.432,305.379 649.766,309.379 648.5,313.5C 642.844,324.271 641.011,335.604 643,347.5C 645.579,349.347 648.412,349.847 651.5,349C 656.074,346.243 660.741,343.743 665.5,341.5C 671.567,343.081 673.067,346.748 670,352.5C 660.273,362.393 649.106,364.559 636.5,359C 629.76,352.223 627.26,344.056 629,334.5C 630.059,327.262 631.892,320.262 634.5,313.5C 635.97,309.088 637.637,304.755 639.5,300.5C 643.291,292.792 646.291,284.792 648.5,276.5C 645.432,276.547 642.432,277.047 639.5,278C 637.89,284.805 633.89,286.805 627.5,284C 621.882,278.052 622.548,272.718 629.5,268C 638.253,263.136 647.253,262.47 656.5,266C 661.352,270.41 662.852,275.91 661,282.5C 659.038,289.083 656.538,295.416 653.5,301.5 Z" />
+                </g>
+                <g mask="url(#mI)" class="sig-fill">
+                    <path fill="#21af90"
+                        d="M 707.5,305.5 C 706.607,309.852 704.94,313.852 702.5,317.5C 699.763,317.599 697.096,317.265 694.5,316.5C 693.425,314.843 692.758,313.009 692.5,311C 693.322,308.528 693.989,306.028 694.5,303.5C 697.416,291.004 699.583,278.337 701,265.5C 703.415,261.649 706.915,260.482 711.5,262C 713.223,262.775 714.223,264.108 714.5,266C 713.041,279.332 710.708,292.498 707.5,305.5 Z" />
+                </g>
+            </svg>
+            <span class="sig-cap">signed the old-fashioned way</span>
+        </div>
+        <div class="colophon-grid">
+            <div>
+                <h4>Contact</h4>
+                <div class="big-line">Let's talk.<br><em>ghaziearyan@gmail.com</em></div>
+                <p class="intent">Open to agent-era product roles.</p>
+            </div>
+            <div>
+                <h4>Elsewhere</h4>
+                <div class="clinks">
+                    <a href="#">LinkedIn ↗</a>
+                    <a href="#">GitHub ↗</a>
+                    <a href="#">@ghazisgizmos ↗</a>
+                </div>
+            </div>
+            <div>
+                <h4>About this site</h4>
+                <div class="credits">
+                    Set in Bricolage Grotesque,<br>Spline Sans Mono,<br>&amp; Advocate's own Fraunces.<br>
+                    Built by hand. No template.<br>
+                    © 2026 Ghazi Aryan
+                </div>
+                <div class="egg-hint">// psst — click the name in the nav five times, fast.</div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#contact" class="fab" id="fab">Say hi ↗</a>
+
+
+    <script>
+        // ── theme ──
+        const tbtn = document.getElementById('themeBtn');
+        tbtn.addEventListener('click', () => {
+            const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+            document.documentElement.dataset.theme = next;
+            tbtn.querySelector('.t-ico').textContent = next === 'light' ? '◐' : '◑';
+            tbtn.querySelector('.t-txt').textContent = next === 'light' ? ' DARK' : ' LIGHT';
+        });
+
+        // ── ticker ──
+        (function () {
+            const items = [
+                ['"Most proactive of any team"', 'Megan Wiser'],
+                ['"Exactly how we should be operating"', 'Risk leadership'],
+                ['"I could trust you to do what needed to be done"', 'Sean Webb'],
+                ['"Thoughtful, customer-first approach"', 'Drew Magyar'],
+                ['"Myriad contributions that propelled the initiative forward"', 'Rachel Rique'],
+            ];
+            const half = items.map(([q, a]) => `<span><b>${q}</b> — ${a}</span><span class="dot">●</span>`).join('');
+            const track = document.getElementById('tickerTrack');
+            track.innerHTML = half + half;
+            const zone = document.getElementById('ticker');
+            let pos = 0, speed = 1, target = 1, halfW = 0;
+            function measure() { halfW = track.scrollWidth / 2; }
+            zone.addEventListener('mouseenter', () => target = 0.22);
+            zone.addEventListener('mouseleave', () => target = 1);
+            window.addEventListener('resize', measure);
+            requestAnimationFrame(function loop() {
+                speed += (target - speed) * 0.06;
+                if (halfW > 0) {
+                    pos -= speed * 0.9;
+                    if (-pos >= halfW) pos += halfW;
+                    track.style.transform = `translateX(${pos}px)`;
+                }
+                requestAnimationFrame(loop);
+            });
+            setTimeout(measure, 400);
+            window.addEventListener('load', measure);
+        })();
+
+        // ── reveals ──
+        document.querySelectorAll('.hero h1 .w > span').forEach((s, i) => s.style.transitionDelay = (i * 0.07) + 's');
+        setTimeout(() => document.getElementById('hero').classList.add('in'), 180);
+
+        (function () {
+            const h = document.getElementById('thesisH');
+            const frag = document.createDocumentFragment();
+            h.childNodes.forEach(node => {
+                const sig = node.nodeType !== 3;
+                node.textContent.split(/\s+/).filter(Boolean).forEach(wd => {
+                    const w = document.createElement('span'); w.className = 'w';
+                    const inner = document.createElement('span'); inner.textContent = wd;
+                    if (sig) inner.classList.add('sig');
+                    w.appendChild(inner); frag.appendChild(w);
+                });
+            });
+            h.innerHTML = ''; h.appendChild(frag);
+            h.querySelectorAll('.w > span').forEach((s, i) => s.style.transitionDelay = (i * 0.045) + 's');
+        })();
+        const revObs = new IntersectionObserver(es => es.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); }
+        }), { threshold: 0.35 });
+        revObs.observe(document.querySelector('.thesis'));
+
+        // ── count-ups ──
+        const cntObs = new IntersectionObserver(es => es.forEach(e => {
+            if (!e.isIntersecting || e.target.dataset.done) return;
+            e.target.dataset.done = 1;
+            const to = +e.target.dataset.to, t0 = performance.now(), dur = 1300;
+            (function tick(now) {
+                const p = Math.min((now - t0) / dur, 1), ease = 1 - Math.pow(1 - p, 3);
+                e.target.textContent = Math.round(to * ease);
+                if (p < 1) requestAnimationFrame(tick);
+            })(performance.now());
+        }), { threshold: 0.6 });
+        document.querySelectorAll('.cnt').forEach(el => cntObs.observe(el));
+
+        // ── expanders ──
+        document.querySelectorAll('.more-btn').forEach(btn =>
+            btn.addEventListener('click', () => btn.closest('.more').classList.toggle('open')));
+
+        // ── advocate demo (real product language: ramble → reflection → competency → cited story) ──
+        (function () {
+            const scrollBox = document.getElementById('advScroll');
+            const story = document.getElementById('advStory');
+            const input = document.getElementById('advInput');
+            const btn = document.getElementById('advBtn');
+            let n = 1, busy = false;
+            const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+            const sleep = ms => new Promise(r => setTimeout(r, ms));
+            const short = t => t.length > 64 ? t.slice(0, 64).trim() + '…' : t;
+
+            function compFor(t) {
+                const s = t.toLowerCase();
+                if (/design|ui|ux|brand|consist|redesign/.test(s)) return 'Craft & Design';
+                if (/ship|launch|release|deliver|deadline|fix|built/.test(s)) return 'Execution';
+                if (/metric|%|growth|adopt|number|revenue|saved/.test(s)) return 'Business Impact';
+                if (/stakeholder|align|lead|team|present|mentor|partner/.test(s)) return 'Influence';
+                if (/learn|study|risk|tradeoff|decided/.test(s)) return 'Judgment';
+                return 'Ownership';
+            }
+            function reflect(t) {
+                const c = compFor(t);
+                return [
+                    `Clear action, clear outcome: that's the STAR skeleton. Filed.`,
+                    `Good detail. Future-you will want this exact receipt.`,
+                    `Logged. One ramble, one story beat. That's how cases assemble.`
+                ][Math.floor(Math.random() * 3)] + ` Mapped to ${c}.`;
+            }
+            async function submit() {
+                const v = input.value.trim();
+                if (!v || busy) return;
+                busy = true;
+                n++;
+                const entry = document.createElement('div');
+                entry.className = 'adv-entry';
+                entry.innerHTML = `<p class="ae-text"><sup>${n}</sup>${esc(v)}</p><p class="ae-reflect"></p>
+                    <div class="adv-meta"><span class="adv-time">just now</span><span class="adv-comp">${compFor(v)}</span></div>`;
+                scrollBox.appendChild(entry);
+                requestAnimationFrame(() => entry.classList.add('show'));
+                input.value = '';
+                scrollBox.scrollTop = scrollBox.scrollHeight;
+                await sleep(550);
+                const refl = entry.querySelector('.ae-reflect');
+                const text = reflect(v);
+                for (let i = 0; i <= text.length; i++) { refl.textContent = text.slice(0, i); await sleep(13); }
+                entry.querySelector('.adv-comp').classList.add('show');
+                await sleep(500);
+                const line = document.createElement('div');
+                line.className = 'as-line new';
+                line.innerHTML = `<sup>${n}</sup>${esc(short(v))}`;
+                story.appendChild(line);
+                requestAnimationFrame(() => line.classList.remove('new'));
+                scrollBox.scrollTop = scrollBox.scrollHeight;
+                busy = false;
+            }
+            btn.addEventListener('click', submit);
+            input.addEventListener('keydown', e => { if (e.key === 'Enter') submit(); });
+        })();
+
+        // ── text ghazi (interviewed replies) ──
+        (function () {
+            const thread = document.getElementById('imThread');
+            const chips = document.querySelectorAll('.im-chip');
+            let busy = false;
+            const REPLIES = {
+                hire: [
+                    "Honestly? I sweat the details, use the tools myself instead of delegating curiosity away, and keep the user dead-center. All three at once is rarer than it should be.",
+                    "Because I don't wait for handoffs. I experiment with the actual tools, obsess over the details, and keep the user at the center of every call."
+                ],
+                fsd: [
+                    "Trust is the bottleneck now, not capability. The car's been ready; we're the ones calibrating.",
+                    "Capability gap basically closed. Trust calibration is the whole game from here."
+                ],
+                respect: [
+                    "Fast decisions, zero drama, and visible passion for the craft. That trio is so rare it's basically a cheat code.",
+                    "People who decide quickly, skip the drama, and obviously love the craft. Instant respect."
+                ]
+            };
+            function add(text, cls) {
+                const d = document.createElement('div');
+                d.className = 'im-msg ' + cls;
+                d.textContent = text;
+                thread.appendChild(d);
+                requestAnimationFrame(() => d.classList.add('show'));
+                thread.scrollTop = thread.scrollHeight;
+            }
+            chips.forEach(chip => chip.addEventListener('click', async () => {
+                if (busy) return;
+                busy = true;
+                add(chip.textContent.trim(), 'im-me');
+                chip.disabled = true;
+                await new Promise(r => setTimeout(r, 750));
+                const pool = REPLIES[chip.dataset.q];
+                add(pool[Math.floor(Math.random() * pool.length)], 'im-g');
+                if ([...chips].every(c => c.disabled)) {
+                    await new Promise(r => setTimeout(r, 650));
+                    add("That's the tour ☕ Real inbox: ghaziearyan@gmail.com", 'im-g');
+                }
+                busy = false;
+            }));
+            add("hey 👋 ask away, these answers are actually mine", 'im-g');
+        })();
+
+        // ── quote rotator ──
+        (function () {
+            const quotes = [
+                ['"Ghazi has been the most proactive of any team I\'ve collaborated with."', 'MEGAN WISER · PDP MENTEE'],
+                ['"This is exactly how we should be operating."', 'SENIOR RISK LEADERSHIP · CAPITAL ONE'],
+                ['"I could trust you to do what needed to be done."', 'SEAN WEBB · PRODUCT PARTNER'],
+                ['"His thoughtful, customer-first approach was instrumental."', 'DREW MAGYAR · PRODUCT TEAM'],
+                ['"Myriad contributions that propelled the initiative forward."', 'RACHEL RIQUE · MANAGER'],
+            ];
+            const stage = document.getElementById('quoteStage');
+            quotes.forEach(([q, a], i) => {
+                const d = document.createElement('div');
+                d.className = 'q-item' + (i === 0 ? ' on' : '');
+                d.innerHTML = `<p>${q}</p><cite>— ${a}</cite>`;
+                stage.appendChild(d);
+            });
+            let cur = 0, paused = false;
+            stage.closest('.cell').addEventListener('mouseenter', () => paused = true);
+            stage.closest('.cell').addEventListener('mouseleave', () => paused = false);
+            setInterval(() => {
+                if (paused) return;
+                const items = stage.querySelectorAll('.q-item');
+                items[cur].classList.remove('on');
+                cur = (cur + 1) % items.length;
+                items[cur].classList.add('on');
+            }, 3800);
+        })();
+
+        // ── horizontal gallery ──
+        (function () {
+            const wrap = document.querySelector('.hwrap');
+            const track = document.getElementById('htrack');
+            const fill = document.getElementById('hpFill');
+            const pct = document.getElementById('hpPct');
+            function compute() {
+                if (window.innerWidth <= 900) { track.style.transform = ''; return; }
+                const r = wrap.getBoundingClientRect();
+                const total = r.height - window.innerHeight;
+                const p = Math.min(Math.max(-r.top / total, 0), 1);
+                const max = track.scrollWidth - window.innerWidth + 96;
+                track.style.transform = `translateX(${-p * max}px)`;
+                fill.style.transform = `scaleX(${p})`;
+                pct.textContent = Math.round(p * 100) + '%';
+            }
+            window.addEventListener('scroll', compute, { passive: true });
+            window.addEventListener('resize', compute);
+            compute();
+        })();
+
+        // ── catalog rail reveal ──
+        (function () {
+            const rows = document.querySelectorAll('.h-row');
+            if (!rows.length) return;
+            const obs = new IntersectionObserver(es => es.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+            }), { threshold: 0.3 });
+            rows.forEach((r, i) => {
+                r.style.transitionDelay = (i % 4) * 0.06 + 's';
+                obs.observe(r);
+            });
+        })();
+
+        // ── severance egg: the cold open ──
+        (function () {
+            let n = 0, t;
+            const name = document.querySelector('.nav .name');
+            name.addEventListener('click', () => {
+                clearTimeout(t); n++;
+                if (n >= 5) {
+                    n = 0;
+                    const overlay = document.createElement('div');
+                    overlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;height:100dvh;background:#fff;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.8s;padding:24px;text-align:center;';
+                    const lines = [
+                        { text: 'Who are you?', delay: 800, style: "font-family:'Spline Sans Mono',monospace;font-size:13px;color:#999;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:30px;" },
+                        { text: 'Ghazi A.', delay: 2000, style: "font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(32px,7vw,52px);font-weight:800;color:#141310;letter-spacing:-0.03em;margin-bottom:10px;" },
+                        { text: 'Your outie ships products.', delay: 3300, style: "font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:clamp(16px,4vw,19px);color:#96342b;margin-bottom:38px;" },
+                        { text: 'Please enjoy each section equally.', delay: 4600, style: "font-family:'Spline Sans Mono',monospace;font-size:11.5px;color:#aaa;letter-spacing:0.08em;" }
+                    ];
+                    document.body.appendChild(overlay);
+                    requestAnimationFrame(() => overlay.style.opacity = '1');
+                    lines.forEach(l => {
+                        const el = document.createElement('div');
+                        el.style.cssText = l.style + 'opacity:0;transform:translateY(10px);transition:opacity 0.6s,transform 0.6s;';
+                        el.textContent = l.text;
+                        overlay.appendChild(el);
+                        setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, l.delay);
+                    });
+                    setTimeout(() => {
+                        overlay.style.opacity = '0';
+                        setTimeout(() => overlay.remove(), 800);
+                    }, 6800);
+                }
+                t = setTimeout(() => n = 0, 900);
+            });
+        })();
+
+        // ── the taste test ──
+        (function () {
+            const ROUNDS = [
+                {
+                    q: 'ROUND 1 · FRICTION: same signup, two builds',
+                    correct: 'A',
+                    explain: 'Card A solves the actual problem — get you into the product — and defers the rest. Card B asks for eight decisions before you\'ve seen one screen of value. You weren\'t supposed to count the fields. You were supposed to feel them.',
+                    a: `<div class="mock"><div class="m-notif" style="padding:14px;"><div class="m-notify-title">Start free</div><div class="m-notify-body" style="margin-top:5px;">Just your work email.</div><div style="display:flex;gap:8px;margin-top:10px;"><span style="flex:1;border:1px solid var(--line-strong);border-radius:7px;padding:7px 9px;font-size:11px;color:var(--t3);">you@company.com</span><span style="background:var(--ink);color:var(--bg);border-radius:7px;padding:7px 12px;font-size:11px;font-weight:600;">Continue</span></div><div style="font-size:10px;color:var(--t3);margin-top:8px;">Workspace setup comes later — 30 seconds, whenever you're ready.</div></div></div>`,
+                    b: `<div class="mock"><div class="m-notif" style="padding:12px;"><div class="m-notify-title">Create your account</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px;font-size:10.5px;color:var(--t2);"><span style="border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Full name</span><span style="border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Work email</span><span style="border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Company</span><span style="border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Company size ▾</span><span style="border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Role ▾</span><span style="border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Phone *</span><span style="grid-column:span 2;border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Password · 8+ chars, 1 number, 1 symbol</span></div><div style="font-size:9.5px;color:var(--t3);margin-top:7px;"><span style="display:inline-block;width:9px;height:9px;border:1.5px solid var(--line-strong);border-radius:2px;vertical-align:-1px;margin-right:4px;"></span>I agree to the Terms of Service and Privacy Policy</div><div style="text-align:center;background:var(--ink);color:var(--bg);border-radius:7px;padding:7px;font-size:11px;font-weight:600;margin-top:8px;">REGISTER</div></div></div>`
+                },
+                {
+                    q: 'ROUND 2 · RECOVERY: same failed payment, two builds',
+                    correct: 'B',
+                    explain: 'Things break — taste is what happens next. One card hands you the fix in one tap. The other makes you feel stupid in red, in a language meant for logs. Same failure; completely different product.',
+                    a: `<div class="mock"><div class="m-notif" style="padding:14px;border-color:#c0392b55;"><div class="m-notify-title" style="color:#c0392b;">⚠ ERROR 402</div><div class="m-notify-body" style="margin-top:5px;">Transaction declined. Code: PMT_GATEWAY_402_TIMEOUT. Contact support if the problem persists. Ref: 0x8f3a.</div><div style="display:inline-block;border:1px solid var(--line-strong);border-radius:7px;padding:6px 12px;font-size:10.5px;color:var(--t3);margin-top:10px;">DISMISS</div></div></div>`,
+                    b: `<div class="mock"><div class="m-notif" style="padding:14px;"><div class="m-notify-title">Your card was declined</div><div class="m-notify-body" style="margin-top:5px;">Happens to everyone — usually it's the bank being cautious. Try another card and you'll be back in seconds. Nothing was charged.</div><div style="display:flex;gap:8px;margin-top:10px;"><span style="background:var(--ink);color:var(--bg);border-radius:7px;padding:7px 12px;font-size:11px;font-weight:600;">Update card</span><span style="border:1px solid var(--line-strong);border-radius:7px;padding:7px 12px;font-size:11px;color:var(--t2);">Not now</span></div></div></div>`
+                },
+                {
+                    q: 'ROUND 3 · RESPECT: same upgrade prompt, two builds',
+                    correct: 'A',
+                    explain: 'Card A states the price and trusts you to decide. Card B hides the exit and guilts you for taking it — a yes extracted under pressure is next quarter\'s refund request. The dark pattern wins this week\'s conversion report and loses the user.',
+                    a: `<div class="mock"><div class="m-notif" style="padding:14px;text-align:center;"><div class="m-notify-title">Unlimited exports</div><div class="m-notify-body" style="margin-top:5px;">$8/month. Cancel anytime.</div><div style="background:var(--ink);color:var(--bg);border-radius:7px;padding:7px;font-size:11px;font-weight:600;margin-top:10px;">Upgrade</div><div style="padding:8px;font-size:11px;color:var(--t2);">No thanks</div></div></div>`,
+                    b: `<div class="mock"><div class="m-notif" style="padding:14px;text-align:center;"><div class="m-notify-title">✨ Don't lose your work ✨</div><div class="m-notify-body" style="margin-top:5px;">Free accounts can't export. Your entries stay locked forever.</div><div style="background:var(--ink);color:var(--bg);border-radius:7px;padding:7px;font-size:11px;font-weight:600;margin-top:10px;">Keep my work safe</div><div style="padding:8px;font-size:9px;color:var(--t3);opacity:.55;">no thanks, i like losing my work</div></div></div>`
+                },
+            ];
+            const host = document.getElementById('ttRounds');
+            const verdict = document.getElementById('ttVerdict');
+            const scoreEl = document.getElementById('ttScore');
+            const lineEl = document.getElementById('ttLine');
+            const restartBtn = document.getElementById('ttRestart');
+            let score = 0, done = 0;
+
+            function render() {
+                score = 0; done = 0;
+                verdict.classList.remove('show');
+                restartBtn.style.display = 'none';
+                host.innerHTML = '';
+                ROUNDS.forEach((r, i) => {
+                    const round = document.createElement('div');
+                    round.className = 'tt-round';
+                    round.innerHTML = `
+                        <div class="tt-q"><span>${r.q}</span><span class="tt-status" data-i="${i}"></span></div>
+                        <div class="tt-pair">
+                            <div class="tt-card" data-side="a"><div class="tt-tag">A</div>${r.a}</div>
+                            <div class="tt-card" data-side="b"><div class="tt-tag">B</div>${r.b}</div>
+                        </div>
+                        <div class="tt-explain">${r.explain}</div>`;
+                    host.appendChild(round);
+                    round.querySelectorAll('.tt-card').forEach(card => {
+                        card.setAttribute('tabindex', '0');
+                        card.setAttribute('role', 'button');
+                        card.setAttribute('aria-label', 'Choose ' + card.querySelector('.tt-tag').textContent);
+                        card.addEventListener('click', () => pick(round, r, card));
+                        card.addEventListener('keydown', e => {
+                            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(round, r, card); }
+                        });
+                    });
+                });
+            }
+
+            function pick(round, r, card) {
+                if (round.dataset.done) return;
+                round.dataset.done = '1';
+                const cards = round.querySelectorAll('.tt-card');
+                cards.forEach(c => c.classList.add('locked'));
+                const chosen = card.dataset.side.toUpperCase();
+                const statusEl = round.querySelector('.tt-status');
+                if (chosen === r.correct) {
+                    score++;
+                    card.classList.add('right');
+                    card.insertAdjacentHTML('beforeend', '<span class="stamp verdict-stamp">GOOD EYE</span>');
+                    statusEl.textContent = 'CORRECT';
+                    statusEl.style.color = 'var(--signal)';
+                } else {
+                    card.classList.add('wrong', 'shake');
+                    const other = [...cards].find(c => c !== card);
+                    other.classList.add('right');
+                    other.insertAdjacentHTML('beforeend', '<span class="stamp verdict-stamp">THIS ONE</span>');
+                    statusEl.textContent = 'MISSED';
+                    statusEl.style.color = 'var(--t3)';
+                }
+                round.querySelector('.tt-explain').classList.add('show');
+                done++;
+                if (done === ROUNDS.length) finish();
+            }
+
+            function finish() {
+                scoreEl.textContent = score + ' / 3';
+                window.__ttScore = score;
+                let line;
+                if (score === 3) line = 'We should talk. <a href="#contact">Say hi.</a>';
+                else if (score === 2) line = 'Close. The bar here is high.';
+                else line = 'Now you know what I notice. <a href="#contact">Say hi.</a>';
+                lineEl.innerHTML = line;
+                verdict.classList.add('show');
+                restartBtn.style.display = 'inline-block';
+            }
+            restartBtn.addEventListener('click', render);
+            render();
+        })();
+
+        // ── surge narration (wired to the loopgrid) ──
+        (function () {
+            const zone = document.querySelector('#work .process-zone');
+            if (!zone) return;
+            const q = s => document.querySelector(s);
+            const nodesEls = {
+                generator: zone.querySelector('.lg-gen'),
+                orchestrator: zone.querySelector('.lg-orch'),
+                auditor: zone.querySelector('.lg-aud'),
+                implementer: zone.querySelector('.lg-imp'),
+                human: zone.querySelector('.lg-pm')
+            };
+            if (Object.values(nodesEls).some(el => !el)) return;
+            const gridEl = zone.querySelector('.loopgrid');
+            const svgEl = zone.querySelector('.lg-wires');
+            const ringEl = zone.querySelector('.lg-ring');
+            const chipCount = zone.querySelector('.lg-count');
+            const storyEl = q('#fuseStory');
+            const runBtn = q('#runBtn'), runIcon = q('#runIcon'), runLabel = q('#runLabel');
+            const compValN = q('#compValN'), compWasN = q('#compWasN');
+            const timeValN = q('#timeValN'), timeUnitN = q('#timeUnitN'), timeWasN = q('#timeWasN');
+            const repoNum = q('#repoNum');
+
+            // ── connectors: drawn between live node boxes, flow direction = path direction ──
+            const WIRE_DEFS = [
+                { key: 'gen', from: 'generator', to: 'orchestrator', curve: 0 },
+                { key: 'audOut', from: 'orchestrator', to: 'auditor', curve: -0.2 },
+                { key: 'audBack', from: 'auditor', to: 'orchestrator', curve: -0.36 },
+                { key: 'impOut', from: 'orchestrator', to: 'implementer', curve: 0.2 },
+                { key: 'impBack', from: 'implementer', to: 'orchestrator', curve: 0.36 },
+                { key: 'pm', from: 'orchestrator', to: 'human', curve: 0, human: true },
+            ];
+            const wires = {};
+            WIRE_DEFS.forEach(def => {
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                if (def.human) path.classList.add('human');
+                svgEl.appendChild(path);
+                def.el = path;
+                wires[def.key] = def;
+            });
+
+            function drawWires() {
+                if (!gridEl) return;
+                const gr = gridEl.getBoundingClientRect();
+                if (!gr.width) return;
+                svgEl.setAttribute('viewBox', `0 0 ${gr.width} ${gr.height}`);
+                const C = {};
+                Object.entries(nodesEls).forEach(([k, el]) => {
+                    const r = el.getBoundingClientRect();
+                    C[k] = { x: r.left - gr.left + r.width / 2, y: r.top - gr.top + r.height / 2 };
+                });
+                WIRE_DEFS.forEach(def => {
+                    const A = C[def.from], B = C[def.to];
+                    let d;
+                    if (def.curve) {
+                        const mx = (A.x + B.x) / 2, my = (A.y + B.y) / 2;
+                        const nx = -(B.y - A.y), ny = (B.x - A.x);
+                        const nl = Math.hypot(nx, ny) || 1;
+                        const off = def.curve * Math.hypot(B.x - A.x, B.y - A.y) * 0.28;
+                        d = `M ${A.x} ${A.y} Q ${mx + nx / nl * off} ${my + ny / nl * off} ${B.x} ${B.y}`;
+                    } else {
+                        d = `M ${A.x} ${A.y} L ${B.x} ${B.y}`;
+                    }
+                    def.el.setAttribute('d', d);
+                });
+            }
+            drawWires();
+            window.addEventListener('resize', drawWires);
+            setTimeout(drawWires, 300);
+            setTimeout(drawWires, 1200);
+
+            const phases = [
+                {
+                    nodes: ['generator'], wires: ['gen'], chip: false, human: false,
+                    text: 'First, a one-time setup. <strong>The Generator</strong> reads the design system and writes a logic-aware spec sheet for every component: the rules to follow, and the deep API logic to never touch.'
+                },
+                {
+                    nodes: ['orchestrator'], wires: [], chip: false, human: false,
+                    text: '<strong>The Orchestrator</strong> takes those specs and runs the show, breaking the work into tasks and handing them out.'
+                },
+                {
+                    nodes: ['orchestrator', 'auditor', 'implementer'], wires: ['audOut', 'audBack', 'impOut', 'impBack'], chip: true, human: false,
+                    text: '<strong>The Auditor</strong> flags every drift from spec; <strong>the Implementer</strong> fixes only what it\'s allowed to. Both report back through the orchestrator — pass after pass — until the code is compliant.'
+                },
+                {
+                    nodes: ['human'], wires: ['pm'], chip: true, human: true,
+                    text: 'Then it reports out to <strong>you</strong>. You set the guardrails, review each pass, approve the merge. Agents on the tools, the PM on the rulebook.'
+                }
+            ];
+
+            let running = false;
+            const wait = ms => new Promise(r => setTimeout(r, ms));
+
+            function animateNumber(el, to, dur) {
+                const t0 = performance.now();
+                (function tick(now) {
+                    const p = Math.min((now - t0) / dur, 1);
+                    el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+                    if (p < 1) requestAnimationFrame(tick);
+                })(performance.now());
+            }
+
+            function clearActive() {
+                Object.values(nodesEls).forEach(n => n.classList.remove('lit'));
+                Object.values(wires).forEach(w => w.el.classList.remove('on'));
+                if (ringEl) ringEl.classList.remove('lit', 'tick');
+                storyEl.classList.remove('human');
+            }
+
+            function reset() {
+                clearActive();
+                Object.values(nodesEls).forEach(n => n.classList.remove('done'));
+                compValN.textContent = '28';
+                compWasN.style.visibility = 'hidden';
+                timeValN.textContent = '6+'; timeUnitN.textContent = 'weeks';
+                timeValN.style.opacity = 1; timeUnitN.style.opacity = 1;
+                timeWasN.textContent = ''; timeWasN.style.visibility = 'visible';
+                repoNum.textContent = '0';
+                if (chipCount) chipCount.textContent = '×n';
+            }
+
+            function restore() {
+                compValN.textContent = '92';
+                compWasN.style.visibility = 'visible';
+                timeValN.textContent = '<1'; timeUnitN.textContent = 'day';
+                timeValN.style.opacity = 1; timeUnitN.style.opacity = 1;
+                timeWasN.textContent = '6 wks';
+                repoNum.textContent = '4';
+                if (chipCount) chipCount.textContent = '×4';
+            }
+
+            // ── scoreboard ticks up the first time it scrolls into view ──
+            [timeValN, timeUnitN].forEach(el => { el.style.transition = 'opacity 0.25s ease'; });
+
+            function setTime(flipped) {
+                timeValN.style.opacity = 0;
+                timeUnitN.style.opacity = 0;
+                setTimeout(() => {
+                    timeValN.textContent = flipped ? '<1' : '6+';
+                    timeUnitN.textContent = flipped ? 'day' : 'weeks';
+                    timeValN.style.opacity = 1;
+                    timeUnitN.style.opacity = 1;
+                }, 260);
+            }
+
+            function popRing() {
+                if (!ringEl) return;
+                ringEl.classList.remove('tick');
+                void ringEl.offsetWidth;
+                ringEl.classList.add('tick');
+            }
+
+            // chip count is run-state only — arriving at the section must not tick it
+            function popCount(n) {
+                if (chipCount) chipCount.textContent = '×' + n;
+                popRing();
+            }
+
+            const board = document.querySelector('#work .scoreboard');
+            if (board) {
+                const boardObs = new IntersectionObserver(es => es.forEach(e => {
+                    if (!e.isIntersecting || e.target.dataset.done) return;
+                    e.target.dataset.done = 1;
+                    boardObs.unobserve(e.target);
+                    compValN.textContent = '28';
+                    repoNum.textContent = '0';
+                    timeValN.textContent = '6+'; timeUnitN.textContent = 'weeks';
+                    compWasN.style.visibility = 'hidden';
+                    timeWasN.style.visibility = 'hidden';
+                    setTimeout(() => {
+                        animateNumber(compValN, 92, 1500);
+                        for (let k = 1; k <= 4; k++) setTimeout(() => { repoNum.textContent = k; }, 650 + k * 190);
+                        setTimeout(() => {
+                            setTime(true);
+                            compWasN.style.visibility = 'visible';
+                            timeWasN.style.visibility = 'visible';
+                        }, 1550);
+                    }, 250);
+                }), { threshold: 0.5 });
+                boardObs.observe(board);
+            }
+
+            async function runPhase(p, i) {
+                clearActive();
+                phases.slice(0, i).forEach(pp => pp.nodes.forEach(n => nodesEls[n].classList.add('done')));
+                p.nodes.forEach(n => nodesEls[n].classList.add('lit'));
+                p.wires.forEach(w => wires[w] && wires[w].el.classList.add('on'));
+                if (p.chip && ringEl) ringEl.classList.add('lit');
+                storyEl.classList.toggle('human', p.human);
+                storyEl.style.opacity = 0;
+                await wait(240);
+                storyEl.innerHTML = p.text;
+                storyEl.style.opacity = 1;
+                if (i === 2) {
+                    animateNumber(compValN, 92, 2600);
+                    setTimeout(() => { compWasN.style.visibility = 'visible'; }, 1400);
+                    for (let k = 1; k <= 4; k++) setTimeout(() => { repoNum.textContent = k; popCount(k); }, 700 + k * 650);
+                    setTimeout(() => {
+                        setTime(true);
+                        timeWasN.textContent = '6 wks';
+                    }, 2100);
+                }
+                await wait(i === 2 ? 5400 : 4300);
+            }
+
+            async function run() {
+                if (running) return;
+                running = true;
+                runBtn.disabled = true;
+                runIcon.textContent = '';
+                runLabel.textContent = 'Running…';
+                reset();
+                await wait(420);
+                for (let i = 0; i < phases.length; i++) await runPhase(phases[i], i);
+                clearActive();
+                Object.values(nodesEls).forEach(n => n.classList.add('done'));
+                ['audOut', 'audBack', 'impOut', 'impBack', 'pm'].forEach(w => wires[w].el.classList.add('on'));
+                restore();
+                storyEl.style.opacity = 0;
+                await wait(240);
+                storyEl.innerHTML = 'The pilot proved it: <strong>28% → 92%</strong> on-spec across four codebases, and six-plus weeks of manual work down to under a day.';
+                storyEl.style.opacity = 1;
+                runBtn.disabled = false;
+                runIcon.textContent = '▶';
+                runLabel.textContent = 'Run it again';
+                running = false;
+            }
+
+            if (runBtn) {
+                runBtn.addEventListener('click', run);
+                const hoverText = {
+                    generator: '<strong>The Generator</strong>: a one-time setup that reads the design system and writes a logic-aware spec sheet per component.',
+                    orchestrator: '<strong>The Orchestrator</strong>: the hub. Breaks work into tasks, dispatches to the auditor and implementer, reports out to you.',
+                    auditor: '<strong>The Auditor</strong>: scans the codebases and flags every place the UI drifts from spec. Loops back through the orchestrator.',
+                    implementer: '<strong>The Implementer</strong>: makes the changes the spec allows; deep business logic stays fenced off.',
+                    human: '<strong>You, the PM</strong>: set the guardrails, review each pass, approve the merge. The human in the loop.'
+                };
+                Object.entries(nodesEls).forEach(([k, el]) => {
+                    el.addEventListener('mouseenter', () => {
+                        if (running) return;
+                        storyEl.style.opacity = 0;
+                        setTimeout(() => { storyEl.innerHTML = hoverText[k]; storyEl.style.opacity = 1; }, 120);
+                    });
+                });
+            }
+        })();
+
+        // ── neon signature (v5 skeleton-mask sequence) ──
+        (function () {
+            const plaque = document.getElementById('sigPlaque');
+            const svg = document.getElementById('sigSvg');
+            if (!plaque || !svg) return;
+
+            const strokes = [
+                { id: 'skG', dur: 1000, gap: 100 },   // G sweep
+                { id: 'skH1', dur: 200, gap: 40 },    // h left ↓
+                { id: 'skH2', dur: 200, gap: 40 },    // h right ↓
+                { id: 'skA', dur: 280, gap: 40 },     // a ↗↘
+                { id: 'skZ', dur: 280, gap: 40 },     // z loop ↓
+                { id: 'skI', dur: 160, gap: 0 },      // i ↓
+            ];
+
+            strokes.forEach(s => {
+                s.el = document.getElementById(s.id);
+                if (!s.el) return;
+                s.len = s.el.getTotalLength();
+                s.el.style.strokeDasharray = s.len;
+                s.el.style.strokeDashoffset = s.len;
+            });
+
+            const gapEl = document.getElementById('skGap');
+            let gapLen = 0;
+            if (gapEl) {
+                gapLen = gapEl.getTotalLength();
+                gapEl.style.strokeDasharray = gapLen;
+                gapEl.style.strokeDashoffset = gapLen;
+            }
+
+            function easeInOutCubic(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+            function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+            function animateStroke(s, cb) {
+                if (!s.el) { if (cb) cb(); return; }
+                const easeFn = s === strokes[0] ? easeInOutCubic : easeOutCubic;
+                const start = performance.now();
+                (function tick(now) {
+                    const t = Math.min((now - start) / s.dur, 1);
+                    const eased = easeFn(t);
+                    s.el.style.strokeDashoffset = s.len * (1 - eased);
+                    if (s === strokes[0] && gapEl) gapEl.style.strokeDashoffset = gapLen * (1 - eased);
+                    if (t < 1) requestAnimationFrame(tick);
+                    else if (cb) cb();
+                })(performance.now());
+            }
+
+            function runSequence(i) {
+                if (i >= strokes.length) {
+                    setTimeout(() => svg.classList.add('neon-on'), 120);
+                    return;
+                }
+                animateStroke(strokes[i], () => setTimeout(() => runSequence(i + 1), strokes[i].gap));
+            }
+
+            function play() {
+                svg.classList.remove('neon-on');
+                strokes.forEach(s => {
+                    if (!s.el) return;
+                    s.el.style.strokeDasharray = s.len;
+                    s.el.style.strokeDashoffset = s.len;
+                });
+                if (gapEl) gapEl.style.strokeDashoffset = gapLen;
+                runSequence(0);
+            }
+
+            let triggered = false;
+            const io = new IntersectionObserver(es => es.forEach(e => {
+                if (e.isIntersecting && !triggered) {
+                    triggered = true;
+                    io.disconnect();
+                    setTimeout(play, 300);
+                }
+            }), { threshold: 0.4 });
+            io.observe(plaque);
+
+            plaque.addEventListener('mouseenter', () => { if (triggered) play(); });
+        })();
+
+        // ── listening · side a ──
+        // direct preview files (apple's cdn, same 30s clips spotify serves),
+        // buffered on page load so a click starts instantly, with volume fades
+        (function () {
+            const TRACKS = [
+                { artist: 'Tame Impala', song: 'Let It Happen', tag: '2015 · CURRENTS', color: '#7B5EA7', album: 'Currents', q: 'tame impala let it happen', src: 'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/8d/60/fb/8d60fb3b-208b-70db-f712-801034be3130/mzaf_14872027621360090334.plus.aac.p.m4a' },
+                { artist: 'Beach House', song: 'Lemon Glow', tag: '2018 · 7', color: '#C9972C', album: '7', q: 'beach house lemon glow', src: 'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/61/2f/6e/612f6e2d-3f18-ece6-d77b-99a33d408052/mzaf_5709031647347199909.plus.aac.p.m4a' },
+                { artist: 'Daft Punk', song: 'Veridis Quo', tag: '2001 · DISCOVERY', color: '#46586B', album: 'Discovery', q: 'daft punk veridis quo', src: 'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/7a/f8/4d/7af84d3a-fc7b-1569-766b-8adf13dab451/mzaf_3503155761614342520.plus.aac.p.m4a' }
+            ];
+            const platter = document.getElementById('vPlatter');
+            const label = document.getElementById('vLabel');
+            const arm = document.getElementById('vArm');
+            const tracksEl = document.getElementById('vTracks');
+            const np = document.getElementById('vNp');
+            const npTitle = document.getElementById('vNpTitle');
+            const npSub = document.getElementById('vNpSub');
+            const npBtn = document.getElementById('vNpBtn');
+            if (!platter || !tracksEl || !np) return;
+            let current = -1;
+
+            const audio = TRACKS.map(t => {
+                const a = new Audio();
+                a.preload = 'auto';
+                a.src = t.src;
+                a.volume = 0;
+                return a;
+            });
+
+            // refresh preview links from apple's cors-open search api,
+            // so the baked-in urls never rot silently
+            TRACKS.forEach((t, i) => {
+                fetch('https://itunes.apple.com/search?term=' + encodeURIComponent(t.q) + '&entity=song&limit=8')
+                    .then(r => r.ok ? r.json() : null)
+                    .then(d => {
+                        if (!d || !d.results || current === i) return;
+                        const name = t.song.toLowerCase();
+                        const hits = d.results.filter(x => x.previewUrl && x.trackName && x.trackName.toLowerCase() === name);
+                        if (!hits.length) return;
+                        const best = hits.find(x => x.collectionName && x.collectionName.toLowerCase().indexOf(t.album.toLowerCase()) >= 0);
+                        const url = (best || hits[0]).previewUrl;
+                        if (url !== audio[i].src) audio[i].src = url;
+                    })
+                    .catch(() => {});
+            });
+
+            // ease-in-out volume ramps — no more abrupt clip edges
+            const fades = new WeakMap();
+            function fade(a, to, dur, done) {
+                const prev = fades.get(a);
+                if (prev) cancelAnimationFrame(prev);
+                const from = a.volume;
+                const t0 = performance.now();
+                const step = now => {
+                    const p = Math.min(1, (now - t0) / dur);
+                    const e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+                    a.volume = Math.max(0, Math.min(1, from + (to - from) * e));
+                    if (p < 1) fades.set(a, requestAnimationFrame(step));
+                    else { fades.set(a, 0); if (done) done(); }
+                };
+                fades.set(a, requestAnimationFrame(step));
+            }
+
+            function setNp(on) {
+                np.classList.toggle('playing', on);
+                npBtn.textContent = on ? '❚❚' : '▶';
+            }
+
+            TRACKS.forEach((t, i) => {
+                const b = document.createElement('button');
+                b.className = 'v-track';
+                b.innerHTML = `<span>${t.artist} — ${t.song}</span><em>${t.tag}</em>`;
+                b.addEventListener('click', () => play(i));
+                tracksEl.appendChild(b);
+
+                // soften the hard 30s cutoff — ride the last second out
+                audio[i].addEventListener('timeupdate', () => {
+                    const a = audio[i];
+                    if (!a.paused && a.duration && a.duration - a.currentTime < 1.1 && a.volume > 0) fade(a, 0, 1050);
+                });
+                audio[i].addEventListener('ended', () => { if (current === i) stop(); });
+            });
+            const btns = [...tracksEl.children];
+
+            function dropNeedle(i) {
+                fade(audio[i], 0, 380, () => audio[i].pause());
+            }
+
+            function play(i) {
+                if (i === current) { stop(); return; }
+                if (current >= 0) dropNeedle(current);
+                current = i;
+                const t = TRACKS[i];
+                btns.forEach((b, k) => {
+                    b.classList.toggle('playing', k === i);
+                    b.querySelector('em').textContent = k === i ? '▶ ON' : TRACKS[k].tag;
+                });
+                label.style.background = t.color;
+                platter.classList.add('spin');
+                arm.classList.add('on');
+                npTitle.textContent = t.artist + ' — ' + t.song;
+                npSub.textContent = '30-second preview · via apple music';
+                setNp(true);
+                const a = audio[i];
+                a.currentTime = 0;
+                a.play().then(() => fade(a, 1, 700)).catch(() => setNp(false));
+            }
+
+            function stop() {
+                if (current < 0) return;
+                const i = current;
+                current = -1;
+                fade(audio[i], 0, 380, () => { audio[i].pause(); audio[i].currentTime = 0; });
+                btns[i].querySelector('em').textContent = TRACKS[i].tag;
+                btns[i].classList.remove('playing');
+                platter.classList.remove('spin');
+                arm.classList.remove('on');
+                np.classList.remove('playing');
+                npTitle.textContent = 'Nothing on the platter';
+                npSub.textContent = 'pick a record to drop the needle';
+                npBtn.textContent = '▶';
+            }
+
+            npBtn.addEventListener('click', () => {
+                if (current < 0) return;
+                const a = audio[current];
+                if (a.paused) { a.play().then(() => fade(a, 1, 500)).catch(() => setNp(false)); }
+                else { fade(a, 0, 300, () => a.pause()); setNp(false); }
+            });
+
+            // first tap anywhere unlocks ios buffering — silent and reverted
+            window.addEventListener('pointerdown', function unlock() {
+                window.removeEventListener('pointerdown', unlock);
+                audio.forEach((a, i) => {
+                    if (i === current || a.readyState >= 3) return;
+                    a.play().then(() => { if (i !== current) { a.pause(); a.currentTime = 0; } }).catch(() => {});
+                });
+            }, true);
+        })();
+
+        // ── say-hi fab ──
+        (function () {
+            const fab = document.getElementById('fab');
+            const contact = document.getElementById('contact');
+            if (!fab || !contact) return;
+            function update() {
+                const pastHero = window.scrollY > window.innerHeight * 0.65;
+                const r = contact.getBoundingClientRect();
+                const contactVisible = r.top < window.innerHeight * 0.9 && r.bottom > 0;
+                fab.classList.toggle('show', pastHero && !contactVisible);
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        })();
+    </script>
+</body>
+
+</html>
