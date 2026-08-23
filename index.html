@@ -292,6 +292,42 @@
             background: var(--signal);
         }
 
+        /* artist placard — the museum label under the work */
+        .hero-placard {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11.5px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin: -14px 0 34px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.7s var(--ease) 0.3s, transform 0.7s var(--ease) 0.3s;
+        }
+
+        .hero.in .hero-placard {
+            opacity: 1;
+            transform: none;
+        }
+
+        .hero-placard::before {
+            content: '';
+            width: 34px;
+            height: 1px;
+            background: var(--signal);
+        }
+
+        .hero-placard b {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        .hero-placard span {
+            color: var(--t2);
+        }
+
         .hero h1 {
             font-size: clamp(44px, 8vw, 112px);
             line-height: 0.98;
@@ -2031,7 +2067,7 @@
             color: var(--on-signal);
         }
 
-        /* buried players — spotify/youtube swap these out for iframes,
+        /* buried player — spotify swaps the host out for a bare iframe,
            so the wrapper (not the player) does the hiding */
         .v-buried {
             position: absolute;
@@ -3171,7 +3207,27 @@
                 padding: 0 22px;
             }
 
+            /* compact nav — links stay, everything tightens */
+            .nav {
+                padding: 10px 14px;
+                gap: 10px;
+            }
+
             .nav .links {
+                margin-left: auto;
+                gap: 11px;
+                font-size: 9.5px;
+                letter-spacing: 0.02em;
+            }
+
+            .nav .ctl {
+                margin-left: 0;
+                padding: 5px 9px;
+                font-size: 12px;
+                line-height: 1;
+            }
+
+            .nav .ctl .t-txt {
                 display: none;
             }
         }
@@ -3188,7 +3244,7 @@
             <span onclick="location.hash='#history'">History</span>
             <span onclick="location.hash='#contact'">Contact</span>
         </div>
-        <button class="ctl" id="themeBtn">◐ DARK</button>
+        <button class="ctl" id="themeBtn"><span class="t-ico">◐</span><span class="t-txt"> DARK</span></button>
     </nav>
 
     <!-- ═══ HERO ═══ -->
@@ -3200,6 +3256,7 @@
             <span class="w"><span><em>want</em></span></span>
             <span class="w"><span>the things I build.</span></span>
         </h1>
+        <div class="hero-placard"><b>Ghazi Aryan</b><span>— product manager</span></div>
         <div class="hero-sub-row">
             <p class="hero-sub"><strong>Taste is the new barrier to entry.</strong> When anyone can ship in an
                 afternoon, the edge is knowing what to build, then actually shipping it. Product manager at Apple,
@@ -3594,7 +3651,6 @@
                     <button class="v-np-toggle" id="vNpBtn" aria-label="Play or pause">▶</button>
                 </div>
                 <div class="v-buried" aria-hidden="true"><div id="vHost"></div></div>
-                <div class="v-buried" aria-hidden="true"><div id="vYtHost"></div></div>
                 <div class="v-note">side a · three records on heavy rotation</div>
             </div>
 
@@ -3863,7 +3919,8 @@
         tbtn.addEventListener('click', () => {
             const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
             document.documentElement.dataset.theme = next;
-            tbtn.textContent = next === 'light' ? '◐ DARK' : '◑ LIGHT';
+            tbtn.querySelector('.t-ico').textContent = next === 'light' ? '◐' : '◑';
+            tbtn.querySelector('.t-txt').textContent = next === 'light' ? ' DARK' : ' LIGHT';
         });
 
         // ── ticker ──
@@ -4568,9 +4625,9 @@
         // ── listening · side a ──
         (function () {
             const TRACKS = [
-                { artist: 'Tame Impala', song: 'Let It Happen', tag: '2015 · CURRENTS', id: '2X485T9Z5Ly0xyaghN73ed', yt: '-ed6UeDp1ek', color: '#7B5EA7' },
-                { artist: 'Beach House', song: 'Lemon Glow', tag: '2018 · 7', id: '6NLRMu1qF1kJQnntDNWDmy', yt: '08qd-vsHbaY', color: '#C9972C' },
-                { artist: 'Daft Punk', song: 'Veridis Quo', tag: '2001 · DISCOVERY', id: '28qpFPkwKQWFeSw2Le6aoV', yt: 'TCd6PfxOy0Y', color: '#46586B' }
+                { artist: 'Tame Impala', song: 'Let It Happen', tag: '2015 · CURRENTS', id: '2X485T9Z5Ly0xyaghN73ed', color: '#7B5EA7' },
+                { artist: 'Beach House', song: 'Lemon Glow', tag: '2018 · 7', id: '6NLRMu1qF1kJQnntDNWDmy', color: '#C9972C' },
+                { artist: 'Daft Punk', song: 'Veridis Quo', tag: '2001 · DISCOVERY', id: '28qpFPkwKQWFeSw2Le6aoV', color: '#46586B' }
             ];
             const platter = document.getElementById('vPlatter');
             const label = document.getElementById('vLabel');
@@ -4582,12 +4639,9 @@
             const npBtn = document.getElementById('vNpBtn');
             if (!platter || !tracksEl || !np) return;
             let current = -1;
-            let srcMode = null;
             let pendingPlay = false;
-            let isPlaying = false;
 
             const sp = () => window.__spController || null;
-            const ytp = () => (window.__ytReady && window.__ytPlayer) || null;
 
             TRACKS.forEach((t, i) => {
                 const b = document.createElement('button');
@@ -4598,92 +4652,22 @@
             });
             const btns = [...tracksEl.children];
 
-            function setPlayingUI(on) {
-                isPlaying = !!on && current >= 0;
-                np.classList.toggle('playing', isPlaying);
-                npBtn.textContent = isPlaying ? '❚❚' : '▶';
-            }
-
-            // ── spotify state (fallback source) ──
+            // reflect real playback state coming back from the spotify iframe
             window.__vinylPlayback = function (playing) {
-                if (current < 0 || srcMode !== 'spotify') return;
+                if (current < 0) return;
                 if (!playing && pendingPlay) {
                     pendingPlay = false;
                     const c = sp();
                     if (c) c.play();
                     return;
                 }
-                setPlayingUI(playing);
+                np.classList.toggle('playing', playing);
+                npBtn.textContent = playing ? '❚❚' : '▶';
             };
-
-            // ── youtube state (primary source) ──
-            window.__vinylYtState = function (state) {
-                if (current < 0 || srcMode !== 'yt') return;
-                if (state === YT.PlayerState.PLAYING) { pendingPlay = false; setPlayingUI(true); }
-                else if (state === YT.PlayerState.PAUSED) setPlayingUI(false);
-                else if (state === YT.PlayerState.ENDED) stop();
-            };
-            window.__vinylYtError = function () {
-                if (current < 0 || srcMode !== 'yt') return;
-                startSpotify(TRACKS[current]);
-            };
-
-            function startSpotify(t) {
-                srcMode = 'spotify';
-                npSub.textContent = '30s preview · via spotify';
-                const c = sp();
-                if (c) {
-                    pendingPlay = true;
-                    c.loadUri('spotify:track:' + t.id);
-                    c.play();
-                } else {
-                    window.__vinylReadyCbs = window.__vinylReadyCbs || [];
-                    window.__vinylReadyCbs.push(() => {
-                        if (current < 0 || TRACKS[current] !== t) return;
-                        const cc = sp();
-                        if (cc) {
-                            pendingPlay = true;
-                            cc.loadUri('spotify:track:' + t.id);
-                            cc.play();
-                        }
-                    });
-                }
-            }
-
-            let ytWatchdog = null;
-
-            function startYoutube(t, attempt) {
-                const p = ytp();
-                if (p && typeof p.loadVideoById === 'function') {
-                    srcMode = 'yt';
-                    npSub.textContent = 'full song · via youtube';
-                    pendingPlay = true;
-                    // loadVideoById autoplays; an immediate playVideo() races the load
-                    p.loadVideoById(t.yt);
-                    // watchdog: nudge once, then fall back if still silent
-                    clearTimeout(ytWatchdog);
-                    ytWatchdog = setTimeout(() => {
-                        if (current < 0 || srcMode !== 'yt' || !pendingPlay) return;
-                        try { p.playVideo(); } catch (err) {}
-                        ytWatchdog = setTimeout(() => {
-                            if (current < 0 || srcMode !== 'yt' || !pendingPlay) return;
-                            startSpotify(TRACKS[current]);
-                        }, 5000);
-                    }, 6000);
-                    return;
-                }
-                const nextAttempt = (attempt || 0) + 1;
-                if (nextAttempt > 40) { startSpotify(t); return; } // ~20s of patience for a cold API load
-                setTimeout(() => { if (current >= 0 && TRACKS[current] === t) startYoutube(t, nextAttempt); }, 500);
-            }
 
             function play(i) {
                 if (i === current) { stop(); return; }
-                clearTimeout(ytWatchdog);
-                // tear down whatever was on the platter before
                 if (current >= 0) {
-                    const prev = ytp();
-                    if (srcMode === 'yt' && prev && prev.stopVideo) prev.stopVideo();
                     const pc = sp();
                     if (pc) pc.pause();
                     btns[current].querySelector('em').textContent = TRACKS[current].tag;
@@ -4697,15 +4681,30 @@
                 platter.classList.add('spin');
                 arm.classList.add('on');
                 npTitle.textContent = t.artist + ' — ' + t.song;
-                setPlayingUI(true);
-                startYoutube(t);
+                npSub.textContent = 'streaming via spotify · 30s preview';
+                npBtn.textContent = '❚❚';
+                np.classList.add('playing');
+                const c = sp();
+                if (c) {
+                    pendingPlay = true;
+                    c.loadUri('spotify:track:' + t.id);
+                    c.play();
+                } else {
+                    window.__vinylReadyCbs = window.__vinylReadyCbs || [];
+                    window.__vinylReadyCbs.push(() => {
+                        if (current !== i) return;
+                        const cc = sp();
+                        if (cc) {
+                            pendingPlay = true;
+                            cc.loadUri('spotify:track:' + t.id);
+                            cc.play();
+                        }
+                    });
+                }
             }
 
             function stop() {
                 if (current < 0) return;
-                clearTimeout(ytWatchdog);
-                const p = ytp();
-                if (p && typeof p.stopVideo === 'function') p.stopVideo();
                 const c = sp();
                 if (c) c.pause();
                 pendingPlay = false;
@@ -4718,20 +4717,12 @@
                 npSub.textContent = 'pick a record to drop the needle';
                 npBtn.textContent = '▶';
                 current = -1;
-                srcMode = null;
-                isPlaying = false;
             }
 
             npBtn.addEventListener('click', () => {
-                if (current < 0) return;
-                if (srcMode === 'yt') {
-                    const p = ytp();
-                    if (!p) return;
-                    if (isPlaying) p.pauseVideo(); else p.playVideo();
-                } else if (srcMode === 'spotify') {
-                    const c = sp();
-                    if (c) c.togglePlay();
-                }
+                const c = sp();
+                if (!c || current < 0) return;
+                c.togglePlay();
             });
         })();
 
@@ -4780,32 +4771,7 @@
                 window.__vinylReadyCbs = [];
             });
         };
-
-        window.onYouTubeIframeAPIReady = function () {
-            if (!window.YT) return;
-            // file:// has a "null" origin that breaks the embed handshake — only send it over http(s)
-            const pv = { autoplay: 0, controls: 0, disablekb: 1, playsinline: 1, rel: 0 };
-            if (/^https?:$/.test(location.protocol)) pv.origin = location.origin;
-            window.__ytPlayer = new YT.Player('vYtHost', {
-                width: '160',
-                height: '90',
-                playerVars: pv,
-                events: {
-                    onReady: function () {
-                        window.__ytReady = true;
-                        __vinylBuryWraps();
-                    },
-                    onStateChange: function (e) {
-                        if (window.__vinylYtState) window.__vinylYtState(e.data);
-                    },
-                    onError: function () {
-                        if (window.__vinylYtError) window.__vinylYtError();
-                    }
-                }
-            });
-        };
     </script>
-    <script src="https://www.youtube.com/iframe_api" async></script>
     <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 </body>
 
