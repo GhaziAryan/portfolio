@@ -53,7 +53,7 @@
             --bg2: #1a1812;
             --ink: #ece8dc;
             --t2: #aaa497;
-            --t3: #857f70;
+            --t3: #948e7f;
             --line: rgba(236, 232, 220, 0.13);
             --line-strong: rgba(236, 232, 220, 0.8);
             --card: #1c1913;
@@ -444,6 +444,15 @@
             font-weight: 600;
             margin-right: 8px;
             transition: color 0.2s;
+        }
+
+        /* deep-sage signal + t3 both fall below AA on near-black — lift in dark */
+        [data-theme="dark"] .exhibit-tags {
+            color: var(--t2);
+        }
+
+        [data-theme="dark"] .exhibit-tags span b {
+            color: var(--accent2);
         }
 
         .scroll-cue {
@@ -4894,14 +4903,9 @@
                 else { fade(a, 0, 300, () => a.pause()); setNp(false); }
             });
 
-            // first tap anywhere unlocks ios buffering — silent and reverted
-            window.addEventListener('pointerdown', function unlock() {
-                window.removeEventListener('pointerdown', unlock);
-                audio.forEach((a, i) => {
-                    if (i === current || a.readyState >= 3) return;
-                    a.play().then(() => { if (i !== current) { a.pause(); a.currentTime = 0; } }).catch(() => {});
-                });
-            }, true);
+            // no play() outside track clicks — preload="auto" buffers silently,
+            // and the ios "unlock on first tap" trick was retired: ios ignores
+            // volume writes, so the silent buffer played audibly on mobile
         })();
 
         // ── say-hi fab ──
