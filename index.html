@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghazi Aryan — The Exhibition</title>
-    <meta name="description" content="Product manager who ships. Taste is the new barrier to entry. Apple, Warner Bros. Discovery, Capital One. Founder of Advocate.">
+    <meta name="description" content="Product manager at Capital One. Agent workflows, risk platforms, and Advocate, an AI career journal on the App Store.">
     <meta property="og:title" content="Ghazi Aryan — The Exhibition">
-    <meta property="og:description" content="I build things because I want the things I build. Taste is the new barrier to entry. Apple, WBD, Capital One · Founder of Advocate.">
+    <meta property="og:description" content="Less busywork. More “how did it do that?” Product manager at Capital One and the builder behind Advocate.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ghaziaryan.github.io/portfolio/">
     <meta property="og:image" content="https://ghaziaryan.github.io/portfolio/og-image.png">
@@ -15,7 +15,7 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ghazi Aryan — The Exhibition">
-    <meta name="twitter:description" content="I build things because I want the things I build. Taste is the new barrier to entry.">
+    <meta name="twitter:description" content="Less busywork. More “how did it do that?” Product manager at Capital One and the builder behind Advocate.">
     <meta name="twitter:image" content="https://ghaziaryan.github.io/portfolio/og-image.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1182,6 +1182,11 @@
             color: var(--t2);
         }
 
+        .sec-no a, .ms a {
+            color: var(--signal);
+            text-underline-offset: 3px;
+        }
+
         .ms p strong {
             color: var(--ink);
         }
@@ -1211,6 +1216,76 @@
             display: flex;
             align-items: baseline;
             gap: 20px;
+        }
+
+        .hhead > .sec-no { flex: 0 0 auto; }
+        .exhibit-heading { min-width: 0; }
+        .exhibit-heading .sec-title { margin: 0; }
+        .advocate-intro {
+            max-width: 82ch;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--t2);
+            margin: 16px 0 12px;
+        }
+        .advocate-intro strong { display: block; color: var(--ink); margin-bottom: 4px; }
+        .advocate-ownership { font-size: 11px; line-height: 1.5; color: var(--t3); }
+        #advocate .slide-cap {
+            display: block;
+            padding: 16px 24px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        #advocate .slide-cap b {
+            display: block;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 7px;
+        }
+        #advocate .slide-cap span {
+            display: block;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 13px;
+            line-height: 1.45;
+            color: var(--t2);
+            max-width: 66ch;
+        }
+        @media (min-width: 901px) {
+            #advocate .hsticky { top: 60px; height: calc(100svh - 60px); }
+            #advocate .hhead { padding-top: 22px; padding-bottom: 18px; flex-shrink: 0; }
+            #advocate .htrack-outer { min-height: 0; }
+            #advocate .slide { width: min(66vw, 780px, calc((100svh - 470px) * 1.7)); }
+            #advocate .hprogress { padding: 18px 48px 20px; flex-shrink: 0; }
+        }
+        @media (min-width: 901px) and (max-height: 700px) {
+            #advocate { height: auto; }
+            #advocate .hsticky { position: static; height: auto; }
+            #advocate .htrack-outer { overflow-x: auto; padding-bottom: 24px; }
+            #advocate .htrack { transform: none !important; }
+            #advocate .slide { width: min(66vw, 700px); }
+            #advocate .hprogress { display: none; }
+        }
+        @media (max-width: 600px) {
+            #advocate .slide-screen {
+                aspect-ratio: auto;
+                min-height: 380px;
+                gap: 18px;
+                padding: 26px 24px;
+            }
+        }
+        .release-link {
+            display: inline-block;
+            margin-top: 14px;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--signal);
+            text-underline-offset: 4px;
+        }
+        @media (max-width: 600px) {
+            .hhead { flex-direction: column; align-items: flex-start; gap: 12px; }
         }
 
         .htrack-outer {
@@ -3355,20 +3430,20 @@
         <span class="rm tl"></span><span class="rm tr"></span><span class="rm bl"></span><span class="rm br"></span>
         <div class="hero-kicker">Selected work · 2018 — 2026 · Arlington, VA</div>
         <h1>
-            <span class="w"><span>I build things because I</span></span>
-            <span class="w"><span><em>want</em></span></span>
-            <span class="w"><span>the things I build.</span></span>
+            <span class="w"><span>Less busywork.</span></span>
+            <span class="w"><span>More <em>“how did</em></span></span>
+            <span class="w"><span><em>it do that?”</em></span></span>
         </h1>
         <div class="hero-placard"><b>Ghazi Aryan</b><span>— product manager</span></div>
         <div class="hero-sub-row">
-            <p class="hero-sub"><strong>Taste is the new barrier to entry.</strong> When anyone can ship in an
-                afternoon, the edge is knowing what to build, then actually shipping it. Product manager at Apple,
-                Warner Bros. Discovery, Capital One. Founder of Advocate.</p>
+            <p class="hero-sub">I’m Ghazi, a product manager at Capital One and the builder behind Advocate.
+                I build tools that take tedious work off people’s hands—and sweat the details that make them feel <strong>magical.</strong></p>
             <div class="exhibit-tags">
                 <a href="#work"><span><b>01</b> THE SURGE — CAPITAL ONE</span></a>
-                <a href="#advocate"><span><b>02</b> ADVOCATE — FOUNDER</span></a>
-                <a href="#platform"><span><b>03</b> LAUNCH PLATFORM — CAPITAL ONE</span></a>
-                <a href="#history"><span><b>04</b> TAPE — TESTFLIGHT</span></a>
+                <a href="#cora"><span><b>02</b> CORA — IN DEVELOPMENT</span></a>
+                <a href="#advocate"><span><b>03</b> ADVOCATE — FOUNDER</span></a>
+                <a href="#platform"><span><b>04</b> LAUNCH PLATFORM — CAPITAL ONE</span></a>
+                <a href="#tape"><span><b>05</b> TAPE — PROJECT NOTES</span></a>
             </div>
         </div>
         <div class="scroll-cue"><i></i> SCROLL</div>
@@ -3382,7 +3457,7 @@
     <section class="exhibit" id="work">
         <aside class="wall-label">
             <span class="wl-tag">Exhibit 01 · Flagship</span>
-            <h3>A six-week job, redesigned to take a day.</h3>
+            <h3>From a two-week pilot to an org-wide workflow.</h3>
             <p>An agent workflow system unifying design consistency across Capital One's platform. Four-person tiger
                 team, <strong>two weeks, no brief</strong>. Proven on four codebases, guardrails set where only human
                 judgment belongs.</p>
@@ -3392,9 +3467,11 @@
             </div>
         </aside>
         <div class="exhibit-body">
-            <p class="exhibit-lede">Fixing one codebase by hand took <span class="hl">six-plus weeks</span>, long
-                enough to block launches. The system we built does a full pass in under a day, and the auditor never
-                ships a fix the spec doesn't allow.</p>
+            <p class="exhibit-lede">Our pilot audited and implemented design fixes in <span class="hl">under a day</span>,
+                before review and deployment. Leadership assigned a dedicated tech team; the approach is now used
+                to measure and improve design consistency across the organization.
+                <strong>My role: define the agent workflow and the guardrails</strong> — what agents could change,
+                what stayed off-limits, and where a person had to review the work.</p>
 
             <div class="scoreboard">
                 <div class="score" id="ro-comp">
@@ -3405,15 +3482,15 @@
                     <div class="foot">across four pilot codebases</div>
                 </div>
                 <div class="score" id="ro-time">
-                    <div class="k">Time per full pass</div>
+                    <div class="k">Audit + code changes</div>
                     <div class="v"><span id="timeValN">&lt;1</span><span class="u" id="timeUnitN">day</span><span
-                            class="was" id="timeWasN">6 wks</span></div>
-                    <div class="foot">manual pass retired</div>
+                            class="was" id="timeWasN"></span></div>
+                    <div class="foot">excludes review &amp; deployment</div>
                 </div>
                 <div class="score" id="ro-repo">
-                    <div class="k">Org verdict</div>
+                    <div class="k">Pilot coverage</div>
                     <div class="v"><span id="repoNum">4</span><span class="u">/4</span></div>
-                    <div class="foot">repos on-spec · more in line</div>
+                    <div class="foot">codebases tested</div>
                 </div>
             </div>
 
@@ -3436,8 +3513,8 @@
                 <div class="fuse-run">
                     <button class="run-btn" id="runBtn"><span id="runIcon">▶</span>&nbsp;<span id="runLabel">Walk me through it</span></button>
                 </div>
-                <p class="fuse-story" id="fuseStory">Four codebases sat at <strong>28% on-spec</strong>, fixed by hand,
-                    six-plus weeks a pass. Run it.</p>
+                <p class="fuse-story" id="fuseStory">Four pilot codebases went from <strong>28% to 92% on-spec</strong>.
+                    See how the workflow worked.</p>
             </div>
 
             <div class="more" id="moreEx1">
@@ -3449,7 +3526,8 @@
                                 <b>The brief</b>
                                 <p>Two weeks, four people, <strong>no brief</strong>: one mandate to build
                                     something that matters. Platform design consistency had drifted for years; fixing a
-                                    single codebase by hand took six-plus weeks, long enough to block launches.</p>
+                                    single codebase had taken six-plus weeks including review and deployment. We focused on
+                                    automating the audit and code changes within that process.</p>
                             </div>
                             <div class="ms">
                                 <b>The insight</b>
@@ -3467,10 +3545,10 @@
                             </div>
                             <div class="ms">
                                 <b>Aftermath</b>
-                                <p>Compliance went 28% → 92% across the pilots, a full pass collapsed to under a day,
-                                    and senior leadership called it <strong>"how the whole org should operate."</strong>
-                                    We presented it at an all-hands with executive leadership — held up as
-                                    the model for how AI work should run here. More codebases are in line.</p>
+                                <p>Design compliance rose from 28% to 92% across four pilot codebases. Auditing and code
+                                    changes took under a day, excluding review and deployment. Leadership assigned
+                                    <strong>a dedicated tech team</strong>, and the approach became how design consistency
+                                    is measured and improved across the organization.</p>
                             </div>
                         </div>
                     </div>
@@ -3479,29 +3557,65 @@
         </div>
     </section>
 
-    <!-- ═══ EXHIBIT 02 — ADVOCATE GALLERY ═══ -->
+    <!-- CORA — CURRENT WORK -->
+    <section class="exhibit" id="cora">
+        <aside class="wall-label">
+            <span class="wl-tag">Exhibit 02 · In development</span>
+            <h3>A risk advisor needs the right context.</h3>
+            <p>CORA is an AI agent being built to help Capital One's risk advisors complete assessments faster.
+                Selected by VP leadership, I work on the data and access decisions behind it.</p>
+        </aside>
+        <div class="exhibit-body">
+            <p class="exhibit-lede">Before an agent can give useful advice, it needs to know
+                <span class="hl">what it can read — and what it can show.</span>
+                Those are separate product decisions. My work is making the rules explicit.</p>
+            <div class="ms-grid" style="padding:0">
+                <div class="ms"><b>Choose the sources</b>
+                    <p>I choose data sources for ingestion based on the context risk advisors need to complete
+                    an assessment.</p></div>
+                <div class="ms"><b>Define access</b>
+                    <p>I create access-control lists and determine whether and how the agent can read or display
+                    each source, including requirements for confidential records.</p></div>
+                <div class="ms"><b>Check the behavior</b>
+                    <p>I contribute to ongoing golden-dataset and evaluation work to surface failure modes and assess
+                    the quality and reliability of agent responses.</p></div>
+                <div class="ms"><b>Where it stands</b>
+                    <p>CORA is in development. My current focus is data ingestion, access policy, and
+                    evaluation criteria, alongside the broader agent development effort.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ EXHIBIT 03 — ADVOCATE GALLERY ═══ -->
     <section class="hwrap" id="advocate">
         <div class="hsticky">
             <div class="hhead">
-                <span class="sec-no">EXHIBIT 02</span>
-                <span class="sec-title" style="font-size:clamp(24px,3vw,40px)">Advocate — a journal that argues your
-                    case.</span>
+                <span class="sec-no">EXHIBIT 03</span>
+                <div class="exhibit-heading">
+                    <h2 class="sec-title" style="font-size:clamp(24px,3vw,40px)">Advocate — a journal that argues your case.</h2>
+                    <p class="advocate-intro"><strong>Remembering your accomplishments shouldn’t become another chore.</strong>
+                        I built Advocate to turn scattered work moments into a case you can actually use. Then I rebuilt
+                        onboarding around an Instant Case and made input voice-first: start with a ramble, see the value,
+                        and have a reason to come back.</p>
+                    <div class="advocate-ownership">Built and launched independently · Product, design, development, and distribution</div>
+                    <a class="release-link" href="https://apps.apple.com/us/app/advocate-track-your-wins/id6793955203" target="_blank" rel="noopener">Live on the App Store ↗</a>
+                </div>
             </div>
             <div class="htrack-outer">
                 <div class="htrack" id="htrack">
                     <div class="slide">
                         <div class="slide-screen">
-                            <span class="scr-no">SCREEN 01 / JOURNAL</span>
-                            <div class="scr-title">Capture is<br>one <em>tap.</em><br>Zero friction.</div>
-                            <p class="scr-copy">Get it down while it's still fresh. No form fields, no framing for an audience.</p>
+                            <span class="scr-no">01 / JOURNAL · ILLUSTRATED EXAMPLE</span>
+                            <div class="scr-title">Start with<br>a <em>ramble.</em></div>
+                            <p class="scr-copy">Say what happened while it's fresh. Voice-first capture, without having to make it sound impressive.</p>
                             <div class="scr-sample"><span class="ss-q">“Shipped scoping today — Drew noticed within the hour.”</span><span class="ss-meta">auto-tagged · delivery</span></div>
-                            <div class="scr-chiprow"><span class="scr-chip">one-tap log</span><span class="scr-chip">agent reflects it back</span></div>
+                            <div class="scr-chiprow"><span class="scr-chip">voice-first capture</span><span class="scr-chip">agent reflects it back</span></div>
                         </div>
-                        <div class="slide-cap"><b>The pitch</b><span>log a win, a mess, a quote</span></div>
+                        <div class="slide-cap"><b>Make starting easier</b><span>I made input voice-first because keeping a journal shouldn’t feel like more work.</span></div>
                     </div>
                     <div class="slide">
                         <div class="slide-screen">
-                            <span class="scr-no">SCREEN 02 / YOUR STORY</span>
+                            <span class="scr-no">02 / YOUR STORY · ILLUSTRATED EXAMPLE</span>
                             <div class="scr-title">Every claim,<br><em>cited.</em></div>
                             <p class="scr-copy">Your Story assembles a live review where each line links to the entry that proves it. Gaps say so honestly.</p>
                             <div class="scr-review">
@@ -3511,11 +3625,11 @@
                             </div>
                             <div class="scr-chiprow"><span class="scr-chip">live review</span><span class="scr-chip">gaps shown honestly</span></div>
                         </div>
-                        <div class="slide-cap"><b>Entry → cited story</b><span>always assembling itself</span></div>
+                        <div class="slide-cap"><b>Make the evidence visible</b><span>Claims link back to real entries, so you can see what supports your story—and what’s missing.</span></div>
                     </div>
                     <div class="slide">
                         <div class="slide-screen">
-                            <span class="scr-no">SCREEN 03 / PREPARE</span>
+                            <span class="scr-no">03 / PREPARE · ILLUSTRATED EXAMPLE</span>
                             <div class="scr-title">Your career,<br><em>wrapped.</em></div>
                             <p class="scr-copy">Promo cases, 1:1 notes, resume bullets, prep for a hard conversation — if it's about your work, Prepare assembles it from real entries.</p>
                             <ul class="scr-bullets">
@@ -3525,7 +3639,7 @@
                             </ul>
                             <div class="scr-chiprow"><span class="scr-chip">1:1 prep</span><span class="scr-chip">any format you need</span></div>
                         </div>
-                        <div class="slide-cap"><b>Your career, wrapped</b><span>assembled from real entries</span></div>
+                        <div class="slide-cap"><b>Give the notes a purpose</b><span>Turn the work you’ve captured into something you can use in your next review or conversation.</span></div>
                     </div>
                 </div>
             </div>
@@ -3536,31 +3650,34 @@
 
     <section class="strip-more">
         <div class="more" id="moreAdv">
-            <button class="more-btn"><span class="plus">+</span> HOW ADVOCATE ACTUALLY WORKS <em>the idea · the loop · three surfaces · why it's different</em></button>
+            <button class="more-btn"><span class="plus">+</span> MORE ON ADVOCATE <em>retrieval &amp; memory · habits · lessons from launch</em></button>
             <div class="more-panel">
                 <div class="more-inner">
                     <div class="ms-grid">
                         <div class="ms">
-                            <b>The idea</b>
-                            <p>A work journal that <strong>advocates for you</strong>. Log a win, a mess, something
-                                someone said, and it starts building the record you'll need six months from now.</p>
+                            <b>Shipped, then learned</b>
+                            <p>I built and launched Advocate on the App Store: a work journal that turns scattered notes
+                                into a career story. Semantic retrieval connects related work; user-visible memory preserves
+                                context and corrections. Every claim links to its source. I own the product, build,
+                                and marketing, with PostHog tracking what happens after launch.<br><a href="https://apps.apple.com/us/app/advocate-track-your-wins/id6793955203" target="_blank" rel="noopener">Try Advocate on the App Store ↗</a></p>
                         </div>
                         <div class="ms">
-                            <b>The loop</b>
-                            <p>Capture is one tap. An agent reflects it back in a sentence, weaves it into threads, and
-                                files it under what counts: your framework, or pasted straight from your company's
-                                ladder. <strong>Rambles become STAR stories.</strong></p>
+                            <b>Show the payoff first</b>
+                            <p>People need to get the product before they'll build a journaling habit. I redesigned
+                                onboarding around an <strong>Instant Case</strong>: bring some work, see it become a
+                                career narrative in the first session. Show the value before asking for a routine.</p>
                         </div>
                         <div class="ms">
-                            <b>Three surfaces</b>
-                            <p><strong>Journal</strong> captures. <strong>Your Story</strong> assembles a live review,
-                                cited claim by claim. <strong>Prepare</strong> turns it into promo cases, 1:1 prep,
-                                resume bullets.</p>
+                            <b>Fit the habit</b>
+                            <p>Sitting down to write is a bigger ask than talking through your day. I made capture
+                                <strong>voice-first</strong>. When users returned at similar daily or weekly times,
+                                I added custom reminder schedules to fit those routines.</p>
                         </div>
                         <div class="ms">
-                            <b>Why different</b>
-                            <p>Built for you, not your manager. Corrections stick forever. Your voice, not LinkedIn's.
-                                Your record, not the company's.</p>
+                            <b>One screen, one clear action</b>
+                            <p>I reworked the hierarchy so each screen makes the next step obvious. Outside the app,
+                                I'm learning how to explain it: personal founder videos have brought a better response
+                                than TikTok slideshows so far. Both changes start with making the value easier to see.</p>
                         </div>
                     </div>
                 </div>
@@ -3568,10 +3685,10 @@
         </div>
     </section>
 
-    <!-- ═══ EXHIBIT 03 — LAUNCH PLATFORM ═══ -->
+    <!-- ═══ EXHIBIT 04 — LAUNCH PLATFORM ═══ -->
     <section class="exhibit flip" id="platform">
         <aside class="wall-label">
-            <span class="wl-tag">Exhibit 03 · Platform</span>
+            <span class="wl-tag">Exhibit 04 · Platform</span>
             <h3>300 annual risk assessments. Zero shared tools.</h3>
             <p>Built the platform that unified them: scoping, Question Bank as questionnaire-as-a-service, diagnostics,
                 standardized BPMN workflows. <strong>Shipped to production, adopted across teams, presented at
@@ -3590,19 +3707,19 @@
 
             <div class="scoreboard">
                 <div class="score">
-                    <div class="k">Faster per assessment</div>
-                    <div class="v"><span class="cnt" data-to="15">0</span><span class="u">%</span></div>
-                    <div class="foot">stage-gate reduction, measured</div>
+                    <div class="k">Teams onboarded</div>
+                    <div class="v"><span class="cnt" data-to="10">10</span><span class="u">+</span></div>
+                    <div class="foot">Question Bank adoption</div>
                 </div>
                 <div class="score">
-                    <div class="k">Teams expressed interest</div>
+                    <div class="k">Teams reached at SECON</div>
                     <div class="v"><span class="cnt" data-to="50">0</span><span class="u">+</span></div>
-                    <div class="foot">10+ onboarded to start</div>
+                    <div class="foot">internal product conference</div>
                 </div>
                 <div class="score">
-                    <div class="k">Reached at SECON</div>
-                    <div class="v"><span class="cnt" data-to="150">0</span><span class="u">+</span></div>
-                    <div class="foot">booth selected from hundreds</div>
+                    <div class="k">New tenants</div>
+                    <div class="v"><span class="cnt" data-to="3">3</span></div>
+                    <div class="foot">as the product scaled</div>
                 </div>
             </div>
 
@@ -3676,9 +3793,9 @@
 
             <!-- advocate demo — real product design language -->
             <div class="cell c-demo">
-                <div class="ck">NOW BUILDING · ADVOCATE — LIVE DEMO</div>
+                <div class="ck">ADVOCATE · INTERACTIVE WALKTHROUGH</div>
                 <div class="adv">
-                    <div class="adv-head"><span><b>ghazi's journal</b> · example</span><span>↓ log a work ramble</span></div>
+                    <div class="adv-head"><span><b>ghazi's journal</b> · example</span><span>↓ try a sample ramble</span></div>
                     <div class="adv-scroll" id="advScroll">
                         <div class="adv-entry show">
                             <p class="ae-text"><sup>1</sup>Fed LAUNCH learnings into the PLA build before problems hit —
@@ -3689,8 +3806,8 @@
                         </div>
                     </div>
                     <div class="adv-input">
-                        <input id="advInput" type="text" maxlength="140" placeholder="Log a work ramble…">
-                        <button class="adv-send" id="advBtn">↑</button>
+                        <input id="advInput" aria-label="Try a sample work ramble" type="text" maxlength="140" placeholder="Log a work ramble…">
+                        <button class="adv-send" id="advBtn" aria-label="Add sample entry">↑</button>
                     </div>
                     <div class="adv-story">
                         <div class="adv-label">Your story</div>
@@ -3709,10 +3826,10 @@
                 <div class="bl-list">
                     <div class="bl-row"><span class="bl-year">'16</span><p><b>First game on the App Store</b>, age 16.
                             Sold jailbreak tweaks before that.</p></div>
-                    <div class="bl-row"><span class="bl-year">'24</span><p><b>Tape</b>, AI trading journal — rebuilt the
+                    <div class="bl-row" id="tape" style="scroll-margin-top:100px"><span class="bl-year">'25</span><p><b>Tape</b>, AI trading journal — rebuilt the
                             insight engine three times. Raw notes beat aggregates. TestFlight.</p></div>
-                    <div class="bl-row"><span class="bl-year">'26</span><p><b>Advocate</b>, solo — idea to working build.
-                            PM, prompt design, UX, one person.</p></div>
+                    <div class="bl-row"><span class="bl-year">'26</span><p><b>Advocate</b>, solo — built and launched on the App Store.
+                            Product, development, and the work of finding its first users.</p></div>
                     <div class="bl-row"><span class="bl-year">now</span><p><b>This portfolio.</b> Built with agents,
                             reviewed like product copy, shipped on GitHub Pages.</p></div>
                 </div>
@@ -3788,33 +3905,11 @@
         </div>
     </section>
 
-    <!-- ═══ EXHIBIT 04 — THE TASTE TEST ═══ -->
-    <section class="tt-wrap" id="taste">
-        <div class="sec-head">
-            <span class="sec-no">EXHIBIT 04</span>
-            <span class="sec-title">The Taste Test.</span>
-        </div>
-        <p class="tt-claim">The claim on this site is that <strong>taste is the new barrier to entry</strong> — so it
-            felt fair to have you check mine.</p>
-        <p class="tt-lede">Three pairs of near-identical product decisions. None of it is about pixels — it's about
-            what it feels like to use, and whether it solves the actual problem. In each pair, one was shipped by
-            someone who cared. <strong>Pick it.</strong> No hints, no takebacks.</p>
-
-        <div id="ttRounds"></div>
-
-        <div class="tt-verdict" id="ttVerdict">
-            <span class="tt-score" id="ttScore"></span>
-            <span class="tt-line" id="ttLine"></span>
-            <button class="ctl" id="ttRestart" style="display:none;">RUN IT AGAIN</button>
-        </div>
-    </section>
-
     <!-- ═══ WALL TEXT ═══ -->
     <section class="walltext" id="about">
         <aside class="wt-side">
             <span class="wl-tag">Wall text</span>
-            <p>Curator's note: the subject describes his own method. Annotations link to primary sources. Hover any
-                marked phrase.</p>
+            <p>Curator's note: the subject describes his own method. The marked phrases add a little backstory.</p>
         </aside>
         <p class="wt-body">
             I've always been the person who researches everything to death before buying it. I notice the details most
@@ -3856,8 +3951,8 @@
                         <h4>Founder</h4>
                         <div class="h-co">ADVOCATE</div>
                         <p>An AI career-journaling app: an agent turns messy work notes into a live, evidence-cited
-                            performance narrative. <strong>Solo, idea to working build.</strong> Before it came Tape,
-                            an AI trading journal on TestFlight.</p>
+                            performance narrative. <strong>Built solo, live on the App Store.</strong> Now iterating on
+                            onboarding, voice capture, and reminders. Before it came Tape, an AI trading journal on TestFlight.</p>
                     </div>
                 </div>
                 <div class="h-row">
@@ -3865,9 +3960,9 @@
                     <div class="h-main">
                         <h4>Product Manager <span class="h-badge">PROMOTED 2025</span></h4>
                         <div class="h-co">CAPITAL ONE</div>
-                        <p>Helped lead the agent-workflow surge: design compliance <strong>28% → 92%</strong>, full pass
-                            from 6+ weeks to under a day. Shipped the assessment platform to production and presented at
-                            SECON.</p>
+                        <p>Defined the surge's agent workflow and guardrails: design compliance <strong>28% → 92%</strong>
+                            across four pilot codebases. Shipped assessment capabilities to production. Now working on
+                            CORA's data access and agent evaluation.</p>
                     </div>
                 </div>
                 <div class="h-row">
@@ -3882,10 +3977,11 @@
                 <div class="h-row">
                     <div class="h-when">2018 — 2022</div>
                     <div class="h-main">
-                        <h4>Disaster Recovery Project Manager <span class="h-badge">PROMOTED ×2</span></h4>
+                        <h4>Technical Specialist → Expert → Genius <span class="h-badge">PROMOTED ×2</span></h4>
                         <div class="h-co">APPLE</div>
-                        <p>Capping four years at Apple Retail up to Genius. Migrated <strong>30+ application teams</strong>
-                            off legacy infrastructure with zero disruption through Apple events.</p>
+                        <p>Four years in Apple Retail, progressing to Genius. During a <strong>March–September 2021</strong>
+                            disaster recovery project management assignment, coordinated the migration of
+                            <strong>30+ application teams</strong> with zero disruption through Apple events.</p>
                     </div>
                 </div>
             </div>
@@ -3989,22 +4085,23 @@
         <div class="colophon-grid">
             <div>
                 <h4>Contact</h4>
-                <div class="big-line">Let's talk.<br><em>ghaziearyan@gmail.com</em></div>
-                <p class="intent">Open to agent-era product roles.</p>
+                <div class="big-line">Let's talk.<br><a href="mailto:ghaziearyan@gmail.com" style="color:var(--signal);text-decoration:none">ghaziearyan@gmail.com</a></div>
+                <p class="intent">Open to product roles in applied AI and enterprise platforms.</p>
             </div>
             <div>
                 <h4>Elsewhere</h4>
                 <div class="clinks">
-                    <a href="#">LinkedIn ↗</a>
-                    <a href="#">GitHub ↗</a>
-                    <a href="#">@ghazisgizmos ↗</a>
+                    <a href="https://www.linkedin.com/in/ghaziaryan/" target="_blank" rel="noopener">LinkedIn ↗</a>
+                    <a href="https://x.com/GhazisGizmos" target="_blank" rel="noopener">X · @GhazisGizmos ↗</a>
+                    <a href="https://github.com/GhaziAryan" target="_blank" rel="noopener">GitHub ↗</a>
+                    <a href="https://apps.apple.com/us/app/advocate-track-your-wins/id6793955203" target="_blank" rel="noopener">Advocate ↗</a>
                 </div>
             </div>
             <div>
                 <h4>About this site</h4>
                 <div class="credits">
                     Set in Bricolage Grotesque,<br>Spline Sans Mono,<br>&amp; Advocate's own Fraunces.<br>
-                    Built by hand. No template.<br>
+                    Built with agents. No template.<br>
                     © 2026 Ghazi Aryan
                 </div>
                 <div class="egg-hint">// psst — click the name in the nav five times, fast.</div>
@@ -4030,10 +4127,10 @@
         (function () {
             const stops = [
                 ['Surge', 'work'],
+                ['CORA', 'cora'],
                 ['Advocate', 'advocate'],
                 ['Platform', 'platform'],
                 ['Beyond work', 'index'],
-                ['Taste Test', 'taste'],
                 ['Story', 'about'],
                 ['History', 'history'],
                 ['Contact', 'contact'],
@@ -4138,8 +4235,18 @@
         document.querySelectorAll('.cnt').forEach(el => cntObs.observe(el));
 
         // ── expanders ──
-        document.querySelectorAll('.more-btn').forEach(btn =>
-            btn.addEventListener('click', () => btn.closest('.more').classList.toggle('open')));
+        document.querySelectorAll('.more-btn').forEach((btn, i) => {
+            const panel = btn.closest('.more').querySelector('.more-panel');
+            panel.id = panel.id || 'case-details-' + i;
+            btn.setAttribute('aria-controls', panel.id);
+            btn.setAttribute('aria-expanded', 'false');
+            panel.inert = true;
+            btn.addEventListener('click', () => {
+                const open = btn.closest('.more').classList.toggle('open');
+                btn.setAttribute('aria-expanded', String(open));
+                panel.inert = !open;
+            });
+        });
 
         // ── advocate demo (real product language: ramble → reflection → competency → cited story) ──
         (function () {
@@ -4340,113 +4447,6 @@
             });
         })();
 
-        // ── the taste test ──
-        (function () {
-            const ROUNDS = [
-                {
-                    q: 'ROUND 1 · FRICTION: same signup, two builds',
-                    correct: 'A',
-                    explain: 'Card A solves the actual problem — get you into the product — and defers the rest. Card B asks for eight decisions before you\'ve seen one screen of value. You weren\'t supposed to count the fields. You were supposed to feel them.',
-                    a: `<div class="mock"><div class="m-notif" style="padding:14px;"><div class="m-notify-title">Start free</div><div class="m-notify-body" style="margin-top:5px;">Just your work email.</div><div style="display:flex;gap:8px;margin-top:10px;"><span style="flex:1;border:1px solid var(--line-strong);border-radius:7px;padding:7px 9px;font-size:11px;color:var(--t3);">you@company.com</span><span style="background:var(--ink);color:var(--bg);border-radius:7px;padding:7px 12px;font-size:11px;font-weight:600;">Continue</span></div><div style="font-size:10px;color:var(--t3);margin-top:8px;">Workspace setup comes later — 30 seconds, whenever you're ready.</div></div></div>`,
-                    b: `<div class="mock"><div class="m-notif" style="padding:12px;"><div class="m-notify-title">Create your account</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px;font-size:10.5px;color:var(--t2);"><span style="border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Full name</span><span style="border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Work email</span><span style="border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Company</span><span style="border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Company size ▾</span><span style="border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Role ▾</span><span style="border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Phone *</span><span style="grid-column:span 2;border:1px solid var(--line);border-radius:6px;padding:5px 7px;">Password · 8+ chars, 1 number, 1 symbol</span></div><div style="font-size:9.5px;color:var(--t3);margin-top:7px;"><span style="display:inline-block;width:9px;height:9px;border:1.5px solid var(--line-strong);border-radius:2px;vertical-align:-1px;margin-right:4px;"></span>I agree to the Terms of Service and Privacy Policy</div><div style="text-align:center;background:var(--ink);color:var(--bg);border-radius:7px;padding:7px;font-size:11px;font-weight:600;margin-top:8px;">REGISTER</div></div></div>`
-                },
-                {
-                    q: 'ROUND 2 · RECOVERY: same failed payment, two builds',
-                    correct: 'B',
-                    explain: 'Things break — taste is what happens next. One card hands you the fix in one tap. The other makes you feel stupid in red, in a language meant for logs. Same failure; completely different product.',
-                    a: `<div class="mock"><div class="m-notif" style="padding:14px;border-color:#c0392b55;"><div class="m-notify-title" style="color:#c0392b;">⚠ ERROR 402</div><div class="m-notify-body" style="margin-top:5px;">Transaction declined. Code: PMT_GATEWAY_402_TIMEOUT. Contact support if the problem persists. Ref: 0x8f3a.</div><div style="display:inline-block;border:1px solid var(--line-strong);border-radius:7px;padding:6px 12px;font-size:10.5px;color:var(--t3);margin-top:10px;">DISMISS</div></div></div>`,
-                    b: `<div class="mock"><div class="m-notif" style="padding:14px;"><div class="m-notify-title">Your card was declined</div><div class="m-notify-body" style="margin-top:5px;">Happens to everyone — usually it's the bank being cautious. Try another card and you'll be back in seconds. Nothing was charged.</div><div style="display:flex;gap:8px;margin-top:10px;"><span style="background:var(--ink);color:var(--bg);border-radius:7px;padding:7px 12px;font-size:11px;font-weight:600;">Update card</span><span style="border:1px solid var(--line-strong);border-radius:7px;padding:7px 12px;font-size:11px;color:var(--t2);">Not now</span></div></div></div>`
-                },
-                {
-                    q: 'ROUND 3 · RESPECT: same upgrade prompt, two builds',
-                    correct: 'A',
-                    explain: 'Card A states the price and trusts you to decide. Card B hides the exit and guilts you for taking it — a yes extracted under pressure is next quarter\'s refund request. The dark pattern wins this week\'s conversion report and loses the user.',
-                    a: `<div class="mock"><div class="m-notif" style="padding:14px;text-align:center;"><div class="m-notify-title">Unlimited exports</div><div class="m-notify-body" style="margin-top:5px;">$8/month. Cancel anytime.</div><div style="background:var(--ink);color:var(--bg);border-radius:7px;padding:7px;font-size:11px;font-weight:600;margin-top:10px;">Upgrade</div><div style="padding:8px;font-size:11px;color:var(--t2);">No thanks</div></div></div>`,
-                    b: `<div class="mock"><div class="m-notif" style="padding:14px;text-align:center;"><div class="m-notify-title">✨ Don't lose your work ✨</div><div class="m-notify-body" style="margin-top:5px;">Free accounts can't export. Your entries stay locked forever.</div><div style="background:var(--ink);color:var(--bg);border-radius:7px;padding:7px;font-size:11px;font-weight:600;margin-top:10px;">Keep my work safe</div><div style="padding:8px;font-size:9px;color:var(--t3);opacity:.55;">no thanks, i like losing my work</div></div></div>`
-                },
-            ];
-            const host = document.getElementById('ttRounds');
-            const verdict = document.getElementById('ttVerdict');
-            const scoreEl = document.getElementById('ttScore');
-            const lineEl = document.getElementById('ttLine');
-            const restartBtn = document.getElementById('ttRestart');
-            let score = 0, done = 0, built = 0;
-
-            function buildRound(i) {
-                const r = ROUNDS[i];
-                const round = document.createElement('div');
-                round.className = 'tt-round' + (i > 0 ? ' tt-next' : '');
-                round.innerHTML = `
-                    <div class="tt-q"><span>${r.q}</span><span class="tt-status" data-i="${i}"></span></div>
-                    <div class="tt-pair">
-                        <div class="tt-card" data-side="a"><div class="tt-tag">A</div>${r.a}</div>
-                        <div class="tt-card" data-side="b"><div class="tt-tag">B</div>${r.b}</div>
-                    </div>
-                    <div class="tt-explain">${r.explain}</div>`;
-                host.appendChild(round);
-                built = i + 1;
-                if (i > 0) requestAnimationFrame(() => requestAnimationFrame(() => round.classList.add('in')));
-                round.querySelectorAll('.tt-card').forEach(card => {
-                    card.setAttribute('tabindex', '0');
-                    card.setAttribute('role', 'button');
-                    card.setAttribute('aria-label', 'Choose ' + card.querySelector('.tt-tag').textContent);
-                    card.addEventListener('click', () => pick(round, r, card));
-                    card.addEventListener('keydown', e => {
-                        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(round, r, card); }
-                    });
-                });
-            }
-
-            function render() {
-                score = 0; done = 0; built = 0;
-                verdict.classList.remove('show');
-                restartBtn.style.display = 'none';
-                host.innerHTML = '';
-                buildRound(0);
-            }
-
-            function pick(round, r, card) {
-                if (round.dataset.done) return;
-                round.dataset.done = '1';
-                const cards = round.querySelectorAll('.tt-card');
-                cards.forEach(c => c.classList.add('locked'));
-                const chosen = card.dataset.side.toUpperCase();
-                const statusEl = round.querySelector('.tt-status');
-                if (chosen === r.correct) {
-                    score++;
-                    card.classList.add('right');
-                    card.insertAdjacentHTML('beforeend', '<span class="stamp verdict-stamp">GOOD EYE</span>');
-                    statusEl.textContent = 'CORRECT';
-                    statusEl.style.color = 'var(--signal)';
-                } else {
-                    card.classList.add('wrong', 'shake');
-                    const other = [...cards].find(c => c !== card);
-                    other.classList.add('right');
-                    other.insertAdjacentHTML('beforeend', '<span class="stamp verdict-stamp">THIS ONE</span>');
-                    statusEl.textContent = 'MISSED';
-                    statusEl.style.color = 'var(--t3)';
-                }
-                round.querySelector('.tt-explain').classList.add('show');
-                done++;
-                if (done === ROUNDS.length) finish();
-                else if (built < ROUNDS.length) buildRound(built);
-            }
-
-            function finish() {
-                scoreEl.textContent = score + ' / 3';
-                window.__ttScore = score;
-                let line;
-                if (score === 3) line = 'We should talk. <a href="#contact">Say hi.</a>';
-                else if (score === 2) line = 'Close. The bar here is high.';
-                else line = 'Now you know what I notice. <a href="#contact">Say hi.</a>';
-                lineEl.innerHTML = line;
-                verdict.classList.add('show');
-                restartBtn.style.display = 'inline-block';
-            }
-            restartBtn.addEventListener('click', render);
-            render();
-        })();
-
         // ── surge narration (wired to the loopgrid) ──
         (function () {
             const zone = document.querySelector('#work .process-zone');
@@ -4561,7 +4561,7 @@
                 Object.values(nodesEls).forEach(n => n.classList.remove('done'));
                 compValN.textContent = '28';
                 compWasN.style.visibility = 'hidden';
-                timeValN.textContent = '6+'; timeUnitN.textContent = 'weeks';
+                timeValN.textContent = '<1'; timeUnitN.textContent = 'day';
                 timeValN.style.opacity = 1; timeUnitN.style.opacity = 1;
                 timeWasN.textContent = ''; timeWasN.style.visibility = 'visible';
                 repoNum.textContent = '0';
@@ -4573,7 +4573,7 @@
                 compWasN.style.visibility = 'visible';
                 timeValN.textContent = '<1'; timeUnitN.textContent = 'day';
                 timeValN.style.opacity = 1; timeUnitN.style.opacity = 1;
-                timeWasN.textContent = '6 wks';
+                timeWasN.textContent = '';
                 repoNum.textContent = '4';
                 if (chipCount) chipCount.textContent = '×4';
             }
@@ -4585,8 +4585,8 @@
                 timeValN.style.opacity = 0;
                 timeUnitN.style.opacity = 0;
                 setTimeout(() => {
-                    timeValN.textContent = flipped ? '<1' : '6+';
-                    timeUnitN.textContent = flipped ? 'day' : 'weeks';
+                    timeValN.textContent = '<1';
+                    timeUnitN.textContent = 'day';
                     timeValN.style.opacity = 1;
                     timeUnitN.style.opacity = 1;
                 }, 260);
@@ -4613,7 +4613,7 @@
                     boardObs.unobserve(e.target);
                     compValN.textContent = '28';
                     repoNum.textContent = '0';
-                    timeValN.textContent = '6+'; timeUnitN.textContent = 'weeks';
+                    timeValN.textContent = '<1'; timeUnitN.textContent = 'day';
                     compWasN.style.visibility = 'hidden';
                     timeWasN.style.visibility = 'hidden';
                     setTimeout(() => {
@@ -4646,7 +4646,7 @@
                     for (let k = 1; k <= 4; k++) setTimeout(() => { repoNum.textContent = k; popCount(k); }, 700 + k * 650);
                     setTimeout(() => {
                         setTime(true);
-                        timeWasN.textContent = '6 wks';
+                        timeWasN.textContent = '';
                     }, 2100);
                 }
                 await wait(i === 2 ? 5400 : 4300);
@@ -4667,7 +4667,7 @@
                 restore();
                 storyEl.style.opacity = 0;
                 await wait(240);
-                storyEl.innerHTML = 'The pilot proved it: <strong>28% → 92%</strong> on-spec across four codebases, and six-plus weeks of manual work down to under a day.';
+                storyEl.innerHTML = 'The pilot delivered <strong>28% → 92%</strong> on-spec across four codebases. Audit and code changes took under a day, before review and deployment. Leadership assigned a dedicated team to take the approach across the org.';
                 storyEl.style.opacity = 1;
                 runBtn.disabled = false;
                 runIcon.textContent = '▶';
@@ -4917,7 +4917,9 @@
                 const pastHero = window.scrollY > window.innerHeight * 0.65;
                 const r = contact.getBoundingClientRect();
                 const contactVisible = r.top < window.innerHeight * 0.9 && r.bottom > 0;
-                fab.classList.toggle('show', pastHero && !contactVisible);
+                const gallery = document.getElementById('advocate').getBoundingClientRect();
+                const galleryVisible = gallery.top < window.innerHeight && gallery.bottom > 0;
+                fab.classList.toggle('show', pastHero && !contactVisible && !galleryVisible);
             }
             window.addEventListener('scroll', update, { passive: true });
             window.addEventListener('resize', update);
