@@ -1,0 +1,157 @@
+/* Navigation132: More-only disclosure, Jump to… on mobile and clear glass.
+   The fixed header row remains in flow. Its full sheet is an absolute clipped
+   surface, so opening never moves Work, About, Contact, More, or the theme key. */
+.pov-section { display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr);gap:7vw;padding:52px 3.4vw 56px;border-top:1px solid var(--line);scroll-margin-top:90px; }
+.pov-section h2 { margin:0;font:500 clamp(28px,3vw,38px)/1.2 'Bricolage Grotesque',sans-serif;letter-spacing:-.025em; }
+.pov-copy { max-width:69ch; }
+.pov-copy p { margin:0;font:400 16px/1.65 'DM Sans',sans-serif;color:var(--ink); }
+.pov-copy p+p { margin-top:20px; }
+.pov-copy strong { font-weight:600; }
+
+/* The desktop rail has no menu surface or toggle. Short labels belong to their
+   nine dashes and become readable on proximity or keyboard focus. */
+.page-jumps {
+ --rail-ink:var(--ink);--rail-bg:var(--bg);--map-accent:var(--brand);
+ position:fixed;z-index:85;right:8px;top:50%;transform:translateY(-50%);width:184px;padding:8px;
+ color:var(--rail-ink);font:400 13px/1.3 'DM Sans',sans-serif;pointer-events:none;
+}
+.page-jumps:not([data-ready]),.page-jumps[hidden] { display:none; }
+.jump-list { display:grid; }
+.jump-list a { --effect:0;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 28px;align-items:center;gap:6px;min-height:44px;text-decoration:none;color:inherit; }
+.jump-label {
+ justify-self:end;position:relative;white-space:nowrap;padding:5px 8px;border-radius:6px;
+ background:var(--rail-bg);opacity:0;transform:translateX(calc(var(--effect,0) * -5px));
+ transition:opacity 160ms ease-out;pointer-events:none;
+}
+.jump-marker { position:relative;display:block;width:18px;height:2px;justify-self:center;transform-origin:right center;transform:scaleX(calc(.7 + var(--effect,0) * .5));border-top:1px solid #e8efdc;border-bottom:1px solid #20372a; }
+.jump-marker::before { content:'';position:absolute;right:-15px;top:-22px;width:44px;height:44px;pointer-events:auto; }
+.page-jumps[data-engaged=true] .jump-label { opacity:1; }
+.page-jumps[data-engaged=true] .jump-list a { pointer-events:auto; }
+.jump-list a[aria-current] .jump-label { font-weight:600; }
+.page-jumps a:focus-visible { outline:2px solid var(--rail-ink);outline-offset:-2px;border-radius:6px; }
+
+/* Root reserves192px for this160px lane at the matching media condition. */
+.page-jumps { width:160px;opacity:1; }
+.page-jumps::before { content:'';position:absolute;inset:0;z-index:-1;border-radius:14px;background:linear-gradient(to left,color-mix(in srgb,var(--rail-bg) 64%,transparent),transparent);opacity:0;transition:opacity 180ms ease-out;pointer-events:none; }
+.page-jumps[data-engaged=true] { opacity:1; }
+.page-jumps[data-engaged=true]::before { opacity:1; }
+.jump-list a { min-width:0;grid-template-columns:minmax(0,1fr) 24px;gap:4px; }
+.jump-label { max-width:100%;padding:5px 0;border-radius:0;background:transparent;font-size:12px;transform:none;color:var(--label-ink,var(--rail-ink));text-shadow:-1px 0 var(--label-edge,#e8efdc),1px 0 var(--label-edge,#e8efdc),0 -1px var(--label-edge,#e8efdc),0 1px var(--label-edge,#e8efdc); }
+.jump-marker { opacity:1;border-top-color:#e8efdc;border-bottom-color:#20372a;transform:scaleX(calc(.45 + var(--effect,0) * .45)); }
+.jump-list a[aria-current] .jump-marker { opacity:1; }
+.page-jumps[data-engaged=true] .jump-marker { opacity:1; }
+.page-jumps[data-engaged=true] .jump-marker { transform:scaleX(calc(.7 + var(--effect,0) * .5)); }
+.jump-marker::before { right:-12px; }
+.page-jumps { display:none; }
+@media(min-width:1101px) and (min-height:651px) and (hover:hover) and (pointer:fine) { .page-jumps { display:block; } }
+@media(prefers-reduced-motion:reduce) {
+ .page-jumps,.page-jumps::before { transition:opacity 80ms linear; }
+ .pill-ink-item[data-menu] { transform:none; }
+}
+
+/* The existing source proximity field now has enough room to read as a wave. */
+.page-jumps .jump-list a { grid-template-columns:minmax(0,1fr) 36px;gap:6px; }
+.page-jumps .jump-label { transform:translateX(calc(var(--effect,0) * -6px));translate:0 0;transition:opacity 160ms ease-out,translate 160ms cubic-bezier(.16,1,.3,1); }
+.page-jumps[data-engaged=true] .jump-marker { transform:scaleX(calc(.7 + var(--effect,0) * 1.05)); }
+.page-jumps .jump-marker { scale:1;transition:scale 160ms cubic-bezier(.16,1,.3,1); }
+.page-jumps[data-engaged=true] .jump-list a:is(:hover,:focus-visible) .jump-marker { scale:1.12 1; }
+.page-jumps[data-engaged=true] .jump-list a:is(:hover,:focus-visible) .jump-label { translate:-2px 0;font-weight:600; }
+@media(prefers-reduced-motion:reduce) {
+ .page-jumps .jump-label { transform:none;translate:none!important;transition:opacity 80ms linear; }
+ .page-jumps .jump-marker { scale:1!important;transition:none; }
+ .page-jumps[data-engaged=true] .jump-marker { transform:scaleX(.9); }
+ .page-jumps[data-engaged=true] .jump-list a:is(:hover,:focus-visible) .jump-marker { transform:scaleX(1.4); }
+}
+
+
+/* Independent native capsules: quick links never become part of the sheet. */
+.forest-page .nav,.forest-page .nav[data-over-forest] { background:transparent;border-bottom-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none; }
+.nav :is(.name,.ctl) { background:transparent;border-radius:0; }
+.nav .name { min-width:44px;min-height:44px; }
+.forest-page .nav::before { content:'';position:absolute;z-index:-1;inset:0;background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 70%,transparent) 0,color-mix(in srgb,var(--bg) 70%,transparent) calc(100% - 16px),transparent 100%);pointer-events:none; }
+.nav .links.nav-cluster { display:flex;align-items:center;gap:6px;margin-left:auto;padding:0;border:0;border-radius:0;background:transparent;isolation:auto; }
+.nav .links.pill-nav { --pill-h:50px;--surface-radius:25px;--menu-top:12px;--menu-closed:inset(0 0 410px 160px round 25px);position:relative;display:block;flex:none;margin:0;height:50px;padding:2px;border:1px solid var(--line);border-radius:25px;background:var(--bg2);isolation:isolate;color:var(--ink);font:400 13px/1.3 'DM Sans',sans-serif; }
+.nav .links.pill-nav[data-glass-ready],.forest-page .nav[data-over-forest] .links.pill-nav[data-glass-ready] { background:transparent;border-color:transparent; }
+.pill-row { position:relative;z-index:2;display:flex;align-items:stretch;height:44px;gap:0; }
+.nav .links.pill-nav :is([data-pill-control],[data-quick-control]) { position:relative;z-index:1;display:flex;align-items:center;justify-content:center;flex:none;gap:5px;min-width:44px;min-height:44px;height:44px;padding:0 14px;border:0;border-radius:22px;background:transparent;color:var(--ink);font:inherit;line-height:1.3;white-space:nowrap;text-decoration:none;cursor:pointer; }
+.nav .links.pill-nav :is([data-pill-control],[data-quick-control]):hover { color:var(--ink); }
+.nav .links.pill-nav span { cursor:inherit; }
+.nav .links.pill-nav span::after { content:none; }
+.nav .links.pill-nav :is([data-pill-control],[data-quick-control],.pill-menu-links a):focus-visible { outline:2px solid var(--ink);outline-offset:-2px; }
+.pill-symbol { display:grid;place-items:center;width:12px;height:12px; }
+.pill-symbol svg { display:block;width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;transition:transform 300ms cubic-bezier(.22,1,.36,1); }
+.more-nav:is([data-phase=opening],[data-phase=open]) .pill-symbol svg { transform:rotate(180deg); }
+.pill-glass-host,.quick-glass-host { position:absolute;z-index:0;left:-1px;right:-1px;top:-1px;height:50px;pointer-events:none; }
+.more-nav .pill-glass-host { left:auto;width:calc(100% + 2px); }
+.more-nav:not([data-phase=closed]) .pill-glass-host { width:var(--sheet-width,240px);height:var(--sheet-height,460px); }
+.pill-glass-host .navigation-glass { clip-path:inset(0 0 0 0 round 25px); }
+.more-nav:is([data-phase=opening],[data-phase=open]) { --surface-radius:24px; }
+.more-nav:is([data-phase=opening],[data-phase=open]) .navigation-glass { clip-path:inset(0 0 0 0 round 24px); }
+.more-nav[data-phase=closing] .navigation-glass { clip-path:var(--menu-closed); }
+:is(.pill-glass-host,.quick-glass-host,.rail-glass-host) .glass-surface__content { padding:0; }
+:is(.pill-glass-host,.quick-glass-host) .glass-surface__content::before { content:'';position:absolute;inset:4px;border-radius:calc(var(--surface-radius,25px) - 4px);background:color-mix(in srgb,var(--bg) 70%,transparent);pointer-events:none; }
+.nav .links.pill-nav .glass-surface :is(.glass-surface__sheen,.glass-surface__rim,.glass-surface__frame,.glass-surface__line,.glass-surface__glow) { position:absolute;cursor:default; }
+.pill-panel { position:absolute;z-index:1;top:-1px;right:-1px;width:min(240px,calc(100vw - 32px));padding:80px 6px 8px;border:1px solid var(--line);border-radius:24px;background:var(--bg2);color:var(--ink);clip-path:var(--menu-closed);visibility:hidden;pointer-events:none; }
+.pill-nav[data-glass-ready] .pill-panel { background:transparent;border-color:transparent; }
+.more-nav:is([data-phase=opening],[data-phase=open],[data-phase=closing]) .pill-panel { visibility:visible; }
+.more-nav:is([data-phase=opening],[data-phase=open]) .pill-panel { clip-path:inset(0 0 0 0 round 24px);pointer-events:auto; }
+.pill-menu-viewport { max-height:calc(100dvh - var(--menu-top) - 95px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--brand) transparent;scroll-padding-block:4px; }
+.pill-menu-links { display:grid;gap:0; }
+.nav .links.pill-nav .pill-menu-links a { display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 12px;border:0;border-radius:22px;background:transparent;color:var(--ink);text-decoration:none;white-space:nowrap;font:400 14px/1.3 'DM Sans',sans-serif;opacity:0;transform:translateY(-8px); }
+.nav .links.pill-nav .pill-menu-links a:hover { background:transparent;color:var(--ink); }
+.nav .links.pill-nav .pill-menu-links a[aria-current] { font-weight:600;background:transparent; }
+.nav .links.more-nav:is([data-phase=opening],[data-phase=open]) .pill-menu-links a { opacity:1;transform:none; }
+.pill-feedback { position:absolute;z-index:4;top:-1px;right:-1px;width:var(--sheet-width,240px);height:var(--sheet-height,460px);clip-path:var(--menu-closed);pointer-events:none; }
+.quick-feedback { left:-1px;width:auto;height:50px;clip-path:inset(0 0 0 0 round 25px); }
+.more-nav:is([data-phase=opening],[data-phase=open]) .pill-feedback { clip-path:inset(0 0 0 0 round 24px); }
+.nav .links.pill-nav :is(.pill-glide,.pill-ink) { position:absolute;inset:0;cursor:default;pointer-events:none; }
+.pill-glide { z-index:0;background:var(--brand);clip-path:inset(0 100% 0 0);opacity:0; }
+.pill-ink { z-index:3;display:block;color:var(--bg);clip-path:inset(0 100% 0 0);opacity:0; }
+.nav .links.pill-nav .pill-menu-ink { position:absolute;inset:0;pointer-events:none; }
+.nav .links.pill-nav .pill-ink-item { position:absolute;display:flex;box-sizing:border-box;gap:5px;white-space:nowrap; }
+.pill-ink-item[data-menu] { opacity:0;transform:translateY(-8px); }
+.more-nav:is([data-phase=opening],[data-phase=open]) .pill-ink-item[data-menu] { opacity:1;transform:none; }
+.pill-nav[data-isolated] { visibility:hidden; }
+.pill-menu-tools,.pill-theme-label { display:none; }
+
+/* One actual rail surface appears on approach; its host never fades. */
+.rail-glass-host { position:absolute;z-index:-1;inset:0;pointer-events:none;color-scheme:inherit; }
+.rail-glass-host .glass-surface { opacity:0;transition:opacity 160ms ease-out; }
+.page-jumps[data-engaged=true] .rail-glass-host .glass-surface { opacity:1; }
+.rail-glass-host .glass-surface__content::before { content:'';position:absolute;inset:0;border-radius:14px;background:color-mix(in srgb,var(--rail-bg) 70%,transparent);pointer-events:none; }
+.page-jumps::before { content:none; }
+.page-jumps[data-engaged=true] .jump-label { color:var(--rail-glass-ink,var(--rail-ink));text-shadow:-1px 0 var(--rail-glass-edge,#20372a),1px 0 var(--rail-glass-edge,#20372a),0 -1px var(--rail-glass-edge,#20372a),0 1px var(--rail-glass-edge,#20372a); }
+.page-jumps[hidden],.page-jumps[data-menu-suppressed] { display:none!important; }
+@media(max-width:700px) {
+ .pov-section { grid-template-columns:1fr;gap:18px;padding:36px 5vw 40px; }
+ .pov-copy p { font-size:15px; }
+ .nav .links.nav-cluster>.quick-nav { display:none; }
+ .nav .links.pill-nav .pill-row>.pill-more { min-width:96px;padding:0 14px;font-size:13px; }
+ .pill-menu-tools { display:block;margin-top:4px;padding-top:4px;border-top:1px solid var(--line); }
+ .nav .links.pill-nav .pill-menu-tools #themeBtn { display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:44px;margin:0;padding:0 12px;background:transparent;border:0;border-radius:0;color:var(--ink);font:400 12px/1.3 'DM Sans',sans-serif;cursor:pointer; }
+ .nav .links.pill-nav .pill-menu-tools #themeBtn .pill-theme-label { display:inline;order:0; }
+ .nav .links.pill-nav .pill-menu-tools #themeBtn .t-txt { display:inline;order:1;text-transform:lowercase; }
+ .nav .links.pill-nav .pill-menu-tools #themeBtn .t-txt::after { content:' theme'; }
+ .nav .links.pill-nav .pill-menu-tools #themeBtn .t-ico { font-size:17px;order:2; }
+ .pill-menu-tools #themeBtn:focus-visible { outline:2px solid var(--ink);outline-offset:-2px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .pill-symbol svg { transition:none; }
+ .pill-ink-item[data-menu],.nav .links.pill-nav .pill-menu-links a { transform:none; }
+ .rail-glass-host .glass-surface { transition:opacity 80ms linear; }
+}
+
+/* Shared More-sized top lobe and rounded body below the quick-link row.
+   The source component, native sheet and ink all share this one boundary. */
+.more-nav .pill-panel,.more-nav .pill-feedback,.more-nav:not([data-phase=closed]) .navigation-glass {
+ -webkit-mask-image:var(--menu-contour);mask-image:var(--menu-contour);
+ -webkit-mask-size:100% 100%;mask-size:100% 100%;
+ -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+}
+.nav .links.quick-nav { z-index:3; }
+
+/* Transparent contour space passes clicks through; only the visible scroll
+   viewport handles sheet input. More remains its own stationary control. */
+.more-nav .pill-panel,.more-nav:is([data-phase=opening],[data-phase=open]) .pill-panel { pointer-events:none; }
+.more-nav .pill-menu-viewport { pointer-events:none; }
+.more-nav:is([data-phase=opening],[data-phase=open]) .pill-menu-viewport { pointer-events:auto; }

@@ -1,0 +1,21 @@
+/* The same quote windows and line motion, with one stable answer stage. */
+.personal-chapter #imThread { position:relative;perspective:700px; }
+#imThread .answer-panel { position:absolute;inset:0 0 auto;visibility:hidden;opacity:0;pointer-events:none; }
+#imThread .answer-panel:is([data-current],[data-leaving]) { visibility:visible;opacity:1; }
+#imThread .answer-panel p { margin:0;font:inherit;color:inherit; }
+#imThread .quote-line { perspective:700px; }
+
+/* Keep the three related LAUNCH results together at tablet and desktop sizes. */
+#launch-story .scoreboard { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line); }
+#launch-story .score { min-width:0;padding:24px 20px;border-bottom:0;border-right:1px solid var(--line); }
+#launch-story .score:last-child { border-right:0; }
+#launch-story .score .k { margin:0;font-size:12px;line-height:1.5;letter-spacing:.08em; }
+#launch-story .score .v { margin:14px 0 10px;font-size:52px;line-height:1.1; }
+#launch-story .score .foot { margin:0;font-size:13px;line-height:1.5; }
+@media(max-width:600px) {
+ #launch-story .scoreboard { grid-template-columns:1fr; }
+ #launch-story .score { display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 20px;padding:18px 16px;border-right:0;border-bottom:1px solid var(--line); }
+ #launch-story .score:last-child { border-bottom:0; }
+ #launch-story .score .k,#launch-story .score .foot { grid-column:1; }
+ #launch-story .score .v { grid-column:2;grid-row:1 / span 2;align-self:center;margin:0;font-size:42px; }
+}

@@ -1,0 +1,26 @@
+/* One flowing material spans the hero and the Selected work heading. */
+.forest-page .hero.hero-forest-113 {
+ --forest-overlap:300px;
+ --forest-fade:0px;
+ padding-bottom:96px;
+ overflow:visible;
+ background:transparent;
+}
+.forest-page .hero-forest-113::after { display:none; }
+.forest-page .hero-forest-113::before {
+ content:''; position:absolute; inset:0 0 auto; height:calc(100% + var(--forest-overlap));
+ z-index:-1; pointer-events:none;
+ background:radial-gradient(ellipse 95% 80% at 85% 0%,#31573a88,transparent 80%),linear-gradient(172deg,#12271e 59%,#35583e 70%,#aab994 83%,var(--forest-ground) 94%);
+}
+html[data-theme=dark] .forest-page .hero-forest-113::before {
+ background:radial-gradient(ellipse 95% 80% at 85% 0%,#31573a88,transparent 80%),linear-gradient(172deg,#12271e 59%,#1c3022 79%,var(--forest-ground) 94%);
+}
+.forest-page .hero-forest-113 .hero-atmosphere {
+ inset:0 0 auto; width:100%; height:calc(100% + var(--forest-overlap));
+ mask-image:none; pointer-events:none;
+}
+.forest-page .selected-work { position:relative; z-index:1; background:transparent; }
+@media(max-width:700px) {
+ .forest-page .hero.hero-forest-113 { --forest-overlap:300px; padding-bottom:96px; }
+ .forest-page .hero-forest-113 .hero-atmosphere { mask-image:none; }
+}

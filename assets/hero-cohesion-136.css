@@ -1,0 +1,91 @@
+/* One opening composition: identity, ownership, then a useful personal dock.
+   The page remains the ground; no panel or hard lower edge around the hero. */
+.forest-page .hero.hero-personal-105.hero-forest-113 {
+  padding-top: 136px;
+  padding-bottom: 112px;
+  text-align: center;
+}
+html[data-theme=light] .forest-page .hero-forest-113::before {
+  background: radial-gradient(ellipse at 50% 26%, #ffffffa0, transparent 62%),
+    linear-gradient(168deg, #f4f5f0 8%, #e8ecdf 64%, var(--forest-ground) 97%);
+}
+.hero.hero-personal-105 .hero-topline {
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+.hero.hero-personal-105 .hero-topline > span:last-child { color: var(--t2); }
+.hero.hero-personal-105 .hero-topline > span:last-child::before {
+  content: '·'; margin-right: 12px; opacity: .5;
+}
+.hero.hero-personal-105 .hero-identity { margin-bottom: 26px; }
+html.serif-display .hero.hero-personal-105 h1.identity {
+  font-size: clamp(76px, 12.6vw, 212px);
+  font-weight: 550;
+  letter-spacing: -.065em;
+  line-height: 1.04;
+}
+.forest-page .hero.hero-personal-105 .hero-intro { display: block; }
+.hero.hero-personal-105 .intro-story > p {
+  max-width: 48ch;
+  margin-inline: auto;
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.55;
+  color: var(--t2);
+}
+.hero.hero-personal-105 .intro-story strong { color: var(--ink); font-weight: 500; }
+.hero.hero-personal-105 .hero-actions { justify-content: center; margin-top: 24px; gap: 12px 26px; }
+.hero.hero-personal-105 .hero-actions a:first-child { border-radius: 999px; padding-inline: 24px; }
+.hero-tools {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr 1.1fr;
+  width: min(580px, 100%);
+  max-width: none;
+  gap: 10px;
+  margin: 44px auto 0;
+  text-align: left;
+}
+.hero-tools :is(button,a) {
+  min-height: 84px;
+  padding: 14px 16px;
+  border-radius: 20px;
+  border-color: color-mix(in srgb, var(--ink) 9%, transparent);
+  background: color-mix(in srgb, var(--bg) 58%, transparent);
+  box-shadow: inset 0 1px 0 #ffffff40, 0 4px 16px #14201904;
+}
+.hero-tools .hero-find { grid-column: auto; flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; }
+.hero-tools .hero-find kbd { color: var(--t2); }
+.hero-tools small { font-size: 11px; }
+.hero-tools .hero-app-thumbnail { width: 27px; }
+.hero-tools .hero-photo-stack { width: 36px; }
+@media (min-width: 1101px) and (min-height: 651px) {
+  .forest-page .hero.hero-personal-105.hero-forest-113 { padding-inline: 5vw; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero[data-entry=running] .intro-story { animation: hero-support-arrival 900ms 100ms cubic-bezier(.16,1,.3,1) both; }
+  .hero[data-entry=running] .hero-tools > * { animation: hero-support-arrival 900ms 180ms cubic-bezier(.16,1,.3,1) both; }
+  .hero[data-entry=running] .hero-tools > :nth-child(2) { animation-delay: 240ms; }
+  .hero[data-entry=running] .hero-tools > :nth-child(3) { animation-delay: 300ms; }
+}
+@keyframes hero-support-arrival {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 700px) {
+  .forest-page .hero.hero-personal-105.hero-forest-113 { padding: 112px 5vw 88px; }
+  .hero.hero-personal-105 .hero-topline { gap: 0; margin-bottom: 28px; font-size: 12px; }
+  .hero.hero-personal-105 .hero-topline > span:last-child { display: none; }
+  html.serif-display .hero.hero-personal-105 h1.identity { font-size: clamp(76px, 25.5vw, 172px); line-height: .98; letter-spacing: -.06em; }
+  .hero.hero-personal-105 .hero-identity { margin-bottom: 26px; }
+  .hero.hero-personal-105 .intro-story > p { max-width: 34ch; font-size: 16px; line-height: 1.55; }
+  .hero.hero-personal-105 .hero-actions { margin-top: 22px; gap: 16px; }
+  .hero-tools { width: min(351px,100%); max-width: none; grid-template-columns: 1fr 1fr; gap: 8px; margin: 32px auto 0; }
+  .hero-tools .hero-find { grid-column: 1/-1; flex-direction: row; justify-content: space-between; align-items: center; min-height: 44px; padding: 10px 14px; border-radius: 14px; }
+  .hero-tools :is(button,a) { min-height: 76px; padding: 10px 12px; border-radius: 16px; gap: 10px; }
+}
+@media (max-width: 360px) {
+  .hero.hero-personal-105 .hero-actions { gap: 12px; }
+  .hero.hero-personal-105 .hero-actions a:first-child { padding-inline: 18px; }
+  .hero-tools :is(button,a) { padding-inline: 10px; gap: 8px; }
+}

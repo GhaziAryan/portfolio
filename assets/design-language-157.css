@@ -1,0 +1,143 @@
+/* Approved signature + squircle system, promoted from study156.
+   Design-language audit: Unslop by Damir Sokolovsky, CC BY4.0.
+   https://github.com/heydamir/unslop */
+@font-face{font-family:'Avant Garde';src:url('fonts/avant-garde-book.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Avant Garde';src:url('fonts/avant-garde-medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Avant Garde';src:url('fonts/avant-garde-demi.woff2') format('woff2');font-weight:600 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Cooper Medium';src:url('fonts/cooper-medium.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+.forest-page.portfolio-design{
+ --font-ui:'Avant Garde',sans-serif;--font-signature:'Cooper Medium',Georgia,serif;
+ --radius-control:12px;--radius-showcase:20px;--radius-chip:8px;
+ font-family:var(--font-ui);font-synthesis:none;
+}
+/* Only the portfolio's chrome changes. Literal app UI and the illustrated legacy rail retain their own type. */
+.forest-page.portfolio-design :is(p,button,a,summary,small,label,dt,dd,input,textarea,select,span,div,h1,h2,h3,h4,h5,blockquote,figcaption,em,strong,cite,legend,li,td,th,section,aside,nav,kbd,time):not(:where(.adv,.adv *,.shared-rail-preview,.shared-rail-preview *)){
+ font-family:var(--font-ui)!important;
+}
+.forest-page.portfolio-design :is(h2,h3,h4,h5,.decision-thesis,.project-proposition,.work-intro>p:first-child,.assessment-index strong,.quote-main,.contact-reveal){font-weight:600!important;letter-spacing:-.025em}
+.forest-page.portfolio-design :is(#advocate-case,#ai-risk-case,#work-case,#platform-case) .case-reader :is(.sec-title,.cora-study-intro>h2,.wall-label>h2,.pla-study h2,.launch-study h2){font-family:var(--font-ui)!important;font-weight:600!important;font-size:44px!important;line-height:1.12!important;letter-spacing:-.025em}
+.forest-page.portfolio-design .case-reader :is(h3,h4){font-weight:500!important}
+.forest-page.portfolio-design .case-reader p{font-size:16px;line-height:1.65}
+.forest-page.portfolio-design :is(.hero-topline,.project-context,.project-name,.cover-label,.case-reader-bar,.case-brief>div>span){font-family:var(--font-ui)!important}
+.forest-page.portfolio-design :is(.project-name,.work-heading h3,.compact-intro>h3,.case-reader-name){font-weight:500!important}
+.forest-page.portfolio-design :is(.hero-topline,.hero-tools strong){font-size:14px}
+.forest-page.portfolio-design .intro-story>p{font-size:17px;line-height:1.6}
+.forest-page.portfolio-design .intro-story strong,.forest-page.portfolio-design .hero-tools strong{font-weight:500}
+.forest-page.portfolio-design .hero-tools .hero-find-prompt{font-size:12px}
+/* Cooper has one role: the name. DOM fallback and the optical mask use the same face. */
+.forest-page.portfolio-design #hero :is(h1.identity,.identity-name,.identity-name>span,.hero-name-canvas.name-prism,.hero-name-word,.prism-name-letter){font-family:var(--font-signature)!important;font-weight:400!important}
+.forest-page.portfolio-design #hero :is(h1.identity,.hero-name-canvas.name-prism){font-size:clamp(72px,11.5vw,154px)!important;line-height:1.04;letter-spacing:-.025em}
+.forest-page.portfolio-design #hero .hero-name-canvas.name-prism{gap:.15em}
+/* Primary: the same soft rectangle, lighter when it sits on a dark showcase. */
+.forest-page.portfolio-design :is(.decision-slide>a,#selected-work :is(#advocate,#work):not(:has(>.project-case[open]))>.project-case>summary,.run-btn){
+ display:inline-flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;
+ min-height:48px!important;max-width:100%;padding:12px 24px!important;margin-inline:0;
+ border:0!important;border-radius:var(--radius-control)!important;background:var(--action-fill,var(--brand))!important;color:var(--action-ink,var(--bg))!important;
+ font-size:14px!important;font-weight:400!important;line-height:20px!important;white-space:normal;text-decoration:none;
+ transition:background-color 160ms ease-out,color 160ms ease-out;
+}
+.forest-page.portfolio-design #hero .hero-actions a:first-child{border-radius:var(--radius-control)!important}
+.forest-page.portfolio-design .decision-slide>a,.forest-page.portfolio-design #selected-work #advocate>.project-case>summary{--action-fill:#e0e7da;--action-ink:#24372c;--action-hover:#f3f1e9}
+.forest-page.portfolio-design :is(.decision-slide>a,#selected-work .project-entry>.project-case>summary,.run-btn)::after{content:none!important}
+.forest-page.portfolio-design :is(.decision-slide>a,#selected-work .project-entry>.project-case>summary,.run-btn):hover{background:var(--action-hover,color-mix(in srgb,var(--brand) 90%,var(--ink)))!important;color:var(--action-ink,var(--bg))!important}
+
+/* Secondary: quiet destinations and selection underlines. */
+.forest-page.portfolio-design :is(.release-link,.try-product-example,.case-end,.main-product-tabs button,.outcome-tabs button,.app-preview-tabs button,.case-story-nav a,.film-nav button,.im-chip){min-height:44px;font-size:14px!important;line-height:20px;}
+.forest-page.portfolio-design :is(.main-product-tabs button,.outcome-tabs button,.app-preview-tabs button){border-radius:0;background:transparent;border-bottom:1px solid transparent;font-weight:400}
+.forest-page.portfolio-design :is(.main-product-tabs button,.outcome-tabs button,.app-preview-tabs button)[aria-selected=true]{border-bottom-color:currentColor;font-weight:500}
+.forest-page.portfolio-design #platform>.project-case>summary{background:none!important;color:var(--brand)!important;border-radius:0!important;border-bottom:1px solid currentColor!important;padding-inline:0!important}
+.forest-page.portfolio-design #platform>.project-case>summary:hover{background:none!important;color:var(--ink)!important}
+/* Utility: one quiet face, including recovery and viewer controls. */
+.forest-page.portfolio-design :is(.case-reader-close,.viewer-close,.spotlight-close,.viewer-controls button,.gallery-previous,.gallery-next,.spotlight-suggestions button){
+ min-width:44px;min-height:44px!important;padding:10px 16px!important;gap:20px!important;
+ border:1px solid color-mix(in srgb,currentColor 14%,transparent)!important;border-radius:var(--radius-control)!important;
+ background:color-mix(in srgb,var(--bg) 88%,transparent)!important;font-size:14px!important;line-height:20px!important;
+}
+.forest-page.portfolio-design :is(.case-reader-close,.viewer-close,.spotlight-close,.viewer-controls button,.gallery-previous,.gallery-next,.spotlight-suggestions button):hover{background:var(--bg2)!important}
+.forest-page.portfolio-design .hero-spotlight :is(input,.spotlight-results a){border-radius:var(--radius-control)}
+.forest-page.portfolio-design :is(.case-reader-close,.viewer-close,.spotlight-close,.viewer-controls button,.gallery-previous,.gallery-next,.spotlight-suggestions button,.run-btn,.decision-slide>a,.project-case>summary):focus-visible{outline:2px solid currentColor;outline-offset:3px}
+/* Only existing filled showcases acquire the shared outer edge. */
+.forest-page.portfolio-design :is(.cora-feature,#selected-work #advocate){border-radius:var(--radius-showcase);overflow:hidden}
+.forest-page.portfolio-design .cora-feature .decision-tabs{padding:0 28px;gap:24px;background:var(--bg);border-bottom:0}
+.forest-page.portfolio-design .cora-feature .decision-tabs>button{min-height:64px;padding:12px 0;gap:4px 12px;border:0;border-bottom:1px solid transparent;background:transparent;color:var(--t2);border-radius:0}
+.forest-page.portfolio-design .cora-feature .decision-tabs>button strong{font-size:14px;font-weight:500;color:inherit}
+.forest-page.portfolio-design .cora-feature .decision-tabs>button span{font-size:12px;line-height:18px}
+.forest-page.portfolio-design .cora-feature .decision-tabs>button[aria-selected=true]{color:var(--ink)!important;border-bottom-color:currentColor!important;background:transparent!important}
+.forest-page.portfolio-design .cora-feature .decision-tabs>button[aria-selected=true] strong{color:inherit!important}
+.forest-page.portfolio-design #selected-work #work{border-bottom:0}
+@media(min-width:701px) and (max-height:820px){
+ .forest-page.portfolio-design #hero :is(h1.identity,.hero-name-canvas.name-prism){font-size:clamp(76px,10.7vw,142px)!important}
+ .forest-page.portfolio-design .hero.hero-personal-105 .intro-story>p{font-size:16px;line-height:1.5}
+}
+@media(max-width:700px){
+ .forest-page.portfolio-design #hero :is(h1.identity,.hero-name-canvas.name-prism){font-size:clamp(64px,23vw,140px)!important;line-height:1.04}
+ .forest-page.portfolio-design #hero .hero-name-canvas.name-prism{min-height:2.08em}
+ .forest-page.portfolio-design .hero{padding-top:116px!important}
+ .forest-page.portfolio-design .intro-story>p{font-size:16px;line-height:1.65}
+ .forest-page.portfolio-design :is(#advocate-case,#ai-risk-case,#work-case,#platform-case) .case-reader :is(.sec-title,.cora-study-intro>h2,.wall-label>h2,.pla-study h2,.launch-study h2){font-size:32px!important;line-height:1.18!important}
+ .forest-page.portfolio-design .case-reader p{font-size:15px;line-height:1.65}
+ .forest-page.portfolio-design .cora-feature .decision-tabs{padding-inline:20px;gap:20px}
+ .forest-page.portfolio-design .cora-feature .decision-tabs>button{min-height:76px}
+ .forest-page.portfolio-design .hero-tools strong{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){
+ .forest-page.portfolio-design :is(.decision-slide>a,#selected-work .project-entry>.project-case>summary,.run-btn){transition:none}
+}
+
+/* Preserve the hidden AI reader host; only its decision-card launcher is visible. */
+.forest-page.portfolio-design #cora.reader-host>summary,.forest-page.portfolio-design #cora.reader-host>.project-case>summary{display:none!important}
+
+.forest-page.portfolio-design :is(.viewer-close,.viewer-controls button){background:color-mix(in srgb,currentColor 8%,transparent)!important}
+.forest-page.portfolio-design :is(.viewer-close,.viewer-controls button):hover{background:color-mix(in srgb,currentColor 16%,transparent)!important}
+/* Keyboard feedback uses the same local ink as its control. */
+.forest-page.portfolio-design :is(a,button,input,summary):not(:where(.liquid-nav *,.adv *)):focus-visible{outline-color:currentColor!important}
+
+.forest-page.portfolio-design .case-reader .chapter-decision{font-size:inherit!important;font-weight:600!important;line-height:inherit!important;letter-spacing:inherit}
+/* The two existing filled chapter introductions share the showcase edge. */
+.forest-page.portfolio-design .case-reader .assessment-chapter{border-radius:var(--radius-showcase)}
+
+.forest-page.portfolio-design .decision-alternative>a{--action-fill:#254f3d;--action-ink:#f3f1e9;--action-hover:#1c3d2f}
+/* The two-row chapter bar also leaves room for the Close focus outline. */
+.forest-page.portfolio-design .case-reader:has(.case-story-nav) .case-reader-bar{padding-top:8px}
+
+/* Opening actions use the same short northeast arrow as Search. */
+.forest-page.portfolio-design .action-open-icon{display:block;flex:none;width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+/* The selected comparison tab is the leading edge of its own case surface. */
+.forest-page.portfolio-design .cora-feature .decision-tabs{padding:0;gap:0}
+.forest-page.portfolio-design .cora-feature .decision-tabs>button{padding:14px 28px;border-bottom:0!important}
+.forest-page.portfolio-design .cora-feature .decision-tabs>#decision-tab-cora[aria-selected=true]{background:#254f3d!important;color:#f3f1e9!important}
+.forest-page.portfolio-design .cora-feature .decision-tabs>#decision-tab-alternative[aria-selected=true]{background:#e2e7db!important;color:#254f3d!important}
+.forest-page.portfolio-design .cora-feature .decision-tabs>button[aria-selected=true] strong{color:inherit!important}
+@media(max-width:700px){.forest-page.portfolio-design .cora-feature .decision-tabs>button{padding:14px 20px}}
+
+/* The fallback is actual selectable text, outside the original action button. */
+.hero-contact-slot{position:relative;display:grid;min-width:0}
+.hero-tools .hero-contact-slot>.hero-contact{width:100%;height:100%}
+.hero-contact-slot .hero-contact[data-contact-state=failure]>span{visibility:hidden}
+.hero-contact-fallback{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:4px;padding:12px;pointer-events:auto}
+.hero-contact-fallback[hidden]{display:none}
+.hero-contact-fallback label{font-size:14px;line-height:18px;color:var(--ink)}
+.hero-contact-fallback textarea{display:block;width:100%;min-width:0;height:36px;min-height:36px;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--ink);font-size:11px;line-height:16px;resize:none;overflow:hidden;overflow-wrap:anywhere;cursor:text;user-select:text;-webkit-user-select:text}
+.hero-contact-fallback textarea:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
+@media(max-width:700px){
+ .hero-tools .hero-contact-slot>.hero-contact{flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:118px;padding:12px 5px;text-align:center}
+ .hero-contact-fallback{padding-inline:8px;text-align:center}
+ .hero-contact-fallback label{font-size:13px}
+ .hero-contact-fallback textarea{text-align:center}
+}
+
+/* Remaining illustrative surfaces use the same corner family. */
+.forest-page.portfolio-design .role-sources dd>span{border-radius:var(--radius-chip)}
+.forest-page.portfolio-design .boundary-flow strong{border-radius:var(--radius-control)}
+.forest-page.portfolio-design #selected-work #advocate .overview-demo :is(.adv-entry,.adv-input,.adv-send){border-radius:var(--radius-control)}
+.forest-page.portfolio-design .cora-feature .decision-tabs>button{align-self:stretch;height:100%}
+/* The gallery's words share the personal-answer line-fold choreography. */
+.line-swap{display:grid;perspective:800px}
+.line-swap>.line-swap-panel{grid-area:1/1;display:block;visibility:hidden;pointer-events:none;min-width:0}
+.line-swap>.line-swap-panel:is([data-current],[data-leaving]){visibility:visible}
+.line-swap .quote-line{display:block;overflow:hidden;padding:4px 0 8px;margin:-4px 0 -8px}
+.line-swap .quote-line-ink{display:inline-block;white-space:pre;transform-origin:center bottom;backface-visibility:hidden}
+.forest-page.portfolio-design .case-gallery .gallery-device :is(.gallery-headline,.artifact-legend){width:100%;max-width:none;text-align:center;justify-self:stretch}
+
+/* Crop the fuller-note detail above the baked-in sample-count sentence. */
+.forest-page.portfolio-design .case-reader .outcome-evidence[data-outcome=supported] .onboarding-detail-window{aspect-ratio:880/470}

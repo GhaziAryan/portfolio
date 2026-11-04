@@ -1,0 +1,28 @@
+/* The record shelf shares the photographs' page edge and top baseline. */
+.personal-chapter .personal-records {
+  width:100%;
+  max-width:none;
+  margin-left:0;
+  margin-right:0;
+}
+.personal-chapter .vinyl-deck {
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  align-items:start;
+  gap:clamp(32px,5vw,80px);
+}
+.personal-chapter .turntable { max-width:460px; }
+.personal-chapter .record-collection { padding-top:0; }
+.personal-chapter .sleeve { transform:none; }
+.personal-chapter .record-carrier { transform-origin:center; }
+.personal-chapter .record-carrier:has(.platter:disabled) { pointer-events:none; }
+.personal-chapter .c-vinyl[data-deck-state=loading] .arm-wand { transition-duration:260ms; }
+@media(max-width:900px) {
+  .personal-chapter .vinyl-deck { grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:32px; }
+}
+@media(max-width:700px) {
+  .personal-chapter .vinyl-deck { grid-template-columns:minmax(0,1fr); gap:34px; }
+  .personal-chapter .turntable { max-width:420px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .personal-chapter .c-vinyl[data-deck-state=loading] .arm-wand { transition:none; }
+}

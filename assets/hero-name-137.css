@@ -1,0 +1,41 @@
+.hero h1[data-name-enhanced] > .identity-name { display:none; }
+.hero-name-mount { display:block; }
+.hero-name-canvas { display:flex;justify-content:center;align-items:baseline;gap:.17em;min-height:1.04em; }
+.hero-name-word { display:inline-block;white-space:nowrap; }
+.hero-name-canvas.name-flap { --hero-flap-ground:#243a2e;--hero-flap-ink:#f5f6ed;font-size:clamp(76px,10.4vw,172px);letter-spacing:-.04em; }
+html[data-theme=dark] .hero-name-canvas.name-flap { --hero-flap-ground:#2a4435; }
+.hero-name-canvas .split-flap-text { font-family:inherit;font-size:inherit;letter-spacing:inherit; }
+.hero-name-canvas .split-flap-text__tile { width:.61em; }
+.hero-name-canvas .split-flap-text--minimal { --split-flap-split:.012em; }
+.hero-name-canvas .shuffle-parent { font-family:inherit;font-size:inherit;letter-spacing:inherit;text-transform:none; }
+.hero-name-canvas .variable-proximity { font-family:'Roboto Flex',-apple-system,BlinkMacSystemFont,sans-serif; }
+.hero-name-canvas:is(.name-weight,.name-hybrid,.name-prism) { font-family:'Roboto Flex',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:625;letter-spacing:-.015em; }
+.hero-name-canvas .fold-text { letter-spacing:inherit;line-height:inherit; }
+@media(min-width:1101px) and (min-height:360px) {
+ .hero-name-canvas.name-flap { font-size:clamp(76px,calc(15.26vw - 83px),172px); }
+ .hero-name-canvas:is(.name-weight,.name-hybrid,.name-prism) { font-size:clamp(76px,calc(19vw - 92px),181.44px); }
+}
+.hero-tools { grid-template-columns:repeat(3,minmax(0,1fr));width:min(560px,100%); }
+.hero-tools .hero-find { grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;min-height:46px;padding:10px 16px;border-radius:14px; }
+.hero-tools .hero-find>span { flex:1; }
+@media(max-width:700px) {
+ .hero-name-canvas { display:block;min-height:1.96em; }
+ .hero-name-word { display:block; }
+ .hero-name-canvas.name-flap { font-size:clamp(76px,27vw,172px); }
+ .hero-tools { width:min(351px,100%); }
+}
+@media(prefers-reduced-motion:reduce) {
+ .hero-name-canvas * { animation:none!important;transition:none!important; }
+}
+
+/* Separate the professional introduction from the personal aside. */
+.hero.hero-personal-105 .intro-story>.intro-personal { margin-top:16px; }
+
+.hero-name-canvas.name-prism { position:relative;font-variation-settings:normal;font-optical-sizing:auto; }
+.name-prism .prism-name-letter { display:inline-block; }
+.name-prism[data-prism-name=ready] .prism-name-letter { color:transparent; }
+.hero-prismatic-name { position:absolute;left:-10px;top:-32px;width:calc(100% + 20px);height:calc(100% + 64px);pointer-events:none; }
+@media(forced-colors:active) {
+ .name-prism[data-prism-name=ready] .prism-name-letter { color:CanvasText; }
+ .hero-prismatic-name { display:none; }
+}
