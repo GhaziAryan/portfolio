@@ -40,5 +40,11 @@ export function mountFilmReveal(viewer,{preference=matchMedia('(prefers-reduced-
   document.addEventListener('visibilitychange',visibility);
   preference.addEventListener('change',motion);
   addEventListener('resize',settle,{passive:true});
-  return {settle,destroy(){settle();viewer.removeEventListener('portfolio:fluid-enter-start',enter);viewer.removeEventListener('portfolio:fluid-close-start',exit);viewer.removeEventListener('close',close);document.removeEventListener('visibilitychange',visibility);preference.removeEventListener('change',motion);removeEventListener('resize',settle);}};
+  function open(){
+    // Fluid admission is delivered by the dialog mutation observer first. Only
+    // ordinary entry needs the fallback; retiring a life invalidates this job.
+    const life=sequence;
+    queueMicrotask(()=>{if(life===sequence&&viewer.open&&!Object.hasOwn(viewer.dataset,'filmRevealing'))enter();});
+  }
+  return {open,settle,destroy(){settle();viewer.removeEventListener('portfolio:fluid-enter-start',enter);viewer.removeEventListener('portfolio:fluid-close-start',exit);viewer.removeEventListener('close',close);document.removeEventListener('visibilitychange',visibility);preference.removeEventListener('change',motion);removeEventListener('resize',settle);}};
 }

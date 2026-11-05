@@ -1,4 +1,4 @@
-import { mountFilmReveal } from './film-reveal-168.js';
+import { mountFilmReveal } from './film-reveal-168.js?v=170';
 import { createImageReadiness } from './image-readiness-166.js';
 import { mountLineSwap } from './line-swap-160.js';
 import { mountDecisionCarousel } from './reactbits/carousel.js';
@@ -149,7 +149,7 @@ pictures.forEach((picture, index) => {
   picture.replaceWith(button);
   button.append(picture);
   button.addEventListener('click', () => {
-    ++pictureRequest; requestedPicture = index; showPicture(index); viewer.showModal();
+    ++pictureRequest; requestedPicture = index; showPicture(index); viewer.showModal(); filmReveal.open();
   });
 });
 const closeViewer = () => { ++pictureRequest; viewer.close(); };

@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <script>document.documentElement.classList.add('signature-pending');</script>
+    <script>
+      document.documentElement.classList.add('signature-pending','navigation-pending','hero-tools-pending');
+      try { const theme=localStorage.getItem('ghazi-theme'); if(theme==='dark'||theme==='light')document.documentElement.dataset.theme=theme; } catch {}
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghazi Aryan — Product manager & builder</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -24,9 +27,12 @@
     <meta name="twitter:image:alt" content="Lowercase ghazi aryan in softly prismatic forest-green Cooper lettering on a sage background. Product manager and builder.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="preload" href="assets/fonts/cooper-medium.ttf" as="font" type="font/ttf" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="assets/fonts/cooper-medium.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/avant-garde-book.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="modulepreload" href="assets/hero-name-170.bundle.js?v=170">
+    <script type="module" src="assets/hero-name-170.bundle.js?v=170" onerror="document.documentElement.classList.remove('signature-pending');document.dispatchEvent(new Event('portfolio:signaturevisible'))"></script>
     <link rel="stylesheet" href="assets/portfolio.css">
     <link rel="stylesheet" href="assets/personality.css?v=97b">
     <link rel="stylesheet" href="assets/work.css?v=103-verified">
@@ -39,22 +45,23 @@
     <script src="assets/motion.js?v=103-final" defer></script>
     <script src="assets/portfolio-131.js?v=131" defer></script>
     <script src="assets/personality.js?v=158" defer></script>
-    <script type="module" src="assets/interactions.js?v=168"></script>
+    <script type="module" src="assets/interactions.js?v=170"></script>
     <script src="assets/personal-127.js?v=166" defer></script>
+    <script type="module" src="assets/hero-core-170.bundle.js?v=170" onerror="document.documentElement.classList.remove('hero-tools-pending')"></script>
     <link rel="stylesheet" href="assets/hero-personal-105.css?v=105-personal">
     <link rel="stylesheet" href="assets/hero-forest-113.css?v=114">
     <link rel="stylesheet" href="assets/hero-flow-115.css?v=115b">
     <link rel="stylesheet" href="assets/refinement-116.css?v=116b">
     <link rel="stylesheet" href="assets/portfolio-unslop-133.bundle.css?v=168">
-    <script type="module" src="assets/portfolio-unslop-133.bundle.js?v=168" onerror="document.documentElement.classList.remove('signature-pending')"></script>
+    <script type="module" src="assets/portfolio-unslop-133.bundle.js?v=170" onerror="document.documentElement.classList.remove('navigation-pending')"></script>
     <link rel="stylesheet" href="assets/wayfinding-132.css?v=132c">
     <link rel="stylesheet" href="assets/refinement-131.css?v=131">
     <link rel="stylesheet" href="assets/portfolio-unslop-133.css?v=153">
     <link rel="stylesheet" href="assets/navigation-liquid-137.css?v=166">
-    <link rel="stylesheet" href="assets/hero-cohesion-136.css?v=153">
-    <link rel="stylesheet" href="assets/hero-name-137.css?v=166">
+    <link rel="stylesheet" href="assets/hero-cohesion-136.css?v=170">
+    <link rel="stylesheet" href="assets/hero-name-137.css?v=170">
     <link rel="stylesheet" href="assets/refinement-151.css?v=153">
-    <link rel="stylesheet" href="assets/design-language-157.css?v=169">
+    <link rel="stylesheet" href="assets/design-language-157.css?v=170">
 </head>
 
 <body class="forest-page portfolio-design">

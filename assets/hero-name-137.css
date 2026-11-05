@@ -1,7 +1,8 @@
 /* Reserve native geometry until the enhanced entrance owns its first frame.
    The class is added only with JS; the module error path restores native text. */
-html.signature-pending .hero :is(.identity-name,.hero-intro),
-html.signature-pending .liquid-nav{visibility:hidden;}
+html.signature-pending :is(.hero .identity-name,.hero-intro,.hero-topline,.nav.brand-only,.liquid-nav),
+html.navigation-pending .liquid-nav,
+html.hero-tools-pending .hero-tools{visibility:hidden;}
 .hero h1[data-name-enhanced] > .identity-name { display:none; }
 .hero-name-mount { display:block; }
 .hero-name-canvas { display:flex;justify-content:center;align-items:baseline;gap:.17em;min-height:1.04em; }

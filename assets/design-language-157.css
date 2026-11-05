@@ -4,7 +4,7 @@
 @font-face{font-family:'Avant Garde';src:url('fonts/avant-garde-book.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Avant Garde';src:url('fonts/avant-garde-medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:'Avant Garde';src:url('fonts/avant-garde-demi.woff2') format('woff2');font-weight:600 900;font-style:normal;font-display:swap}
-@font-face{font-family:'Cooper Medium';src:url('fonts/cooper-medium.ttf') format('truetype');font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:'Cooper Medium';src:url('fonts/cooper-medium.woff2') format('woff2'),url('fonts/cooper-medium.ttf') format('truetype');font-weight:400;font-style:normal;font-display:block}
 .forest-page.portfolio-design{
  --font-ui:'Avant Garde',sans-serif;--font-signature:'Cooper Medium',Georgia,serif;
  --radius-control:12px;--radius-showcase:20px;--radius-chip:8px;
