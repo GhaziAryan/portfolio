@@ -4,7 +4,7 @@
 @font-face{font-family:'Avant Garde';src:url('fonts/avant-garde-book.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Avant Garde';src:url('fonts/avant-garde-medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:'Avant Garde';src:url('fonts/avant-garde-demi.woff2') format('woff2');font-weight:600 900;font-style:normal;font-display:swap}
-@font-face{font-family:'Cooper Medium';src:url('fonts/cooper-medium.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Cooper Medium';src:url('fonts/cooper-medium.ttf') format('truetype');font-weight:400;font-style:normal;font-display:block}
 .forest-page.portfolio-design{
  --font-ui:'Avant Garde',sans-serif;--font-signature:'Cooper Medium',Georgia,serif;
  --radius-control:12px;--radius-showcase:20px;--radius-chip:8px;
@@ -141,3 +141,16 @@
 
 /* Crop the fuller-note detail above the baked-in sample-count sentence. */
 .forest-page.portfolio-design .case-reader .outcome-evidence[data-outcome=supported] .onboarding-detail-window{aspect-ratio:880/470}
+
+/* Approved Cooper accents169: small name mark and personal closing invitation. */
+.forest-page.portfolio-design .nav.brand-only .name,
+.forest-page.portfolio-design .nav.brand-only .name i {
+ font-family:var(--font-signature)!important;font-weight:400!important;font-style:normal!important;letter-spacing:-.01em;
+}
+.forest-page.portfolio-design .colophon .big-line { font-size:clamp(28px,3.5vw,46px); }
+.forest-page.portfolio-design .colophon .contact-address { min-height:24px;line-height:24px;margin:0; }
+.forest-page.portfolio-design .colophon .intent { margin-top:4px; }
+.forest-page.portfolio-design .colophon .big-line .contact-reveal,
+.forest-page.portfolio-design .colophon .big-line .contact-reveal :is(.contact-text,.contact-measure) {
+ font-family:var(--font-signature)!important;font-weight:400!important;font-style:normal!important;letter-spacing:-.01em;
+}

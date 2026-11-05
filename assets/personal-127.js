@@ -50,6 +50,12 @@
   const hero = canvas.id === 'heroPrism';
   const surface = canvas.closest(hero ? '.hero-light' : '.colophon');
   if (!surface) return;
+  // Warm the footer's optics shortly before they enter, without competing with
+  // the signature reveal for a WebGL context and synchronous shader work.
+  let initialized=false;
+  function initialize() {
+  if(initialized)return;
+  initialized=true;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const gl = canvas.getContext('webgl', { alpha:false, antialias:false, powerPreference:'low-power' });
   if (!gl) { canvas.hidden = true; return; }
@@ -130,5 +136,15 @@
   if(hero) new MutationObserver(()=>{paint(performance.now());if(!reduced.matches)wake(650);}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
   canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();cancelAnimationFrame(frame);frame=0;canvas.hidden=true;});
   size();
+  }
+  if(hero)initialize();
+  else {
+    const approach=new IntersectionObserver(([entry])=>{
+      if(!entry.isIntersecting)return;
+      approach.disconnect();
+      initialize();
+    },{rootMargin:'400px 0px'});
+    approach.observe(surface);
+  }
   });
 })();

@@ -1,7 +1,10 @@
+import { mountFilmReveal } from './film-reveal-168.js';
+import { createImageReadiness } from './image-readiness-166.js';
 import { mountLineSwap } from './line-swap-160.js';
 import { mountDecisionCarousel } from './reactbits/carousel.js';
 import { mountTechText } from './reactbits/tech-text.js?v=104';
 
+const mediaReady = createImageReadiness();
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const heading = document.querySelector('.identity:not([data-static-name])');
 if (heading) {
@@ -55,13 +58,23 @@ function revealProductTab() {
   const offset = active.getBoundingClientRect().left - strip.getBoundingClientRect().left;
   strip.scrollTo({ left: strip.scrollLeft + offset - (strip.clientWidth - active.offsetWidth) / 2, behavior: 'instant' });
 }
-document.getElementById('advocate-case').addEventListener('portfolio:caseopen', () => requestAnimationFrame(revealProductTab));
+const advocateCase = document.getElementById('advocate-case');
+let galleryAwake = false, requestedProduct = 2;
+advocateCase.addEventListener('portfolio:caseopen', () => {
+  galleryAwake = true;
+  selectProduct(requestedProduct, false, false);
+  requestAnimationFrame(revealProductTab);
+});
+advocateCase.querySelector('.case-reader')?.addEventListener('close', () => {
+  if (!advocateCase.querySelector('.case-reader').open) galleryAwake = false;
+});
 
 function selectProduct(index, focus = false, animate = true) {
   const view = productViews[index];
+  requestedProduct = index;
   const update = () => {
   productTabs.forEach((tab, i) => tab.dataset.counter = `${i + 1} / ${productViews.length}`);
-  productImage.src = view.file;
+  if (galleryAwake) productImage.src = view.file;
   productImage.alt = view.alt;
   productImage.style.objectPosition = 'center';
   
@@ -87,26 +100,26 @@ productTabs.forEach((tab, index) => {
 });
 
 document.querySelector('.gallery-previous').addEventListener('click', () => {
-  const active = productTabs.findIndex(tab => tab.getAttribute('aria-selected') === 'true');
-  selectProduct((active - 1 + productTabs.length) % productTabs.length);
+  selectProduct((requestedProduct - 1 + productTabs.length) % productTabs.length);
 });
 document.querySelector('.gallery-next').addEventListener('click', () => {
-  const active = productTabs.findIndex(tab => tab.getAttribute('aria-selected') === 'true');
-  selectProduct((active + 1) % productTabs.length);
+  selectProduct((requestedProduct + 1) % productTabs.length);
 });
 selectProduct(2);
 window.selectAdvocateScreen = index => selectProduct(index, false, false);
-productViews.forEach(view => { const preload = new Image(); preload.src = view.file; preload.decode().catch(() => {}); });
+// Other screens are requested only when selected inside the opened case.
 
 // A quiet light table for the original film frames, with native modal focus behavior.
 const pictures = [...document.querySelectorAll('.frame img')];
 const viewer = document.createElement('dialog');
 viewer.className = 'film-viewer';
 viewer.setAttribute('aria-label', 'Ghazi’s film photographs');
-viewer.innerHTML = '<button type="button" class="viewer-close" aria-label="Close photograph">Close</button><figure><img src="assets/film-medina.webp" alt=""><figcaption></figcaption></figure><div class="viewer-controls"><button type="button" class="viewer-prev">Previous</button><span aria-live="polite"></span><button type="button" class="viewer-next">Next</button></div>';
+viewer.innerHTML = '<button type="button" class="viewer-close" aria-label="Close photograph">Close</button><figure><img alt=""><figcaption></figcaption></figure><div class="viewer-controls"><button type="button" class="viewer-prev">Previous</button><span aria-live="polite"></span><button type="button" class="viewer-next">Next</button></div>';
 document.body.append(viewer);
+const filmReveal=mountFilmReveal(viewer);
 let current = 0;
 function showPicture(index) {
+  filmReveal.settle();
   current = (index + pictures.length) % pictures.length;
   const source = pictures[current];
   const image = viewer.querySelector('img');
@@ -117,15 +130,14 @@ function showPicture(index) {
 }
 let pictureRequest = 0;
 let requestedPicture = 0;
-const pictureReady = pictures.map(picture => {
-  const preload = new Image(); preload.src = picture.src;
-  return preload.decode().catch(() => {});
-});
+// The visible hero thumbnails already request these originals; avoid forcing
+// a second decoding pass for a viewer that may never open.
 async function changePicture(index, keyboard = false) {
+  filmReveal.settle();
   const request = ++pictureRequest;
   requestedPicture = (index + pictures.length) % pictures.length;
   const next = requestedPicture;
-  await pictureReady[next];
+  await mediaReady(pictures[next].currentSrc || pictures[next].src);
   if (request !== pictureRequest || !viewer.open) return;
   window.portfolioSwap(viewer.querySelector('figure'), () => showPicture(next), keyboard);
 }

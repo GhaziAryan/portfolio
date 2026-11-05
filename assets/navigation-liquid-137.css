@@ -47,6 +47,11 @@
 @media(max-width:1100px),(max-height:587px) {
  .liquid-nav { top:12px;right:16px;transform:none;width:254px;height:min(532px,calc(100dvh - 24px)); }
  .liquid-controls { inset:0;width:100%; }
+ /* Before the renderer measures its contour, the only visible surface is the
+    closed trigger. A full-height fallback here covers the hero on first paint. */
+ .liquid-nav:not([data-ready]) .liquid-controls { background:none; }
+ .liquid-nav:not([data-ready]) .liquid-trigger { background:var(--nav-ground); }
+ .liquid-section-name { display:none; }
  .liquid-trigger { box-sizing:border-box;position:absolute;z-index:2;top:0;right:3px;display:flex;align-items:center;justify-content:space-between;gap:12px;width:148px;height:52px;min-height:52px;margin:0;padding:0 18px;border:0;border-radius:26px;background:none;color:var(--trigger-ink);font:500 13px/1.3 -apple-system,BlinkMacSystemFont,sans-serif;pointer-events:auto;cursor:pointer; }
  .liquid-trigger-name { overflow:hidden;white-space:nowrap;text-overflow:ellipsis; }
  .liquid-nav[data-open=true] .liquid-trigger>span:last-child { transform:rotate(180deg); }
