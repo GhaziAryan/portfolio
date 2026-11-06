@@ -1,0 +1,96 @@
+/* Isolated Basecamp candidate. Native type/controls sit above a layered 2D scene. */
+body.forest-page > .basecamp-footer {
+ --camp-cream:#f2f0dd;--camp-mint:#b5f6c6;--camp-gutter:clamp(22px,3.4vw,54px);
+ position:relative;isolation:isolate;overflow:hidden;box-sizing:border-box;
+ min-height:560px;padding:52px var(--camp-gutter) 0!important;border:0;
+ color:var(--camp-cream);background:#101c15;
+}
+.basecamp-footer .prism-light {z-index:-1;opacity:.82;transform:scaleX(1.4);filter:blur(1px);mask-image:linear-gradient(110deg,#0008,#000 18%,#0006 37%,#000c 57%,#0006 69%,#000 86%,#0008);}
+.basecamp-footer::before {content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 23% 47%,#70915a24,transparent 67%),radial-gradient(ellipse at 79% 30%,#a38b4521,transparent 62%),linear-gradient(180deg,#101c1508,#101c1533);}
+.basecamp-footer .basecamp-content {position:relative;z-index:4;display:grid;grid-template-columns:minmax(0,2fr) minmax(220px,1fr);gap:7vw;width:100%;max-width:1136px;}
+.basecamp-footer .contact-lead {margin:0 0 18px;font:600 14px/1.4 var(--font-body,'Avant Garde',sans-serif);color:var(--camp-cream);}
+.basecamp-footer .big-line {margin:0;font-size:clamp(32px,3.5vw,46px)!important;line-height:1.2;}
+.basecamp-footer .contact-reveal {display:inline-grid!important;grid-template-columns:auto;position:relative;min-width:0!important;padding:0 0 12px;border:0;background:none;color:var(--camp-cream)!important;cursor:pointer;border-radius:0;line-height:1.2;}
+.basecamp-footer .contact-reveal::after {content:'';position:absolute;left:0;bottom:0;width:86px;height:1px;background:currentColor;transform-origin:left;transition:transform 220ms ease;}
+.basecamp-footer .contact-reveal:hover::after {transform:scaleX(1.2);}
+.basecamp-footer .contact-reveal:focus-visible {outline:2px solid var(--camp-mint);outline-offset:8px;border-radius:3px;}
+.basecamp-footer .contact-reveal .contact-text,.basecamp-footer .contact-reveal .contact-measure {grid-area:1/1;white-space:nowrap;}
+.basecamp-footer .contact-reveal .contact-text::after {display:none;}
+.basecamp-footer .contact-reveal[aria-busy=true] {cursor:progress;}
+.basecamp-footer .intent {max-width:650px;margin:24px 0 0!important;font:400 14px/1.65 'Avant Garde',sans-serif;color:#c5cfb9;}
+.basecamp-footer .basecamp-address-slot {min-height:30px;margin-top:8px;}
+.basecamp-footer .contact-address {margin:0!important;min-height:0!important;font:400 14px/24px 'Avant Garde',sans-serif;color:var(--camp-cream);user-select:text;}
+.basecamp-footer .contact-address[hidden] {display:none;}
+.basecamp-footer .basecamp-elsewhere h3 {font:600 13px/1.4 'Avant Garde',sans-serif;color:var(--camp-cream);margin:0 0 12px;}
+.basecamp-footer .clinks {display:flex;flex-direction:column;gap:0;}
+.basecamp-footer .clinks a {display:flex;align-items:center;min-height:44px;font:400 16px/1.4 'Avant Garde',sans-serif;color:var(--camp-cream);}
+.basecamp-footer .clinks a::after {bottom:8px;}
+.basecamp-footer .clinks a:focus-visible {outline:2px solid var(--camp-mint);outline-offset:4px;border-radius:2px;}
+.basecamp-footer .basecamp-scene {position:absolute;left:0;bottom:0;width:100%;height:280px;z-index:1;}
+.basecamp-mountains,.basecamp-trails {position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.basecamp-mountains {opacity:.7;}
+.basecamp-mountains-art {position:absolute;left:0;right:0;top:-120px;width:100%;height:calc(100% + 120px);object-fit:fill;opacity:0;pointer-events:none;transition:opacity 500ms ease;}
+.basecamp-footer[data-mountains-ready=true] .basecamp-mountains-art {opacity:.86;}
+.basecamp-footer[data-mountains-ready=true] .basecamp-mountains {opacity:0;}
+.basecamp-snow {position:absolute;inset:0;background-color:#bcc6b2;background-image:linear-gradient(180deg,#e1e1c941,#95a98f1f),var(--camp-snow-image,none);background-size:100% 100%;clip-path:polygon(0% 17.33%,10% 22.47%,20% 27.47%,30% 32.33%,40% 37.07%,50% 41.67%,60% 46.13%,70% 50.47%,80% 54.67%,90% 58.73%,100% 62.67%,100% 100%,0% 100%);pointer-events:none;}
+.basecamp-snow::after {content:'';position:absolute;inset:0;background:linear-gradient(90deg,#17362524,#1736250a 45%,#0e2c2326);pointer-events:none;}
+.basecamp-reflection {position:absolute;left:82%;top:76%;width:480px;height:155px;transform:translate(-53%,-29%);background:radial-gradient(ellipse at 54% 33%,#dcffb9f2 0%,#c9ff9dcc 12%,#b9f68e85 30%,#abeb7c30 51%,#a3de7d00 73%);opacity:.95;mix-blend-mode:screen;pointer-events:none;}
+.basecamp-reflected-ink {position:absolute;left:54%;top:60%;width:190px;height:96px;transform:translateX(-50%) skewX(-18deg) scaleY(-.3);transform-origin:50% 0;filter:blur(2.5px);opacity:.24;overflow:visible;}
+.basecamp-trails {z-index:1;transition:opacity 180ms ease-out;}
+.basecamp-track-system,.basecamp-track-grain {position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;}
+.basecamp-track-grain {z-index:2;}
+.basecamp-track-shadow,.basecamp-track-cut,.basecamp-track-light,.basecamp-track-bank {stroke:none;opacity:0;}
+.basecamp-track-shadow {fill:#23392b2e;mix-blend-mode:multiply;}
+.basecamp-track-cut {fill:#233c3024;mix-blend-mode:multiply;}
+.basecamp-track-light {fill:#eff0d83a;}
+.basecamp-track-bank {fill:#25432f59;mix-blend-mode:multiply;}
+.basecamp-rider {position:absolute;left:12%;top:31%;width:96px;height:96px;transform:translate(-50%,-85%);transform-origin:50% 85%;pointer-events:none;z-index:4;}
+.basecamp-rig {position:absolute;inset:0;transform-origin:50% 85%;}
+.rider-canvas {position:absolute;left:0;top:0;width:100%;height:125%;}
+.rider-pose {position:absolute;inset:0;background-image:var(--camp-rider-image,none);background-repeat:no-repeat;background-size:300% 100%;opacity:0;}
+.pose-stand {background-position:0% 0;opacity:1;}.pose-carve {background-position:50% 0;}.pose-brake {background-position:100% 0;}
+.basecamp-board-shadow {position:absolute;left:20%;top:calc(85% - 1px);width:60%;height:2px;border-radius:50%;background:#1634258c;transform:rotate(2deg);transform-origin:50% 50%;}
+.basecamp-envelope {position:absolute;left:calc(12% + 13px);top:calc(31% - 31px);width:19px;height:19px;object-fit:contain;transform:rotate(-15deg);pointer-events:none;z-index:2;}
+.basecamp-footer:not([data-art-ready=true]) .basecamp-envelope,.basecamp-footer:not([data-art-ready=true]) .basecamp-rider {visibility:hidden;}
+.basecamp-powder {position:absolute;inset:0;pointer-events:none;z-index:2;}
+.basecamp-powder-canvas,.basecamp-powder-front {position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.basecamp-powder-front {z-index:5;}
+.basecamp-sign {position:absolute;left:82%;top:76%;width:200px;height:156px;transform:translate(-50%,-100%);z-index:3;}
+.basecamp-sign-panel {position:absolute;inset:0 0 44px;border:1px solid #92b47e88;border-radius:18px 17px 1px 1px;background:linear-gradient(135deg,#193c2822,#10231755);box-shadow:inset 0 1px 0 #e0eed16b,0 1px 1px #06150cb3;}
+.basecamp-snowcap {position:absolute;z-index:3;left:-3px;right:-3px;top:-4px;height:9px;border-radius:90% 35% 20% 30%;background:linear-gradient(#dedec7,#c1cdb5);box-shadow:0 2px 1px #31463366;clip-path:polygon(0 100%,1% 45%,10% 30%,25% 25%,37% 40%,60% 15%,79% 10%,91% 0,98% 20%,100% 100%,96% 70%,78% 90%,60% 78%,35% 93%,15% 75%);pointer-events:none;}
+.basecamp-footer .basecamp-sign .sig-plaque {position:absolute;inset:6px 0 0;margin:0!important;padding:0!important;width:100%;height:94px;border:0;background:none;display:flex;align-items:center;justify-content:center;box-shadow:none;--neon:#b2f7c4;}
+.basecamp-footer .basecamp-sign .sig-plaque::after {display:none;}
+.basecamp-footer .basecamp-sign #sigSvg {width:170px!important;height:86px;overflow:visible;filter:drop-shadow(0 0 3px #b3f6bb99) drop-shadow(0 0 10px #9ef1a34d);}
+.basecamp-footer .basecamp-sign .sig-fill path:not([data-bg]) {fill:#b2f7c4;}
+.basecamp-footer .basecamp-sign .sig-plaque:focus-visible {outline:2px solid #ecf5dc;outline-offset:7px;border-radius:10px;}
+.basecamp-post {position:absolute;top:105px;bottom:0;width:4px;background:linear-gradient(90deg,#203b24,#87a878 44%,#18331f);box-shadow:1px 0 1px #071c1277;pointer-events:none;}
+.post-left {left:2px;}.post-right {right:2px;}
+.basecamp-post::after {content:'';position:absolute;top:100%;left:0;width:88px;height:3px;background:linear-gradient(90deg,#142e218f,transparent);transform:rotate(145deg);transform-origin:left;filter:blur(.65px);}
+.post-right::after {transform:rotate(35deg);}
+.basecamp-sign-label {position:absolute;z-index:3;left:50%;bottom:25px;width:162px;height:25px;display:flex;gap:13px;align-items:center;justify-content:center;transform:translateX(-50%);background:linear-gradient(#1a2c16,#11210e);border:1px solid #91a46a66;clip-path:polygon(5% 0,95% 0,100% 50%,95% 100%,5% 100%,0 50%);color:#e8edd0;font:500 10px/1 'Avant Garde',sans-serif;letter-spacing:.1em;pointer-events:none;}
+.basecamp-credits {position:absolute;z-index:5;left:var(--camp-gutter);bottom:24px;color:#213c30;font:400 12px/1.8 'Avant Garde',sans-serif;}
+.basecamp-spark {position:absolute;right:-34px;top:8px;opacity:0;color:#d8f6df;pointer-events:none;}
+@media(min-width:1500px){body.forest-page>.basecamp-footer{min-height:620px;}.basecamp-footer .basecamp-content{max-width:1300px;}.basecamp-footer .basecamp-scene{height:310px;}}
+@media(max-width:900px) and (min-width:701px){body.forest-page>.basecamp-footer{min-height:590px;}.basecamp-footer .basecamp-content{grid-template-columns:minmax(0,1.7fr) minmax(180px,1fr);gap:45px;}.basecamp-footer .basecamp-sign{left:79%;width:175px;}.basecamp-footer .basecamp-reflection{left:79%;}}
+@media(max-width:700px){
+ body.forest-page>.basecamp-footer{padding-top:44px!important;padding-bottom:235px!important;min-height:0;}
+ .basecamp-footer .basecamp-content{grid-template-columns:1fr;gap:20px;}
+ .basecamp-footer .big-line{font-size:34px!important;}.basecamp-footer .contact-lead{margin-bottom:14px;}
+ .basecamp-footer .intent{font-size:13px;line-height:1.6;margin-top:20px!important;max-width:36ch;}
+ .basecamp-footer .basecamp-address-slot{min-height:26px;margin-top:6px;}
+ .basecamp-footer .basecamp-elsewhere h3{margin-bottom:7px;}.basecamp-footer .clinks a{font-size:15px;}
+ .basecamp-footer .basecamp-scene{height:235px;}
+ .basecamp-footer .basecamp-rider{width:75px;height:75px;}
+ .basecamp-footer .basecamp-envelope{width:16px;height:16px;}
+ .basecamp-footer .basecamp-sign{left:77%;top:76%;width:128px;height:117px;}
+ .basecamp-footer .basecamp-sign-panel{bottom:34px;border-radius:12px 12px 1px 1px;}
+ .basecamp-footer .basecamp-sign .sig-plaque{inset:0;height:77px;}
+ .basecamp-footer .basecamp-sign #sigSvg{width:110px!important;height:65px;}
+ .basecamp-footer .basecamp-sign-label{width:112px;height:21px;bottom:17px;font-size:9px;gap:8px;letter-spacing:.08em;}
+ .basecamp-footer .basecamp-post{top:80px;width:3px;}
+ .basecamp-footer .basecamp-reflection{left:77%;width:300px;height:115px;}
+ .basecamp-footer .basecamp-reflected-ink{width:120px;height:61px;}
+ .basecamp-footer .basecamp-credits{bottom:18px;font-size:11px;}
+ .basecamp-footer .basecamp-spark{width:22px;height:22px;right:-28px;top:5px;}
+}
+@media(prefers-reduced-motion:reduce){.basecamp-footer *, .basecamp-footer *::before,.basecamp-footer *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}.basecamp-footer .basecamp-spark{display:none;}}
